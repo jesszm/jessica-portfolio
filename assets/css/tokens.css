@@ -1,5 +1,5 @@
 /* ==========================================================================
-   JM · Design Tokens — v2.0.0 "Canvas"
+   JM · Design Tokens — v2.1.0 "Canvas"
    Light mode is the primary theme. Three tiers, one-way dependency:
    primitive → semantic → component. Source of truth: assets/tokens/tokens.json.
    Every text pair meets WCAG 2.2 AA (≥ 4.5:1); ratios are in guidelines.html.
@@ -20,18 +20,6 @@
   --ink-800:   #2A2922;
   --ink-900:   #16150F;   /* outlines, text */
   --ink-950:   #0E0D09;
-
-  /* Olive — military green, the brand anchor (kept from v1) */
-  --olive-50:  #F4F5EE;
-  --olive-100: #E6E9D8;
-  --olive-200: #CDD3B3;
-  --olive-300: #ADB786;
-  --olive-400: #8C9A5E;
-  --olive-500: #6B7A3F;
-  --olive-600: #4B5320;
-  --olive-700: #3D4419;
-  --olive-800: #2F3514;
-  --olive-900: #22270F;
 
   /* Sticky notes — FigJam-flavoured fills, always with ink text */
   --sticky-yellow: #FFD95A;
@@ -55,10 +43,10 @@
   --danger:  #C53A2E;
 
   /* Type */
-  --font-display: "Bricolage Grotesque", "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-sans:    "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --font-hand:    "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --font-display: "Brygada 1918", "Iowan Old Style", Georgia, serif;
+  --font-sans:    "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "Fragment Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-hand:    "Mynerve", "Bradley Hand", "Segoe Print", cursive;
 
   --fs-12: 0.75rem;  --fs-13: 0.8125rem; --fs-14: 0.875rem; --fs-16: 1rem;
   --fs-18: 1.125rem; --fs-20: 1.25rem;   --fs-24: 1.5rem;   --fs-32: 2rem;
@@ -69,7 +57,7 @@
   --lh-normal: 1.5;
   --lh-relaxed: 1.65;
 
-  --tracking-tight: -0.035em;
+  --tracking-tight: -0.015em;
   --tracking-normal: 0;
   --tracking-wide: 0.08em;
 
@@ -85,7 +73,7 @@
   --radius-full: 999px;
 
   --bw-hair: 1px;
-  --bw-thick: 2px;
+  --bw-thick: 1px;   /* v2.1: fine lines everywhere */
 
   /* Motion */
   --dur-1: 120ms; --dur-2: 200ms; --dur-3: 320ms; --dur-4: 600ms; --dur-5: 1200ms;
@@ -112,14 +100,15 @@
   --color-text-muted:    var(--ink-600);   /* 7.7:1 */
   --color-text-subtle:   var(--ink-500);   /* 5.3:1 */
   --color-text-inverse:  var(--paper-50);
-  --color-text-on-brand: var(--paper-0);   /* 8.2:1 on olive */
+  --color-text-on-brand: var(--paper-0);   /* 18.3:1 on ink */
 
-  --color-brand:         var(--olive-600);
-  --color-brand-hover:   var(--olive-700);
-  --color-brand-active:  var(--olive-800);
-  --color-brand-subtle:  var(--olive-100);
-  --color-brand-muted:   var(--olive-300);
-  --color-brand-text:    var(--olive-600); /* 7.4:1 */
+  /* Brand = ink, the marker. Colour lives in the stickies and violet. */
+  --color-brand:         var(--ink-900);
+  --color-brand-hover:   var(--ink-800);
+  --color-brand-active:  var(--ink-950);
+  --color-brand-subtle:  #EEE8FF;
+  --color-brand-muted:   var(--paper-300);
+  --color-brand-text:    var(--violet-600); /* 5.6:1 */
 
   --color-accent:        var(--sticky-lilac);
   --color-accent-subtle: #EEE8FF;
@@ -142,8 +131,8 @@
   --color-danger:        var(--danger);
   --color-danger-text:   var(--danger);
 
-  --shadow-hard:         3px 3px 0 var(--color-border-strong);
-  --shadow-hard-lg:      5px 5px 0 var(--color-border-strong);
+  --shadow-hard:         2px 2px 0 var(--color-border-strong);
+  --shadow-hard-lg:      4px 4px 0 var(--color-border-strong);
   --shadow-soft:         0 10px 24px -14px rgba(22, 21, 15, 0.35);
 
   --grid-dot:            rgba(22, 21, 15, 0.16);
@@ -159,8 +148,8 @@
     --color-bg: #131410; --color-bg-elevated: #1C1D18; --color-bg-sunken: #0E0F0B; --color-bg-inverse: var(--paper-50);
     --color-text: #F2EFE6; --color-text-muted: #B7B3A6; --color-text-subtle: #9C988C; --color-text-inverse: var(--ink-900);
     --color-text-on-brand: var(--ink-900);
-    --color-brand: var(--olive-400); --color-brand-hover: var(--olive-300); --color-brand-active: var(--olive-200);
-    --color-brand-subtle: var(--olive-900); --color-brand-muted: var(--olive-700); --color-brand-text: var(--olive-300);
+    --color-brand: #F2EFE6; --color-brand-hover: #FFFFFF; --color-brand-active: var(--paper-200);
+    --color-brand-subtle: #2A2440; --color-brand-muted: #34352D; --color-brand-text: var(--violet-300);
     --color-accent: var(--violet-300); --color-accent-subtle: #2A2440; --color-accent-text: var(--violet-300);
     --color-border: #34352D; --color-border-strong: #F2EFE6; --color-border-subtle: #26271F;
     --color-focus: var(--violet-300); --color-redline: var(--coral-400); --color-text-on-redline: var(--ink-900);
@@ -174,8 +163,8 @@
   --color-bg: #131410; --color-bg-elevated: #1C1D18; --color-bg-sunken: #0E0F0B; --color-bg-inverse: var(--paper-50);
   --color-text: #F2EFE6; --color-text-muted: #B7B3A6; --color-text-subtle: #9C988C; --color-text-inverse: var(--ink-900);
   --color-text-on-brand: var(--ink-900);
-  --color-brand: var(--olive-400); --color-brand-hover: var(--olive-300); --color-brand-active: var(--olive-200);
-  --color-brand-subtle: var(--olive-900); --color-brand-muted: var(--olive-700); --color-brand-text: var(--olive-300);
+  --color-brand: #F2EFE6; --color-brand-hover: #FFFFFF; --color-brand-active: var(--paper-200);
+  --color-brand-subtle: #2A2440; --color-brand-muted: #34352D; --color-brand-text: var(--violet-300);
   --color-accent: var(--violet-300); --color-accent-subtle: #2A2440; --color-accent-text: var(--violet-300);
   --color-border: #34352D; --color-border-strong: #F2EFE6; --color-border-subtle: #26271F;
   --color-focus: var(--violet-300); --color-redline: var(--coral-400); --color-text-on-redline: var(--ink-900);

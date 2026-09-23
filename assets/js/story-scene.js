@@ -1,4 +1,4 @@
-/* JM · Cinematic story scene — v3.0.0 "Canvas"
+/* JM · Cinematic story scene — v3.1.0 "Canvas"
    Light-first. A MacBook Pro on a sunny desk opens the story; the camera dives
    into its screen and lands on a FigJam-style board where the UI/UX process
    plays out. It returns to the desk, the lid closes and the stickers show,
@@ -33,14 +33,14 @@ function rng(seed) {
 const C = {
   paper0: '#FFFFFF', paper50: '#F7F3EA', paper100: '#EFEADD', paper200: '#E3DCCB', paper300: '#D3CAB5',
   ink400: '#8E8C80', ink500: '#66655B', ink600: '#4E4D44', ink800: '#2A2922', ink900: '#16150F',
-  olive100: '#E6E9D8', olive300: '#ADB786', olive400: '#8C9A5E', olive500: '#6B7A3F', olive600: '#4B5320', olive700: '#3D4419', olive900: '#22270F',
+  leaf: '#6E9A55', leafDark: '#3F6B3A', stem: '#557A3C',
   yellow: '#FFD95A', lilac: '#C9B8FF', mint: '#B5EBDD', pink: '#FFC4DE', coral: '#FF8A66', sky: '#A9D4FF',
   violet: '#6445D6', teal: '#0B6F6B', success: '#2E7A3C',
 };
-const FONT_DISPLAY = '"Bricolage Grotesque", "DM Sans", system-ui, sans-serif';
-const FONT_SANS = '"DM Sans", system-ui, sans-serif';
-const FONT_HAND = '"Caveat", "Bradley Hand", cursive';
-const FONT_MONO = '"JetBrains Mono", ui-monospace, monospace';
+const FONT_DISPLAY = '"Brygada 1918", Georgia, serif';
+const FONT_SANS = '"Hanken Grotesk", system-ui, sans-serif';
+const FONT_HAND = '"Mynerve", "Bradley Hand", cursive';
+const FONT_MONO = '"Fragment Mono", ui-monospace, monospace';
 
 export const CUTS = { toWorld: 0.16, toStudio: 0.83 };
 const CUT_HALF = 0.02;
@@ -191,19 +191,19 @@ export function createStory(canvas, options = {}) {
       g.fillStyle = C.lilac; rr(g, 14, 10, 20, 20, 5); g.fill();
       g.fillStyle = 'rgba(22,21,15,0.25)'; for (let i = 0; i < 5; i++) g.fillRect(52 + i * 34, 16, 22, 8);
       const fx = 170, fy = 104, fw = 640, fh = 420;
-      g.fillStyle = C.ink500; g.font = `600 13px ${FONT_MONO}`; g.fillText('Frame 04 · Design / Dashboard', fx, fy - 12);
+      g.fillStyle = C.ink500; g.font = `400 13px ${FONT_MONO}`; g.fillText('Frame 04 · Design / Dashboard', fx, fy - 12);
       g.fillStyle = '#FFFFFF'; g.fillRect(fx, fy, fw, fh);
       g.strokeStyle = C.violet; g.lineWidth = 2; g.strokeRect(fx - 1, fy - 1, fw + 2, fh + 2);
       g.fillStyle = C.violet; [[fx, fy], [fx + fw, fy], [fx, fy + fh], [fx + fw, fy + fh]].forEach(([x, y]) => g.fillRect(x - 4, y - 4, 8, 8));
       g.fillStyle = hifi ? '#FFFFFF' : '#EFEADD'; g.fillRect(fx, fy, fw, 36);
-      g.fillStyle = hifi ? C.olive600 : '#E6E0D2'; g.fillRect(fx, fy + 36, 116, fh - 36);
+      g.fillStyle = hifi ? C.ink900 : '#E6E0D2'; g.fillRect(fx, fy + 36, 116, fh - 36);
       g.fillStyle = hifi ? C.lilac : '#D3CAB5'; rr(g, fx + 12, fy + 9, 18, 18, 4); g.fill();
       for (let i = 0; i < 4; i++) { g.fillStyle = hifi ? (i === 0 ? C.lilac : 'rgba(255,255,255,0.35)') : '#D3CAB5'; rr(g, fx + 14, fy + 58 + i * 24, 80, 10, 4); g.fill(); }
       g.fillStyle = hifi ? C.ink900 : '#D3CAB5'; g.fillRect(fx + 146, fy + 60, 200, 18);
       g.fillStyle = hifi ? C.ink500 : '#E3DCCB'; g.fillRect(fx + 146, fy + 88, 140, 9);
       if (hifi) {
-        g.fillStyle = C.ink900; rr(g, fx + 523, fy + 57, 100, 32, 8); g.fill();
-        g.fillStyle = C.olive600; rr(g, fx + 520, fy + 54, 100, 32, 8); g.fill();
+        g.fillStyle = C.lilac; rr(g, fx + 523, fy + 57, 100, 32, 8); g.fill();
+        g.fillStyle = C.ink900; rr(g, fx + 520, fy + 54, 100, 32, 8); g.fill();
         g.strokeStyle = C.ink900; g.lineWidth = 2; rr(g, fx + 520, fy + 54, 100, 32, 8); g.stroke();
         g.fillStyle = '#FFFFFF'; g.fillRect(fx + 544, fy + 67, 52, 6);
       } else {
@@ -234,7 +234,7 @@ export function createStory(canvas, options = {}) {
         g.fillStyle = C.coral; g.fillRect(fx + 116, fy + 68, 30, 2); g.fillRect(fx + 116, fy + 62, 2, 14); g.fillRect(fx + 144, fy + 62, 2, 14);
       }
       g.fillStyle = C.yellow; g.save(); g.translate(fx + fw + 20, fy + 40); g.rotate(0.05); g.fillRect(0, 0, 110, 96); g.restore();
-      g.fillStyle = C.ink900; g.font = `600 22px ${FONT_HAND}`; g.save(); g.translate(fx + fw + 30, fy + 74); g.rotate(0.05);
+      g.fillStyle = C.ink900; g.font = `400 22px ${FONT_HAND}`; g.save(); g.translate(fx + fw + 30, fy + 74); g.rotate(0.05);
       g.fillText(hifi ? 'ship it!' : 'test w/ 5', 0, 0); g.fillText(hifi ? '✓ ready' : 'users', 0, 26); g.restore();
     };
   }
@@ -271,10 +271,10 @@ export function createStory(canvas, options = {}) {
     aluDark: std('#A7ABB0', 0.4, 0.85),
     black: std('#0E0E10', 0.35, 0.2),
     trackpad: std('#BFC2C6', 0.22, 0.85),
-    oliveMug: std(C.olive600, 0.35, 0.05),
+    mugMat: std(C.lilac, 0.35, 0.05),
     terracotta: std('#B5673F', 0.85),
-    leaf: std(C.olive500, 0.7),
-    leafDark: std(C.olive700, 0.7),
+    leaf: std(C.leaf, 0.7),
+    leafDark: std(C.leafDark, 0.7),
     cork: std('#ffffff', 0.95, 0, { map: cork }),
     edge: std(C.paper200, 0.9),
     cover: std(C.lilac, 0.6),
@@ -291,7 +291,7 @@ export function createStory(canvas, options = {}) {
   /* ---------- MacBook Pro 14" ---------- */
   const MAC = { w: 0.3128, d: 0.2212, base: 0.0106, lid: 0.0052 };
   const mac = new THREE.Group();
-  mac.position.set(0.02, 0.75, 0.06);
+  mac.position.set(0.02, 0.754, 0.06);
   mac.rotation.y = -0.1;
   studio.add(mac);
   mesh(new RoundedBoxGeometry(MAC.w, MAC.base, MAC.d, 3, 0.005), M.alu, mac, 0, MAC.base / 2, 0, { cast: true, receive: true });
@@ -351,9 +351,9 @@ export function createStory(canvas, options = {}) {
   const mug = new THREE.Group();
   mug.position.set(0.47, 0.75, -0.18);
   studio.add(mug);
-  mesh(new THREE.CylinderGeometry(0.038, 0.034, 0.095, 32), M.oliveMug, mug, 0, 0.0475, 0, { cast: true });
+  mesh(new THREE.CylinderGeometry(0.038, 0.034, 0.095, 32), M.mugMat, mug, 0, 0.0475, 0, { cast: true });
   mesh(new THREE.CylinderGeometry(0.033, 0.033, 0.002, 32), std('#3a2414', 0.2), mug, 0, 0.087, 0);
-  mesh(new THREE.TorusGeometry(0.022, 0.006, 10, 24), M.oliveMug, mug, 0.042, 0.05, 0, { cast: true }).rotation.y = Math.PI / 2;
+  mesh(new THREE.TorusGeometry(0.022, 0.006, 10, 24), M.mugMat, mug, 0.042, 0.05, 0, { cast: true }).rotation.y = Math.PI / 2;
 
   const plant = new THREE.Group();
   plant.position.set(-0.7, 0.75, -0.28);
@@ -390,16 +390,169 @@ export function createStory(canvas, options = {}) {
   lampLight.target.position.copy(lampTarget);
   studio.add(lampLight, lampLight.target);
 
-  /* corkboard with pinned sketches, bookshelf */
-  box(1.3, 0.72, 0.02, M.cork, studio, -0.35, 1.55, -1.09, { receive: true });
-  const pinColors = [C.violet, C.yellow, C.coral, C.teal];
-  [[-0.72, 1.62, 0.05, 31], [-0.36, 1.5, -0.04, 44], [0.0, 1.66, 0.03, 52], [0.2, 1.45, -0.06, 63]].forEach(([x, y, rot, seed], i) => {
-    const paper = plane(0.24, 0.32, std('#ffffff', 0.9, 0, { map: canvasTexture(256, 340, drawSketch(seed)) }), studio, x, y, -1.075);
-    paper.rotation.z = rot;
-    mesh(new THREE.SphereGeometry(0.012, 12, 10), std(pinColors[i], 0.4), studio, x, y + 0.13, -1.068);
+  /* =====================================================================
+     Jessica's desk — organised, a few personal things, lots of clear space.
+     References: designer desk tours (felt mat, pegboard, pen cup, a framed
+     print, flowers, a colour swatch fan). Palette follows the site.
+     ===================================================================== */
+  const put = (obj, x, y, z, ry = 0) => { obj.position.set(x, y, z); obj.rotation.y = ry; studio.add(obj); return obj; };
+  const DESK_Y = 0.75;
+
+  /* felt desk mat under the laptop */
+  mesh(new RoundedBoxGeometry(0.66, 0.004, 0.4, 2, 0.002), std('#D8D1C2', 0.98), studio, 0.03, DESK_Y + 0.002, 0.07, { receive: true });
+
+  /* pen cup with pencils and markers */
+  const cup = put(new THREE.Group(), -0.3, DESK_Y, -0.27);
+  mesh(new THREE.CylinderGeometry(0.034, 0.03, 0.095, 28, 1, true), std('#F4F1EA', 0.5, 0, { side: THREE.DoubleSide }), cup, 0, 0.0475, 0, { cast: true });
+  mesh(new THREE.CylinderGeometry(0.0342, 0.0342, 0.02, 28, 1, true), std(C.lilac, 0.5, 0, { side: THREE.DoubleSide }), cup, 0, 0.07, 0);
+  mesh(new THREE.CircleGeometry(0.03, 20), std('#E6E1D6', 0.6), cup, 0, 0.004, 0).rotation.x = -Math.PI / 2;
+  const penR = rng(12);
+  [C.yellow, C.violet, C.coral, C.ink900, C.mint, C.sky].forEach((color, k) => {
+    const a = (k / 6) * Math.PI * 2;
+    const pen = new THREE.Group();
+    pen.position.set(Math.cos(a) * 0.012, 0.075, Math.sin(a) * 0.012);
+    pen.rotation.set(Math.sin(a) * 0.22, 0, -Math.cos(a) * 0.22);
+    cup.add(pen);
+    const len = 0.12 + penR() * 0.04;
+    mesh(new THREE.CylinderGeometry(0.0038, 0.0038, len, 6), std(color, 0.55), pen, 0, 0, 0, { cast: true });
+    mesh(new THREE.ConeGeometry(0.0038, 0.012, 6), std(k % 2 ? '#E9D8BE' : C.ink900, 0.6), pen, 0, len / 2 + 0.006, 0);
   });
+
+  /* sunflowers in a white vase */
+  const vase = put(new THREE.Group(), -0.5, DESK_Y, -0.3);
+  mesh(new THREE.CylinderGeometry(0.03, 0.042, 0.13, 28), std('#F2EEE6', 0.35, 0.05), vase, 0, 0.065, 0, { cast: true });
+  const petalTex = canvasTexture(256, 256, (g, w, h) => {
+    g.translate(w / 2, h / 2);
+    for (let k = 0; k < 18; k++) {
+      g.rotate((Math.PI * 2) / 18);
+      g.fillStyle = k % 2 ? '#FFC93C' : '#FFD95A';
+      g.beginPath(); g.ellipse(0, -74, 17, 50, 0, 0, Math.PI * 2); g.fill();
+    }
+    g.fillStyle = '#5A3A1E'; g.beginPath(); g.arc(0, 0, 44, 0, Math.PI * 2); g.fill();
+    g.fillStyle = 'rgba(0,0,0,0.25)';
+    for (let k = 0; k < 60; k++) { const a = k * 2.4; const r = Math.sqrt(k) * 5.4; g.beginPath(); g.arc(Math.cos(a) * r, Math.sin(a) * r, 2.4, 0, Math.PI * 2); g.fill(); }
+  });
+  const petalMat = std('#ffffff', 0.8, 0, { map: petalTex, transparent: true, alphaTest: 0.3, side: THREE.DoubleSide });
+  const stemMat = std(C.stem, 0.7);
+  [[0.0, 0.3, 0.1, -0.15], [-0.04, 0.25, -0.25, 0.1], [0.045, 0.22, 0.3, 0.25]].forEach(([dx, hgt, tiltX, tiltZ]) => {
+    const f = new THREE.Group();
+    f.position.set(dx * 0.3, 0.1, 0);
+    f.rotation.set(tiltX * 0.5, 0, tiltZ);
+    vase.add(f);
+    mesh(new THREE.CylinderGeometry(0.0028, 0.0032, hgt, 6), stemMat, f, 0, hgt / 2, 0, { cast: true });
+    const head = plane(0.12, 0.12, petalMat, f, 0, hgt + 0.01, 0.01);
+    head.rotation.set(-0.25, 0.55, 0);
+    head.castShadow = high;
+    const leafM = mesh(new THREE.SphereGeometry(0.02, 10, 8), M.leaf, f, 0.014, hgt * 0.45, 0);
+    leafM.scale.set(1.3, 0.35, 0.6);
+  });
+
+  /* stack of books with the sunflower sunglasses on top */
+  const stack = put(new THREE.Group(), 0.57, DESK_Y, 0.2, -0.25);
+  [[0.21, 0.028, 0.15, C.lilac, 0], [0.19, 0.024, 0.14, '#EDE6D6', 0.08], [0.2, 0.03, 0.145, C.ink800, -0.05]].reduce((y, [bw, bh, bd, color, rot]) => {
+    const b = mesh(new THREE.BoxGeometry(bw, bh, bd), std(color, 0.75), stack, 0, y + bh / 2, 0, { cast: true, receive: true });
+    b.rotation.y = rot;
+    mesh(new THREE.BoxGeometry(bw - 0.008, bh - 0.006, bd + 0.001), std('#F7F3EA', 0.9), stack, 0.004, y + bh / 2, 0).rotation.y = rot;
+    return y + bh;
+  }, 0);
+  function drawGlasses(g, w, h) {
+    const flower = (cx, cy, r) => {
+      g.fillStyle = C.yellow; g.strokeStyle = C.ink900; g.lineWidth = 2.5;
+      for (let k = 0; k < 8; k++) { const a = (k / 8) * Math.PI * 2; g.beginPath(); g.ellipse(cx + Math.cos(a) * r * 0.62, cy + Math.sin(a) * r * 0.62, r * 0.38, r * 0.28, a, 0, Math.PI * 2); g.fill(); g.stroke(); }
+      g.fillStyle = '#2E7D5B'; g.beginPath(); g.arc(cx, cy, r * 0.52, 0, Math.PI * 2); g.fill(); g.stroke();
+      g.fillStyle = 'rgba(255,255,255,0.35)'; g.beginPath(); g.arc(cx - r * 0.18, cy - r * 0.18, r * 0.16, 0, Math.PI * 2); g.fill();
+    };
+    flower(w * 0.27, h * 0.5, h * 0.44); flower(w * 0.73, h * 0.5, h * 0.44);
+    g.strokeStyle = C.ink900; g.lineWidth = 4; g.beginPath(); g.moveTo(w * 0.43, h * 0.46); g.quadraticCurveTo(w / 2, h * 0.36, w * 0.57, h * 0.46); g.stroke();
+  }
+  const glassesTex = canvasTexture(512, 220, drawGlasses);
+  const glasses = plane(0.15, 0.064, std('#ffffff', 0.5, 0, { map: glassesTex, transparent: true, alphaTest: 0.3, side: THREE.DoubleSide }), stack, 0.01, 0.086, 0.005);
+  glasses.rotation.set(-Math.PI / 2, 0, 0.35);
+  glasses.castShadow = high;
+
+  /* colour swatch fan, like a Pantone book */
+  const swatch = put(new THREE.Group(), -0.21, DESK_Y + 0.0046, 0.29, 0.5);
+  [C.lilac, C.yellow, C.mint, C.pink, C.coral, C.sky].forEach((color, k) => {
+    const t = canvasTexture(64, 220, (g, w, h) => {
+      g.fillStyle = '#FFFFFF'; g.fillRect(0, 0, w, h);
+      g.fillStyle = color; g.fillRect(4, 4, w - 8, h * 0.62);
+      g.fillStyle = C.ink400; g.fillRect(6, h * 0.72, w * 0.6, 5); g.fillRect(6, h * 0.8, w * 0.4, 4);
+    });
+    const leaf = new THREE.Group();
+    leaf.rotation.y = -0.2 + k * 0.16;
+    swatch.add(leaf);
+    const m = plane(0.045, 0.15, std('#ffffff', 0.7, 0, { map: t }), leaf, 0, 0.0006 * k, -0.07);
+    m.rotation.x = -Math.PI / 2;
+    m.receiveShadow = high;
+  });
+  mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.008, 12), M.alu, swatch, 0, 0.004, 0);
+
+  /* sticky-note pads and a pencil */
+  const pads = put(new THREE.Group(), 0.33, DESK_Y, 0.08, 0.35);
+  mesh(new THREE.BoxGeometry(0.076, 0.014, 0.076), std(C.yellow, 0.85), pads, 0, 0.007, 0, { cast: true, receive: true });
+  mesh(new THREE.BoxGeometry(0.076, 0.01, 0.076), std(C.lilac, 0.85), pads, 0.05, 0.005, 0.07, { cast: true, receive: true }).rotation.y = 0.5;
+  const pencil = mesh(new THREE.CylinderGeometry(0.0035, 0.0035, 0.16, 6), std(C.yellow, 0.55), pads, -0.02, 0.004, 0.1, { cast: true });
+  pencil.rotation.set(0, 0.3, Math.PI / 2);
+
+  /* phone, face down */
+  const phoneBody = put(new THREE.Group(), 0.33, DESK_Y + 0.002, -0.1, 0.45);
+  mesh(new RoundedBoxGeometry(0.072, 0.008, 0.148, 3, 0.003), std('#2A2922', 0.35, 0.3), phoneBody, 0, 0.004, 0, { cast: true });
+  mesh(new RoundedBoxGeometry(0.03, 0.003, 0.03, 2, 0.001), std('#3A3931', 0.3, 0.4), phoneBody, -0.016, 0.009, -0.05);
+
+  /* wall: lilac pegboard with a shelf, headphones, sketches and a framed print */
+  const pegTex = canvasTexture(512, 320, (g, w, h) => {
+    g.fillStyle = '#DCD1FF'; g.fillRect(0, 0, w, h);
+    g.fillStyle = 'rgba(40,30,80,0.35)';
+    for (let x = 16; x < w; x += 24) for (let y = 16; y < h; y += 24) { g.beginPath(); g.arc(x, y, 3.2, 0, Math.PI * 2); g.fill(); }
+  });
+  box(1.12, 0.68, 0.018, std('#ffffff', 0.9, 0, { map: pegTex }), studio, -0.36, 1.56, -1.09, { receive: true });
+  const shelf = box(0.34, 0.014, 0.09, std('#ffffff', 0.55, 0, { map: oak }), studio, -0.66, 1.4, -1.035, { cast: true, receive: true });
+  shelf.userData.shelf = true;
+  mesh(new THREE.CylinderGeometry(0.03, 0.025, 0.05, 20), M.terracotta, studio, -0.75, 1.432, -1.04, { cast: true });
+  for (let k = 0; k < 5; k++) {
+    const leaf = mesh(new THREE.SphereGeometry(0.016, 10, 8), k % 2 ? M.leaf : M.leafDark, studio, -0.75 + Math.cos(k * 1.3) * 0.012, 1.475 + (k % 3) * 0.008, -1.04 + Math.sin(k * 1.3) * 0.012, { cast: true });
+    leaf.scale.set(0.6, 1.6, 0.35);
+    leaf.rotation.z = Math.cos(k * 1.3) * 0.5;
+  }
+  [[0.03, 0.1, C.coral], [0.024, 0.085, C.ink800], [0.03, 0.095, C.sky]].reduce((x, [bw, bh, color]) => {
+    box(bw, bh, 0.07, std(color, 0.8), studio, x + bw / 2, 1.407 + bh / 2, -1.04, { cast: true });
+    return x + bw + 0.004;
+  }, -0.66);
+  /* headphones on a peg */
+  const phones = put(new THREE.Group(), -0.12, 1.66, -1.06);
+  mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.04, 8), M.alu, phones, 0, 0.02, 0.01).rotation.x = Math.PI / 2;
+  const band = mesh(new THREE.TorusGeometry(0.075, 0.008, 8, 28, Math.PI), std('#EDE6D6', 0.6), phones, 0, -0.05, 0.03, { cast: true });
+  band.rotation.z = 0;
+  [-1, 1].forEach((sd) => {
+    const cupM = mesh(new THREE.CylinderGeometry(0.034, 0.034, 0.024, 24), std('#EDE6D6', 0.6), phones, sd * 0.075, -0.07, 0.03, { cast: true });
+    cupM.rotation.z = Math.PI / 2;
+    mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.006, 24), std(C.ink800, 0.9), phones, sd * 0.062, -0.07, 0.03).rotation.z = Math.PI / 2;
+  });
+  /* sketches taped to the board (washi tape, not pins) */
+  [[-0.72, 1.72, 0.05, 31, C.mint], [-0.52, 1.73, -0.04, 44, C.yellow], [0.08, 1.52, 0.04, 52, C.pink]].forEach(([x, y, rot, seed, tape]) => {
+    const paper = plane(0.15, 0.2, std('#ffffff', 0.9, 0, { map: canvasTexture(256, 340, drawSketch(seed)) }), studio, x, y, -1.079);
+    paper.rotation.z = rot;
+    const t = plane(0.06, 0.018, std(tape, 0.8, 0, { transparent: true, opacity: 0.85 }), studio, x + Math.sin(-rot) * 0.1, y + 0.1, -1.078);
+    t.rotation.z = rot + 0.2;
+  });
+  /* framed print: the quote from the About section */
+  const printTex = canvasTexture(360, 460, (g, w, h) => {
+    g.fillStyle = '#FBF8F1'; g.fillRect(0, 0, w, h);
+    g.fillStyle = C.lilac; g.beginPath(); g.arc(w * 0.66, h * 0.33, 92, 0, Math.PI * 2); g.fill();
+    g.fillStyle = C.yellow; sparklePath(g, w * 0.3, h * 0.2, 34); g.fill();
+    g.strokeStyle = C.ink900; g.lineWidth = 1.5; sparklePath(g, w * 0.3, h * 0.2, 34); g.stroke();
+    g.fillStyle = C.ink900; g.textAlign = 'left'; g.textBaseline = 'alphabetic';
+    g.font = `400 34px ${FONT_DISPLAY}`; g.fillText('Good design', 34, h * 0.66);
+    g.fillText('stands on', 34, h * 0.66 + 40);
+    g.font = `italic 400 34px ${FONT_DISPLAY}`; g.fillText('your side.', 34, h * 0.66 + 80);
+    g.font = `400 12px ${FONT_MONO}`; g.fillStyle = C.ink500; g.fillText('JM · 2026', 34, h - 26);
+  });
+  box(0.36, 0.46, 0.02, std(C.ink900, 0.5), studio, 0.5, 1.6, -1.09, { cast: true });
+  plane(0.3, 0.4, std('#ffffff', 0.85, 0, { map: printTex }), studio, 0.5, 1.6, -1.0795);
+
+  /* bookshelf on the right */
   box(0.9, 0.025, 0.2, M.deskLeg, studio, 1.3, 1.35, -1.0, { cast: true });
-  const books = [[0.04, 0.26, C.olive600], [0.035, 0.22, C.lilac], [0.05, 0.28, C.ink800], [0.03, 0.24, C.yellow], [0.045, 0.2, C.mint], [0.04, 0.27, C.coral]];
+  const books = [[0.04, 0.26, C.violet], [0.035, 0.22, C.lilac], [0.05, 0.28, C.ink800], [0.03, 0.24, C.yellow], [0.045, 0.2, C.mint], [0.04, 0.27, C.coral]];
   let bx = 0.95;
   books.forEach(([w, h, c]) => { box(w, h, 0.16, std(c, 0.8), studio, bx + w / 2, 1.3625 + h / 2, -1.0, { cast: true }); bx += w + 0.006; });
 
@@ -486,8 +639,8 @@ export function createStory(canvas, options = {}) {
   const NOTES = ['why so\nmany steps?', 'hidden\nfees?', 'trust the\npayment?', 'love the\nclean UI', 'where is\nhelp?', 'receipts\nplease', 'too slow\nat checkout', 'icons are\nconfusing', 'one-tap\npay!', 'dark mode\npls', 'track my\norder', 'saved\ncards', 'compare\nprices', 'first time\nlost', 'notify\nme', 'security\n= trust', 'quick\nsetup', 'makes me\nsmile'];
   const noteTextures = NOTES.map((txt, i) => canvasTexture(256, 256, (g, w, h) => {
     g.fillStyle = STICKY_COLORS[i % STICKY_COLORS.length]; g.fillRect(0, 0, w, h);
-    g.fillStyle = 'rgba(0,0,0,0.06)'; g.fillRect(0, h - 22, w, 22);
-    g.fillStyle = C.ink900; g.font = `600 46px ${FONT_HAND}`; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = 'rgba(0,0,0,0.05)'; g.fillRect(0, h - 18, w, 18);
+    g.fillStyle = C.ink900; g.font = `400 46px ${FONT_HAND}`; g.textAlign = 'center'; g.textBaseline = 'middle';
     txt.split('\n').forEach((line, li, arr) => g.fillText(line, w / 2, h / 2 + (li - (arr.length - 1) / 2) * 50));
   }));
   const notes = [];
@@ -515,11 +668,11 @@ export function createStory(canvas, options = {}) {
   const sections = SECTION_TITLES.map(([title, color], k) => {
     const tex = canvasTexture(512, 700, (g, w, h) => {
       g.fillStyle = color; g.globalAlpha = 0.28; rr(g, 6, 70, w - 12, h - 76, 26); g.fill(); g.globalAlpha = 1;
-      g.strokeStyle = C.ink900; g.lineWidth = 5; rr(g, 6, 70, w - 12, h - 76, 26); g.stroke();
-      g.font = `700 40px ${FONT_SANS}`;
+      g.strokeStyle = C.ink900; g.lineWidth = 2.5; rr(g, 6, 70, w - 12, h - 76, 26); g.stroke();
+      g.font = `600 40px ${FONT_SANS}`;
       const tw = g.measureText(title).width + 40;
       g.fillStyle = color; rr(g, 6, 6, tw, 56, 14); g.fill();
-      g.strokeStyle = C.ink900; g.lineWidth = 5; rr(g, 6, 6, tw, 56, 14); g.stroke();
+      g.strokeStyle = C.ink900; g.lineWidth = 2.5; rr(g, 6, 6, tw, 56, 14); g.stroke();
       g.fillStyle = C.ink900; g.textBaseline = 'middle'; g.fillText(title, 26, 36);
     });
     const m = plane(0.8, 1.1, basic('#ffffff', { map: tex, transparent: true, depthWrite: false }), world, clusters[k], 1.8, -3.02);
@@ -538,12 +691,12 @@ export function createStory(canvas, options = {}) {
     { label: 'Receipt ✓', kind: 'pill', color: C.mint, x: 8.95, y: 1.65 },
   ];
   const shapeTex = SHAPES.map((s) => canvasTexture(512, 320, (g, w, h) => {
-    g.fillStyle = s.color; g.strokeStyle = C.ink900; g.lineWidth = 9;
+    g.fillStyle = s.color; g.strokeStyle = C.ink900; g.lineWidth = 4.5;
     if (s.kind === 'diamond') {
       g.beginPath(); g.moveTo(w / 2, 12); g.lineTo(w - 12, h / 2); g.lineTo(w / 2, h - 12); g.lineTo(12, h / 2); g.closePath();
     } else rr(g, 10, 10, w - 20, h - 20, s.kind === 'pill' ? (h - 20) / 2 : 36);
     g.fill(); g.stroke();
-    g.fillStyle = C.ink900; g.font = `700 ${s.kind === 'diamond' ? 50 : 60}px ${FONT_SANS}`; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = C.ink900; g.font = `600 ${s.kind === 'diamond' ? 50 : 60}px ${FONT_SANS}`; g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText(s.label, w / 2, h / 2 + 2);
   }));
   const nodes = SHAPES.map((s, i) => {
@@ -572,7 +725,7 @@ export function createStory(canvas, options = {}) {
       path.add(new THREE.LineCurve3(new THREE.Vector3(mx + r, pb.y, pb.z), pb));
     }
     const tubular = 96;
-    const geo = new THREE.TubeGeometry(path, tubular, 0.009, 6, false);
+    const geo = new THREE.TubeGeometry(path, tubular, 0.0055, 6, false);
     mesh(geo, inkLine, world);
     geo.setDrawRange(0, 0);
     const arrow = mesh(new THREE.ConeGeometry(0.028, 0.055, 3), inkLine, world, pb.x - 0.012, pb.y, pb.z);
@@ -588,7 +741,7 @@ export function createStory(canvas, options = {}) {
   world.add(desk);
   box(2.84, 1.79, 0.02, basic(C.ink900), desk, 0, 0, -0.012);
   box(2.8, 1.75, 0.03, frameMat(C.paper0), desk, 0, 0, 0);
-  const labelTex = (txt) => canvasTexture(512, 64, (g, w, h) => { g.fillStyle = C.ink500; g.font = `600 30px ${FONT_MONO}`; g.textBaseline = 'middle'; g.fillText(txt, 4, h / 2); });
+  const labelTex = (txt) => canvasTexture(512, 64, (g, w, h) => { g.fillStyle = C.ink500; g.font = `400 30px ${FONT_MONO}`; g.textBaseline = 'middle'; g.fillText(txt, 4, h / 2); });
   plane(1.1, 0.14, basic('#ffffff', { map: labelTex('Frame 04 · Dashboard'), transparent: true }), desk, -0.85, 0.96, 0);
 
   const phone = new THREE.Group();
@@ -608,11 +761,11 @@ export function createStory(canvas, options = {}) {
   const topY = 0.875;
   ui(desk, 2.8, 0.14, 0, topY - 0.07, C.paper100, C.paper0);
   ui(desk, 0.08, 0.08, -1.28, topY - 0.07, C.paper300, C.lilac, { z: Z + 0.001 });
-  ui(desk, 0.5, 1.61, -1.15, -0.07, C.paper100, C.olive600, { delay: 0.004 });
-  [0.58, 0.49, 0.4, 0.31].forEach((y, i) => ui(desk, 0.3, 0.035, -1.16, y, C.paper300, i === 0 ? C.lilac : C.olive400, { z: Z + 0.001, delay: 0.005 }));
+  ui(desk, 0.5, 1.61, -1.15, -0.07, C.paper100, C.ink900, { delay: 0.004 });
+  [0.58, 0.49, 0.4, 0.31].forEach((y, i) => ui(desk, 0.3, 0.035, -1.16, y, C.paper300, i === 0 ? C.lilac : C.ink500, { z: Z + 0.001, delay: 0.005 }));
   ui(desk, 0.8, 0.07, -0.4, 0.6, C.paper300, C.ink900, { mis: [0.035, -0.02], delay: 0.004 });
   ui(desk, 0.55, 0.035, -0.525, 0.5, C.paper200, C.ink500, { mis: [0.035, -0.02], delay: 0.005 });
-  ui(desk, 0.42, 0.13, 1.0, 0.58, C.paper0, C.olive600, { mis: [-0.04, 0.03], delay: 0.004 });
+  ui(desk, 0.42, 0.13, 1.0, 0.58, C.paper0, C.ink900, { mis: [-0.04, 0.03], delay: 0.004 });
   ui(desk, 0.2, 0.024, 1.0, 0.58, C.paper300, C.paper0, { mis: [-0.04, 0.03], z: Z + 0.001, delay: 0.004 });
   const outlineMat = basic(C.ink900, { transparent: true, opacity: 1 });
   const ctaOutline = new THREE.Group();
@@ -656,7 +809,7 @@ export function createStory(canvas, options = {}) {
   ui(phone, 0.46, 0.025, -0.02, -0.06, C.paper200, C.ink500, { delay: 0.011 });
   ui(phone, 0.32, 0.025, -0.09, -0.12, C.paper200, C.ink500, { delay: 0.011 });
   ui(phone, 0.5, 0.2, 0, -0.32, C.paper100, C.mint, { mis: [0.015, 0.02], delay: 0.012 });
-  ui(phone, 0.5, 0.09, 0, -0.53, C.paper0, C.olive600, { mis: [-0.02, -0.015], delay: 0.013 });
+  ui(phone, 0.5, 0.09, 0, -0.53, C.paper0, C.ink900, { mis: [-0.02, -0.015], delay: 0.013 });
 
   const redMat = basic(C.coral, { transparent: true, opacity: 0, toneMapped: false });
   const redlines = [];
@@ -686,10 +839,10 @@ export function createStory(canvas, options = {}) {
   function makePin(color, fg, num) {
     const tex = canvasTexture(128, 128, (g, w, h) => {
       g.fillStyle = C.ink900; g.beginPath(); g.moveTo(10, 118); g.lineTo(10, 64); g.arc(64, 64, 54, Math.PI, Math.PI * 0.5, false); g.closePath();
-      g.save(); g.translate(5, 5); g.fill(); g.restore();
+      g.save(); g.translate(3, 3); g.fill(); g.restore();
       g.fillStyle = color; g.beginPath(); g.moveTo(10, 118); g.lineTo(10, 64); g.arc(64, 64, 54, Math.PI, Math.PI * 0.5, false); g.closePath(); g.fill();
-      g.strokeStyle = C.ink900; g.lineWidth = 6; g.stroke();
-      g.fillStyle = fg; g.font = `700 52px ${FONT_SANS}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(num, 64, 66);
+      g.strokeStyle = C.ink900; g.lineWidth = 3; g.stroke();
+      g.fillStyle = fg; g.font = `600 52px ${FONT_SANS}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(num, 64, 66);
     });
     const g = new THREE.Group();
     plane(0.13, 0.13, basic('#ffffff', { map: tex, transparent: true }), g, 0.065, 0.065, 0);
@@ -705,10 +858,10 @@ export function createStory(canvas, options = {}) {
   const STAMPS = [['👍', C.yellow, [1.36, 0.36]], ['❤️', C.pink, [0.72, -0.12]], ['⭐', C.mint, [-0.62, 0.02]], ['+1', C.lilac, [0.1, 0.72]]];
   const stamps = STAMPS.map(([sym, color, pos], i) => {
     const tex = canvasTexture(160, 160, (g, w, h) => {
-      g.fillStyle = C.ink900; g.beginPath(); g.arc(w / 2 + 5, h / 2 + 5, 68, 0, Math.PI * 2); g.fill();
+      g.fillStyle = C.ink900; g.beginPath(); g.arc(w / 2 + 3, h / 2 + 3, 68, 0, Math.PI * 2); g.fill();
       g.fillStyle = color; g.beginPath(); g.arc(w / 2, h / 2, 68, 0, Math.PI * 2); g.fill();
-      g.strokeStyle = C.ink900; g.lineWidth = 6; g.stroke();
-      g.fillStyle = C.ink900; g.font = sym === '+1' ? `800 64px ${FONT_SANS}` : '72px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
+      g.strokeStyle = C.ink900; g.lineWidth = 3; g.stroke();
+      g.fillStyle = C.ink900; g.font = sym === '+1' ? `600 64px ${FONT_SANS}` : '72px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
       g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(sym, w / 2, h / 2 + 4);
     });
     const m = plane(0.16, 0.16, basic('#ffffff', { map: tex, transparent: true }), desk, pos[0], pos[1], 0.06 + i * 0.002);
@@ -724,7 +877,7 @@ export function createStory(canvas, options = {}) {
   [[0.47, 0.007, 0, 0.09], [0.47, 0.007, 0, -0.09], [0.007, 0.18, 0.235, 0], [0.007, 0.18, -0.235, 0]].forEach(([w, h, x, y]) => plane(w, h, hotMat, hotspot, x, y, 0.001));
   mesh(new THREE.CircleGeometry(0.02, 20), hotMat, hotspot, 0.235, 0, 0.002);
   const noodleCurve = new THREE.CubicBezierCurve3(new THREE.Vector3(13.645, 2.13, -7.95), new THREE.Vector3(13.95, 2.34, -7.9), new THREE.Vector3(13.9, 1.72, -7.9), new THREE.Vector3(14.07, 1.72, -7.95));
-  const noodleGeo = new THREE.TubeGeometry(noodleCurve, 72, 0.009, 6, false);
+  const noodleGeo = new THREE.TubeGeometry(noodleCurve, 72, 0.006, 6, false);
   mesh(noodleGeo, basic(C.violet, { toneMapped: false }), world);
   noodleGeo.setDrawRange(0, 0);
   const noodleArrow = mesh(new THREE.ConeGeometry(0.026, 0.05, 12), basic(C.violet, { toneMapped: false }), world, 14.05, 1.72, -7.95);
@@ -732,7 +885,7 @@ export function createStory(canvas, options = {}) {
   noodleArrow.scale.setScalar(0.001);
 
   /* ---------- Deliver: tokens fan deck + spec chips ---------- */
-  const tokenColors = [C.olive100, C.olive300, C.olive400, C.olive500, C.olive600, C.olive700, C.olive900, C.yellow, C.lilac, C.mint, C.pink, C.coral, C.sky, C.violet];
+  const tokenColors = [C.paper0, C.paper100, C.paper300, C.ink400, C.ink600, C.ink900, C.violet, C.yellow, C.lilac, C.mint, C.pink, C.coral, C.sky, C.teal];
   const fan = new THREE.Group();
   fan.position.set(15.25, 0.78, -7.85);
   world.add(fan);
@@ -743,7 +896,7 @@ export function createStory(canvas, options = {}) {
     const tex = canvasTexture(96, 420, (g, w, h) => {
       g.fillStyle = '#FFFFFF'; rr(g, 3, 3, w - 6, h - 6, 14); g.fill();
       g.fillStyle = c; rr(g, 12, 12, w - 24, h * 0.62, 8); g.fill();
-      g.strokeStyle = C.ink900; g.lineWidth = 5; rr(g, 3, 3, w - 6, h - 6, 14); g.stroke();
+      g.strokeStyle = C.ink900; g.lineWidth = 2.5; rr(g, 3, 3, w - 6, h - 6, 14); g.stroke();
       g.fillStyle = C.ink500; g.fillRect(14, h * 0.72, w - 34, 10); g.fillRect(14, h * 0.8, w - 50, 8);
     });
     plane(0.11, 0.48, basic('#ffffff', { map: tex, transparent: true }), pivot, 0, 0.24, 0);
@@ -759,16 +912,16 @@ export function createStory(canvas, options = {}) {
   });
   const pillTex = canvasTexture(320, 80, (g, w, h) => {
     g.fillStyle = C.mint; rr(g, 3, 3, w - 6, h - 6, h / 2 - 3); g.fill();
-    g.strokeStyle = C.ink900; g.lineWidth = 4; g.stroke();
+    g.strokeStyle = C.ink900; g.lineWidth = 2; g.stroke();
     g.fillStyle = C.success; g.beginPath(); g.arc(34, h / 2, 9, 0, Math.PI * 2); g.fill();
-    g.fillStyle = C.ink900; g.font = `600 28px ${FONT_MONO}`; g.textBaseline = 'middle'; g.fillText('READY FOR DEV', 54, h / 2 + 1);
+    g.fillStyle = C.ink900; g.font = `400 28px ${FONT_MONO}`; g.textBaseline = 'middle'; g.fillText('READY FOR DEV', 54, h / 2 + 1);
   });
   const pill = plane(0.5, 0.125, basic('#ffffff', { map: pillTex, transparent: true, opacity: 0 }), desk, -0.1, 0.99, 0.01);
 
   /* ---------- multiplayer cursors ---------- */
   function cursorTex(name, color, fg) {
     return canvasTexture(256, 96, (g, w, h) => {
-      g.fillStyle = color; g.strokeStyle = C.ink900; g.lineWidth = 3;
+      g.fillStyle = color; g.strokeStyle = C.ink900; g.lineWidth = 1.8;
       g.beginPath(); g.moveTo(8, 6); g.lineTo(44, 24); g.lineTo(28, 30); g.lineTo(22, 46); g.closePath(); g.fill(); g.stroke();
       g.font = `600 26px ${FONT_SANS}`;
       const tw = g.measureText(name).width + 24;
@@ -864,30 +1017,31 @@ export function createStory(canvas, options = {}) {
     };
     /* order = stacking (later on top) */
     addSticker(0.11, 0.05, [-0.09, 0.04], -0.08, 560, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.yellow; rr(s, 24, 24, w - 48, h - 48, 40); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 8; s.stroke();
-      T(s, 'SHALL WE?', `800 104px ${FONT_DISPLAY}`, C.lilac, w / 2, h / 2 + 6, { stroke: 12 });
+      s.fillStyle = C.yellow; rr(s, 24, 24, w - 48, h - 48, 40); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
+      T(s, 'Shall', `500 92px ${FONT_DISPLAY}`, C.ink900, w / 2 - 88, h / 2 + 4);
+      T(s, 'we?', `italic 500 92px ${FONT_DISPLAY}`, C.ink900, w / 2 + 112, h / 2 + 4);
     }));
     addSticker(0.1, 0.05, [0.095, 0.035], 0.14, 520, 260, (g, w, h) => dieCut(g, w, h, (s) => {
       const flower = (cx, cy) => {
-        s.fillStyle = C.yellow; s.strokeStyle = C.ink900; s.lineWidth = 6;
+        s.fillStyle = C.yellow; s.strokeStyle = C.ink900; s.lineWidth = 3;
         for (let i = 0; i < 8; i++) { const a = (i / 8) * Math.PI * 2; s.beginPath(); s.ellipse(cx + Math.cos(a) * 48, cy + Math.sin(a) * 48, 30, 22, a, 0, Math.PI * 2); s.fill(); s.stroke(); }
         s.fillStyle = '#2E7D5B'; s.beginPath(); s.arc(cx, cy, 40, 0, Math.PI * 2); s.fill(); s.stroke();
       };
       flower(140, 140); flower(380, 140);
-      s.fillStyle = '#FFF0E9'; s.fillRect(214, 124, 92, 22); s.strokeStyle = C.ink900; s.lineWidth = 6; s.strokeRect(214, 124, 92, 22);
+      s.fillStyle = '#FFF0E9'; s.fillRect(214, 124, 92, 22); s.strokeStyle = C.ink900; s.lineWidth = 3; s.strokeRect(214, 124, 92, 22);
     }));
     addSticker(0.05, 0.05, [-0.125, 0.12], -0.22, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
       s.fillStyle = C.ink900; rr(s, 24, 24, w - 48, h - 48, 36); s.fill();
-      T(s, '</>', `800 96px ${FONT_MONO}`, C.mint, w / 2, h / 2 + 4);
+      T(s, '</>', `400 96px ${FONT_MONO}`, C.mint, w / 2, h / 2 + 4);
     }));
     addSticker(0.056, 0.056, [0.128, 0.155], 0, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.violet; s.beginPath(); s.arc(w / 2, h / 2, w / 2 - 24, 0, Math.PI * 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 8; s.stroke();
-      T(s, 'UX', `800 104px ${FONT_DISPLAY}`, '#FFFFFF', w / 2, h / 2 + 6);
+      s.fillStyle = C.violet; s.beginPath(); s.arc(w / 2, h / 2, w / 2 - 24, 0, Math.PI * 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
+      T(s, 'UX', `500 104px ${FONT_DISPLAY}`, '#FFFFFF', w / 2, h / 2 + 6);
     }));
     addSticker(0.046, 0.046, [-0.13, 0.185], 0.18, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = '#F4F4F2'; rr(s, 28, 28, w - 56, h - 56, 30); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 8; s.stroke();
+      s.fillStyle = '#F4F4F2'; rr(s, 28, 28, w - 56, h - 56, 30); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
       s.fillStyle = 'rgba(0,0,0,0.08)'; rr(s, 28, h - 70, w - 56, 42, 20); s.fill();
-      T(s, '⌘Z', `700 78px ${FONT_SANS}`, C.ink900, w / 2, h / 2 - 4);
+      T(s, '⌘Z', `600 78px ${FONT_SANS}`, C.ink900, w / 2, h / 2 - 4);
     }));
     addSticker(0.04, 0.04, [0.13, 0.2], -0.1, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
       const px = 22;
@@ -895,37 +1049,36 @@ export function createStory(canvas, options = {}) {
       heart.forEach((row, ry) => row.split('').forEach((c, rx) => { if (c === '1') { s.fillStyle = (rx + ry) % 3 ? '#FF5C9A' : C.pink; s.fillRect(40 + rx * px, 50 + ry * px, px, px); s.strokeStyle = C.ink900; s.lineWidth = 3; s.strokeRect(40 + rx * px, 50 + ry * px, px, px); } }));
     }));
     addSticker(0.048, 0.048, [0.03, 0.2], 0.08, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = '#1F8A4C'; s.beginPath(); s.arc(w / 2, h / 2, w / 2 - 22, 0, Math.PI * 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 8; s.stroke();
+      s.fillStyle = '#1F8A4C'; s.beginPath(); s.arc(w / 2, h / 2, w / 2 - 22, 0, Math.PI * 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
       s.fillStyle = '#FFD23F'; s.beginPath(); s.moveTo(w / 2, 58); s.lineTo(w - 50, h / 2); s.lineTo(w / 2, h - 58); s.lineTo(50, h / 2); s.closePath(); s.fill();
       s.fillStyle = '#1E4FB8'; s.beginPath(); s.arc(w / 2, h / 2, 50, 0, Math.PI * 2); s.fill();
-      T(s, 'ORDEM E', `800 19px ${FONT_SANS}`, '#FFFFFF', w / 2, h / 2 - 11);
-      T(s, 'DESIGN', `800 19px ${FONT_SANS}`, '#FFFFFF', w / 2, h / 2 + 12);
+      T(s, 'ORDEM E', `600 19px ${FONT_SANS}`, '#FFFFFF', w / 2, h / 2 - 11);
+      T(s, 'DESIGN', `600 19px ${FONT_SANS}`, '#FFFFFF', w / 2, h / 2 + 12);
     }));
     addSticker(0.044, 0.044, [-0.045, 0.205], 0.12, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.olive600; rr(s, 26, 26, w - 52, h - 52, 20); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 8; s.stroke();
-      T(s, 'JM', `800 92px ${FONT_DISPLAY}`, C.lilac, w / 2, h / 2 + 6);
+      s.fillStyle = C.ink900; rr(s, 26, 26, w - 52, h - 52, 20); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
+      T(s, 'JM', `italic 500 96px ${FONT_DISPLAY}`, C.lilac, w / 2, h / 2 + 6);
     }));
     addSticker(0.1, 0.03, [-0.075, 0.088], -0.16, 560, 170, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.mint; rr(s, 20, 20, w - 40, h - 40, (h - 40) / 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 7; s.stroke();
+      s.fillStyle = C.mint; rr(s, 20, 20, w - 40, h - 40, (h - 40) / 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 3.5; s.stroke();
       s.fillStyle = C.success; s.beginPath(); s.arc(68, h / 2, 14, 0, Math.PI * 2); s.fill();
-      T(s, 'READY FOR DEV', `700 48px ${FONT_MONO}`, C.ink900, 92, h / 2 + 2, { align: 'left' });
+      T(s, 'READY FOR DEV', `400 48px ${FONT_MONO}`, C.ink900, 92, h / 2 + 2, { align: 'left' });
     }));
     addSticker(0.075, 0.045, [-0.085, 0.165], 0.06, 420, 250, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = '#FFFFFF'; s.strokeStyle = C.ink900; s.lineWidth = 7;
+      s.fillStyle = '#FFFFFF'; s.strokeStyle = C.ink900; s.lineWidth = 3.5;
       rr(s, 24, 24, w - 48, h - 90, 34); s.fill(); s.stroke();
       s.beginPath(); s.moveTo(90, h - 68); s.lineTo(70, h - 26); s.lineTo(130, h - 68); s.fill(); s.stroke();
       s.fillStyle = '#FFFFFF'; s.fillRect(86, h - 74, 48, 10);
-      T(s, 'Hello 👋', `700 72px ${FONT_HAND}`, C.ink900, w / 2, (h - 66) / 2 + 12);
+      T(s, 'Hello 👋', `400 72px ${FONT_HAND}`, C.ink900, w / 2, (h - 66) / 2 + 12);
     }));
     addSticker(0.066, 0.044, [0.078, 0.135], 0.1, 360, 240, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.lilac; s.strokeStyle = C.ink900; s.lineWidth = 6;
+      s.fillStyle = C.lilac; s.strokeStyle = C.ink900; s.lineWidth = 3;
       s.beginPath(); s.moveTo(30, 24); s.lineTo(120, 70); s.lineTo(78, 86); s.lineTo(62, 128); s.closePath(); s.fill(); s.stroke();
-      rr(s, 96, 118, 220, 84, 22); s.fill(); s.stroke();
-      T(s, 'Jess', `700 56px ${FONT_SANS}`, C.ink900, 206, 162);
+      sparklePath(s, 250, 150, 48); s.fillStyle = C.yellow; s.fill(); s.stroke();
     }));
     [[0.038, [0.052, 0.165], C.lilac], [0.03, [-0.12, 0.075], C.mint], [0.026, [0.118, 0.07], C.yellow]].forEach(([size, pos, color]) => {
       addSticker(size, size, pos, 0, 200, 200, (g, w, h) => dieCut(g, w, h, (s) => {
-        sparklePath(s, w / 2, h / 2, w / 2 - 28); s.fillStyle = color; s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 7; s.stroke();
+        sparklePath(s, w / 2, h / 2, w / 2 - 28); s.fillStyle = color; s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 3.5; s.stroke();
       }, { outline: 10 }));
     });
     /* Jess goes last: on top, where the logo would be */
@@ -948,8 +1101,8 @@ export function createStory(canvas, options = {}) {
   });
   const fontsReady = document.fonts
     ? Promise.all([
-      document.fonts.load(`800 64px ${FONT_DISPLAY}`), document.fonts.load(`700 40px ${FONT_SANS}`),
-      document.fonts.load(`600 40px ${FONT_HAND}`), document.fonts.load(`600 30px ${FONT_MONO}`),
+      document.fonts.load(`500 64px ${FONT_DISPLAY}`), document.fonts.load(`italic 500 64px ${FONT_DISPLAY}`), document.fonts.load(`600 40px ${FONT_SANS}`),
+      document.fonts.load(`400 40px ${FONT_HAND}`), document.fonts.load(`400 30px ${FONT_MONO}`),
     ]).catch(() => null)
     : Promise.resolve();
   const ready = Promise.all([fontsReady, loadImage(characterUrl)]).then(([, img]) => {

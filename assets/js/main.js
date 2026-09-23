@@ -1,4 +1,4 @@
-/* JM · Portfolio behaviours — v1.0.0
+/* JM · Portfolio behaviours — v2.1.0
    Small, dependency-free. Everything degrades gracefully without JS. */
 (() => {
   const html = document.documentElement;
@@ -119,24 +119,7 @@
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.pin[data-open="true"]').forEach(p => p.setAttribute('data-open', 'false')); });
 
-  /* ---------- Multiplayer cursor (desktop, pointer:fine, no reduced motion) ---------- */
-  const cursor = document.querySelector('.cursor');
-  const fine = window.matchMedia('(pointer: fine)').matches;
-  if (cursor && fine && !reduced) {
-    let tx = -100, ty = -100, cx = -100, cy = -100, raf = null, visible = false;
-    const zone = document.querySelector('[data-cursor-zone]') || document.body;
-    const step = () => {
-      cx += (tx - cx) * 0.14; cy += (ty - cy) * 0.14;
-      cursor.style.transform = `translate(${cx.toFixed(1)}px, ${cy.toFixed(1)}px)`;
-      if (Math.abs(tx - cx) > 0.2 || Math.abs(ty - cy) > 0.2) raf = requestAnimationFrame(step); else raf = null;
-    };
-    zone.addEventListener('pointermove', (e) => {
-      tx = e.clientX + 14; ty = e.clientY + 12;
-      if (!visible) { visible = true; cursor.classList.add('is-on'); }
-      if (!raf) raf = requestAnimationFrame(step);
-    });
-    zone.addEventListener('pointerleave', () => { visible = false; cursor.classList.remove('is-on'); });
-  }
+  /* The cursor is the real pointer restyled in CSS (identity.css), no JS follower. */
 
   /* ---------- Zoom readout (just for flavour) ---------- */
   const zoom = document.querySelector('[data-zoom]');
