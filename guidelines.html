@@ -9,10 +9,11 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%234B5320' stroke-width='3'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%234B5320'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:opsz,wght@9..40,400..700&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/guidelines.css">
+  <link rel="stylesheet" href="assets/css/identity.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,7 +29,7 @@
         <span class="brand__mark" aria-hidden="true"></span>
         <span>JM</span><span class="brand__file">guidelines.fig</span>
       </a>
-      <span class="status-pill">v1.0.0 · stable</span>
+      <span class="status-pill">v2.0.0 · canvas</span>
       <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
       <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
         <a href="index.html">← Portfolio</a>
@@ -51,6 +52,7 @@
       <h2>Start</h2>
       <a href="#overview" data-nav>Overview</a>
       <a href="#principles" data-nav>Principles</a>
+      <a href="#identity" data-nav>Identity v2</a>
       <h2>Process</h2>
       <a href="#process" data-nav>UI/UX process</a>
       <a href="#collab" data-nav>Working together</a>
@@ -90,13 +92,13 @@
         <span class="eyebrow">00 · Overview</span>
         <h2 class="display h-lg">JM Design Guidelines</h2>
         <div class="doc__intro">
-          <span class="tag tag--brand">v1.0.0</span><span class="tag">Stable</span><span class="tag">Updated Sep 2026</span><span class="tag">Owner · Jessica Monteiro</span>
+          <span class="tag tag--brand">v2.0.0 · Canvas</span><span class="tag">Stable</span><span class="tag">Updated Sep 2026</span><span class="tag">Owner · Jessica Monteiro</span>
         </div>
         <p class="lead">This document is the design system and the working method behind my portfolio. I built the site the way I build products for clients: with a written process, a token-based visual language, documented components and an accessibility bar that is checked, not assumed.</p>
         <p>Use it in three ways. As a <strong>reference</strong> for how the portfolio is built. As an <strong>example</strong> of the documentation I deliver with design systems. And as a <strong>map of my process</strong>, from the first stakeholder conversation to post-launch metrics.</p>
         <div class="callout"><b>How this document is organised</b>Process first (how I work), then foundations (tokens), then components (built from tokens), then patterns (built from components), then the quality gates: accessibility, handoff and governance. Each layer only depends on the layer before it.</div>
         <h4>Concept</h4>
-        <p>The visual concept is <em>"the file, not the render"</em>. Instead of hiding the design process behind polished screens, the site borrows the visual language of the tools where the work actually happens: frames with labels, redline measurements, comment pins, prototype hotspots and a layout grid you can switch on. Military green (<code>olive-600 · #4B5320</code>) anchors the palette; everything else is a warm neutral so the annotations stay legible.</p>
+        <p>The visual concept is <em>"the file, not the render"</em>. Instead of hiding the design process behind polished screens, the site borrows the visual language of the tools where the work actually happens: frames with labels, redline measurements, comment pins, prototype hotspots and a layout grid you can switch on. Military green (<code>olive-600 · #4B5320</code>) anchors the palette. Since v2.0 the file became a <em>whiteboard</em>: a light paper canvas with FigJam-flavoured sticky notes, chunky outlined type and the personality of my first portfolio. See <a href="#identity">Identity v2</a>.</p>
       </section>
 
       <!-- ============ PRINCIPLES ============ -->
@@ -114,6 +116,91 @@
             <tr><td><code>05</code></td><td><strong>Show the work</strong></td><td>Document the why, not just the what. A decision without a written rationale will be re-argued in three months.</td></tr>
           </tbody>
         </table>
+      </section>
+
+
+      <!-- ============ IDENTITY v2 ============ -->
+      <section id="identity">
+        <span class="eyebrow">Identity v2 · Canvas</span>
+        <h2 class="display h-md">The personality, <span class="hl">rebuilt</span> for this system</h2>
+        <p>v2.0 brings back the voice of my first portfolio (the Figma file with Crypex and Muvr): the <em>Hello 👋</em>, the candy tags, the black outlines with hard shadows, the chunky <em>SHALL WE?</em> and the illustrations of me. It is not a copy. Every element was kept, adapted or dropped against two filters: <strong>does it read as me</strong> and <strong>does it pass the accessibility bar</strong>.</p>
+        <div class="callout"><b>One sentence</b>A designer's whiteboard on a sunny desk: paper, ink, sticky notes and one military-green pen. Playful in the details, precise in the grid.</div>
+
+        <h3>Personality → visual rules</h3>
+        <div class="table--wrap"><table class="table">
+          <thead><tr><th>Trait</th><th>Looks like</th><th>Never like</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Curious, hands-on</strong></td><td>Sticky notes, handwritten notes in Caveat, multiplayer cursors, stamps</td><td>Clip-art, random doodles with no job</td></tr>
+            <tr><td><strong>Bold, confident</strong></td><td>Bricolage 700–800, outlined chunky letters, 2px ink borders, hard offset shadows</td><td>Neon, glassmorphism, gradients as decoration</td></tr>
+            <tr><td><strong>Warm, Brazilian</strong></td><td>Paper canvas, sunlit oak desk, sunflower glasses, <em>“ordem e design”</em></td><td>Flag clichés, green-and-yellow everywhere</td></tr>
+            <tr><td><strong>Precise</strong></td><td>Redlines, spec chips, 12-column grid, “Ready for dev”</td><td>Misalignment passed off as “playful”</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>From the old portfolio: keep, adapt, drop</h3>
+        <div class="table--wrap"><table class="table">
+          <thead><tr><th>Element</th><th>Decision</th><th>How it lives in v2</th></tr></thead>
+          <tbody>
+            <tr><td>Candy tags (lilac, yellow, mint, pink)</td><td><span class="tag tag--mint">Keep</span></td><td><code>.tag--lilac / yellow / mint / pink / coral / olive</code>, always ink text on the fill.</td></tr>
+            <tr><td>Black outline + hard shadow on buttons</td><td><span class="tag tag--mint">Keep</span></td><td><code>--button-border</code> and <code>--shadow-hard</code>. Hover lifts 2px, active presses 2px.</td></tr>
+            <tr><td>“Hello 👋”, “Check out my work ↓”</td><td><span class="tag tag--mint">Keep</span></td><td>Handwritten greeting in Caveat over the hero title; scroll hint in the same hand.</td></tr>
+            <tr><td>Outlined marquee “USER INTERFACE • USER EXPERIENCE”</td><td><span class="tag tag--mint">Keep</span></td><td>Bricolage 800 with a 2px ink stroke, fills rotate lilac → mint → yellow.</td></tr>
+            <tr><td>“SHALL WE?” footer CTA</td><td><span class="tag tag--mint">Keep</span></td><td>Contact block and the laptop sticker. Letters outlined with a 4px offset shadow instead of hatching.</td></tr>
+            <tr><td>B&amp;W Jess illustration, sunflower-glasses photo</td><td><span class="tag tag--mint">Keep</span></td><td>Die-cut sticker on the MacBook lid; portrait card in About.</td></tr>
+            <tr><td>Real case copy: Crypex, Muvr, “Shaped by creativity”, “Guided by freedom”</td><td><span class="tag tag--mint">Keep</span></td><td>Case 01, case 03 and the About pair, in her own words.</td></tr>
+            <tr><td>Pure black #000 outlines</td><td><span class="tag tag--yellow">Adapt</span></td><td>ink-900 <code>#16150F</code>: same punch, warmer against paper.</td></tr>
+            <tr><td>Lilac used for text</td><td><span class="tag tag--yellow">Adapt</span></td><td>Lilac is a fill only; text uses violet-600 <code>#6445D6</code> (5.6:1).</td></tr>
+            <tr><td>Halftone dot background</td><td><span class="tag tag--yellow">Adapt</span></td><td>22px dot grid, the FigJam canvas. It also backs the 3D board.</td></tr>
+            <tr><td>Whole dark sections</td><td><span class="tag tag--yellow">Adapt</span></td><td>One dark card per page (<code>.jess-card</code>). Light is the primary theme.</td></tr>
+            <tr><td>Wordmark with coloured J and M</td><td><span class="tag tag--yellow">Adapt</span></td><td><code>.wordmark b</code> in violet, set in Bricolage.</td></tr>
+            <tr><td>Pink/lilac text on white</td><td><span class="tag tag--coral">Drop</span></td><td>Fails AA (1.6–2.1:1).</td></tr>
+            <tr><td>Four or more hues in one component</td><td><span class="tag tag--coral">Drop</span></td><td>One sticky fill + ink + (optionally) brand per component.</td></tr>
+            <tr><td>Language selector with one language</td><td><span class="tag tag--coral">Drop</span></td><td>Returns with the pt-BR translation.</td></tr>
+            <tr><td>Long centred paragraphs</td><td><span class="tag tag--coral">Drop</span></td><td>Left-aligned, 68ch max.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Colour proportion</h3>
+        <p>60 · 30 · 10. <strong>Paper</strong> is the canvas (60), <strong>ink</strong> draws the lines and the text (30), and the rest (sticky fills, olive, violet) is the 10% that carries attention. If a screen looks like confetti, the 10% grew.</p>
+        <div class="swatches swatches--5" style="max-width:620px">
+          <div class="swatch swatch--light" style="background:#F7F3EA"><b>paper 60%</b>F7F3EA</div>
+          <div class="swatch swatch--dark" style="background:#16150F"><b>ink 30%</b>16150F</div>
+          <div class="swatch swatch--dark" style="background:#4B5320"><b>olive</b>4B5320</div>
+          <div class="swatch swatch--light" style="background:#C9B8FF"><b>lilac</b>C9B8FF</div>
+          <div class="swatch swatch--light" style="background:#FFD95A"><b>yellow</b>FFD95A</div>
+        </div>
+
+        <h3>The FigJam element language (inspired, not cloned)</h3>
+        <div class="table--wrap"><table class="table">
+          <thead><tr><th>Element</th><th>Spec</th><th>Job</th></tr></thead>
+          <tbody>
+            <tr><td>Sticky note</td><td>Square, sticky fill, Caveat 600, soft drop shadow, tilt ≤ 3°</td><td>Raw thoughts, research quotes, “test w/ 5 users”</td></tr>
+            <tr><td>Section</td><td>Fill at 28%, 2px ink border, radius 14, title tab in the same sticky colour</td><td>Groups stickies: Pain points, Needs, Delights</td></tr>
+            <tr><td>Shape + connector</td><td>Pastel fill, 2–3px ink outline; elbow connectors with rounded corners and a filled arrowhead</td><td>Flows and decisions (diamond = decision)</td></tr>
+            <tr><td>Stamp</td><td>Circle, sticky fill, ink ring, 4px offset shadow, one emoji or “+1”</td><td>Reactions during validation</td></tr>
+            <tr><td>Cursor</td><td>Arrow + name tag. Jess = violet, Client = yellow, Dev = mint</td><td>Shows collaboration is part of the process</td></tr>
+          </tbody>
+        </table></div>
+        <p class="muted">What keeps it ours: our own palette, ink outlines on everything (FigJam uses none), Caveat instead of FigJam's type, and no copied UI chrome or icons.</p>
+
+        <h3>Illustrations &amp; stickers</h3>
+        <div class="dodont">
+          <div class="do"><b>Do</b><ul>
+            <li>Use <code>assets/img/jess-oculos.svg</code> (sunflower glasses) <strong>always on a dark card</strong> (<code>.jess-card</code>, ink-900). The export has transparent holes; on paper they show through.</li>
+            <li>Use <code>assets/img/jess-character.png</code> (B&amp;W) as a die-cut sticker: white 16px outline, soft shadow.</li>
+            <li>Die-cut every sticker: white border 10–16px, ink outline inside, tilt ≤ 15°, overlap allowed.</li>
+            <li>4-point sparkles in lilac, mint or yellow, three at most per composition.</li>
+          </ul></div>
+          <div class="dont"><b>Don't</b><ul>
+            <li>Recolour, crop the face of, or add filters to the Jess illustrations.</li>
+            <li>Put jess-oculos on paper, olive or a photo.</li>
+            <li>Use stickers as buttons or put essential information in them.</li>
+            <li>Add sparkles to text blocks; they decorate images and titles only.</li>
+          </ul></div>
+        </div>
+
+        <h3>The 3D story</h3>
+        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (a lamp-lit night in dark mode). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene.</p>
       </section>
 
       <!-- ============ PROCESS ============ -->
@@ -259,9 +346,23 @@
       <section id="color">
         <span class="eyebrow">05 · Foundations</span>
         <h2 class="display h-md">Color</h2>
-        <p>The palette is built from one brand hue, military green, extended into an 11-step ramp, plus a warm neutral ramp tinted toward olive so surfaces and greens feel related. Sand is a secondary accent for surfaces. Functional colours are reserved for the annotation language and system states.</p>
+        <p>v2 “Canvas” is light-first. A warm <strong>paper</strong> and a near-black <strong>ink</strong> do most of the work. Military green stays the brand. <strong>Sticky</strong> fills bring the FigJam energy and are always paired with ink text. Each sticky has a <strong>strong</strong>, text-safe sibling for when the colour has to be read, not just seen.</p>
 
-        <h3>Primitives · olive</h3>
+        <h3>Primitives · paper &amp; ink</h3>
+        <div class="swatches">
+          <div class="swatch swatch--light" style="background:#FFFFFF"><b>paper 0</b>FFFFFF</div>
+          <div class="swatch swatch--light" style="background:#F7F3EA; outline:2px solid var(--color-proto); outline-offset:1px;"><b>paper 50 ★</b>F7F3EA</div>
+          <div class="swatch swatch--light" style="background:#EFEADD"><b>paper 100</b>EFEADD</div>
+          <div class="swatch swatch--light" style="background:#E3DCCB"><b>paper 200</b>E3DCCB</div>
+          <div class="swatch swatch--light" style="background:#D3CAB5"><b>paper 300</b>D3CAB5</div>
+          <div class="swatch swatch--light" style="background:#8E8C80"><b>ink 400</b>8E8C80</div>
+          <div class="swatch swatch--dark" style="background:#66655B"><b>ink 500</b>66655B</div>
+          <div class="swatch swatch--dark" style="background:#4E4D44"><b>ink 600</b>4E4D44</div>
+          <div class="swatch swatch--dark" style="background:#2A2922"><b>ink 800</b>2A2922</div>
+          <div class="swatch swatch--dark" style="background:#16150F; outline:2px solid var(--color-proto); outline-offset:1px;"><b>ink 900 ★</b>16150F</div>
+          <div class="swatch swatch--dark" style="background:#0E0D09"><b>ink 950</b>0E0D09</div>
+        </div>
+        <h3>Primitives · olive (brand)</h3>
         <div class="swatches">
           <div class="swatch swatch--light" style="background:#F4F5EE"><b>50</b>F4F5EE</div>
           <div class="swatch swatch--light" style="background:#E6E9D8"><b>100</b>E6E9D8</div>
@@ -273,62 +374,55 @@
           <div class="swatch swatch--dark" style="background:#3D4419"><b>700</b>3D4419</div>
           <div class="swatch swatch--dark" style="background:#2F3514"><b>800</b>2F3514</div>
           <div class="swatch swatch--dark" style="background:#22270F"><b>900</b>22270F</div>
-          <div class="swatch swatch--dark" style="background:#141708"><b>950</b>141708</div>
         </div>
-        <h3>Primitives · bone (neutrals)</h3>
-        <div class="swatches">
-          <div class="swatch swatch--light" style="background:#FFFFFF"><b>0</b>FFFFFF</div>
-          <div class="swatch swatch--light" style="background:#FAFAF6"><b>50</b>FAFAF6</div>
-          <div class="swatch swatch--light" style="background:#F2F2EB"><b>100</b>F2F2EB</div>
-          <div class="swatch swatch--light" style="background:#E4E4DA"><b>200</b>E4E4DA</div>
-          <div class="swatch swatch--light" style="background:#CFCFC2"><b>300</b>CFCFC2</div>
-          <div class="swatch swatch--light" style="background:#A8A899"><b>400</b>A8A899</div>
-          <div class="swatch swatch--dark" style="background:#6B6B5E"><b>550</b>6B6B5E</div>
-          <div class="swatch swatch--dark" style="background:#5A5A4F"><b>600</b>5A5A4F</div>
-          <div class="swatch swatch--dark" style="background:#3E3E36"><b>700</b>3E3E36</div>
-          <div class="swatch swatch--dark" style="background:#26261F"><b>800</b>26261F</div>
-          <div class="swatch swatch--dark" style="background:#121410"><b>950</b>121410</div>
+        <h3>Primitives · sticky fills</h3>
+        <div class="swatches swatches--5" style="max-width:620px">
+          <div class="swatch swatch--light" style="background:#FFD95A"><b>yellow</b>FFD95A</div>
+          <div class="swatch swatch--light" style="background:#C9B8FF"><b>lilac</b>C9B8FF</div>
+          <div class="swatch swatch--light" style="background:#B5EBDD"><b>mint</b>B5EBDD</div>
+          <div class="swatch swatch--light" style="background:#FFC4DE"><b>pink</b>FFC4DE</div>
+          <div class="swatch swatch--light" style="background:#FF8A66"><b>coral</b>FF8A66</div>
+          <div class="swatch swatch--light" style="background:#A9D4FF"><b>sky</b>A9D4FF</div>
         </div>
-        <h3>Primitives · sand &amp; functional</h3>
-        <div class="swatches swatches--5" style="max-width:520px">
-          <div class="swatch swatch--light" style="background:#E8DFBF"><b>sand 300</b>E8DFBF</div>
-          <div class="swatch swatch--light" style="background:#D4C48F"><b>sand 400</b>D4C48F</div>
-          <div class="swatch swatch--light" style="background:#B8A263"><b>sand 500</b>B8A263</div>
-          <div class="swatch swatch--dark" style="background:#8F7C44"><b>sand 600</b>8F7C44</div>
-          <div class="swatch swatch--dark" style="background:#6E5F32"><b>sand 700</b>6E5F32</div>
-          <div class="swatch swatch--dark" style="background:#CF3327"><b>redline</b>CF3327</div>
-          <div class="swatch swatch--dark" style="background:#2F80ED"><b>proto</b>2F80ED</div>
-          <div class="swatch swatch--dark" style="background:#3F8F4E"><b>success</b>3F8F4E</div>
-          <div class="swatch swatch--dark" style="background:#C98A1B"><b>warning</b>C98A1B</div>
+        <h3>Primitives · strong hues &amp; functional</h3>
+        <div class="swatches swatches--5" style="max-width:620px">
+          <div class="swatch swatch--dark" style="background:#6445D6"><b>violet 600</b>6445D6</div>
+          <div class="swatch swatch--light" style="background:#B9A4FF"><b>violet 300</b>B9A4FF</div>
+          <div class="swatch swatch--dark" style="background:#0B6F6B"><b>teal 700</b>0B6F6B</div>
+          <div class="swatch swatch--light" style="background:#7FD8CB"><b>teal 300</b>7FD8CB</div>
+          <div class="swatch swatch--dark" style="background:#B83A0E"><b>coral 700</b>B83A0E</div>
+          <div class="swatch swatch--dark" style="background:#2E7A3C"><b>success</b>2E7A3C</div>
+          <div class="swatch swatch--dark" style="background:#8A5E0B"><b>warning</b>8A5E0B</div>
           <div class="swatch swatch--dark" style="background:#C53A2E"><b>danger</b>C53A2E</div>
         </div>
 
-        <h3>Semantic tokens (light theme)</h3>
-        <p>Components never reference primitives. They reference intent. That is what lets dark mode be a token swap instead of a redesign.</p>
+        <h3>Semantic tokens</h3>
+        <p>Components never reference primitives. They reference intent. That is what lets dark mode be a token swap instead of a redesign. Ratios below were measured, not estimated.</p>
         <div class="table--wrap"><table class="table">
-          <thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Use for</th><th>Contrast (light / dark)</th></tr></thead>
+          <thead><tr><th>Token</th><th>Light (primary)</th><th>Dark</th><th>Use for</th><th>Contrast (light / dark)</th></tr></thead>
           <tbody>
-            <tr><td><code>--color-bg</code></td><td>bone-50</td><td>bone-950</td><td>Page background</td><td>—</td></tr>
-            <tr><td><code>--color-bg-elevated</code></td><td>bone-0</td><td>bone-900</td><td>Frames, cards, toolbar</td><td>—</td></tr>
-            <tr><td><code>--color-text</code></td><td>bone-950</td><td>bone-100</td><td>Body and headings</td><td><span class="ok">17.7 / 16.5 AAA</span></td></tr>
-            <tr><td><code>--color-text-muted</code></td><td>bone-600</td><td>bone-400</td><td>Secondary text</td><td><span class="ok">6.7 / 7.7 AA+</span></td></tr>
-            <tr><td><code>--color-text-subtle</code></td><td>bone-550</td><td>bone-450</td><td>Mono labels, meta</td><td><span class="ok">5.2 / 5.7 AA</span></td></tr>
-            <tr><td><code>--color-brand</code></td><td>olive-600</td><td>olive-400</td><td>Primary actions, pins, active marks</td><td><span class="ok">8.2 white-on / 6.1 bone-950-on</span></td></tr>
-            <tr><td><code>--color-brand-text</code></td><td>olive-600</td><td>olive-300</td><td>Brand-coloured text and links</td><td><span class="ok">7.9 / 8.7 AAA</span></td></tr>
-            <tr><td><code>--color-brand-subtle</code></td><td>olive-100</td><td>olive-900</td><td>Tinted backgrounds for tags, callouts</td><td><span class="ok">brand-text on it: 6.7 / 7.3</span></td></tr>
-            <tr><td><code>--color-accent</code></td><td>sand-500</td><td>sand-400</td><td>Client pins, sticky notes (surfaces)</td><td><span class="ok">bone-950 on it: 7.4 / 10.7</span></td></tr>
-            <tr><td><code>--color-border</code></td><td>bone-300</td><td>bone-700</td><td>Decorative frame borders, dividers</td><td><span class="warn">1.5 — decorative only</span></td></tr>
-            <tr><td><code>--color-border-strong</code></td><td>bone-950</td><td>bone-100</td><td>Inputs, buttons, selected frames</td><td><span class="ok">≥ 3:1 non-text ✓</span></td></tr>
-            <tr><td><code>--color-focus</code></td><td>proto-500</td><td>proto-300</td><td>Focus ring (2px, 3px offset)</td><td><span class="ok">3.7 / 7.7 non-text ✓</span></td></tr>
-            <tr><td><code>--color-redline</code></td><td>redline-500</td><td>redline-300</td><td>Measurements</td><td><span class="ok">4.8 / 6.8 · label text 5.1</span></td></tr>
-            <tr><td><code>--color-proto-text</code></td><td>proto-700</td><td>proto-300</td><td>Spec labels, prototype text</td><td><span class="ok">5.8 / 7.7 AA</span></td></tr>
+            <tr><td><code>--color-bg</code></td><td>paper-50</td><td>#131410</td><td>Page canvas</td><td>—</td></tr>
+            <tr><td><code>--color-bg-elevated</code></td><td>paper-0</td><td>#1C1D18</td><td>Frames, cards, toolbar</td><td>—</td></tr>
+            <tr><td><code>--color-text</code></td><td>ink-900</td><td>#F2EFE6</td><td>Body and headings</td><td><span class="ok">16.5 / 16.1 AAA</span></td></tr>
+            <tr><td><code>--color-text-muted</code></td><td>ink-600</td><td>#B7B3A6</td><td>Secondary text</td><td><span class="ok">7.7 / 8.8 AAA</span></td></tr>
+            <tr><td><code>--color-text-subtle</code></td><td>ink-500</td><td>#9C988C</td><td>Mono labels, meta</td><td><span class="ok">5.3 / 6.4 AA</span></td></tr>
+            <tr><td><code>--color-brand</code></td><td>olive-600</td><td>olive-400</td><td>Primary action, one per view</td><td><span class="ok">8.2 white-on / 6.0 ink-on</span></td></tr>
+            <tr><td><code>--color-brand-text</code></td><td>olive-600</td><td>olive-300</td><td>Brand-coloured text and links</td><td><span class="ok">7.4 / 8.7 AAA</span></td></tr>
+            <tr><td><code>--color-accent</code></td><td>sticky-lilac</td><td>violet-300</td><td>Highlighter, current step, secondary buttons (fill)</td><td><span class="ok">ink on it: 10.3</span></td></tr>
+            <tr><td><code>--color-accent-text</code></td><td>violet-600</td><td>violet-300</td><td>Accent text, progress, wordmark initials</td><td><span class="ok">5.6 / 8.7 AA</span></td></tr>
+            <tr><td><code>--color-border</code></td><td>paper-300</td><td>#34352D</td><td>Decorative dividers</td><td><span class="warn">1.5, decorative only</span></td></tr>
+            <tr><td><code>--color-border-strong</code></td><td>ink-900</td><td>#F2EFE6</td><td>Buttons, tags, cards, inputs, hard shadows</td><td><span class="ok">≥ 3:1 non-text ✓</span></td></tr>
+            <tr><td><code>--color-focus</code></td><td>violet-600</td><td>violet-300</td><td>Focus ring (2px, 3px offset)</td><td><span class="ok">5.6 / 8.7 non-text ✓</span></td></tr>
+            <tr><td><code>--color-redline</code></td><td>coral-400</td><td>coral-400</td><td>Measurements (label text is ink)</td><td><span class="ok">ink on it: 7.9</span></td></tr>
+            <tr><td>Sticky fills</td><td>yellow · lilac · mint · pink · coral · sky</td><td>same</td><td>Notes, tags, stamps, section tabs</td><td><span class="ok">ink on them: 7.9 – 13.8</span></td></tr>
+            <tr><td>Strong hues</td><td>teal-700 · coral-700</td><td>teal-300 · coral-400</td><td>Coloured text when a sticky would fail</td><td><span class="ok">5.4 · 5.2 on paper</span></td></tr>
           </tbody>
         </table></div>
 
         <h4>Rules</h4>
         <div class="dodont">
-          <div class="do"><b>Do</b><ul><li>Use <code>brand</code> for one primary action per view.</li><li>Use functional colours only for their function: redline = measure, proto = interaction, success/warning/danger = state.</li><li>Check contrast for every new pair and record it here.</li><li>Use <code>border-strong</code> on anything interactive.</li></ul></div>
-          <div class="dont"><b>Don't</b><ul><li>Put sand-400/500 text on light backgrounds (1.7–2.4:1).</li><li>Use bone-500 for text; it fails AA at 4.0:1. Use bone-550.</li><li>Introduce a new hue for emphasis. Use weight, size or space first.</li><li>Use white text on olive-400 (3.0:1). Dark mode uses bone-950 on brand.</li></ul></div>
+          <div class="do"><b>Do</b><ul><li>Pair every sticky fill with ink text and, if interactive, a 2px ink border.</li><li>Use <code>brand</code> for one primary action per view; lilac or yellow for the secondary.</li><li>Use the strong sibling (violet-600, teal-700, coral-700) when colour has to be read as text.</li><li>Check contrast for every new pair and record it here.</li></ul></div>
+          <div class="dont"><b>Don't</b><ul><li>Set text in a sticky colour on paper (1.2–2.1:1).</li><li>Use white text on sticky fills or on olive-400.</li><li>Put two sticky fills on the same component.</li><li>Use pure black; ink-900 is the darkest value in the light theme.</li></ul></div>
         </div>
       </section>
 
@@ -336,19 +430,21 @@
       <section id="typography">
         <span class="eyebrow">06 · Foundations</span>
         <h2 class="display h-md">Typography</h2>
-        <p>Three families with three jobs. <strong>Instrument Serif</strong> carries the voice in headlines, with italics for emphasis. <strong>Inter</strong> does the reading. <strong>JetBrains Mono</strong> is the annotation voice: frame labels, measurements, meta.</p>
+        <p>Four families with four jobs. <strong>Bricolage Grotesque</strong> carries the voice: chunky, a little quirky, tight tracking. <strong>DM Sans</strong> does the reading. <strong>JetBrains Mono</strong> is the annotation voice: frame labels, measurements, meta. <strong>Caveat</strong> is my handwriting on the board: greetings, sticky notes, scroll hints.</p>
         <table class="table">
           <thead><tr><th>Role</th><th>Family</th><th>Weights</th><th>Used for</th></tr></thead>
           <tbody>
-            <tr><td>Display</td><td>Instrument Serif</td><td>400, 400 italic</td><td>H1–H2, case-study titles, contact headline</td></tr>
-            <tr><td>Text</td><td>Inter</td><td>400, 500, 600</td><td>Body, UI labels, buttons, H3–H4</td></tr>
+            <tr><td>Display</td><td>Bricolage Grotesque</td><td>600, 700, 800</td><td>H1–H2, case titles, marquee, “Shall we?” (800 outlined)</td></tr>
+            <tr><td>Text</td><td>DM Sans</td><td>400, 500, 600, 700</td><td>Body, UI labels, buttons, H3–H4</td></tr>
             <tr><td>Mono</td><td>JetBrains Mono</td><td>400, 500, 600</td><td>Frame labels, tags, measurements, meta, code</td></tr>
+            <tr><td>Hand</td><td>Caveat</td><td>500, 600, 700</td><td>“Hello, I'm Jess 👋”, sticky notes, scroll hint, hand notes. Never body or UI labels.</td></tr>
           </tbody>
         </table>
 
         <h3>Scale</h3>
         <p>A 12-step scale in rem. Display sizes use <code>clamp()</code> so headlines scale with the viewport between the min and max steps.</p>
         <div class="specimen"><small>display · 96/72/56<br>h-xl · lh 1.05 · −0.02em</small><div class="sample display" style="font-size: clamp(2.5rem, 5vw, 4.5rem)">Interfaces people don't have to <em>think</em> about.</div></div>
+        <div class="specimen"><small>hand · 32 · 600<br>greeting · Caveat</small><div class="sample" style="font-family: var(--font-hand); font-weight: 600; font-size: 2rem">Hello, I'm Jess 👋</div></div>
         <div class="specimen"><small>display · 56/40/32<br>h-lg · lh 1.05</small><div class="sample display" style="font-size: clamp(2rem, 3.5vw, 3rem)">Selected work</div></div>
         <div class="specimen"><small>display · 40/24<br>h-md · lh 1.05</small><div class="sample display" style="font-size: 2rem">The UI/UX process, end to end</div></div>
         <div class="specimen"><small>text · 24 · 500<br>h-sm / case title</small><div class="sample" style="font-size: 1.5rem; font-weight: 500">Guest-facing booking &amp; stay flow</div></div>
@@ -362,8 +458,9 @@
         <h4>Rules</h4>
         <ul class="list">
           <li>Body line length between 45 and 75 characters (<code>max-width: 68ch</code>). Leads cap at 56ch.</li>
-          <li>Headlines: one idea, sentence case, no full stop unless it is a sentence. Italic on the one word that carries the meaning.</li>
-          <li>Never use the display serif under 24px; it loses its shapes.</li>
+          <li>Headlines: one idea, sentence case, no full stop unless it is a sentence. The highlighter (<code>em</code>) goes on the one word that carries the meaning.</li>
+          <li>Outlined chunky letters (Bricolage 800 + 2px ink stroke) only at 40px and up, and only for one or two words.</li>
+          <li>Caveat never below 20px and never for anything a user must read to complete a task.</li>
           <li>Mono text is uppercase with +0.08em tracking at 12px and below; never uppercase body text.</li>
           <li>Minimum sizes: 14px for UI text, 11px for mono meta, 10px only inside measurement labels (decorative, hidden from assistive tech).</li>
           <li>Weight is for hierarchy, colour is for meaning. Don't use both for the same job.</li>
@@ -488,7 +585,7 @@
             <tr><td>Corners</td><td>Square or 2px, matching the shape system</td></tr>
             <tr><td>Colour</td><td><code>currentColor</code>, inherit from the text next to it</td></tr>
             <tr><td>Accessibility</td><td>Decorative icons get <code>aria-hidden</code>; icon-only buttons get an <code>aria-label</code></td></tr>
-            <tr><td>Illustration</td><td>Drawn in Illustrator / Procreate on the same 24-col grid as the UI, olive + bone + one sand accent, textures allowed, gradients not</td></tr>
+            <tr><td>Illustration</td><td>Drawn in Illustrator / Procreate on the same 24-col grid as the UI, ink outlines, paper + olive + one sticky fill, textures allowed, gradients not</td></tr>
           </tbody>
         </table>
       </section>
@@ -509,7 +606,7 @@
           <div class="measure measure--v" style="left:24px; top:130px; height:60px;"><span>60</span></div>
           <div class="spec" style="left:188px; top:124px;">AUTO LAYOUT · GAP 8 · HUG</div>
           <div class="pin" style="left:330px; top:64px;" data-author="jm">1<span class="pin__bubble"><b>Jessica</b>Designer comment: olive pin.</span></div>
-          <div class="pin" style="left:370px; top:120px;" data-author="client">2<span class="pin__bubble"><b>Client</b>Client comment: sand pin.</span></div>
+          <div class="pin" style="left:370px; top:120px;" data-author="client">2<span class="pin__bubble"><b>Client</b>Client comment: yellow pin.</span></div>
           <div class="sticky" style="position:absolute; right:20px; bottom:16px;"><b>Sticky</b>Workshop note or next step.</div>
         </div>
         <table class="table">
@@ -517,7 +614,7 @@
           <tbody>
             <tr><td>Frame label</td><td>Mono, above the top-left corner</td><td>What this artboard is, and its size</td><td>Format: <code>Frame NN · Name · W × H</code>. Always present on a frame.</td></tr>
             <tr><td>Selection handles</td><td>Four small blue squares</td><td>This frame is selected / interactive</td><td>Only on hover or on the hero. Never on two frames at once.</td></tr>
-            <tr><td>Comment pin</td><td>Numbered teardrop</td><td>A conversation happened here</td><td>Olive = designer, sand = client. Numbered per frame. Hover/click/focus opens the bubble; Esc closes.</td></tr>
+            <tr><td>Comment pin</td><td>Numbered teardrop</td><td>A conversation happened here</td><td>Violet = designer, yellow = client. Numbered per frame. Hover/click/focus opens the bubble; Esc closes.</td></tr>
             <tr><td>Measurement</td><td>Red line with end ticks and a value</td><td>Distance in px</td><td>Value on the scale. Decorative: <code>aria-hidden</code>, never carries essential information.</td></tr>
             <tr><td>Hotspot</td><td>Blue rectangle with a dot</td><td>Prototype interaction starts here</td><td>Only on things that are actually interactive in the story.</td></tr>
             <tr><td>Connector</td><td>Blue dashed curve with arrow</td><td>Flows to this frame</td><td>Left-to-right, one per hotspot.</td></tr>
@@ -571,7 +668,7 @@
         <div class="anatomy">
           <a class="btn btn--primary btn--lg" href="#button" style="pointer-events:none">View work <span class="arrow" aria-hidden="true">→</span></a>
           <div class="pin" style="left:-10px; top:-12px;">1<span class="pin__bubble"><b>1 · Container</b>Height 52 (lg) · padding-x 32 · radius 2 · border 1px same as fill.</span></div>
-          <div class="pin" style="left:44%; top:-12px;">2<span class="pin__bubble"><b>2 · Label</b>Inter 500 · 16 (lg) / 14 (md) · verb first.</span></div>
+          <div class="pin" style="left:44%; top:-12px;">2<span class="pin__bubble"><b>2 · Label</b>DM Sans 600 · 16 (lg) / 14 (md) · verb first.</span></div>
           <div class="pin" style="right:-10px; top:-12px; left:auto;">3<span class="pin__bubble"><b>3 · Trailing icon</b>Optional · gap 8 · slides 3px on hover.</span></div>
           <div class="measure measure--h" style="left:0; bottom:-18px; width:100%;"><span>hug · min 44</span></div>
         </div>
@@ -625,7 +722,7 @@
         <div class="showcase" style="min-height: 140px">
           <div class="showcase__row">
             <div style="position:relative; width:120px; height:60px;"><div class="pin" style="left:0; top:0;" data-open="true">1<span class="pin__bubble"><b>Jessica · design</b>Designer pin, open state.</span></div></div>
-            <div style="position:relative; width:240px; height:60px; margin-left: 160px;"><div class="pin" style="left:0; top:0;" data-author="client">2<span class="pin__bubble"><b>Client · review</b>Client pin (sand).</span></div></div>
+            <div style="position:relative; width:240px; height:60px; margin-left: 160px;"><div class="pin" style="left:0; top:0;" data-author="client">2<span class="pin__bubble"><b>Client · review</b>Client pin (yellow).</span></div></div>
           </div>
         </div>
         <table class="table">
@@ -740,7 +837,7 @@
       <section id="accessibility">
         <span class="eyebrow">17 · Quality</span>
         <h2 class="display h-md">Accessibility</h2>
-        <p>Target: WCAG 2.2 level AA on every page, checked before every release. This is the checklist I run; items marked done are verified on v1.0.0.</p>
+        <p>Target: WCAG 2.2 level AA on every page, checked before every release. This is the checklist I run; items marked done are verified on v2.0.0.</p>
         <ul class="check">
           <li class="done"><span><b>Text contrast ≥ 4.5:1</b> (1.4.3) for all body and label text, in both themes.<small>All semantic pairs listed in Color · verified by calculation</small></span></li>
           <li class="done"><span><b>Non-text contrast ≥ 3:1</b> (1.4.11) for input borders, button boundaries and focus rings.<small>border-strong + proto focus ring</small></span></li>
@@ -783,7 +880,7 @@
   "semantic": {
     "color": {
       "brand": { "$type": "color", "$value": "{primitive.color.olive.600}" },
-      "text-subtle": { "$type": "color", "$value": "{primitive.color.bone.550}" }
+      "text-subtle": { "$type": "color", "$value": "{primitive.color.ink.500}" }
     }
   },
   "component": {
@@ -830,6 +927,13 @@
       <section id="changelog">
         <span class="eyebrow">20 · Changelog</span>
         <h2 class="display h-md">Changelog</h2>
+        <h3>2.0.0 · “Canvas” · Sep 2026</h3>
+        <ul class="list">
+          <li><strong>Changed</strong>: light mode is now the primary theme. New paper/ink neutrals replace bone; sand is retired; stickies (yellow, lilac, mint, pink, coral, sky) and strong hues (violet-600, teal-700, coral-700) added. All text pairs re-measured (see Color).</li>
+          <li><strong>Changed</strong>: type is Bricolage Grotesque, DM Sans, JetBrains Mono and Caveat (was Instrument Serif and Inter). Radii are now 4 / 8 / 14.</li>
+          <li><strong>Added</strong>: Identity v2 section (keep/adapt/drop from the first portfolio, FigJam element language, illustration and sticker rules); hard shadows; candy tags; outlined marquee; “Shall we?” contact; Jess portrait card.</li>
+          <li><strong>Changed</strong>: 3D story. The tablet is now a MacBook Pro, the world is a dotted board with FigJam-style stickies, sections, connectors, stamps and cursors, and the finale closes the lid to show the stickers.</li>
+        </ul>
         <h3>1.0.0 · Sep 2026</h3>
         <ul class="list">
           <li><strong>Added</strong>: olive and bone ramps, sand accent, functional colours; 12-step type scale; 4pt spacing; 12-col grid; motion tokens; annotation language; Button, Tag, Frame, Comment pin, Measure, Hotspot, Spec label, Sticky, Form field, Toolbar, Section header, Process step, Case frame.</li>
@@ -849,12 +953,12 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <span>© <span data-year>2026</span> Jessica Monteiro · JM Design Guidelines v1.0.0</span>
+      <span>© <span data-year>2026</span> Jessica Monteiro · JM Design Guidelines v2.0.0</span>
       <span class="footer__shortcuts"><span><kbd>G</kbd> grid</span><span><kbd>D</kbd> theme</span></span>
       <a href="index.html">← Back to portfolio</a>
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=2" defer></script>
 </body>
 </html>

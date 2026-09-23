@@ -1,9 +1,9 @@
-/* JM · Story orchestration — v2.0.0
+/* JM · Story orchestration — v3.0.0
    GSAP ScrollTrigger pins the canvas and scrubs the story; Lenis smooths the
    scroll and stays in sync through gsap.ticker. Falls back to static stills for
    prefers-reduced-motion, ?motion=reduced, missing WebGL or missing libraries. */
 
-import { createStory } from './story-scene.js?v=3';
+import { createStory } from './story-scene.js?v=5';
 
 const html = document.documentElement;
 const params = new URLSearchParams(window.location.search);
@@ -24,10 +24,16 @@ function navOffset() {
   return toolbar ? toolbar.offsetHeight + 8 : 0;
 }
 
+const isDark = () => {
+  const t = html.getAttribute('data-theme');
+  return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+};
+
 let scene = null;
 if (story && canvas) {
   try {
-    scene = createStory(canvas, { quality: small ? 'low' : 'high' });
+    scene = createStory(canvas, { quality: small ? 'low' : 'high', dark: isDark() });
+    new MutationObserver(() => scene?.setTheme?.(isDark())).observe(html, { attributes: true, attributeFilter: ['data-theme'] });
   } catch (err) {
     console.warn('[story] WebGL unavailable, using the static fallback.', err);
   }
@@ -174,6 +180,10 @@ function staticMode() {
   html.classList.remove('is-cinematic');
   html.classList.add('is-static');
   if (!scene) return;
+  scene.ready.then(() => shots());
+}
+
+function shots() {
   const portrait = window.innerWidth < 820;
   const w = portrait ? 720 : 1280;
   const h = portrait ? 960 : 760;

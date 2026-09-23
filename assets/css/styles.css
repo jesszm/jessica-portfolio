@@ -292,7 +292,7 @@ html[data-annotations="off"] .anno { opacity: 0 !important; visibility: hidden; 
   transform-origin: bottom left;
   animation: pin-in var(--dur-4) var(--ease-emphasized) both;
 }
-.pin[data-author="client"] { --pin-bg: var(--color-accent); --pin-fg: var(--bone-950); }
+.pin[data-author="client"] { --pin-bg: var(--color-accent); --pin-fg: var(--ink-900); }
 .pin__bubble {
   position: absolute; left: calc(100% + 8px); top: 0;
   min-width: 190px; max-width: 240px; padding: var(--sp-2) var(--sp-3);
@@ -352,7 +352,7 @@ html[data-annotations="off"] .anno { opacity: 0 !important; visibility: hidden; 
 
 /* Sticky note */
 .sticky {
-  background: var(--sand-300); color: var(--bone-950);
+  background: var(--sticky-yellow); color: var(--ink-900);
   padding: var(--sp-3) var(--sp-4); font-size: var(--fs-14); line-height: 1.45;
   transform: rotate(-1.2deg); box-shadow: 0 10px 20px -14px rgba(0,0,0,.45);
   max-width: 220px; font-family: var(--font-sans);

@@ -18,7 +18,7 @@
       themeBtn.querySelector('.label') && (themeBtn.querySelector('.label').textContent = dark ? 'Dark' : 'Light');
     }
   };
-  applyTheme(store.get('jm-theme') || 'dark');
+  applyTheme(store.get('jm-theme') || 'light');
   themeBtn?.addEventListener('click', () => {
     const current = html.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     const next = current === 'dark' ? 'light' : 'dark';

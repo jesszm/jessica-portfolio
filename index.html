@@ -8,7 +8,7 @@
   <meta property="og:title" content="Jessica Monteiro — UI/UX Designer">
   <meta property="og:description" content="Research-driven UI/UX design for e-commerce, mobile, web systems and fintech.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#121410">
+  <meta name="theme-color" content="#F7F3EA">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%234B5320' stroke-width='3'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%234B5320'/%3E%3C/svg%3E">
   <script>
     (function (d) {
@@ -18,16 +18,17 @@
       c.add(reduced ? 'is-static' : 'is-cinematic');
       var t = null;
       try { t = localStorage.getItem('jm-theme'); } catch (e) {}
-      d.documentElement.setAttribute('data-theme', t || 'dark');
+      d.documentElement.setAttribute('data-theme', t || 'light');
     })(document);
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:opsz,wght@9..40,400..700&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/story.css?v=3">
+  <link rel="stylesheet" href="assets/css/story.css?v=5">
+  <link rel="stylesheet" href="assets/css/identity.css?v=1">
   <script type="importmap">
     {
       "imports": {
@@ -40,8 +41,8 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
-  <script type="module" src="assets/js/story.js?v=3"></script>
+  <script src="assets/js/main.js?v=2" defer></script>
+  <script type="module" src="assets/js/story.js?v=5"></script>
 </head>
 <body>
   <a class="skip-link" href="#work">Skip to content</a>
@@ -56,7 +57,7 @@
     <div class="container toolbar__inner">
       <a class="brand" href="#top" aria-label="Jessica Monteiro — home">
         <span class="brand__mark" aria-hidden="true"></span>
-        <span>JM</span><span class="brand__file">portfolio.fig</span>
+        <span class="wordmark"><b>J</b>essica <b>M</b>onteiro</span>
       </a>
       <span class="status-pill">Ready for dev</span>
       <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
@@ -71,7 +72,7 @@
       <div class="toolbar__tools">
         <button class="tool-btn" type="button" data-action="grid" aria-pressed="false" title="Toggle layout grid (G)"><span aria-hidden="true">▦</span> Grid <kbd>G</kbd></button>
         <button class="tool-btn" type="button" data-action="annotations" aria-pressed="true" title="Toggle annotations (A)"><span aria-hidden="true">◉</span> Notes <kbd>A</kbd></button>
-        <button class="tool-btn" type="button" data-action="theme" aria-pressed="true" title="Toggle theme (D)"><span class="label">Dark</span> <kbd>D</kbd></button>
+        <button class="tool-btn" type="button" data-action="theme" aria-pressed="false" title="Toggle theme (D)"><span class="label">Light</span> <kbd>D</kbd></button>
       </div>
     </div>
   </header>
@@ -87,17 +88,18 @@
 
         <div class="story__chapters">
           <article class="chapter chapter--hero" data-in="0" data-out="0.095" data-at="0" data-shot="0.11">
+            <p class="chapter__hello">Hello, I'm Jess 👋</p>
             <div class="chapter__meta">
-              <span class="tag tag--brand">UI/UX Designer</span>
+              <span class="tag tag--lilac">UI/UX Designer</span>
               <span class="mono">5+ yrs · e-commerce · mobile · web systems · fintech</span>
             </div>
             <h1 class="chapter__title">Interfaces people don't have to <em>think</em> about.</h1>
-            <p class="chapter__text">I'm Jessica Monteiro. I design digital products from research to handoff: wireframes, interactive prototypes, usability testing and the design systems that keep it all consistent.</p>
+            <p class="chapter__text">My work blends thoughtful design with aesthetic clarity to create functional, intuitive and visually engaging experiences, from research to handoff: wireframes, prototypes, usability testing and the design systems that keep it all consistent.</p>
             <div class="chapter__cta">
               <a class="btn btn--primary btn--lg" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
               <a class="btn btn--lg" href="guidelines.html">Design guidelines</a>
             </div>
-            <span class="scroll-hint" aria-hidden="true"><i></i>Scroll to follow the process</span>
+            <span class="scroll-hint" aria-hidden="true"><i></i>scroll to follow the process ↓</span>
           </article>
 
           <article class="chapter" id="discover" data-in="0.185" data-out="0.245" data-at="0.215" data-shot="0.225">
@@ -213,7 +215,7 @@
                 </div>
                 <div class="pin" style="left: 64%; top: 30%;" data-author="jm">1<span class="pin__bubble"><b>Note</b>Every decision on this site is written down in the guidelines: tokens, components, process.</span></div>
                 <div class="measure measure--h" style="left: 16%; width: 14%; top: 42%;"><span>24</span></div>
-                <div class="spec" style="right: 8%; bottom: 10%;">TOKENS · DTCG · v1.0.0</div>
+                <div class="spec" style="right: 8%; bottom: 10%;">TOKENS · DTCG · v2.0.0</div>
               </div>
               <div class="case__body">
                 <div>
@@ -226,36 +228,34 @@
             </div>
           </a>
 
-          <!-- Case 01: Xorg (hospitality) -->
-          <!-- TODO: confirm project details, add real outcomes/metrics and screens -->
+          <!-- Case 01: Muvr (real case, from the v1 Figma portfolio) -->
           <a class="case reveal" href="#contact" data-delay="1">
             <div class="frame case__frame">
-              <span class="frame__label"><b>Case 01</b> Hospitality guest app <span class="dim">Mobile · 390</span></span>
+              <span class="frame__label"><b>Case 01</b> Marketplace app redesign <span class="dim">Mobile · 390</span></span>
               <span class="frame__handles"><span></span></span>
               <div class="case__thumb">
                 <div class="mini mini--phone">
                   <div class="wf-line wf-line--mid" style="height:10px;"></div>
                   <div class="wf-line wf-line--short"></div>
-                  <div class="wf-box wf-box--x" style="height:52px;"></div>
+                  <div class="wf-box" style="height:52px; background: var(--sticky-mint);"></div>
                   <div class="wf-line wf-line--long"></div>
                   <div class="wf-line wf-line--mid"></div>
                   <div class="wf-btn wf-btn--fill" style="margin-top:auto;"></div>
                 </div>
                 <div class="hotspot" style="left:33%; bottom:12%; width:34%; height:12%;"></div>
-                <div class="pin" style="left: 70%; top: 24%;" data-author="client">1<span class="pin__bubble"><b>Client</b>Guests kept missing the check-in step. Can it be the first thing they see?</span></div>
-                <div class="measure measure--v" style="left: 26%; top: 8%; height: 84%;"><span>844</span></div>
+                <div class="spec" style="left: 6%; top: 10%;">CUSTOMER APP · REVAMP</div>
               </div>
               <div class="case__body">
                 <div>
-                  <h3 class="case__title">Guest-facing booking &amp; stay flow</h3>
-                  <p class="case__desc">UI &amp; UX for a hospitality product: mapping the guest journey from booking to check-out, then designing a mobile interface that puts the next action first.</p>
-                  <div class="tags"><span class="tag">Mobile</span><span class="tag">User flows</span><span class="tag">UI design</span></div>
+                  <h3 class="case__title">Marketplace App Redesign</h3>
+                  <p class="case__desc">Muvr is an existing app going through a complete revamp. This is my contribution on the customer app redesign while on the team.</p>
+                  <div class="tags"><span class="tag tag--lilac">UI/UX</span><span class="tag">Mobile App</span><span class="tag tag--pink">Marketplace</span></div>
                 </div>
-                <div class="case__meta"><span>Xorg</span><span>UI &amp; UX Designer</span></div>
+                <div class="case__meta"><span>Muvr</span><span>Customer app</span></div>
               </div>
             </div>
           </a>
-
+          
           <!-- Case 02: Potência 40 -->
           <!-- TODO: confirm project details, add real outcomes/metrics and screens -->
           <a class="case reveal" href="#contact" data-delay="2">
@@ -289,31 +289,22 @@
             </div>
           </a>
 
-          <!-- Case 03: fintech dashboard (Upwork) -->
-          <!-- TODO: replace with a real Upwork project; keep "NDA" if the client can't be named -->
+          <!-- Case 03: Crypex (real case, from the v1 Figma portfolio) -->
           <a class="case case--wide reveal" href="#contact" data-delay="1">
             <div class="frame case__frame">
-              <span class="frame__label"><b>Case 03</b> Fintech dashboard <span class="dim">Web app · 1440</span></span>
+              <span class="frame__label"><b>Case 03</b> Crypto payment app <span class="dim">Mobile · Web</span></span>
               <span class="frame__handles"><span></span></span>
               <div class="case__thumb">
-                <div class="mini mini--dash">
-                  <div class="side"><div class="wf-line" style="width:100%; background:var(--color-brand);"></div><div class="wf-line"></div><div class="wf-line"></div><div class="wf-line"></div></div>
-                  <div class="main">
-                    <div class="kpis"><div class="kpi"><div class="wf-line wf-line--short" style="height:5px;"></div><div class="wf-line wf-line--mid"></div></div><div class="kpi"><div class="wf-line wf-line--short" style="height:5px;"></div><div class="wf-line wf-line--mid"></div></div><div class="kpi"><div class="wf-line wf-line--short" style="height:5px;"></div><div class="wf-line wf-line--mid"></div></div></div>
-                    <div class="chart"><svg viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,70 40,52 80,58 120,36 160,42 200,24 240,30 300,12" fill="none" stroke="var(--color-brand)" stroke-width="1.5"/></svg></div>
-                  </div>
-                </div>
-                <div class="pin" style="left: 40%; top: 20%;" data-author="jm">1<span class="pin__bubble"><b>Jessica</b>Numbers first, chrome second. Every state (loading, empty, error) is designed, not implied.</span></div>
-                <div class="measure measure--h" style="left: 10%; width: 12%; top: 50%;"><span>56</span></div>
-                <div class="spec" style="right: 6%; bottom: 12%;">COMPONENTS · 38 · DEV MODE</div>
+                <div class="crypex" aria-hidden="true"><span>CRYPE<i>X</i></span><span>CRYPE<i>X</i></span></div>
+                <div class="spec" style="right: 4%; bottom: 8%;">ONGOING · COMPLETE REVAMP</div>
               </div>
               <div class="case__body">
                 <div>
-                  <h3 class="case__title">Data-dense dashboard &amp; component library</h3>
-                  <p class="case__desc">For a fintech client on Upwork: information hierarchy for dense financial data, every component state documented, and a Figma library the developers could build from directly.</p>
-                  <div class="tags"><span class="tag">Fintech</span><span class="tag">Design system</span><span class="tag">Dev handoff</span></div>
+                  <h3 class="case__title">Crypto Payment App</h3>
+                  <p class="case__desc">Crypex is an ongoing platform going through a complete revamp. This is my contribution on the customer app redesign while on the team.</p>
+                  <div class="tags"><span class="tag tag--lilac">UI/UX</span><span class="tag">Mobile App</span><span class="tag tag--yellow">Website</span><span class="tag tag--mint">Financial</span></div>
                 </div>
-                <div class="case__meta"><span>Upwork client</span><span class="tag">Under NDA · details on request</span></div>
+                <div class="case__meta"><span>Crypex</span><span>Customer app redesign</span></div>
               </div>
             </div>
           </a>
@@ -398,20 +389,21 @@
         </div>
         <div class="about">
           <div class="about__portrait reveal">
-            <div class="frame frame--dashed" style="position:absolute; inset:0;">
-              <span class="frame__label"><b>Portrait</b> <span class="dim">3:4 · 800 × 1066</span></span>
-              <div class="wf-box wf-box--x">
-                <!-- TODO: replace this placeholder with <img src="assets/img/portrait.jpg" alt="Jessica Monteiro"> -->
-                <span class="hint">Image placeholder<br>Add portrait.jpg to assets/img</span>
-              </div>
+            <div class="jess-card">
+              <img src="assets/img/jess-oculos.svg" alt="Illustration of Jess sitting on the floor, wearing yellow flower sunglasses" loading="lazy" decoding="async">
             </div>
-            <div class="measure measure--v anno" style="left:-18px; top:0; height:100%;"><span>1066</span></div>
-            <div class="measure measure--h anno" style="left:0; bottom:-18px; width:100%;"><span>800</span></div>
+            <svg class="sparkle" style="right:-14px; top:18%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-lilac)"/></svg>
+            <svg class="sparkle" style="left:-16px; top:52%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-mint)"/></svg>
+            <svg class="sparkle" style="right:10%; bottom:-14px;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-yellow)"/></svg>
           </div>
 
           <div class="about__body">
             <p class="lead reveal">I'm a UI/UX designer with over five years of experience, passionate about digital experiences that are visually clear, functional and genuinely easy to use.</p>
-            <p class="reveal" data-delay="1">I've designed across e-commerce, mobile apps, web systems, fintech and software application interfaces. What ties it together is the same habit: understand the person on the other side of the screen first, then design the smallest interface that gets them what they came for.</p>
+            <div class="about__pair reveal" data-delay="1">
+              <div class="about__block"><span class="tag tag--lilac about__kicker">The designer</span><h3>Shaped by creativity</h3><p>My path began with colors and lines, sharpening my eye for balance, detail, and possibility. That foundation grew into a love for digital design, crafting experiences that feel intuitive, thoughtful, and alive.</p></div>
+              <div class="about__block"><span class="tag tag--mint about__kicker">Remote, worldwide</span><h3>Guided by freedom</h3><p>Freelancing turned the world into my office. New teams brought fresh rhythms, new cultures sparked new perspectives, and every project pushed me to grow. It kept me on my toes and taught me to adapt quickly, stay curious, and design with empathy.</p></div>
+            </div>
+            <p class="about__quote reveal" data-delay="1"><span class="hand" style="display:block;font-size:1.3rem;color:var(--color-text-muted)">at the heart of it all…</span>“Good design stands on your side, <em>never in your way</em>.”</p>
             <p class="reveal" data-delay="2">I work in Figma daily and bring illustration skills from Adobe Illustrator and Procreate when a product needs a visual voice of its own. Communication and close collaboration with clients are essential to my process, so you'll always know what I'm designing, why, and what I need from you next.</p>
 
             <div class="facts reveal" data-delay="2">
@@ -435,14 +427,15 @@
     <!-- ============ CONTACT ============ -->
     <section class="section" id="contact">
       <div class="container">
-        <div class="frame frame--dashed contact reveal">
-          <span class="frame__label"><b>Frame 04</b> Contact <span class="dim">CTA · centered</span></span>
-          <div class="measure measure--h anno" style="left:0; top:-44px; width:100%;"><span>1200</span></div>
-          <h2 class="display h-lg">Let's create <em>exceptional</em> digital experiences together.</h2>
-          <p class="lead">Have a product, a feature or a messy flow that needs a designer who thinks in systems? Tell me about it.</p>
+        <div class="shall reveal">
+          <svg class="sparkle" style="left:8%; top:14%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-lilac)"/></svg>
+          <svg class="sparkle" style="right:9%; top:22%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-mint)"/></svg>
+          <svg class="sparkle" style="left:16%; bottom:16%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-yellow)"/></svg>
+          <h2 class="shall__title"><span class="a">Shall</span> <span class="b">we?</span></h2>
+          <p>Let's transform ideas into functional and engaging designs. Have a product, a feature or a messy flow? Tell me about it.</p>
           <div class="contact__links">
             <a class="btn btn--primary btn--lg" href="https://www.upwork.com/freelancers/jessicamonteiro" target="_blank" rel="noopener">Hire me on Upwork <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--lg" href="https://www.linkedin.com/in/jksmnt/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+            <a class="btn btn--lilac btn--lg" href="https://www.linkedin.com/in/jksmnt/" target="_blank" rel="noopener">Connect on LinkedIn</a>
           </div>
           <div class="contact__handles">
             <!-- TODO: replace with your real email -->
@@ -459,7 +452,7 @@
     <div class="container footer__inner">
       <span>© <span data-year>2026</span> Jessica Monteiro · Designed and documented by me</span>
       <span class="footer__shortcuts"><span><kbd>G</kbd> grid</span><span><kbd>A</kbd> notes</span><span><kbd>D</kbd> theme</span></span>
-      <a href="guidelines.html">Design guidelines · v1.0.0</a>
+      <a href="guidelines.html">Design guidelines · v2.0.0</a>
     </div>
   </footer>
 

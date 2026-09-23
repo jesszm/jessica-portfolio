@@ -1,15 +1,27 @@
 /* ==========================================================================
-   JM · Design Tokens — v1.0.0
-   Three tiers, one-way dependency: primitive → semantic → component.
-   Source of truth: assets/tokens/tokens.json (W3C DTCG format).
-   Every text/background pair used on the site meets WCAG 2.2 AA (≥ 4.5:1),
-   every UI boundary/focus ring meets 3:1. Ratios are listed in guidelines.html.
+   JM · Design Tokens — v2.0.0 "Canvas"
+   Light mode is the primary theme. Three tiers, one-way dependency:
+   primitive → semantic → component. Source of truth: assets/tokens/tokens.json.
+   Every text pair meets WCAG 2.2 AA (≥ 4.5:1); ratios are in guidelines.html.
    ========================================================================== */
 
 :root {
-  /* ---------- 1. PRIMITIVES (raw values, no meaning) ---------- */
+  /* ---------- 1. PRIMITIVES ---------- */
 
-  /* Olive ramp — built from military green #4B5320 (olive-600) */
+  /* Paper & ink — the canvas and the marker */
+  --paper-0:   #FFFFFF;
+  --paper-50:  #F7F3EA;   /* page canvas */
+  --paper-100: #EFEADD;
+  --paper-200: #E3DCCB;
+  --paper-300: #D3CAB5;
+  --ink-400:   #8E8C80;
+  --ink-500:   #66655B;
+  --ink-600:   #4E4D44;
+  --ink-800:   #2A2922;
+  --ink-900:   #16150F;   /* outlines, text */
+  --ink-950:   #0E0D09;
+
+  /* Olive — military green, the brand anchor (kept from v1) */
   --olive-50:  #F4F5EE;
   --olive-100: #E6E9D8;
   --olive-200: #CDD3B3;
@@ -20,105 +32,67 @@
   --olive-700: #3D4419;
   --olive-800: #2F3514;
   --olive-900: #22270F;
-  --olive-950: #141708;
 
-  /* Bone ramp — warm neutrals tinted toward olive */
-  --bone-0:    #FFFFFF;
-  --bone-50:   #FAFAF6;
-  --bone-100:  #F2F2EB;
-  --bone-200:  #E4E4DA;
-  --bone-300:  #CFCFC2;
-  --bone-400:  #A8A899;
-  --bone-450:  #8F8F82;
-  --bone-500:  #7C7C6E;
-  --bone-550:  #6B6B5E;
-  --bone-600:  #5A5A4F;
-  --bone-700:  #3E3E36;
-  --bone-800:  #26261F;
-  --bone-900:  #181812;
-  --bone-950:  #121410;
+  /* Sticky notes — FigJam-flavoured fills, always with ink text */
+  --sticky-yellow: #FFD95A;
+  --sticky-lilac:  #C9B8FF;
+  --sticky-mint:   #B5EBDD;
+  --sticky-pink:   #FFC4DE;
+  --sticky-coral:  #FF8A66;
+  --sticky-sky:    #A9D4FF;
 
-  /* Sand — secondary accent, surfaces only (never text on light) */
-  --sand-300:  #E8DFBF;
-  --sand-400:  #D4C48F;
-  --sand-500:  #B8A263;
-  --sand-600:  #8F7C44;
-  --sand-700:  #6E5F32;
+  /* Strong hues — text-safe versions of the stickies */
+  --violet-600: #6445D6;   /* from the v1 lilac initials; 5.6:1 on paper */
+  --violet-300: #B9A4FF;   /* dark mode */
+  --teal-700:   #0B6F6B;   /* from Arpoador "mar"; 5.4:1 on paper */
+  --teal-300:   #7FD8CB;
+  --coral-700:  #B83A0E;   /* from Arpoador "pôr do sol"; 5.2:1 on paper */
+  --coral-400:  #FF8A66;
 
-  /* Functional primitives — the "prototype" language */
-  --redline-500:  #CF3327;  /* measurements & redlines (light) */
-  --redline-300:  #F07A6F;  /* measurements & redlines (dark) */
-  --proto-500:    #2F80ED;  /* hotspots, connectors, focus ring (non-text) */
-  --proto-700:    #1E5FC2;  /* proto as text (light) */
-  --proto-300:    #6FA8FF;  /* proto as text (dark) */
-  --success-500:  #3F8F4E;
-  --success-700:  #2E7A3C;
-  --success-300:  #7CC98A;
-  --warning-500:  #C98A1B;
-  --warning-700:  #8A5E0B;
-  --warning-300:  #E0A63A;
-  --danger-500:   #C53A2E;
-  --danger-300:   #F07A6F;
+  /* Functional */
+  --success: #2E7A3C;
+  --warning: #8A5E0B;
+  --danger:  #C53A2E;
 
-  /* Typography primitives */
-  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
-  --font-sans:    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Type */
+  --font-display: "Bricolage Grotesque", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-hand:    "Caveat", "Segoe Print", "Bradley Hand", cursive;
 
-  --fs-12: 0.75rem;
-  --fs-13: 0.8125rem;
-  --fs-14: 0.875rem;
-  --fs-16: 1rem;
-  --fs-18: 1.125rem;
-  --fs-20: 1.25rem;
-  --fs-24: 1.5rem;
-  --fs-32: 2rem;
-  --fs-40: 2.5rem;
-  --fs-56: 3.5rem;
-  --fs-72: 4.5rem;
-  --fs-96: 6rem;
+  --fs-12: 0.75rem;  --fs-13: 0.8125rem; --fs-14: 0.875rem; --fs-16: 1rem;
+  --fs-18: 1.125rem; --fs-20: 1.25rem;   --fs-24: 1.5rem;   --fs-32: 2rem;
+  --fs-40: 2.5rem;   --fs-56: 3.5rem;    --fs-72: 4.5rem;   --fs-96: 6rem;
 
-  --lh-tight: 1.05;
+  --lh-tight: 1.0;
   --lh-snug:  1.2;
   --lh-normal: 1.5;
   --lh-relaxed: 1.65;
 
-  --tracking-tight: -0.02em;
+  --tracking-tight: -0.035em;
   --tracking-normal: 0;
   --tracking-wide: 0.08em;
 
   /* Spacing — 4pt base */
-  --sp-1: 0.25rem;  /* 4  */
-  --sp-2: 0.5rem;   /* 8  */
-  --sp-3: 0.75rem;  /* 12 */
-  --sp-4: 1rem;     /* 16 */
-  --sp-5: 1.5rem;   /* 24 */
-  --sp-6: 2rem;     /* 32 */
-  --sp-7: 3rem;     /* 48 */
-  --sp-8: 4rem;     /* 64 */
-  --sp-9: 6rem;     /* 96 */
-  --sp-10: 8rem;    /* 128 */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;  --sp-5: 1.5rem;
+  --sp-6: 2rem;    --sp-7: 3rem;   --sp-8: 4rem;    --sp-9: 6rem;  --sp-10: 8rem;
 
-  /* Radius — wireframe-first, mostly square */
+  /* Radius — friendlier than v1, still crisp */
   --radius-0: 0;
-  --radius-1: 2px;
-  --radius-2: 4px;
-  --radius-3: 8px;
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-3: 14px;
   --radius-full: 999px;
 
-  /* Borders */
   --bw-hair: 1px;
   --bw-thick: 2px;
 
   /* Motion */
-  --dur-1: 120ms;
-  --dur-2: 200ms;
-  --dur-3: 320ms;
-  --dur-4: 600ms;
-  --dur-5: 1200ms;
+  --dur-1: 120ms; --dur-2: 200ms; --dur-3: 320ms; --dur-4: 600ms; --dur-5: 1200ms;
   --ease-standard:   cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-emphasized: cubic-bezier(0.05, 0.7, 0.1, 1);
   --ease-exit:       cubic-bezier(0.4, 0, 1, 1);
+  --ease-bounce:     cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Layout */
   --container: 1200px;
@@ -126,156 +100,108 @@
   --gutter: 1.5rem;
   --columns: 12;
 
-  /* Z-index scale */
-  --z-base: 0;
-  --z-raised: 10;
-  --z-sticky: 100;
-  --z-overlay: 1000;
-  --z-cursor: 1100;
+  --z-base: 0; --z-raised: 10; --z-sticky: 100; --z-overlay: 1000; --z-cursor: 1100;
 
-  /* ---------- 2. SEMANTIC (intent) — light theme ---------- */
-  --color-bg:              var(--bone-50);
-  --color-bg-elevated:     var(--bone-0);
-  --color-bg-sunken:       var(--bone-100);
-  --color-bg-inverse:      var(--bone-950);
+  /* ---------- 2. SEMANTIC — light (primary) ---------- */
+  --color-bg:            var(--paper-50);
+  --color-bg-elevated:   var(--paper-0);
+  --color-bg-sunken:     var(--paper-100);
+  --color-bg-inverse:    var(--ink-900);
 
-  --color-text:            var(--bone-950);   /* 17.7:1 on bg */
-  --color-text-muted:      var(--bone-600);   /* 6.7:1 */
-  --color-text-subtle:     var(--bone-550);   /* 5.2:1 */
-  --color-text-inverse:    var(--bone-50);
-  --color-text-on-brand:   var(--bone-0);     /* 8.2:1 on brand */
+  --color-text:          var(--ink-900);   /* 16.5:1 */
+  --color-text-muted:    var(--ink-600);   /* 7.7:1 */
+  --color-text-subtle:   var(--ink-500);   /* 5.3:1 */
+  --color-text-inverse:  var(--paper-50);
+  --color-text-on-brand: var(--paper-0);   /* 8.2:1 on olive */
 
-  --color-brand:           var(--olive-600);
-  --color-brand-hover:     var(--olive-700);
-  --color-brand-active:    var(--olive-800);
-  --color-brand-subtle:    var(--olive-100);
-  --color-brand-muted:     var(--olive-300);
-  --color-brand-text:      var(--olive-600);  /* 7.9:1 on bg · 6.7:1 on brand-subtle */
+  --color-brand:         var(--olive-600);
+  --color-brand-hover:   var(--olive-700);
+  --color-brand-active:  var(--olive-800);
+  --color-brand-subtle:  var(--olive-100);
+  --color-brand-muted:   var(--olive-300);
+  --color-brand-text:    var(--olive-600); /* 7.4:1 */
 
-  --color-accent:          var(--sand-500);
-  --color-accent-subtle:   var(--sand-300);
-  --color-accent-text:     var(--sand-700);   /* 6.0:1 */
+  --color-accent:        var(--sticky-lilac);
+  --color-accent-subtle: #EEE8FF;
+  --color-accent-text:   var(--violet-600);
 
-  --color-border:          var(--bone-300);   /* decorative boundaries */
-  --color-border-strong:   var(--bone-950);   /* interactive boundaries ≥ 3:1 */
-  --color-border-subtle:   var(--bone-200);
+  --color-border:        var(--paper-300);
+  --color-border-strong: var(--ink-900);
+  --color-border-subtle: var(--paper-200);
 
-  --color-focus:           var(--proto-500);  /* 3.7:1 non-text ✓ */
+  --color-focus:         var(--violet-600);
+  --color-redline:       var(--coral-400);
+  --color-text-on-redline: var(--ink-900);  /* 7.9:1 */
+  --color-proto:         var(--violet-600);
+  --color-proto-text:    var(--violet-600);
 
-  --color-redline:         var(--redline-500);
-  --color-text-on-redline: var(--bone-0);     /* 5.1:1 */
-  --color-proto:           var(--proto-500);
-  --color-proto-text:      var(--proto-700);  /* 5.8:1 */
-  --color-success:         var(--success-500);
-  --color-success-text:    var(--success-700);
-  --color-warning:         var(--warning-500);
-  --color-warning-text:    var(--warning-700);
-  --color-danger:          var(--danger-500);
-  --color-danger-text:     var(--danger-500); /* 5.0:1 */
+  --color-success:       var(--success);
+  --color-success-text:  var(--success);
+  --color-warning:       var(--warning);
+  --color-warning-text:  var(--warning);
+  --color-danger:        var(--danger);
+  --color-danger-text:   var(--danger);
 
-  --grid-dot:              rgba(18, 20, 16, 0.14);
-  --grid-column:           rgba(207, 51, 39, 0.08);
-  --grid-column-edge:      rgba(207, 51, 39, 0.28);
+  --shadow-hard:         3px 3px 0 var(--color-border-strong);
+  --shadow-hard-lg:      5px 5px 0 var(--color-border-strong);
+  --shadow-soft:         0 10px 24px -14px rgba(22, 21, 15, 0.35);
+
+  --grid-dot:            rgba(22, 21, 15, 0.16);
+  --grid-column:         rgba(100, 69, 214, 0.07);
+  --grid-column-edge:    rgba(100, 69, 214, 0.28);
 
   color-scheme: light;
 }
 
-/* ---------- Dark theme (shared block, applied twice) ---------- */
+/* ---------- Dark (secondary) ---------- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg:              var(--bone-950);
-    --color-bg-elevated:     var(--bone-900);
-    --color-bg-sunken:       #0E100C;
-    --color-bg-inverse:      var(--bone-50);
-    --color-text:            var(--bone-100);
-    --color-text-muted:      var(--bone-400);
-    --color-text-subtle:     var(--bone-450);
-    --color-text-inverse:    var(--bone-950);
-    --color-text-on-brand:   var(--bone-950);
-    --color-brand:           var(--olive-400);
-    --color-brand-hover:     var(--olive-300);
-    --color-brand-active:    var(--olive-200);
-    --color-brand-subtle:    var(--olive-900);
-    --color-brand-muted:     var(--olive-700);
-    --color-brand-text:      var(--olive-300);
-    --color-accent:          var(--sand-400);
-    --color-accent-subtle:   var(--sand-600);
-    --color-accent-text:     var(--sand-400);
-    --color-border:          var(--bone-700);
-    --color-border-strong:   var(--bone-100);
-    --color-border-subtle:   var(--bone-800);
-    --color-focus:           var(--proto-300);
-    --color-redline:         var(--redline-300);
-    --color-text-on-redline: var(--bone-950);
-    --color-proto:           var(--proto-300);
-    --color-proto-text:      var(--proto-300);
-    --color-success:         var(--success-300);
-    --color-success-text:    var(--success-300);
-    --color-warning:         var(--warning-300);
-    --color-warning-text:    var(--warning-300);
-    --color-danger:          var(--danger-300);
-    --color-danger-text:     var(--danger-300);
-    --grid-dot:              rgba(250, 250, 246, 0.12);
-    --grid-column:           rgba(240, 122, 111, 0.10);
-    --grid-column-edge:      rgba(240, 122, 111, 0.34);
+    --color-bg: #131410; --color-bg-elevated: #1C1D18; --color-bg-sunken: #0E0F0B; --color-bg-inverse: var(--paper-50);
+    --color-text: #F2EFE6; --color-text-muted: #B7B3A6; --color-text-subtle: #9C988C; --color-text-inverse: var(--ink-900);
+    --color-text-on-brand: var(--ink-900);
+    --color-brand: var(--olive-400); --color-brand-hover: var(--olive-300); --color-brand-active: var(--olive-200);
+    --color-brand-subtle: var(--olive-900); --color-brand-muted: var(--olive-700); --color-brand-text: var(--olive-300);
+    --color-accent: var(--violet-300); --color-accent-subtle: #2A2440; --color-accent-text: var(--violet-300);
+    --color-border: #34352D; --color-border-strong: #F2EFE6; --color-border-subtle: #26271F;
+    --color-focus: var(--violet-300); --color-redline: var(--coral-400); --color-text-on-redline: var(--ink-900);
+    --color-proto: var(--violet-300); --color-proto-text: var(--violet-300);
+    --color-success-text: #7CC98A; --color-warning-text: #E0A63A; --color-danger-text: #F07A6F;
+    --grid-dot: rgba(242, 239, 230, 0.12); --grid-column: rgba(185, 164, 255, 0.08); --grid-column-edge: rgba(185, 164, 255, 0.3);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --color-bg:              var(--bone-950);
-  --color-bg-elevated:     var(--bone-900);
-  --color-bg-sunken:       #0E100C;
-  --color-bg-inverse:      var(--bone-50);
-  --color-text:            var(--bone-100);
-  --color-text-muted:      var(--bone-400);
-  --color-text-subtle:     var(--bone-450);
-  --color-text-inverse:    var(--bone-950);
-  --color-text-on-brand:   var(--bone-950);
-  --color-brand:           var(--olive-400);
-  --color-brand-hover:     var(--olive-300);
-  --color-brand-active:    var(--olive-200);
-  --color-brand-subtle:    var(--olive-900);
-  --color-brand-muted:     var(--olive-700);
-  --color-brand-text:      var(--olive-300);
-  --color-accent:          var(--sand-400);
-  --color-accent-subtle:   var(--sand-600);
-  --color-accent-text:     var(--sand-400);
-  --color-border:          var(--bone-700);
-  --color-border-strong:   var(--bone-100);
-  --color-border-subtle:   var(--bone-800);
-  --color-focus:           var(--proto-300);
-  --color-redline:         var(--redline-300);
-  --color-text-on-redline: var(--bone-950);
-  --color-proto:           var(--proto-300);
-  --color-proto-text:      var(--proto-300);
-  --color-success:         var(--success-300);
-  --color-success-text:    var(--success-300);
-  --color-warning:         var(--warning-300);
-  --color-warning-text:    var(--warning-300);
-  --color-danger:          var(--danger-300);
-  --color-danger-text:     var(--danger-300);
-  --grid-dot:              rgba(250, 250, 246, 0.12);
-  --grid-column:           rgba(240, 122, 111, 0.10);
-  --grid-column-edge:      rgba(240, 122, 111, 0.34);
+  --color-bg: #131410; --color-bg-elevated: #1C1D18; --color-bg-sunken: #0E0F0B; --color-bg-inverse: var(--paper-50);
+  --color-text: #F2EFE6; --color-text-muted: #B7B3A6; --color-text-subtle: #9C988C; --color-text-inverse: var(--ink-900);
+  --color-text-on-brand: var(--ink-900);
+  --color-brand: var(--olive-400); --color-brand-hover: var(--olive-300); --color-brand-active: var(--olive-200);
+  --color-brand-subtle: var(--olive-900); --color-brand-muted: var(--olive-700); --color-brand-text: var(--olive-300);
+  --color-accent: var(--violet-300); --color-accent-subtle: #2A2440; --color-accent-text: var(--violet-300);
+  --color-border: #34352D; --color-border-strong: #F2EFE6; --color-border-subtle: #26271F;
+  --color-focus: var(--violet-300); --color-redline: var(--coral-400); --color-text-on-redline: var(--ink-900);
+  --color-proto: var(--violet-300); --color-proto-text: var(--violet-300);
+  --color-success-text: #7CC98A; --color-warning-text: #E0A63A; --color-danger-text: #F07A6F;
+  --grid-dot: rgba(242, 239, 230, 0.12); --grid-column: rgba(185, 164, 255, 0.08); --grid-column-edge: rgba(185, 164, 255, 0.3);
   color-scheme: dark;
 }
 
 /* ---------- 3. COMPONENT tokens ---------- */
 :root {
   --button-height-sm: 2rem;
-  --button-height-md: 2.75rem;   /* 44px — comfortable target */
+  --button-height-md: 2.75rem;
   --button-height-lg: 3.25rem;
   --button-padding-x: var(--sp-5);
-  --button-radius: var(--radius-1);
+  --button-radius: var(--radius-2);
+  --button-border: var(--bw-thick) solid var(--color-border-strong);
 
   --card-padding: var(--sp-5);
-  --card-radius: var(--radius-2);
-  --card-border: var(--bw-hair) solid var(--color-border);
+  --card-radius: var(--radius-3);
+  --card-border: var(--bw-thick) solid var(--color-border-strong);
 
   --pin-size: 1.5rem;
-  --pin-bg: var(--color-brand);
-  --pin-fg: var(--color-text-on-brand);
+  --pin-bg: var(--violet-600);
+  --pin-fg: var(--paper-0);
 
-  --nav-height: 3.5rem;
+  --nav-height: 3.75rem;
   --input-height: 2.75rem;
 }
