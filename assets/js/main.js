@@ -18,7 +18,7 @@
       themeBtn.querySelector('.label') && (themeBtn.querySelector('.label').textContent = dark ? 'Dark' : 'Light');
     }
   };
-  applyTheme(store.get('jm-theme'));
+  applyTheme(store.get('jm-theme') || 'dark');
   themeBtn?.addEventListener('click', () => {
     const current = html.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     const next = current === 'dark' ? 'light' : 'dark';
@@ -55,7 +55,7 @@
   /* ---------- Active section in nav (scroll-position based) ---------- */
   const trackNav = (selector) => {
     const links = [...document.querySelectorAll(selector)].filter(a => (a.getAttribute('href') || '').startsWith('#'));
-    const pairs = links.map(a => ({ a, el: document.querySelector(a.getAttribute('href')) })).filter(p => p.el);
+    const pairs = links.map(a => ({ a, el: document.querySelector(a.getAttribute('href')) })).filter(p => p.el && !p.el.classList.contains('chapter'));
     if (!pairs.length) return;
     let last = 0, timer = null;
     const update = () => {

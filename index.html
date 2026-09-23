@@ -1,23 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" data-grid="off" data-annotations="on">
+<html lang="en" class="no-js" data-grid="off" data-annotations="on">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Jessica Monteiro — UI/UX Designer</title>
   <meta name="description" content="Jessica Monteiro is a UI/UX designer with 5+ years of experience across e-commerce, mobile apps, web systems and fintech. Research-driven, systems-minded, built with developers.">
   <meta property="og:title" content="Jessica Monteiro — UI/UX Designer">
   <meta property="og:description" content="Research-driven UI/UX design for e-commerce, mobile, web systems and fintech.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#4B5320">
+  <meta name="theme-color" content="#121410">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%234B5320' stroke-width='3'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%234B5320'/%3E%3C/svg%3E">
+  <script>
+    (function (d) {
+      var c = d.documentElement.classList;
+      c.remove('no-js'); c.add('js');
+      var reduced = /[?&]motion=reduced/.test(location.search) || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      c.add(reduced ? 'is-static' : 'is-cinematic');
+      var t = null;
+      try { t = localStorage.getItem('jm-theme'); } catch (e) {}
+      d.documentElement.setAttribute('data-theme', t || 'dark');
+    })(document);
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/story.css?v=3">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" crossorigin>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script type="module" src="assets/js/story.js?v=3"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#work">Skip to content</a>
   <div class="canvas-bg" aria-hidden="true"></div>
   <div class="layout-grid" aria-hidden="true"><div class="layout-grid__inner">
     <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -34,156 +61,119 @@
       <span class="status-pill">Ready for dev</span>
       <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
       <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#process">Process</a>
+        <a href="#discover" data-process>Process</a>
         <a href="#work">Work</a>
         <a href="#services">Services</a>
+        <a href="#about">About</a>
         <a href="guidelines.html">Guidelines</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="toolbar__tools">
         <button class="tool-btn" type="button" data-action="grid" aria-pressed="false" title="Toggle layout grid (G)"><span aria-hidden="true">▦</span> Grid <kbd>G</kbd></button>
         <button class="tool-btn" type="button" data-action="annotations" aria-pressed="true" title="Toggle annotations (A)"><span aria-hidden="true">◉</span> Notes <kbd>A</kbd></button>
-        <button class="tool-btn" type="button" data-action="theme" aria-pressed="false" title="Toggle theme (D)"><span class="label">Light</span> <kbd>D</kbd></button>
+        <button class="tool-btn" type="button" data-action="theme" aria-pressed="true" title="Toggle theme (D)"><span class="label">Dark</span> <kbd>D</kbd></button>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="top" data-cursor-zone>
-      <div class="container hero__grid">
-        <div>
-          <div class="hero__eyebrow">
-            <span class="tag tag--brand">UI/UX Designer</span>
-            <span class="mono">5+ yrs · e-commerce · mobile · web systems · fintech</span>
-          </div>
-          <h1 class="display h-xl hero__title">
-            <span class="line"><span>Interfaces people</span></span>
-            <span class="line"><span>don't have to</span></span>
-            <span class="line"><span><em>think</em> about.</span></span>
-          </h1>
-          <p class="lead hero__lead">I'm Jessica Monteiro. I design digital products from research to handoff: wireframes, interactive prototypes, usability testing and the design systems that keep it all consistent.</p>
-          <div class="hero__cta">
-            <a class="btn btn--primary btn--lg" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--lg" href="guidelines.html">Design guidelines</a>
-            <span class="hint">press <kbd>G</kbd> for grid · <kbd>A</kbd> for notes</span>
-          </div>
+    <!-- ============ STORY (pinned 3D, scroll-driven) ============ -->
+    <section class="story" id="top" aria-label="From the first conversation to handoff: my UI/UX process">
+      <div class="story__stage" data-cursor-zone>
+        <canvas class="story__canvas" aria-hidden="true"></canvas>
+        <div class="story__scrim" aria-hidden="true"></div>
+        <div class="story__cut" aria-hidden="true"></div>
+        <div class="story__grain" aria-hidden="true"></div>
+
+        <div class="story__chapters">
+          <article class="chapter chapter--hero" data-in="0" data-out="0.095" data-at="0" data-shot="0.11">
+            <div class="chapter__meta">
+              <span class="tag tag--brand">UI/UX Designer</span>
+              <span class="mono">5+ yrs · e-commerce · mobile · web systems · fintech</span>
+            </div>
+            <h1 class="chapter__title">Interfaces people don't have to <em>think</em> about.</h1>
+            <p class="chapter__text">I'm Jessica Monteiro. I design digital products from research to handoff: wireframes, interactive prototypes, usability testing and the design systems that keep it all consistent.</p>
+            <div class="chapter__cta">
+              <a class="btn btn--primary btn--lg" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--lg" href="guidelines.html">Design guidelines</a>
+            </div>
+            <span class="scroll-hint" aria-hidden="true"><i></i>Scroll to follow the process</span>
+          </article>
+
+          <article class="chapter" id="discover" data-in="0.185" data-out="0.245" data-at="0.215" data-shot="0.225">
+            <p class="chapter__eyebrow"><span class="num">01</span> How I work</p>
+            <h2 class="chapter__title">Discover</h2>
+            <p class="chapter__text">Align on the problem, the people, the constraints and what "success" will be measured by.</p>
+            <ul class="chapter__list"><li>Stakeholder interviews</li><li>Brief &amp; KPIs</li><li>Scope &amp; risks</li></ul>
+          </article>
+
+          <article class="chapter" id="research" data-in="0.262" data-out="0.335" data-at="0.305" data-shot="0.32">
+            <p class="chapter__eyebrow"><span class="num">02</span> How I work</p>
+            <h2 class="chapter__title">Research</h2>
+            <p class="chapter__text">Learn from real users and the market before drawing a single screen.</p>
+            <ul class="chapter__list"><li>User interviews</li><li>Surveys &amp; analytics</li><li>Competitive audit</li></ul>
+          </article>
+
+          <article class="chapter" id="define" data-in="0.372" data-out="0.462" data-at="0.43" data-shot="0.45">
+            <p class="chapter__eyebrow"><span class="num">03</span> How I work</p>
+            <h2 class="chapter__title">Define</h2>
+            <p class="chapter__text">Turn findings into structure: who we're designing for and how the product is organised.</p>
+            <ul class="chapter__list"><li>Personas / JTBD</li><li>Journey maps</li><li>IA &amp; user flows</li></ul>
+          </article>
+
+          <article class="chapter" id="design" data-in="0.505" data-out="0.64" data-at="0.61" data-shot="0.625">
+            <p class="chapter__eyebrow"><span class="num">04</span> How I work</p>
+            <h2 class="chapter__title">Design</h2>
+            <p class="chapter__text">From low-fidelity sketches to a high-fidelity UI backed by a component system.</p>
+            <ul class="chapter__list"><li>Wireframes</li><li>UI &amp; design system</li><li>Interactive prototype</li></ul>
+          </article>
+
+          <article class="chapter" id="validate" data-in="0.668" data-out="0.738" data-at="0.715" data-shot="0.72">
+            <p class="chapter__eyebrow"><span class="num">05</span> How I work</p>
+            <h2 class="chapter__title">Validate</h2>
+            <p class="chapter__text">Test with users, measure, and fix what matters most before anything gets built.</p>
+            <ul class="chapter__list"><li>Usability testing</li><li>SUS · SEQ · task success</li><li>Prioritised iteration</li></ul>
+          </article>
+
+          <article class="chapter" id="deliver" data-in="0.752" data-out="0.805" data-at="0.79" data-shot="0.8">
+            <p class="chapter__eyebrow"><span class="num">06</span> How I work</p>
+            <h2 class="chapter__title">Deliver</h2>
+            <p class="chapter__text">Hand off with specs, tokens and annotations, then follow the numbers after launch.</p>
+            <ul class="chapter__list"><li>Dev handoff &amp; QA</li><li>Design tokens</li><li>HEART metrics</li></ul>
+          </article>
+
+          <article class="chapter chapter--final" id="finale" data-in="0.905" data-at="0.995" data-shot="1">
+            <div class="chapter__meta"><span class="status-pill">Ready for dev</span></div>
+            <h2 class="chapter__title">Have a product, a feature or a <em>messy flow</em>?</h2>
+            <p class="chapter__text">Communication and close collaboration with clients are essential to my process, so you'll always know what I'm designing, why, and what I need from you next.</p>
+            <div class="chapter__cta">
+              <a class="btn btn--primary btn--lg" href="https://www.upwork.com/freelancers/jessicamonteiro" target="_blank" rel="noopener">Hire me on Upwork <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--lg" href="https://www.linkedin.com/in/jksmnt/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+            </div>
+          </article>
         </div>
 
-        <div class="hero__art">
-          <div class="frame frame--selected">
-            <span class="frame__label"><b>Frame 01</b> Hero / Dashboard <span class="dim">1440 × 900</span></span>
-            <span class="frame__handles"><span></span></span>
-            <svg class="hero-wire" viewBox="0 0 640 420" role="img" aria-labelledby="heroWireTitle">
-              <title id="heroWireTitle">Annotated wireframe of a dashboard screen with a prototype link to a mobile frame</title>
-              <!-- artboard -->
-              <rect class="stroke draw" x="20.5" y="20.5" width="520" height="360"/>
-              <line class="stroke draw d2" x1="20.5" y1="60.5" x2="540.5" y2="60.5"/>
-              <line class="stroke draw d2" x1="140.5" y1="60.5" x2="140.5" y2="380.5"/>
-              <!-- top bar -->
-              <g class="fade f1">
-                <circle class="stroke" cx="40" cy="40" r="4"/><circle class="stroke" cx="54" cy="40" r="4"/><circle class="stroke" cx="68" cy="40" r="4"/>
-                <rect class="fill-line" x="220" y="35" width="150" height="10" rx="2"/>
-                <circle class="fill-line" cx="516" cy="40" r="9"/>
-              </g>
-              <!-- sidebar -->
-              <g class="fade f1">
-                <rect class="active-item" x="28" y="76" width="104" height="22" rx="2"/>
-                <rect class="fill-brand" x="36" y="84" width="60" height="6" rx="1"/>
-                <rect class="fill-line" x="36" y="112" width="70" height="6" rx="1"/>
-                <rect class="fill-line" x="36" y="132" width="54" height="6" rx="1"/>
-                <rect class="fill-line" x="36" y="152" width="76" height="6" rx="1"/>
-                <rect class="fill-line" x="36" y="172" width="48" height="6" rx="1"/>
-                <rect class="fill-line" x="36" y="352" width="64" height="6" rx="1" opacity=".5"/>
-              </g>
-              <!-- content header -->
-              <g class="fade f2">
-                <rect class="fill-line" x="164" y="82" width="170" height="12" rx="2"/>
-                <rect class="fill-line" x="164" y="102" width="110" height="7" rx="1" opacity=".55"/>
-                <rect class="fill-brand" x="440" y="80" width="84" height="30" rx="2"/>
-                <rect x="458" y="93" width="48" height="4" rx="1" fill="#fff" opacity=".9"/>
-              </g>
-              <!-- KPI cards -->
-              <g class="stroke dash draw d3">
-                <rect x="164.5" y="134.5" width="108" height="64"/>
-                <rect x="288.5" y="134.5" width="108" height="64"/>
-                <rect x="412.5" y="134.5" width="108" height="64"/>
-              </g>
-              <g class="fade f2">
-                <rect class="fill-line" x="176" y="146" width="40" height="5" rx="1"/><rect class="fill-line" x="176" y="162" width="64" height="12" rx="1"/>
-                <rect class="fill-line" x="300" y="146" width="40" height="5" rx="1"/><rect class="fill-line" x="300" y="162" width="52" height="12" rx="1"/>
-                <rect class="fill-line" x="424" y="146" width="40" height="5" rx="1"/><rect class="fill-line" x="424" y="162" width="70" height="12" rx="1"/>
-              </g>
-              <!-- chart -->
-              <rect class="stroke dash draw d3" x="164.5" y="218.5" width="356" height="142"/>
-              <g class="fade f3">
-                <path class="chart-area" d="M182,336 L226,306 L270,318 L314,278 L358,290 L402,254 L446,268 L490,236 L504,240 L504,346 L182,346 Z"/>
-                <polyline class="chart-line draw d3" points="182,336 226,306 270,318 314,278 358,290 402,254 446,268 490,236 504,240"/>
-                <rect class="fill-line" x="178" y="230" width="90" height="6" rx="1"/>
-              </g>
-              <!-- prototype hotspot on primary button -->
-              <g class="fade f3">
-                <rect class="hot" x="436.5" y="76.5" width="91" height="37"/>
-                <circle class="proto-dot" cx="528" cy="95" r="3"/>
-                <path class="proto" d="M528,95 C 570,95 560,200 596,200" stroke-dasharray="3 3"/>
-                <path class="proto-dot" d="M596,196 L603,200 L596,204 Z"/>
-              </g>
-              <!-- mobile frame -->
-              <g class="stroke draw d3">
-                <rect x="586.5" y="200.5" width="70" height="140" rx="9"/>
-              </g>
-              <g class="fade f4">
-                <rect class="fill-line" x="608" y="210" width="26" height="3" rx="1"/>
-                <rect class="fill-line" x="596" y="226" width="50" height="8" rx="1"/>
-                <rect class="fill-line" x="596" y="242" width="36" height="5" rx="1" opacity=".55"/>
-                <rect class="stroke dash" x="596.5" y="258.5" width="50" height="34"/>
-                <rect class="fill-brand" x="596" y="312" width="50" height="16" rx="2"/>
-                <rect x="608" y="319" width="26" height="2.5" rx="1" fill="#fff" opacity=".9"/>
-              </g>
-              <!-- redlines -->
-              <g class="redline fade f2">
-                <line x1="140.5" y1="124" x2="164" y2="124"/><line x1="140.5" y1="120" x2="140.5" y2="128"/><line x1="164" y1="120" x2="164" y2="128"/>
-                <rect x="143" y="126" width="18" height="11" rx="1"/><text x="152" y="134.5" text-anchor="middle">24</text>
-                <line x1="272.5" y1="166" x2="288.5" y2="166"/><line x1="272.5" y1="162" x2="272.5" y2="170"/><line x1="288.5" y1="162" x2="288.5" y2="170"/>
-                <rect x="271" y="170" width="18" height="11" rx="1"/><text x="280" y="178.5" text-anchor="middle">16</text>
-                <line x1="150" y1="60.5" x2="150" y2="76"/><line x1="146" y1="60.5" x2="154" y2="60.5"/><line x1="146" y1="76" x2="154" y2="76"/>
-                <rect x="154" y="63" width="18" height="11" rx="1"/><text x="163" y="71.5" text-anchor="middle">16</text>
-                <line x1="524" y1="110" x2="524" y2="134.5"/><line x1="520" y1="110" x2="528" y2="110"/><line x1="520" y1="134.5" x2="528" y2="134.5"/>
-                <rect x="528" y="117" width="18" height="11" rx="1"/><text x="537" y="125.5" text-anchor="middle">24</text>
-              </g>
-              <!-- spec label -->
-              <g class="specl fade f3">
-                <rect x="164" y="366" width="128" height="13" rx="1.5"/>
-                <text x="170" y="375.5">AUTO LAYOUT · GAP 16 · FILL</text>
-              </g>
-              <g class="specl fade f4">
-                <rect x="586" y="346" width="70" height="13" rx="1.5"/>
-                <text x="591" y="355.5">MOBILE · 390×844</text>
-              </g>
-            </svg>
-          </div>
-
-          <!-- comment pins (HTML overlays, positioned in % of the art area) -->
-          <div class="pin anno" style="left: 62%; top: 20%;" data-author="jm" aria-label="Comment 1 by Jessica">1
-            <span class="pin__bubble"><b>Jessica · design</b>Primary CTA keeps a 44px hit area and a verb-first label. Hotspot links to the mobile confirmation.</span>
-          </div>
-          <div class="pin anno" style="left: 24%; top: 58%;" data-author="client" aria-label="Comment 2 by client">2
-            <span class="pin__bubble"><b>Client · review</b>Could the KPI cards show deltas vs. last month? Sales team asked for it.</span>
-          </div>
-          <div class="pin anno pin--left" style="left: 88%; top: 62%;" data-author="jm" aria-label="Comment 3 by Jessica">3
-            <span class="pin__bubble"><b>Jessica · reply</b>Yes — added a delta chip. Will validate with 5 users before we lock it in.</span>
-          </div>
-          <div class="sticky anno" aria-hidden="true"><b>Next step</b>Test nav labels with 5 users · Thursday</div>
-        </div>
-      </div>
-
-      <!-- multiplayer cursor -->
-      <div class="cursor" aria-hidden="true">
-        <svg viewBox="0 0 18 18" fill="none"><path d="M2 2 L16 8.5 L9.5 10.5 L7 17 Z" fill="#4B5320" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
-        <span class="cursor__tag">Jessica</span>
+        <nav class="story__rail" aria-label="Story chapters">
+          <ol>
+            <li><a href="#top"><span>Intro</span></a></li>
+            <li><a href="#discover"><span>Discover</span></a></li>
+            <li><a href="#research"><span>Research</span></a></li>
+            <li><a href="#define"><span>Define</span></a></li>
+            <li><a href="#design"><span>Design</span></a></li>
+            <li><a href="#validate"><span>Validate</span></a></li>
+            <li><a href="#deliver"><span>Deliver</span></a></li>
+            <li><a href="#finale"><span>Contact</span></a></li>
+          </ol>
+        </nav>
+        <div class="story__progress" aria-hidden="true"><span></span></div>
       </div>
     </section>
+
+    <!-- multiplayer cursor -->
+    <div class="cursor" aria-hidden="true">
+      <svg viewBox="0 0 18 18" fill="none"><path d="M2 2 L16 8.5 L9.5 10.5 L7 17 Z" fill="#8C9A5E" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      <span class="cursor__tag">Jessica</span>
+    </div>
 
     <!-- ============ MARQUEE ============ -->
     <div class="marquee" aria-hidden="true">
@@ -193,106 +183,13 @@
       </div>
     </div>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num">02</span>
-          <h2 class="display h-lg section__title">About</h2>
-          <span class="section__meta">Frame 02 · Auto layout · Vertical</span>
-        </div>
-        <div class="about">
-          <div class="about__portrait reveal">
-            <div class="frame frame--dashed" style="position:absolute; inset:0;">
-              <span class="frame__label"><b>Portrait</b> <span class="dim">3:4 · 800 × 1066</span></span>
-              <div class="wf-box wf-box--x">
-                <!-- TODO: replace this placeholder with <img src="assets/img/portrait.jpg" alt="Jessica Monteiro"> -->
-                <span class="hint">Image placeholder<br>Add portrait.jpg to assets/img</span>
-              </div>
-            </div>
-            <div class="measure measure--v anno" style="left:-18px; top:0; height:100%;"><span>1066</span></div>
-            <div class="measure measure--h anno" style="left:0; bottom:-18px; width:100%;"><span>800</span></div>
-          </div>
-
-          <div class="about__body">
-            <p class="lead reveal">I'm a UI/UX designer with over five years of experience, passionate about digital experiences that are visually clear, functional and genuinely easy to use.</p>
-            <p class="reveal" data-delay="1">I've designed across e-commerce, mobile apps, web systems, fintech and software application interfaces. What ties it together is the same habit: understand the person on the other side of the screen first, then design the smallest interface that gets them what they came for.</p>
-            <p class="reveal" data-delay="2">I work in Figma daily and bring illustration skills from Adobe Illustrator and Procreate when a product needs a visual voice of its own. Communication and close collaboration with clients are essential to my process, so you'll always know what I'm designing, why, and what I need from you next.</p>
-
-            <div class="facts reveal" data-delay="2">
-              <div class="fact"><b>Experience</b><span>5+ years in UI/UX design</span></div>
-              <div class="fact"><b>Based in</b><span>Brazil · working remotely worldwide</span></div>
-              <div class="fact"><b>Education</b><span>Advertising, Universidade Anhembi Morumbi</span></div>
-              <div class="fact"><b>Languages</b><span>Portuguese (native) · English (professional)</span></div>
-            </div>
-
-            <ul class="timeline reveal" data-delay="3" aria-label="Experience">
-              <!-- TODO: add dates to each role -->
-              <li><div class="role">Freelance UI/UX Designer</div><div class="org">Upwork · global clients across e-commerce, fintech and SaaS</div><div class="when">Present</div></li>
-              <li><div class="role">UI/UX Designer &amp; Illustrator</div><div class="org">Potência 40</div><div class="when">Interface design + illustration system</div></li>
-              <li><div class="role">UI &amp; UX Designer</div><div class="org">Xorg · hospitality</div><div class="when">Guest-facing product interfaces</div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROCESS ============ -->
-    <section class="section" id="process">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num">03</span>
-          <h2 class="display h-lg section__title">How I work</h2>
-          <span class="section__meta">Flow 03 · Prototype connections · Iterative</span>
-        </div>
-        <div class="flow">
-          <article class="flow__step reveal">
-            <h3>Discover</h3>
-            <p>Align on the problem, the people, the constraints and what "success" will be measured by.</p>
-            <ul><li>Stakeholder interviews</li><li>Brief &amp; KPIs</li><li>Scope &amp; risks</li></ul>
-            <span class="connector-dot" aria-hidden="true"></span>
-          </article>
-          <article class="flow__step reveal" data-delay="1">
-            <h3>Research</h3>
-            <p>Learn from real users and the market before drawing a single screen.</p>
-            <ul><li>User interviews</li><li>Surveys &amp; analytics</li><li>Competitive audit</li></ul>
-            <span class="connector-dot" aria-hidden="true"></span>
-          </article>
-          <article class="flow__step reveal" data-delay="2">
-            <h3>Define</h3>
-            <p>Turn findings into structure: who we're designing for and how the product is organised.</p>
-            <ul><li>Personas / JTBD</li><li>Journey maps</li><li>IA &amp; user flows</li></ul>
-            <span class="connector-dot" aria-hidden="true"></span>
-          </article>
-          <article class="flow__step reveal" data-delay="3">
-            <h3>Design</h3>
-            <p>From low-fidelity sketches to a high-fidelity UI backed by a component system.</p>
-            <ul><li>Wireframes</li><li>UI &amp; design system</li><li>Interactive prototype</li></ul>
-            <span class="connector-dot" aria-hidden="true"></span>
-          </article>
-          <article class="flow__step reveal" data-delay="4">
-            <h3>Validate</h3>
-            <p>Test with users, measure, and fix what matters most before anything gets built.</p>
-            <ul><li>Usability testing</li><li>SUS · SEQ · task success</li><li>Prioritised iteration</li></ul>
-            <span class="connector-dot" aria-hidden="true"></span>
-          </article>
-          <article class="flow__step reveal" data-delay="5">
-            <h3>Deliver</h3>
-            <p>Hand off with specs, tokens and annotations, then follow the numbers after launch.</p>
-            <ul><li>Dev handoff &amp; QA</li><li>Design tokens</li><li>HEART metrics</li></ul>
-          </article>
-          <div class="flow__loop reveal">Learn → iterate → ship again</div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ WORK ============ -->
     <section class="section" id="work">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__num">04</span>
+          <span class="section__num">01</span>
           <h2 class="display h-lg section__title">Selected work</h2>
-          <span class="section__meta">Page 04 · 4 frames · hover to inspect</span>
+          <span class="section__meta">Page 01 · 4 frames · hover to inspect</span>
         </div>
         <div class="work-grid">
 
@@ -428,7 +325,7 @@
     <section class="section" id="services">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__num">05</span>
+          <span class="section__num">02</span>
           <h2 class="display h-lg section__title">Ways to work together</h2>
           <span class="section__meta">Component set · 4 variants</span>
         </div>
@@ -491,11 +388,55 @@
       </div>
     </section>
 
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">03</span>
+          <h2 class="display h-lg section__title">About</h2>
+          <span class="section__meta">Frame 03 · Auto layout · Vertical</span>
+        </div>
+        <div class="about">
+          <div class="about__portrait reveal">
+            <div class="frame frame--dashed" style="position:absolute; inset:0;">
+              <span class="frame__label"><b>Portrait</b> <span class="dim">3:4 · 800 × 1066</span></span>
+              <div class="wf-box wf-box--x">
+                <!-- TODO: replace this placeholder with <img src="assets/img/portrait.jpg" alt="Jessica Monteiro"> -->
+                <span class="hint">Image placeholder<br>Add portrait.jpg to assets/img</span>
+              </div>
+            </div>
+            <div class="measure measure--v anno" style="left:-18px; top:0; height:100%;"><span>1066</span></div>
+            <div class="measure measure--h anno" style="left:0; bottom:-18px; width:100%;"><span>800</span></div>
+          </div>
+
+          <div class="about__body">
+            <p class="lead reveal">I'm a UI/UX designer with over five years of experience, passionate about digital experiences that are visually clear, functional and genuinely easy to use.</p>
+            <p class="reveal" data-delay="1">I've designed across e-commerce, mobile apps, web systems, fintech and software application interfaces. What ties it together is the same habit: understand the person on the other side of the screen first, then design the smallest interface that gets them what they came for.</p>
+            <p class="reveal" data-delay="2">I work in Figma daily and bring illustration skills from Adobe Illustrator and Procreate when a product needs a visual voice of its own. Communication and close collaboration with clients are essential to my process, so you'll always know what I'm designing, why, and what I need from you next.</p>
+
+            <div class="facts reveal" data-delay="2">
+              <div class="fact"><b>Experience</b><span>5+ years in UI/UX design</span></div>
+              <div class="fact"><b>Based in</b><span>Brazil · working remotely worldwide</span></div>
+              <div class="fact"><b>Education</b><span>Advertising, Universidade Anhembi Morumbi</span></div>
+              <div class="fact"><b>Languages</b><span>Portuguese (native) · English (professional)</span></div>
+            </div>
+
+            <ul class="timeline reveal" data-delay="3" aria-label="Experience">
+              <!-- TODO: add dates to each role -->
+              <li><div class="role">Freelance UI/UX Designer</div><div class="org">Upwork · global clients across e-commerce, fintech and SaaS</div><div class="when">Present</div></li>
+              <li><div class="role">UI/UX Designer &amp; Illustrator</div><div class="org">Potência 40</div><div class="when">Interface design + illustration system</div></li>
+              <li><div class="role">UI &amp; UX Designer</div><div class="org">Xorg · hospitality</div><div class="when">Guest-facing product interfaces</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CONTACT ============ -->
     <section class="section" id="contact">
       <div class="container">
         <div class="frame frame--dashed contact reveal">
-          <span class="frame__label"><b>Frame 06</b> Contact <span class="dim">CTA · centered</span></span>
+          <span class="frame__label"><b>Frame 04</b> Contact <span class="dim">CTA · centered</span></span>
           <div class="measure measure--h anno" style="left:0; top:-44px; width:100%;"><span>1200</span></div>
           <h2 class="display h-lg">Let's create <em>exceptional</em> digital experiences together.</h2>
           <p class="lead">Have a product, a feature or a messy flow that needs a designer who thinks in systems? Tell me about it.</p>
@@ -522,6 +463,5 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
