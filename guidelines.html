@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" data-grid="off" data-annotations="on">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Guidelines — Jessica Monteiro</title>
+  <meta name="description" content="The design system and UI/UX process behind Jessica Monteiro's portfolio: principles, process, foundations, components, accessibility, research, handoff and governance.">
+  <meta name="theme-color" content="#4B5320">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%234B5320' stroke-width='3'/%3E%3Crect x='10' y='10' width='12' height='12' fill='%234B5320'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/guidelines.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="canvas-bg" aria-hidden="true"></div>
+  <div class="layout-grid" aria-hidden="true"><div class="layout-grid__inner">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div></div>
+
+  <header class="toolbar">
+    <div class="container toolbar__inner">
+      <a class="brand" href="index.html" aria-label="Back to portfolio">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span>JM</span><span class="brand__file">guidelines.fig</span>
+      </a>
+      <span class="status-pill">v1.0.0 · stable</span>
+      <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
+      <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
+        <a href="index.html">← Portfolio</a>
+        <a href="#process">Process</a>
+        <a href="#foundations">Foundations</a>
+        <a href="#components">Components</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#handoff">Handoff</a>
+      </nav>
+      <div class="toolbar__tools">
+        <button class="tool-btn" type="button" data-action="grid" aria-pressed="false" title="Toggle layout grid (G)"><span aria-hidden="true">▦</span> Grid <kbd>G</kbd></button>
+        <button class="tool-btn" type="button" data-action="theme" aria-pressed="false" title="Toggle theme (D)"><span class="label">Light</span> <kbd>D</kbd></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container doc">
+    <!-- ============ SIDE NAV ============ -->
+    <nav class="doc__nav" aria-label="Guidelines sections">
+      <h2>Start</h2>
+      <a href="#overview" data-nav>Overview</a>
+      <a href="#principles" data-nav>Principles</a>
+      <h2>Process</h2>
+      <a href="#process" data-nav>UI/UX process</a>
+      <a href="#collab" data-nav>Working together</a>
+      <a href="#research" data-nav>Research &amp; metrics</a>
+      <h2>Foundations</h2>
+      <a href="#color" data-nav>Color</a>
+      <a href="#typography" data-nav>Typography</a>
+      <a href="#spacing" data-nav>Spacing</a>
+      <a href="#layout" data-nav>Layout &amp; grid</a>
+      <a href="#shape" data-nav>Shape &amp; borders</a>
+      <a href="#motion" data-nav>Motion</a>
+      <a href="#iconography" data-nav>Iconography</a>
+      <a href="#annotation" data-nav>Annotation language</a>
+      <h2>Components</h2>
+      <a href="#components" data-nav>Overview</a>
+      <a href="#button" data-nav>Button</a>
+      <a href="#tag" data-nav>Tag</a>
+      <a href="#frame" data-nav>Frame</a>
+      <a href="#pin" data-nav>Comment pin</a>
+      <a href="#field" data-nav>Form field</a>
+      <a href="#toolbar" data-nav>Toolbar</a>
+      <h2>Patterns</h2>
+      <a href="#patterns" data-nav>Page patterns</a>
+      <a href="#casestudy" data-nav>Case study template</a>
+      <a href="#content" data-nav>Content &amp; voice</a>
+      <h2>Quality</h2>
+      <a href="#accessibility" data-nav>Accessibility</a>
+      <a href="#handoff" data-nav>Handoff &amp; tokens</a>
+      <a href="#governance" data-nav>Governance</a>
+      <a href="#changelog" data-nav>Changelog</a>
+    </nav>
+
+    <div class="doc__body">
+
+      <!-- ============ OVERVIEW ============ -->
+      <section id="overview">
+        <span class="eyebrow">00 · Overview</span>
+        <h2 class="display h-lg">JM Design Guidelines</h2>
+        <div class="doc__intro">
+          <span class="tag tag--brand">v1.0.0</span><span class="tag">Stable</span><span class="tag">Updated Sep 2026</span><span class="tag">Owner · Jessica Monteiro</span>
+        </div>
+        <p class="lead">This document is the design system and the working method behind my portfolio. I built the site the way I build products for clients: with a written process, a token-based visual language, documented components and an accessibility bar that is checked, not assumed.</p>
+        <p>Use it in three ways. As a <strong>reference</strong> for how the portfolio is built. As an <strong>example</strong> of the documentation I deliver with design systems. And as a <strong>map of my process</strong>, from the first stakeholder conversation to post-launch metrics.</p>
+        <div class="callout"><b>How this document is organised</b>Process first (how I work), then foundations (tokens), then components (built from tokens), then patterns (built from components), then the quality gates: accessibility, handoff and governance. Each layer only depends on the layer before it.</div>
+        <h4>Concept</h4>
+        <p>The visual concept is <em>"the file, not the render"</em>. Instead of hiding the design process behind polished screens, the site borrows the visual language of the tools where the work actually happens: frames with labels, redline measurements, comment pins, prototype hotspots and a layout grid you can switch on. Military green (<code>olive-600 · #4B5320</code>) anchors the palette; everything else is a warm neutral so the annotations stay legible.</p>
+      </section>
+
+      <!-- ============ PRINCIPLES ============ -->
+      <section id="principles">
+        <span class="eyebrow">01 · Principles</span>
+        <h2 class="display h-md">Five rules that settle arguments</h2>
+        <p>Principles exist to make decisions faster. When two options look equally good, the one that follows more of these wins.</p>
+        <table class="table">
+          <thead><tr><th>#</th><th>Principle</th><th>What it means in practice</th></tr></thead>
+          <tbody>
+            <tr><td><code>01</code></td><td><strong>Clarity over decoration</strong></td><td>Every element must earn its place by helping someone understand or act. Remove before you add. Decoration is allowed only when it carries meaning (the annotation language does).</td></tr>
+            <tr><td><code>02</code></td><td><strong>Evidence before opinion</strong></td><td>Design decisions are traceable to research, data or a stated assumption we plan to test. "I like it" is a hypothesis, not a rationale.</td></tr>
+            <tr><td><code>03</code></td><td><strong>Systems, not screens</strong></td><td>Design the token, then the component, then the screen. A screen that needs a one-off style is a signal that the system is missing something.</td></tr>
+            <tr><td><code>04</code></td><td><strong>Accessible by default</strong></td><td>WCAG 2.2 AA is the floor, not the goal. Contrast, focus, keyboard and motion preferences are checked before a component is called done.</td></tr>
+            <tr><td><code>05</code></td><td><strong>Show the work</strong></td><td>Document the why, not just the what. A decision without a written rationale will be re-argued in three months.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ PROCESS ============ -->
+      <section id="process">
+        <span class="eyebrow">02 · Process</span>
+        <h2 class="display h-md">The UI/UX process, end to end</h2>
+        <p class="lead">Eight phases, grouped into the six stages shown on the portfolio. The order is the default; the loop is the rule. Every phase has an entry, a set of activities, deliverables and an exit criterion so a client always knows where we are.</p>
+        <div class="callout"><b>Fidelity ladder</b>Sketch → low-fi wireframe → mid-fi wireframe → hi-fi UI → interactive prototype → production. Each rung is tested before the next one is climbed. Going up a rung is cheap; going down one because we skipped a test is expensive.</div>
+
+        <article class="phase">
+          <div class="phase__head"><span class="n">Phase 01</span><h3>Discover &amp; scope</h3><p class="goal">Agree on the problem, the people, the business goal, the constraints and how success will be measured, before any design work starts.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Kickoff and stakeholder interviews (product, business, engineering, support)</li><li>Review of existing product, analytics, support tickets, past research</li><li>Assumption mapping and risk register</li><li>Success metrics defined with the HEART / Goals–Signals–Metrics model</li><li>Scope, timeline and communication cadence agreed</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Project brief (problem statement, goals, non-goals, constraints)</li><li>Stakeholder map and RACI</li><li>Research plan with questions to answer</li><li>Metrics sheet (baseline + target)</li><li>Timeline with checkpoints</li></ul></div>
+          <div class="exit"><b>Exit criteria</b>Problem statement signed off · metrics have a baseline · research questions listed · scope written down.</div>
+        </article>
+
+        <article class="phase">
+          <div class="phase__head"><span class="n">Phase 02</span><h3>Research</h3><p class="goal">Replace assumptions with evidence about how people actually behave, what they need and what the market already does.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li><strong>Generative</strong>: user interviews (5–8 per segment), contextual inquiry, diary studies</li><li><strong>Quantitative</strong>: surveys, analytics funnels, heatmaps, session recordings</li><li><strong>Evaluative</strong>: heuristic evaluation (Nielsen's 10), accessibility audit of the current product</li><li>Competitive and comparative analysis (direct competitors + best-in-class patterns)</li><li>Jobs-to-be-done interviews for switching moments</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Interview guide, recruiting screener, consent form</li><li>Raw notes and tagged transcripts</li><li>Competitive audit matrix</li><li>Heuristic evaluation report with severity ratings (0–4)</li><li>Analytics read-out with the top drop-off points</li></ul></div>
+          <div class="exit"><b>Exit criteria</b>Every research question has an answer or a documented gap · findings are tagged and searchable.</div>
+        </article>
+
+        <article class="phase">
+          <div class="phase__head"><span class="n">Phase 03</span><h3>Synthesise &amp; define</h3><p class="goal">Turn raw findings into shared models of the user and a sharp definition of what we are solving.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Affinity mapping of observations into themes</li><li>Personas or JTBD profiles (only as many as the data supports)</li><li>Empathy maps and current-state journey maps with pain points and opportunities</li><li>Problem framing: "How might we…" statements</li><li>Prioritisation with impact × effort or RICE</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Research synthesis report (insights, evidence, quotes, confidence level)</li><li>Personas / JTBD cards</li><li>Journey map(s) with opportunity areas</li><li>Prioritised opportunity backlog</li><li>Design principles for the project</li></ul></div>
+          <div class="exit"><b>Exit criteria</b>Team agrees on who we design for and which 1–3 problems we tackle first.</div>
+        </article>
+
+        <article class="phase">
+          <div class="phase__head"><span class="n">Phase 04</span><h3>Information architecture &amp; flows</h3><p class="goal">Structure content and tasks so that the product is navigable before it is pretty.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Content inventory and audit</li><li>Open / closed card sorting, then tree testing of the proposed structure</li><li>Task analysis and user flow diagrams (happy path + edge cases + error paths)</li><li>Object-oriented UX mapping: objects, attributes, actions, relationships</li><li>Navigation model and page map</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Sitemap / page map</li><li>User flows with decision points and system states</li><li>Content model</li><li>Tree-test results (success rate, directness, time)</li></ul></div>
+          <div class="exit"><b>Exit criteria</b>Core tasks reach ≥ 80 % first-click / tree-test success · every screen in the flow is named.</div>
+        </article>
+
+        <article class="phase">
+          <div class="phase__head"><span class="n">Phase 05</span><h3>Ideate &amp; wireframe</h3><p class="goal">Explore many solutions cheaply, converge on one, and express it at low fidelity so the conversation stays about structure.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Crazy 8s / design studio sessions with the team</li><li>Sketches → low-fi wireframes (grayscale, real content, no styling)</li><li>Mid-fi wireframes with layout, hierarchy and copy in place</li><li>Wireflow: wireframes connected as a flow</li><li>Early guerrilla tests on paper or clickable wireframes</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Concept sketches with rationale</li><li>Wireframe set at mid-fi, annotated (behaviour, states, content rules)</li><li>Clickable wireframe prototype</li><li>Decision log (options considered, choice, why)</li></ul></div>
+          <div class="exit"><b>Exit criteria</b>Stakeholders approve structure and content · no unresolved "what happens when…" questions.</div>
+        </article>
+
+        <article class="phase">
+          <div class="phase__head"><span class="n">Phase 06</span><h3>UI design &amp; design system</h3><p class="goal">Apply the visual language, build reusable components and design every state so engineering never has to guess.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Moodboard and style tiles → visual direction approved</li><li>Foundations: color, type, spacing, grid, elevation, motion, iconography as tokens</li><li>Component library in Figma with variants, auto layout, properties and variables</li><li>All states designed: default, hover, focus, active, disabled, loading, empty, error, success</li><li>Responsive behaviour per breakpoint; dark mode when in scope</li><li>Accessibility pass: contrast, target size, focus order, semantics</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Hi-fi screens for every flow, every breakpoint</li><li>Figma library + variables (tokens) + documentation pages</li><li>Component specs with anatomy, usage, do/don't</li><li>Illustration / icon set when needed (Illustrator, Procreate)</li></ul></div>
+          <div class="exit"><b>Exit criteria</b>Zero detached instances · every colour is a token · every component has all states · AA contrast verified.</div>
+        </article>
+
+        <article class="phase">
+          <div class="phase__head"><span class="n">Phase 07</span><h3>Prototype &amp; validate</h3><p class="goal">Test the design with real users before it is built, measure it, and fix what matters most.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Interactive prototype (Figma) with realistic content and key micro-interactions</li><li>Test plan: goals, tasks, participants (5 per round per segment), script, metrics</li><li>Moderated usability testing (think-aloud) or unmoderated remote tests</li><li>Metrics: task success, time on task, error rate, SEQ after each task, SUS after the session</li><li>Findings prioritised by severity × frequency; fix, then re-test the fixes</li><li>A/B or preference tests when two directions remain</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Test plan and script</li><li>Findings report with clips, severity and recommendations</li><li>Iteration summary (what changed and why)</li><li>Updated prototype</li></ul></div>
+          <div class="exit"><b>Exit criteria</b>No severity-3/4 issues remain · task success ≥ target · SUS ≥ 68 (industry average) or agreed target.</div>
+        </article>
+
+        <article class="phase">
+          <div class="phase__head"><span class="n">Phase 08</span><h3>Handoff, QA &amp; measure</h3><p class="goal">Transfer intent, not just pixels, to engineering; verify the build; then watch the numbers and feed them back into the next cycle.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Figma Dev Mode: sections marked <em>Ready for dev</em>, annotations for intent, edge cases and logic the canvas can't show</li><li>Tokens exported (W3C DTCG JSON) and mapped to code variables</li><li>Handoff walkthrough with engineers; open questions logged</li><li>Design QA on staging: visual, interaction, responsive, accessibility (keyboard + screen reader smoke test)</li><li>Post-launch review of HEART metrics against baseline; insights logged for the next iteration</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Annotated, versioned Figma file</li><li>Token JSON + naming map</li><li>Design QA checklist with issue list and severities</li><li>Launch metrics report and next-iteration backlog</li></ul></div>
+          <div class="exit"><b>Exit criteria</b>QA issues ≤ agreed threshold · metrics dashboard live · retrospective done.</div>
+        </article>
+
+        <h3>Where the portfolio's six stages come from</h3>
+        <table class="table">
+          <thead><tr><th>Portfolio stage</th><th>Phases</th><th>Typical share of a project</th></tr></thead>
+          <tbody>
+            <tr><td>Discover</td><td>01</td><td>5–10 %</td></tr>
+            <tr><td>Research</td><td>02</td><td>15–20 %</td></tr>
+            <tr><td>Define</td><td>03 · 04</td><td>15 %</td></tr>
+            <tr><td>Design</td><td>05 · 06</td><td>30–35 %</td></tr>
+            <tr><td>Validate</td><td>07</td><td>15 %</td></tr>
+            <tr><td>Deliver</td><td>08</td><td>10 %</td></tr>
+          </tbody>
+        </table>
+        <p class="small muted">Shares are a starting point for estimates, not a contract. Audits and design-system engagements weight differently.</p>
+      </section>
+
+      <!-- ============ COLLABORATION ============ -->
+      <section id="collab">
+        <span class="eyebrow">03 · Working together</span>
+        <h2 class="display h-md">Working agreements</h2>
+        <p>Communication is part of the deliverable. These are the defaults I propose on every engagement; we adjust them at kickoff.</p>
+        <table class="table">
+          <thead><tr><th>Practice</th><th>Default</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Status update</td><td>Written, twice a week (Mon plan / Thu progress)</td><td>You always know what I'm designing and what I need from you.</td></tr>
+            <tr><td>Review checkpoints</td><td>End of each phase, 30–45 min</td><td>Decisions get made at the cheapest moment.</td></tr>
+            <tr><td>Feedback</td><td>Comments in Figma, resolved by me with a reply</td><td>One place, traceable, nothing lost in chat.</td></tr>
+            <tr><td>Decision log</td><td>One page, updated after every review</td><td>No re-arguing settled questions.</td></tr>
+            <tr><td>Definition of done</td><td>Per phase, listed above as exit criteria</td><td>"Done" means the same thing to both of us.</td></tr>
+            <tr><td>Files</td><td>One Figma file per product, pages per phase, versions named</td><td>Anyone can find anything in under a minute.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ RESEARCH & METRICS ============ -->
+      <section id="research">
+        <span class="eyebrow">04 · Research &amp; metrics</span>
+        <h2 class="display h-md">Methods, when to use them, what they produce</h2>
+        <div class="table--wrap"><table class="table">
+          <thead><tr><th>Method</th><th>Type</th><th>Best for</th><th>Sample</th><th>Output</th></tr></thead>
+          <tbody>
+            <tr><td>Stakeholder interviews</td><td>Qual · generative</td><td>Goals, constraints, politics</td><td>4–8</td><td>Brief, assumptions</td></tr>
+            <tr><td>User interviews</td><td>Qual · generative</td><td>Needs, motivations, context</td><td>5–8 / segment</td><td>Insights, quotes, JTBD</td></tr>
+            <tr><td>Surveys</td><td>Quant · generative</td><td>Sizing attitudes and behaviours</td><td>100+</td><td>Distributions, segments</td></tr>
+            <tr><td>Analytics review</td><td>Quant · evaluative</td><td>Where people drop off</td><td>All traffic</td><td>Funnel, top issues</td></tr>
+            <tr><td>Heuristic evaluation</td><td>Expert · evaluative</td><td>Fast audit of an existing UI</td><td>1–3 evaluators</td><td>Issues with severity 0–4</td></tr>
+            <tr><td>Card sorting</td><td>Quant/qual · generative</td><td>How people group content</td><td>15–30</td><td>Categories, labels</td></tr>
+            <tr><td>Tree testing</td><td>Quant · evaluative</td><td>Can people find it in the structure</td><td>30–50</td><td>Success, directness</td></tr>
+            <tr><td>Moderated usability test</td><td>Qual · evaluative</td><td>Why people struggle</td><td>5 / round</td><td>Findings, clips, SEQ</td></tr>
+            <tr><td>Unmoderated usability test</td><td>Quant · evaluative</td><td>Task success at scale</td><td>20–50</td><td>Success, time, SUS</td></tr>
+            <tr><td>A/B or preference test</td><td>Quant · evaluative</td><td>Choosing between two directions</td><td>Stat. power</td><td>Winner, effect size</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Metrics I report</h3>
+        <table class="table">
+          <thead><tr><th>Metric</th><th>How it's measured</th><th>Benchmark / target</th></tr></thead>
+          <tbody>
+            <tr><td>Task success rate</td><td>% of participants completing a task without critical error</td><td>≥ 80 % for core tasks</td></tr>
+            <tr><td>Time on task</td><td>Median seconds from start to completion</td><td>Trend down between rounds</td></tr>
+            <tr><td>Error rate</td><td>Errors per task, classified by severity</td><td>No severity-3/4 at launch</td></tr>
+            <tr><td>SEQ</td><td>Single Ease Question, 1–7 after each task</td><td>≥ 5.5 average</td></tr>
+            <tr><td>SUS</td><td>System Usability Scale, 10 items, 0–100</td><td>≥ 68 is average; aim ≥ 75</td></tr>
+            <tr><td>HEART</td><td>Happiness · Engagement · Adoption · Retention · Task success, each with goal → signal → metric</td><td>Set per project at Phase 01</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Templates I keep ready</h3>
+        <ul class="list">
+          <li><strong>Persona / JTBD card</strong>: goals, context, jobs, pains, gains, quote, confidence level, evidence links.</li>
+          <li><strong>Journey map</strong>: stages, actions, thoughts, emotions, pain points, opportunities, owner.</li>
+          <li><strong>Usability test plan</strong>: objectives, participants, tasks with success criteria, script, metrics, logistics.</li>
+          <li><strong>Findings report</strong>: executive summary, method, findings by severity, recommendations, next steps.</li>
+          <li><strong>Decision log</strong>: date, decision, options considered, rationale, owner, status.</li>
+        </ul>
+      </section>
+
+      <!-- ============ COLOR ============ -->
+      <section id="color">
+        <span class="eyebrow">05 · Foundations</span>
+        <h2 class="display h-md">Color</h2>
+        <p>The palette is built from one brand hue, military green, extended into an 11-step ramp, plus a warm neutral ramp tinted toward olive so surfaces and greens feel related. Sand is a secondary accent for surfaces. Functional colours are reserved for the annotation language and system states.</p>
+
+        <h3>Primitives · olive</h3>
+        <div class="swatches">
+          <div class="swatch swatch--light" style="background:#F4F5EE"><b>50</b>F4F5EE</div>
+          <div class="swatch swatch--light" style="background:#E6E9D8"><b>100</b>E6E9D8</div>
+          <div class="swatch swatch--light" style="background:#CDD3B3"><b>200</b>CDD3B3</div>
+          <div class="swatch swatch--light" style="background:#ADB786"><b>300</b>ADB786</div>
+          <div class="swatch swatch--light" style="background:#8C9A5E"><b>400</b>8C9A5E</div>
+          <div class="swatch swatch--dark" style="background:#6B7A3F"><b>500</b>6B7A3F</div>
+          <div class="swatch swatch--dark" style="background:#4B5320; outline:2px solid var(--color-proto); outline-offset:1px;"><b>600 ★</b>4B5320</div>
+          <div class="swatch swatch--dark" style="background:#3D4419"><b>700</b>3D4419</div>
+          <div class="swatch swatch--dark" style="background:#2F3514"><b>800</b>2F3514</div>
+          <div class="swatch swatch--dark" style="background:#22270F"><b>900</b>22270F</div>
+          <div class="swatch swatch--dark" style="background:#141708"><b>950</b>141708</div>
+        </div>
+        <h3>Primitives · bone (neutrals)</h3>
+        <div class="swatches">
+          <div class="swatch swatch--light" style="background:#FFFFFF"><b>0</b>FFFFFF</div>
+          <div class="swatch swatch--light" style="background:#FAFAF6"><b>50</b>FAFAF6</div>
+          <div class="swatch swatch--light" style="background:#F2F2EB"><b>100</b>F2F2EB</div>
+          <div class="swatch swatch--light" style="background:#E4E4DA"><b>200</b>E4E4DA</div>
+          <div class="swatch swatch--light" style="background:#CFCFC2"><b>300</b>CFCFC2</div>
+          <div class="swatch swatch--light" style="background:#A8A899"><b>400</b>A8A899</div>
+          <div class="swatch swatch--dark" style="background:#6B6B5E"><b>550</b>6B6B5E</div>
+          <div class="swatch swatch--dark" style="background:#5A5A4F"><b>600</b>5A5A4F</div>
+          <div class="swatch swatch--dark" style="background:#3E3E36"><b>700</b>3E3E36</div>
+          <div class="swatch swatch--dark" style="background:#26261F"><b>800</b>26261F</div>
+          <div class="swatch swatch--dark" style="background:#121410"><b>950</b>121410</div>
+        </div>
+        <h3>Primitives · sand &amp; functional</h3>
+        <div class="swatches swatches--5" style="max-width:520px">
+          <div class="swatch swatch--light" style="background:#E8DFBF"><b>sand 300</b>E8DFBF</div>
+          <div class="swatch swatch--light" style="background:#D4C48F"><b>sand 400</b>D4C48F</div>
+          <div class="swatch swatch--light" style="background:#B8A263"><b>sand 500</b>B8A263</div>
+          <div class="swatch swatch--dark" style="background:#8F7C44"><b>sand 600</b>8F7C44</div>
+          <div class="swatch swatch--dark" style="background:#6E5F32"><b>sand 700</b>6E5F32</div>
+          <div class="swatch swatch--dark" style="background:#CF3327"><b>redline</b>CF3327</div>
+          <div class="swatch swatch--dark" style="background:#2F80ED"><b>proto</b>2F80ED</div>
+          <div class="swatch swatch--dark" style="background:#3F8F4E"><b>success</b>3F8F4E</div>
+          <div class="swatch swatch--dark" style="background:#C98A1B"><b>warning</b>C98A1B</div>
+          <div class="swatch swatch--dark" style="background:#C53A2E"><b>danger</b>C53A2E</div>
+        </div>
+
+        <h3>Semantic tokens (light theme)</h3>
+        <p>Components never reference primitives. They reference intent. That is what lets dark mode be a token swap instead of a redesign.</p>
+        <div class="table--wrap"><table class="table">
+          <thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Use for</th><th>Contrast (light / dark)</th></tr></thead>
+          <tbody>
+            <tr><td><code>--color-bg</code></td><td>bone-50</td><td>bone-950</td><td>Page background</td><td>—</td></tr>
+            <tr><td><code>--color-bg-elevated</code></td><td>bone-0</td><td>bone-900</td><td>Frames, cards, toolbar</td><td>—</td></tr>
+            <tr><td><code>--color-text</code></td><td>bone-950</td><td>bone-100</td><td>Body and headings</td><td><span class="ok">17.7 / 16.5 AAA</span></td></tr>
+            <tr><td><code>--color-text-muted</code></td><td>bone-600</td><td>bone-400</td><td>Secondary text</td><td><span class="ok">6.7 / 7.7 AA+</span></td></tr>
+            <tr><td><code>--color-text-subtle</code></td><td>bone-550</td><td>bone-450</td><td>Mono labels, meta</td><td><span class="ok">5.2 / 5.7 AA</span></td></tr>
+            <tr><td><code>--color-brand</code></td><td>olive-600</td><td>olive-400</td><td>Primary actions, pins, active marks</td><td><span class="ok">8.2 white-on / 6.1 bone-950-on</span></td></tr>
+            <tr><td><code>--color-brand-text</code></td><td>olive-600</td><td>olive-300</td><td>Brand-coloured text and links</td><td><span class="ok">7.9 / 8.7 AAA</span></td></tr>
+            <tr><td><code>--color-brand-subtle</code></td><td>olive-100</td><td>olive-900</td><td>Tinted backgrounds for tags, callouts</td><td><span class="ok">brand-text on it: 6.7 / 7.3</span></td></tr>
+            <tr><td><code>--color-accent</code></td><td>sand-500</td><td>sand-400</td><td>Client pins, sticky notes (surfaces)</td><td><span class="ok">bone-950 on it: 7.4 / 10.7</span></td></tr>
+            <tr><td><code>--color-border</code></td><td>bone-300</td><td>bone-700</td><td>Decorative frame borders, dividers</td><td><span class="warn">1.5 — decorative only</span></td></tr>
+            <tr><td><code>--color-border-strong</code></td><td>bone-950</td><td>bone-100</td><td>Inputs, buttons, selected frames</td><td><span class="ok">≥ 3:1 non-text ✓</span></td></tr>
+            <tr><td><code>--color-focus</code></td><td>proto-500</td><td>proto-300</td><td>Focus ring (2px, 3px offset)</td><td><span class="ok">3.7 / 7.7 non-text ✓</span></td></tr>
+            <tr><td><code>--color-redline</code></td><td>redline-500</td><td>redline-300</td><td>Measurements</td><td><span class="ok">4.8 / 6.8 · label text 5.1</span></td></tr>
+            <tr><td><code>--color-proto-text</code></td><td>proto-700</td><td>proto-300</td><td>Spec labels, prototype text</td><td><span class="ok">5.8 / 7.7 AA</span></td></tr>
+          </tbody>
+        </table></div>
+
+        <h4>Rules</h4>
+        <div class="dodont">
+          <div class="do"><b>Do</b><ul><li>Use <code>brand</code> for one primary action per view.</li><li>Use functional colours only for their function: redline = measure, proto = interaction, success/warning/danger = state.</li><li>Check contrast for every new pair and record it here.</li><li>Use <code>border-strong</code> on anything interactive.</li></ul></div>
+          <div class="dont"><b>Don't</b><ul><li>Put sand-400/500 text on light backgrounds (1.7–2.4:1).</li><li>Use bone-500 for text; it fails AA at 4.0:1. Use bone-550.</li><li>Introduce a new hue for emphasis. Use weight, size or space first.</li><li>Use white text on olive-400 (3.0:1). Dark mode uses bone-950 on brand.</li></ul></div>
+        </div>
+      </section>
+
+      <!-- ============ TYPOGRAPHY ============ -->
+      <section id="typography">
+        <span class="eyebrow">06 · Foundations</span>
+        <h2 class="display h-md">Typography</h2>
+        <p>Three families with three jobs. <strong>Instrument Serif</strong> carries the voice in headlines, with italics for emphasis. <strong>Inter</strong> does the reading. <strong>JetBrains Mono</strong> is the annotation voice: frame labels, measurements, meta.</p>
+        <table class="table">
+          <thead><tr><th>Role</th><th>Family</th><th>Weights</th><th>Used for</th></tr></thead>
+          <tbody>
+            <tr><td>Display</td><td>Instrument Serif</td><td>400, 400 italic</td><td>H1–H2, case-study titles, contact headline</td></tr>
+            <tr><td>Text</td><td>Inter</td><td>400, 500, 600</td><td>Body, UI labels, buttons, H3–H4</td></tr>
+            <tr><td>Mono</td><td>JetBrains Mono</td><td>400, 500, 600</td><td>Frame labels, tags, measurements, meta, code</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Scale</h3>
+        <p>A 12-step scale in rem. Display sizes use <code>clamp()</code> so headlines scale with the viewport between the min and max steps.</p>
+        <div class="specimen"><small>display · 96/72/56<br>h-xl · lh 1.05 · −0.02em</small><div class="sample display" style="font-size: clamp(2.5rem, 5vw, 4.5rem)">Interfaces people don't have to <em>think</em> about.</div></div>
+        <div class="specimen"><small>display · 56/40/32<br>h-lg · lh 1.05</small><div class="sample display" style="font-size: clamp(2rem, 3.5vw, 3rem)">Selected work</div></div>
+        <div class="specimen"><small>display · 40/24<br>h-md · lh 1.05</small><div class="sample display" style="font-size: 2rem">The UI/UX process, end to end</div></div>
+        <div class="specimen"><small>text · 24 · 500<br>h-sm / case title</small><div class="sample" style="font-size: 1.5rem; font-weight: 500">Guest-facing booking &amp; stay flow</div></div>
+        <div class="specimen"><small>text · 20 · 500<br>h3 · lh 1.3</small><div class="sample" style="font-size: 1.25rem; font-weight: 500">Discover &amp; scope</div></div>
+        <div class="specimen"><small>text · 18 · 400<br>lead · lh 1.65 · muted</small><div class="sample muted" style="font-size: 1.125rem; line-height: 1.65">I design digital products from research to handoff.</div></div>
+        <div class="specimen"><small>text · 16 · 400<br>body · lh 1.65 · max 68ch</small><div class="sample" style="line-height: 1.65">What ties it together is the same habit: understand the person on the other side of the screen first, then design the smallest interface that gets them what they came for.</div></div>
+        <div class="specimen"><small>text · 14 · 400/500<br>small / button / table</small><div class="sample" style="font-size: .875rem">Output → findings report · prioritised fixes</div></div>
+        <div class="specimen"><small>mono · 12 · 400<br>label · +0.08em · uppercase</small><div class="sample mono">Frame 01 · Hero / Dashboard · 1440 × 900</div></div>
+        <div class="specimen"><small>mono · 11/10<br>tag / measure</small><div class="sample"><span class="tag">Design system</span> <span class="tag tag--brand">UI/UX Designer</span> <span class="tag tag--proto">Ready for dev</span></div></div>
+
+        <h4>Rules</h4>
+        <ul class="list">
+          <li>Body line length between 45 and 75 characters (<code>max-width: 68ch</code>). Leads cap at 56ch.</li>
+          <li>Headlines: one idea, sentence case, no full stop unless it is a sentence. Italic on the one word that carries the meaning.</li>
+          <li>Never use the display serif under 24px; it loses its shapes.</li>
+          <li>Mono text is uppercase with +0.08em tracking at 12px and below; never uppercase body text.</li>
+          <li>Minimum sizes: 14px for UI text, 11px for mono meta, 10px only inside measurement labels (decorative, hidden from assistive tech).</li>
+          <li>Weight is for hierarchy, colour is for meaning. Don't use both for the same job.</li>
+        </ul>
+      </section>
+
+      <!-- ============ SPACING ============ -->
+      <section id="spacing">
+        <span class="eyebrow">07 · Foundations</span>
+        <h2 class="display h-md">Spacing</h2>
+        <p>A 4pt base with a 10-step scale. Inside components use steps 1–4; between components use 4–6; between sections use 7–9. If a value isn't on the scale, the layout is wrong, not the scale.</p>
+        <div class="space-scale">
+          <div><span>sp-1 · 4</span><i style="width:4px"></i></div>
+          <div><span>sp-2 · 8</span><i style="width:8px"></i></div>
+          <div><span>sp-3 · 12</span><i style="width:12px"></i></div>
+          <div><span>sp-4 · 16</span><i style="width:16px"></i></div>
+          <div><span>sp-5 · 24</span><i style="width:24px"></i></div>
+          <div><span>sp-6 · 32</span><i style="width:32px"></i></div>
+          <div><span>sp-7 · 48</span><i style="width:48px"></i></div>
+          <div><span>sp-8 · 64</span><i style="width:64px"></i></div>
+          <div><span>sp-9 · 96</span><i style="width:96px"></i></div>
+          <div><span>sp-10 · 128</span><i style="width:128px"></i></div>
+        </div>
+        <table class="table">
+          <thead><tr><th>Context</th><th>Token</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>Icon to label</td><td>sp-2</td><td>Button icon gap</td></tr>
+            <tr><td>Inside a component</td><td>sp-3 / sp-4</td><td>Tag padding, input padding</td></tr>
+            <tr><td>Card padding</td><td>sp-5</td><td>Case body, phase card</td></tr>
+            <tr><td>Between siblings</td><td>sp-4 / sp-5</td><td>Grid gaps</td></tr>
+            <tr><td>Between groups</td><td>sp-6 / sp-7</td><td>Section head to content</td></tr>
+            <tr><td>Between sections</td><td>sp-9 (sp-8 on mobile)</td><td>Section padding-block</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ LAYOUT ============ -->
+      <section id="layout">
+        <span class="eyebrow">08 · Foundations</span>
+        <h2 class="display h-md">Layout &amp; grid</h2>
+        <p>A 12-column fluid grid inside a 1200px container with 24px gutters. Press <kbd>G</kbd> on any page to see it. The grid is red on purpose: it's the Figma layout-grid colour, and it should never be mistaken for content.</p>
+        <table class="table">
+          <thead><tr><th>Breakpoint</th><th>Width</th><th>Columns</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Mobile</td><td>&lt; 640</td><td>4 (1 for stacks)</td><td>16px side gutter, single column flows, section padding sp-8</td></tr>
+            <tr><td>Tablet</td><td>640 – 960</td><td>8</td><td>Two-column grids collapse, nav becomes a sheet at 860</td></tr>
+            <tr><td>Desktop</td><td>960 – 1200</td><td>12</td><td>Full layouts, process flow 3-up at &lt; 1100</td></tr>
+            <tr><td>Wide</td><td>&gt; 1200</td><td>12, container capped</td><td>Whitespace grows, content doesn't</td></tr>
+          </tbody>
+        </table>
+        <ul class="list">
+          <li>Containers: <code>--container</code> 1200px for layouts, <code>--container-narrow</code> 760px for long reading.</li>
+          <li>Case frames span 6 or 12 columns; never 4, 5 or 7 (odd rhythm).</li>
+          <li>Nothing scrolls horizontally at 375px. Tables wrap in a scroll container instead.</li>
+          <li>The toolbar is sticky and 56px tall; anchored sections offset by its height.</li>
+        </ul>
+      </section>
+
+      <!-- ============ SHAPE ============ -->
+      <section id="shape">
+        <span class="eyebrow">09 · Foundations</span>
+        <h2 class="display h-md">Shape, borders &amp; elevation</h2>
+        <p>The system is wireframe-first: square corners, 1px hairlines, dashed lines for things that aren't final. Depth comes from borders and layering, not shadows. The only shadow lives on floating comment bubbles.</p>
+        <div class="demo-row">
+          <div class="radius-demo" style="border-radius:0">0</div>
+          <div class="radius-demo" style="border-radius:2px">2 · buttons, tags</div>
+          <div class="radius-demo" style="border-radius:4px">4 · cards, bubbles</div>
+          <div class="radius-demo" style="border-radius:8px">8 · mobile frames</div>
+          <div class="radius-demo" style="border-radius:999px">full · pills</div>
+        </div>
+        <table class="table">
+          <thead><tr><th>Line</th><th>Style</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>Solid 1px <code>border-strong</code></td><td>———</td><td>Final, interactive, selected frame</td></tr>
+            <tr><td>Solid 1px <code>border</code></td><td>———</td><td>Container, divider</td></tr>
+            <tr><td>Dashed 1px <code>border</code></td><td>- - - -</td><td>Placeholder, work in progress, section boundary</td></tr>
+            <tr><td>Solid 1px <code>proto</code></td><td>———</td><td>Hotspot, connection, selection handles</td></tr>
+            <tr><td>Solid 1px <code>redline</code> with ticks</td><td>|———|</td><td>Measurement</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ MOTION ============ -->
+      <section id="motion">
+        <span class="eyebrow">10 · Foundations</span>
+        <h2 class="display h-md">Motion</h2>
+        <p>Motion explains: things draw themselves, pins drop in, connections animate in the order a designer would make them. Nothing moves for decoration and everything respects <code>prefers-reduced-motion</code>.</p>
+        <div class="demo-row">
+          <div class="motion-demo" data-ease="standard"><i></i><small>standard · .2 .7 .2 1</small></div>
+          <div class="motion-demo" data-ease="emphasized"><i></i><small>emphasized · .05 .7 .1 1</small></div>
+          <div class="motion-demo" data-ease="exit"><i></i><small>exit · .4 0 1 1</small></div>
+        </div>
+        <table class="table">
+          <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td><code>dur-1</code></td><td>120ms</td><td>Colour and opacity on hover</td></tr>
+            <tr><td><code>dur-2</code></td><td>200ms</td><td>Buttons, toggles, small transforms</td></tr>
+            <tr><td><code>dur-3</code></td><td>320ms</td><td>Cards lifting, nav sheet, bubbles</td></tr>
+            <tr><td><code>dur-4</code></td><td>600ms</td><td>Scroll reveals, pins dropping</td></tr>
+            <tr><td><code>dur-5</code></td><td>1200ms</td><td>Headline rise, wireframe self-draw</td></tr>
+          </tbody>
+        </table>
+        <ul class="list">
+          <li>Enter with <code>emphasized</code>, exit with <code>exit</code>, everything else <code>standard</code>.</li>
+          <li>Stagger siblings by 80ms, max five steps.</li>
+          <li>Only animate <code>transform</code> and <code>opacity</code> (and SVG <code>stroke-dashoffset</code>). No layout animation.</li>
+          <li>Reduced motion: all durations drop to ~0, reveals render in their final state, the marquee and cursor are removed.</li>
+          <li>The marquee pauses on hover so the text can actually be read.</li>
+        </ul>
+      </section>
+
+      <!-- ============ ICONOGRAPHY ============ -->
+      <section id="iconography">
+        <span class="eyebrow">11 · Foundations</span>
+        <h2 class="display h-md">Iconography &amp; illustration</h2>
+        <p>The site uses very few icons on purpose; words are clearer. Where an icon is needed it follows one grammar so illustration and UI feel like one hand drew them.</p>
+        <table class="table">
+          <thead><tr><th>Attribute</th><th>Rule</th></tr></thead>
+          <tbody>
+            <tr><td>Grid</td><td>24 × 24 with 2px padding (20 live area); 16 × 16 for inline</td></tr>
+            <tr><td>Stroke</td><td>1.5px, round caps and joins, no fills except the brand mark</td></tr>
+            <tr><td>Corners</td><td>Square or 2px, matching the shape system</td></tr>
+            <tr><td>Colour</td><td><code>currentColor</code>, inherit from the text next to it</td></tr>
+            <tr><td>Accessibility</td><td>Decorative icons get <code>aria-hidden</code>; icon-only buttons get an <code>aria-label</code></td></tr>
+            <tr><td>Illustration</td><td>Drawn in Illustrator / Procreate on the same 24-col grid as the UI, olive + bone + one sand accent, textures allowed, gradients not</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ ANNOTATION LANGUAGE ============ -->
+      <section id="annotation">
+        <span class="eyebrow">12 · Foundations</span>
+        <h2 class="display h-md">Annotation language</h2>
+        <p>This is the layer that makes the portfolio look like a working file. It's a small vocabulary borrowed from Figma and from classic redlining, each mark with one fixed meaning. Toggle it with <kbd>A</kbd> on the portfolio.</p>
+        <div class="anno-demo" aria-label="Annotation language demo">
+          <span class="frame__label" style="top:-1.6rem; left:-1px;"><b>Frame 12</b> Annotation demo <span class="dim">640 × 220</span></span>
+          <div class="wf-box wf-box--x" style="left:24px; top:24px; width:140px; height:100px;"></div>
+          <div class="wf-line" style="position:absolute; left:188px; top:28px; width:200px; height:12px;"></div>
+          <div class="wf-line" style="position:absolute; left:188px; top:52px; width:140px;"></div>
+          <div class="wf-btn wf-btn--fill" style="position:absolute; left:188px; top:80px; width:96px;"></div>
+          <div class="hotspot" style="left:184px; top:76px; width:104px; height:36px;"></div>
+          <div class="measure measure--h" style="left:164px; top:74px; width:24px;"><span>24</span></div>
+          <div class="measure measure--v" style="left:24px; top:130px; height:60px;"><span>60</span></div>
+          <div class="spec" style="left:188px; top:124px;">AUTO LAYOUT · GAP 8 · HUG</div>
+          <div class="pin" style="left:330px; top:64px;" data-author="jm">1<span class="pin__bubble"><b>Jessica</b>Designer comment: olive pin.</span></div>
+          <div class="pin" style="left:370px; top:120px;" data-author="client">2<span class="pin__bubble"><b>Client</b>Client comment: sand pin.</span></div>
+          <div class="sticky" style="position:absolute; right:20px; bottom:16px;"><b>Sticky</b>Workshop note or next step.</div>
+        </div>
+        <table class="table">
+          <thead><tr><th>Mark</th><th>Looks like</th><th>Means</th><th>Rules</th></tr></thead>
+          <tbody>
+            <tr><td>Frame label</td><td>Mono, above the top-left corner</td><td>What this artboard is, and its size</td><td>Format: <code>Frame NN · Name · W × H</code>. Always present on a frame.</td></tr>
+            <tr><td>Selection handles</td><td>Four small blue squares</td><td>This frame is selected / interactive</td><td>Only on hover or on the hero. Never on two frames at once.</td></tr>
+            <tr><td>Comment pin</td><td>Numbered teardrop</td><td>A conversation happened here</td><td>Olive = designer, sand = client. Numbered per frame. Hover/click/focus opens the bubble; Esc closes.</td></tr>
+            <tr><td>Measurement</td><td>Red line with end ticks and a value</td><td>Distance in px</td><td>Value on the scale. Decorative: <code>aria-hidden</code>, never carries essential information.</td></tr>
+            <tr><td>Hotspot</td><td>Blue rectangle with a dot</td><td>Prototype interaction starts here</td><td>Only on things that are actually interactive in the story.</td></tr>
+            <tr><td>Connector</td><td>Blue dashed curve with arrow</td><td>Flows to this frame</td><td>Left-to-right, one per hotspot.</td></tr>
+            <tr><td>Spec label</td><td>Blue mono chip</td><td>Auto-layout / constraint info</td><td>Uppercase, ≤ 32 characters.</td></tr>
+            <tr><td>Sticky note</td><td>Sand square, slightly rotated</td><td>Workshop note or next step</td><td>Max 2 lines. One per section.</td></tr>
+            <tr><td>Placeholder box</td><td>Dashed box with an X</td><td>Image or content to come</td><td>Says what should replace it and at what size.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ COMPONENTS ============ -->
+      <section id="components">
+        <span class="eyebrow">13 · Components</span>
+        <h2 class="display h-md">Component library</h2>
+        <p>Every component below is rendered live from the site's CSS, so this page can never drift from the product. Each entry documents anatomy, variants, states, accessibility and usage. Components consume semantic tokens only.</p>
+        <table class="table">
+          <thead><tr><th>Component</th><th>Status</th><th>Variants</th><th>Where it's used</th></tr></thead>
+          <tbody>
+            <tr><td>Button</td><td><span class="tag tag--brand">Stable</span></td><td>primary · secondary · ghost × sm · md · lg</td><td>Hero, contact, toolbar</td></tr>
+            <tr><td>Tag</td><td><span class="tag tag--brand">Stable</span></td><td>default · brand · proto · redline</td><td>Cases, hero, this page</td></tr>
+            <tr><td>Frame</td><td><span class="tag tag--brand">Stable</span></td><td>solid · dashed · selected</td><td>Hero art, cases, contact</td></tr>
+            <tr><td>Comment pin</td><td><span class="tag tag--brand">Stable</span></td><td>designer · client · left-bubble</td><td>Hero, cases</td></tr>
+            <tr><td>Measure / Hotspot / Spec</td><td><span class="tag tag--brand">Stable</span></td><td>h · v</td><td>Annotation layer</td></tr>
+            <tr><td>Form field</td><td><span class="tag">Beta</span></td><td>text · textarea · invalid</td><td>Reserved for contact form</td></tr>
+            <tr><td>Toolbar</td><td><span class="tag tag--brand">Stable</span></td><td>—</td><td>All pages</td></tr>
+            <tr><td>Section header</td><td><span class="tag tag--brand">Stable</span></td><td>—</td><td>All sections</td></tr>
+            <tr><td>Process step</td><td><span class="tag tag--brand">Stable</span></td><td>—</td><td>Process flow</td></tr>
+            <tr><td>Case frame</td><td><span class="tag tag--brand">Stable</span></td><td>half · wide</td><td>Work</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="button">
+        <span class="eyebrow">13.1 · Component</span>
+        <h2 class="display h-md">Button</h2>
+        <p>Buttons trigger actions; links go places. A view has one primary button. Labels are verb-first and never longer than three words.</p>
+        <div class="showcase">
+          <span class="lbl">Variants</span>
+          <div class="showcase__row"><a class="btn btn--primary" href="#button">Primary action</a><a class="btn" href="#button">Secondary</a><a class="btn btn--ghost" href="#button">Ghost</a></div>
+          <span class="lbl" style="margin-top: var(--sp-4)">Sizes</span>
+          <div class="showcase__row"><a class="btn btn--primary btn--sm" href="#button">Small · 32</a><a class="btn btn--primary" href="#button">Medium · 44</a><a class="btn btn--primary btn--lg" href="#button">Large · 52 <span class="arrow" aria-hidden="true">→</span></a></div>
+          <span class="lbl" style="margin-top: var(--sp-4)">States (hover any button to see the dashed proto outline)</span>
+          <div class="state-list">
+            <div><small>Default</small><a class="btn btn--primary" href="#button">Label</a></div>
+            <div><small>Hover</small><a class="btn btn--primary" href="#button" style="--_bg: var(--color-brand-hover); transform: translateY(-1px)">Label</a></div>
+            <div><small>Focus-visible</small><a class="btn btn--primary" href="#button" style="outline: 2px solid var(--color-focus); outline-offset: 3px">Label</a></div>
+            <div><small>Active</small><a class="btn btn--primary" href="#button" style="--_bg: var(--color-brand-active)">Label</a></div>
+            <div><small>Disabled</small><a class="btn btn--primary" aria-disabled="true" href="#button">Label</a></div>
+          </div>
+        </div>
+        <div class="anatomy">
+          <a class="btn btn--primary btn--lg" href="#button" style="pointer-events:none">View work <span class="arrow" aria-hidden="true">→</span></a>
+          <div class="pin" style="left:-10px; top:-12px;">1<span class="pin__bubble"><b>1 · Container</b>Height 52 (lg) · padding-x 32 · radius 2 · border 1px same as fill.</span></div>
+          <div class="pin" style="left:44%; top:-12px;">2<span class="pin__bubble"><b>2 · Label</b>Inter 500 · 16 (lg) / 14 (md) · verb first.</span></div>
+          <div class="pin" style="right:-10px; top:-12px; left:auto;">3<span class="pin__bubble"><b>3 · Trailing icon</b>Optional · gap 8 · slides 3px on hover.</span></div>
+          <div class="measure measure--h" style="left:0; bottom:-18px; width:100%;"><span>hug · min 44</span></div>
+        </div>
+        <h4>Accessibility</h4>
+        <ul class="list">
+          <li>Minimum height 44px (md, lg). Small (32px) is only for the toolbar and always has 8px of space around it, satisfying WCAG 2.2 target size (24 × 24 minimum).</li>
+          <li>Focus ring: 2px <code>focus</code> colour, 3px offset, visible on every variant, never removed.</li>
+          <li>Disabled buttons keep their label readable (opacity .45 on an 8.2:1 pair stays above 3:1 for large text) and are excluded from tab order only if truly inert.</li>
+          <li>Anchors styled as buttons are real links; buttons that don't navigate are real <code>&lt;button&gt;</code> elements.</li>
+        </ul>
+        <div class="dodont">
+          <div class="do"><b>Do</b><ul><li>"View work", "Hire me on Upwork", "Design guidelines".</li><li>One primary per view; secondaries beside it.</li><li>Keep width to content (hug); full-width only on mobile forms.</li></ul></div>
+          <div class="dont"><b>Don't</b><ul><li>"Click here", "Submit", "OK".</li><li>Stack two primaries.</li><li>Use a ghost button for the main action.</li></ul></div>
+        </div>
+      </section>
+
+      <section id="tag">
+        <span class="eyebrow">13.2 · Component</span>
+        <h2 class="display h-md">Tag</h2>
+        <p>Tags label things: skills, status, categories. They are not buttons and never navigate.</p>
+        <div class="showcase"><div class="showcase__row"><span class="tag">Default</span><span class="tag tag--brand">Brand · status / role</span><span class="tag tag--proto">Proto · ready for dev</span><span class="tag tag--redline">Redline · needs fix</span><span class="status-pill">Live status pill</span></div></div>
+        <ul class="list">
+          <li>Mono 11px uppercase, padding 3 × 9, radius 2, 1px border.</li>
+          <li>Max three tags per case card. If you need more, the card needs a better title.</li>
+          <li>The <code>status-pill</code> variant carries a pulsing dot meaning "live"; it is decorative and hidden on mobile.</li>
+        </ul>
+      </section>
+
+      <section id="frame">
+        <span class="eyebrow">13.3 · Component</span>
+        <h2 class="display h-md">Frame</h2>
+        <p>The frame is the primary container, standing in for an artboard. It always has a label, may have selection handles, and may host annotation marks positioned absolutely inside it.</p>
+        <div class="showcase" style="padding-top: var(--sp-7)">
+          <div class="showcase__row" style="align-items: stretch">
+            <div class="frame" style="width: 220px; height: 120px;"><span class="frame__label"><b>Frame</b> Solid <span class="dim">220 × 120</span></span></div>
+            <div class="frame frame--dashed" style="width: 220px; height: 120px;"><span class="frame__label"><b>Frame</b> Dashed / WIP <span class="dim">220 × 120</span></span></div>
+            <div class="frame frame--selected" style="width: 220px; height: 120px;"><span class="frame__label"><b>Frame</b> Selected <span class="dim">220 × 120</span></span><span class="frame__handles" style="opacity:1"><span></span></span></div>
+          </div>
+        </div>
+        <ul class="list">
+          <li>Solid = final content. Dashed = placeholder or in progress. Selected = hovered case or the hero.</li>
+          <li>Frames sit on <code>bg-elevated</code>; the page sits on <code>bg</code>. Never nest more than two frames.</li>
+          <li>Labels must be accurate: if the frame is 1200 wide, say 1200.</li>
+        </ul>
+      </section>
+
+      <section id="pin">
+        <span class="eyebrow">13.4 · Component</span>
+        <h2 class="display h-md">Comment pin</h2>
+        <p>A pin marks a conversation. Its bubble shows author, role and the comment. Pins are interactive: hover, click or focus to open; Esc closes; one open at a time.</p>
+        <div class="showcase" style="min-height: 140px">
+          <div class="showcase__row">
+            <div style="position:relative; width:120px; height:60px;"><div class="pin" style="left:0; top:0;" data-open="true">1<span class="pin__bubble"><b>Jessica · design</b>Designer pin, open state.</span></div></div>
+            <div style="position:relative; width:240px; height:60px; margin-left: 160px;"><div class="pin" style="left:0; top:0;" data-author="client">2<span class="pin__bubble"><b>Client · review</b>Client pin (sand).</span></div></div>
+          </div>
+        </div>
+        <table class="table">
+          <thead><tr><th>Part</th><th>Spec</th></tr></thead>
+          <tbody>
+            <tr><td>Pin</td><td>24 × 24 · radius 50% 50% 50% 4px · 2px ring in bg-elevated · mono 11 600 number</td></tr>
+            <tr><td>Bubble</td><td>min 190 / max 240 · padding 8 × 12 · radius 4 · border 1px · shadow 0 8 24 −12 @25%</td></tr>
+            <tr><td>Author line</td><td>Mono 10 uppercase subtle: "Name · role"</td></tr>
+            <tr><td>Behaviour</td><td><code>role="button"</code>, <code>tabindex="0"</code>, Enter/Space toggle, Esc closes all, hover opens without click</td></tr>
+            <tr><td>Placement</td><td>Bubble opens right; <code>.pin--left</code> flips it when near the right edge</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="field">
+        <span class="eyebrow">13.5 · Component</span>
+        <h2 class="display h-md">Form field</h2>
+        <p>Reserved for a future contact form. Label above, help or error below, 44px control, strong border so the boundary passes 3:1.</p>
+        <div class="showcase">
+          <div class="showcase__row" style="align-items: flex-start">
+            <div class="field"><label for="f1">Your name</label><input id="f1" type="text" placeholder="Ada Lovelace"><span class="help">As you'd like to be addressed.</span></div>
+            <div class="field is-invalid"><label for="f2">Email</label><input id="f2" type="email" value="ada@" aria-invalid="true" aria-describedby="f2h"><span class="help" id="f2h">Enter a complete email address.</span></div>
+            <div class="field"><label for="f3">Project</label><textarea id="f3" placeholder="What are we designing?"></textarea><span class="help">A few lines is enough.</span></div>
+          </div>
+        </div>
+        <ul class="list">
+          <li>Every input has a visible <code>&lt;label&gt;</code>; placeholders are examples, never labels.</li>
+          <li>Errors: red border + text below, linked with <code>aria-describedby</code>, and <code>aria-invalid="true"</code>. Never colour alone.</li>
+          <li>Required fields say "required"; optional ones say nothing (default is required).</li>
+        </ul>
+      </section>
+
+      <section id="toolbar">
+        <span class="eyebrow">13.6 · Component</span>
+        <h2 class="display h-md">Toolbar</h2>
+        <p>The site header is styled as an editor toolbar: file name on the left, status pill, page navigation, and tools (grid, notes, theme) with keyboard shortcuts.</p>
+        <ul class="list">
+          <li>Sticky, 56px, translucent elevated background with blur, 1px bottom border.</li>
+          <li>Current section is tracked with an IntersectionObserver and marked with <code>aria-current="true"</code> plus a 2px underline.</li>
+          <li>Below 860px the nav becomes a sheet toggled by a "Menu" button with <code>aria-expanded</code> and <code>aria-controls</code>.</li>
+          <li>Tool buttons are toggles: <code>aria-pressed</code> reflects state; shortcuts G, A and D are ignored while typing in a field.</li>
+        </ul>
+      </section>
+
+      <!-- ============ PATTERNS ============ -->
+      <section id="patterns">
+        <span class="eyebrow">14 · Patterns</span>
+        <h2 class="display h-md">Page patterns</h2>
+        <h3>Section header</h3>
+        <p>Number chip · display title · mono meta on the right. The number ties the section to the nav and to this document; the meta describes the section in file terms ("Frame 02 · Auto layout"). On mobile the meta drops under the title.</p>
+        <h3>Process flow</h3>
+        <p>Six equal steps connected by prototype lines, with a dashed "loop" line underneath to say the process is iterative. Collapses to 3 columns under 1100px and to a stack under 640px, where connectors are hidden.</p>
+        <h3>Responsive behaviour</h3>
+        <ul class="list">
+          <li>Grids collapse from 12 → 8 → 4 columns; components never shrink below their minimum target size.</li>
+          <li>Annotations are positioned in percentages so they scale with the frame; bubbles are limited to 240px and flip near edges.</li>
+          <li>The hero art moves under the headline on tablet and keeps its sticky note.</li>
+        </ul>
+        <h3>States every screen must have</h3>
+        <table class="table">
+          <thead><tr><th>State</th><th>Looks like</th><th>Copy rule</th></tr></thead>
+          <tbody>
+            <tr><td>Loading</td><td>Skeleton lines (<code>wf-line</code>) in the content's shape</td><td>No text unless &gt; 2s: "Loading…"</td></tr>
+            <tr><td>Empty</td><td>Dashed placeholder box with one line and one action</td><td>Say what will appear here and how to make it appear</td></tr>
+            <tr><td>Error</td><td>Danger text + a way back</td><td>What happened, what to do, in that order</td></tr>
+            <tr><td>Success</td><td>Success text, no confetti</td><td>Confirm the outcome, offer the next step</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="casestudy">
+        <span class="eyebrow">15 · Patterns</span>
+        <h2 class="display h-md">Case study template</h2>
+        <p>The structure every project write-up follows. Someone should get the story from the headings alone; the details reward those who read on.</p>
+        <ol class="list">
+          <li><strong>Summary card</strong>: client, role, timeline, team, one-line outcome with a number.</li>
+          <li><strong>Context</strong>: the product, the business, the moment. Two paragraphs max.</li>
+          <li><strong>Problem</strong>: what was broken, for whom, with evidence (metric, quote, observation).</li>
+          <li><strong>Goals &amp; metrics</strong>: what success meant, agreed before design started.</li>
+          <li><strong>Research</strong>: methods, participants, top three insights.</li>
+          <li><strong>Definition</strong>: persona / JTBD, journey map, the "how might we".</li>
+          <li><strong>Exploration</strong>: sketches, options considered, why the chosen direction won.</li>
+          <li><strong>Solution</strong>: key screens with annotations; the system pieces built.</li>
+          <li><strong>Validation</strong>: what was tested, what changed, the numbers.</li>
+          <li><strong>Outcome</strong>: results against the goals; what shipped; what didn't and why.</li>
+          <li><strong>Reflection</strong>: what I'd do differently. Honest, short.</li>
+        </ol>
+        <div class="callout"><b>Under NDA?</b>Keep the structure, anonymise the client, describe the category, show wireframes instead of final UI, and state which numbers are withheld rather than inventing them.</div>
+      </section>
+
+      <section id="content">
+        <span class="eyebrow">16 · Patterns</span>
+        <h2 class="display h-md">Content &amp; voice</h2>
+        <p>The voice is a designer explaining her work to a smart colleague: direct, specific, warm, no jargon for its own sake.</p>
+        <table class="table">
+          <thead><tr><th>Rule</th><th>Do</th><th>Don't</th></tr></thead>
+          <tbody>
+            <tr><td>Case</td><td>Sentence case everywhere except mono labels</td><td>Title Case Headlines</td></tr>
+            <tr><td>Person</td><td>First person singular ("I design")</td><td>"We" when it's one person; third person</td></tr>
+            <tr><td>Claims</td><td>Numbers with a source, or no numbers</td><td>"Increased conversion significantly"</td></tr>
+            <tr><td>Buttons</td><td>Verb + object: "View work"</td><td>"Click here", "Learn more"</td></tr>
+            <tr><td>Numerals</td><td>Digits for everything measurable: 5+ years, 44px, 3 rounds</td><td>Spelled-out numbers in specs</td></tr>
+            <tr><td>Dates</td><td>Mon YYYY (Sep 2026)</td><td>Relative dates that go stale ("last month")</td></tr>
+            <tr><td>Units</td><td>px in specs, rem in code, × for dimensions</td><td>Mixed units in one label</td></tr>
+            <tr><td>Punctuation</td><td>Middle dot (·) separates meta; em dash never</td><td>Slashes and pipes in running text</td></tr>
+            <tr><td>Language</td><td>English (Upwork audience); pt-BR version keeps the same structure</td><td>Mixed languages on one page</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ ACCESSIBILITY ============ -->
+      <section id="accessibility">
+        <span class="eyebrow">17 · Quality</span>
+        <h2 class="display h-md">Accessibility</h2>
+        <p>Target: WCAG 2.2 level AA on every page, checked before every release. This is the checklist I run; items marked done are verified on v1.0.0.</p>
+        <ul class="check">
+          <li class="done"><span><b>Text contrast ≥ 4.5:1</b> (1.4.3) for all body and label text, in both themes.<small>All semantic pairs listed in Color · verified by calculation</small></span></li>
+          <li class="done"><span><b>Non-text contrast ≥ 3:1</b> (1.4.11) for input borders, button boundaries and focus rings.<small>border-strong + proto focus ring</small></span></li>
+          <li class="done"><span><b>Focus visible</b> (2.4.7 / 2.4.11) with a 2px ring that is never obscured by sticky elements.<small>scroll-margin on anchored sections</small></span></li>
+          <li class="done"><span><b>Target size ≥ 24 × 24</b> (2.5.8, new in 2.2) with 44px default for primary controls.<small>Buttons 44/52 · pins 24 with spacing</small></span></li>
+          <li class="done"><span><b>Keyboard operable</b> (2.1.1): all controls including pins, toggles and mobile nav.<small>Enter/Space/Esc handled</small></span></li>
+          <li class="done"><span><b>Reduced motion respected</b> (2.3.3): animations disabled under the OS preference.<small>media query in styles.css</small></span></li>
+          <li class="done"><span><b>Semantics</b>: one h1 per page, landmarks (header, nav, main, footer), lists for lists, skip link first.<small>Verified in the DOM</small></span></li>
+          <li class="done"><span><b>Images &amp; SVG</b>: informative SVG has a title; decorative marks are aria-hidden.<small>hero-wire titled; measures aria-hidden</small></span></li>
+          <li class="done"><span><b>Toggle state exposed</b>: aria-pressed / aria-expanded / aria-current where relevant.<small>toolbar, nav</small></span></li>
+          <li class="done"><span><b>Reflow</b> (1.4.10): no horizontal scroll at 320px CSS width; tables scroll within their container.<small>checked at 375 and 320</small></span></li>
+          <li><span><b>Screen reader pass</b> with VoiceOver + Safari and NVDA + Firefox.<small>Scheduled for v1.1.0</small></span></li>
+          <li><span><b>Automated audit</b> (axe / Lighthouse) with zero critical issues, recorded in the changelog.<small>Scheduled for v1.1.0</small></span></li>
+        </ul>
+        <h4>What "decorative" means here</h4>
+        <p>Measurements, spec labels and the multiplayer cursor are part of the visual concept and carry no information a reader needs. They are hidden from assistive technology and can be switched off with <kbd>A</kbd>. Comment pins do carry content, so they are real, focusable controls.</p>
+      </section>
+
+      <!-- ============ HANDOFF & TOKENS ============ -->
+      <section id="handoff">
+        <span class="eyebrow">18 · Quality</span>
+        <h2 class="display h-md">Handoff &amp; tokens</h2>
+        <p>Handoff transfers intent. Specs live in Dev Mode and in tokens; annotations explain what the canvas can't show: logic, conditions, edge cases.</p>
+        <h3>Token architecture</h3>
+        <table class="table">
+          <thead><tr><th>Tier</th><th>Holds</th><th>Example</th><th>May reference</th></tr></thead>
+          <tbody>
+            <tr><td>Primitive</td><td>Raw values, no meaning</td><td><code>olive-600 = #4B5320</code></td><td>Nothing</td></tr>
+            <tr><td>Semantic</td><td>Intent</td><td><code>color-brand = {olive-600}</code></td><td>Primitives only</td></tr>
+            <tr><td>Component</td><td>Local decisions</td><td><code>button-bg-primary = {color-brand}</code></td><td>Semantic only</td></tr>
+          </tbody>
+        </table>
+        <ul class="list">
+          <li>Naming: lowercase, hyphenated, <code>category-property-variant-state</code>. No value words in semantic names ("brand", never "green").</li>
+          <li>One-way dependency. A token references exactly one tier below it, never sideways.</li>
+          <li>Source of truth is <code>assets/tokens/tokens.json</code> in the W3C Design Tokens (DTCG 2025.10) format; <code>tokens.css</code> is generated from it by hand for now (build step planned).</li>
+          <li>Figma variables mirror the same names in three collections: Primitive, Semantic (Light / Dark modes), Component.</li>
+        </ul>
+<pre><code>{
+  "semantic": {
+    "color": {
+      "brand": { "$type": "color", "$value": "{primitive.color.olive.600}" },
+      "text-subtle": { "$type": "color", "$value": "{primitive.color.bone.550}" }
+    }
+  },
+  "component": {
+    "button": {
+      "bg-primary": { "$type": "color", "$value": "{semantic.color.brand}" },
+      "height": { "md": { "$type": "dimension", "$value": { "value": 44, "unit": "px" } } }
+    }
+  }
+}</code></pre>
+        <h3>Handoff checklist</h3>
+        <ul class="check">
+          <li class="done"><span><b>Frames marked "Ready for dev"</b> in Figma, one section per flow.</span></li>
+          <li class="done"><span><b>Every colour, size and space is a variable</b>; zero hard-coded values in ready frames.</span></li>
+          <li class="done"><span><b>All states present</b>: default, hover, focus, active, disabled, loading, empty, error.</span></li>
+          <li class="done"><span><b>Responsive frames</b> at 375, 768, 1440 with constraints and min/max notes.</span></li>
+          <li class="done"><span><b>Annotations for intent</b>: what happens on click, validation rules, transitions, copy that changes.</span></li>
+          <li class="done"><span><b>Layer and component names match code</b> (Button/Primary/Md ↔ <code>.btn.btn--primary</code>).</span></li>
+          <li class="done"><span><b>Assets exported</b>: SVG icons, 1×/2× images, fonts and licences listed.</span></li>
+          <li class="done"><span><b>Walkthrough recorded</b> or held live; open questions logged with owners.</span></li>
+          <li class="done"><span><b>Design QA plan</b> agreed: what I check, on which environment, by when.</span></li>
+        </ul>
+      </section>
+
+      <!-- ============ GOVERNANCE ============ -->
+      <section id="governance">
+        <span class="eyebrow">19 · Quality</span>
+        <h2 class="display h-md">Governance &amp; versioning</h2>
+        <p>A design system that nobody maintains is a screenshot. These are the rules that keep this one alive, sized for a team of one but written so a team of ten could follow them.</p>
+        <table class="table">
+          <thead><tr><th>Topic</th><th>Rule</th></tr></thead>
+          <tbody>
+            <tr><td>Versioning</td><td>Semantic versioning. <strong>Major</strong>: token renamed/removed or a component's API changes. <strong>Minor</strong>: new token, component or variant. <strong>Patch</strong>: fix with no API change.</td></tr>
+            <tr><td>Changelog</td><td>Every release lists Added / Changed / Fixed / Deprecated with the reason, in the section below.</td></tr>
+            <tr><td>Proposing a change</td><td>Open a note with: problem, evidence, proposed token/component, contrast check, screenshots in both themes.</td></tr>
+            <tr><td>Review</td><td>Checked against the Principles, the Accessibility checklist and the token dependency rule before merging.</td></tr>
+            <tr><td>Deprecation</td><td>Mark as deprecated for one minor version with the replacement named; remove in the next major.</td></tr>
+            <tr><td>Ownership</td><td>Jessica Monteiro owns foundations and components. Content per page is owned by whoever writes it, following Content &amp; voice.</td></tr>
+            <tr><td>Audit cadence</td><td>Quarterly: contrast recheck, dead-token sweep, screen-reader pass, dependency updates (fonts).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============ CHANGELOG ============ -->
+      <section id="changelog">
+        <span class="eyebrow">20 · Changelog</span>
+        <h2 class="display h-md">Changelog</h2>
+        <h3>1.0.0 · Sep 2026</h3>
+        <ul class="list">
+          <li><strong>Added</strong>: olive and bone ramps, sand accent, functional colours; 12-step type scale; 4pt spacing; 12-col grid; motion tokens; annotation language; Button, Tag, Frame, Comment pin, Measure, Hotspot, Spec label, Sticky, Form field, Toolbar, Section header, Process step, Case frame.</li>
+          <li><strong>Changed</strong> (during v1 QA): <code>text-subtle</code> moved from bone-500 (4.0:1, fails AA) to bone-550 (5.2:1); redline moved from #E0473B to #CF3327 so label text reaches 5.1:1; added <code>proto-text</code> (#1E5FC2) because #2F80ED fails as text on light at 3.7:1; dark-mode <code>text-on-brand</code> switched to bone-950 because white on olive-400 was 3.0:1.</li>
+          <li><strong>Documented</strong>: full eight-phase UI/UX process with exit criteria, research method matrix, metrics, working agreements, accessibility checklist, handoff checklist, governance.</li>
+        </ul>
+        <h3>Planned · 1.1.0</h3>
+        <ul class="list">
+          <li>Screen-reader pass and automated audit results recorded.</li>
+          <li>Contact form component promoted from Beta.</li>
+          <li>pt-BR translation using the same structure.</li>
+          <li>Token build step (JSON → CSS) so tokens.css is never edited by hand.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span data-year>2026</span> Jessica Monteiro · JM Design Guidelines v1.0.0</span>
+      <span class="footer__shortcuts"><span><kbd>G</kbd> grid</span><span><kbd>D</kbd> theme</span></span>
+      <a href="index.html">← Back to portfolio</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
