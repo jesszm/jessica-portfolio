@@ -83,7 +83,7 @@ html.is-ready .story__canvas { opacity: 1; }
 .chapter:nth-child(3n+2) .chapter__eyebrow .num { background: var(--sticky-mint); }
 .chapter__title {
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(2.6rem, 5vw, 4.6rem); line-height: 1.02; letter-spacing: var(--tracking-tight);
+  font-size: clamp(2.2rem, 3.8vw, 3.5rem); line-height: 1.08; letter-spacing: var(--tracking-tight);
   margin-bottom: var(--sp-4);
 }
 .chapter__title em {
@@ -102,12 +102,12 @@ html.is-ready .story__canvas { opacity: 1; }
 
 .chapter--hero, .chapter--final { top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; padding-top: var(--nav-height); }
 .chapter--hero { width: min(700px, calc(100vw - 2 * var(--gutter))); }
-.chapter--hero .chapter__title { font-size: clamp(3rem, 7vw, 6.2rem); margin-bottom: var(--sp-5); }
+.chapter--hero .chapter__title { font-size: clamp(2.3rem, 4.4vw, 4rem); line-height: 1.1; letter-spacing: -0.01em; margin-bottom: var(--sp-5); max-width: 15ch; }
 .chapter--hero .chapter__text { font-size: clamp(1rem, 1.35vw, 1.2rem); max-width: 50ch; }
 .chapter__cta { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-6); align-items: center; }
 .chapter__meta { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; margin-bottom: var(--sp-5); }
 .chapter--final { width: min(560px, calc(100vw - 2 * var(--gutter))); }
-.chapter--final .chapter__title { font-size: clamp(2.6rem, 5.4vw, 4.8rem); }
+.chapter--final .chapter__title { font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.1; }
 .chapter .status-pill { display: inline-flex; }
 
 .scroll-hint {
