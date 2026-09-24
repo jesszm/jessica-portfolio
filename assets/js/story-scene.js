@@ -1149,8 +1149,8 @@ export function createStory(canvas, options = {}) {
     {
       from: 0, to: CUTS.toWorld, offset: new THREE.Vector3(),
       keys: [
-        [0.0, add(B, 0.66, 0.25, 0.68), add(B, 0.02, 0.07, -0.04)],
-        [0.05, add(B, -0.02, 0.27, 0.76), add(B, 0.0, 0.08, -0.05)],
+        [0.0, add(B, 0.74, 0.3, 0.78), add(B, 0.0, 0.115, -0.04)],
+        [0.05, add(B, -0.02, 0.31, 0.84), add(B, -0.01, 0.115, -0.05)],
         [0.1, add(B, -0.54, 0.26, 0.42), add(B, 0.02, 0.09, -0.05)],
         [0.135, along(0.44, 0.02, 0.02), Sv],
         [0.16, along(0.12), Sv],
@@ -1259,7 +1259,8 @@ export function createStory(canvas, options = {}) {
 
     const finale = pr >= CUTS.toStudio;
     screenMat.map = finale ? screenHifi : screenLowfi;
-    const screenOn = finale ? 1 - ease(pr, 0.9, 0.925) * 0.6 : ease(pr, 0.06, 0.095);
+    /* the screen is already on in the hero: a lit wireframe reads lighter than a black slab */
+    const screenOn = finale ? 1 - ease(pr, 0.9, 0.925) * 0.6 : 0.82 + ease(pr, 0.04, 0.09) * 0.18;
     screenMat.color.setScalar(screenOn);
     screenGlow.intensity = screenOn * 0.25;
     hinge.rotation.x = finale ? lerp(LID_OPEN, LID_CLOSED, ease(pr, 0.88, 0.925)) : LID_OPEN;

@@ -3,7 +3,7 @@
    scroll and stays in sync through gsap.ticker. Falls back to static stills for
    prefers-reduced-motion, ?motion=reduced, missing WebGL or missing libraries. */
 
-import { createStory } from './story-scene.js?v=7';
+import { createStory } from './story-scene.js?v=8';
 
 const html = document.documentElement;
 const params = new URLSearchParams(window.location.search);
