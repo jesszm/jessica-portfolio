@@ -16,19 +16,17 @@
       c.remove('no-js'); c.add('js');
       var reduced = /[?&]motion=reduced/.test(location.search) || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       c.add(reduced ? 'is-static' : 'is-cinematic');
-      var t = null;
-      try { t = localStorage.getItem('jm-theme'); } catch (e) {}
-      d.documentElement.setAttribute('data-theme', t || 'light');
+      d.documentElement.setAttribute('data-theme', 'light');
     })(document);
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/tokens.css?v=21">
+  <link rel="stylesheet" href="assets/css/tokens.css?v=22">
   <link rel="stylesheet" href="assets/css/styles.css?v=21">
-  <link rel="stylesheet" href="assets/css/story.css?v=7">
-  <link rel="stylesheet" href="assets/css/identity.css?v=21">
+  <link rel="stylesheet" href="assets/css/story.css?v=8">
+  <link rel="stylesheet" href="assets/css/identity.css?v=22">
   <script type="importmap">
     {
       "imports": {
@@ -41,8 +39,8 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
-  <script src="assets/js/main.js?v=3" defer></script>
-  <script type="module" src="assets/js/story.js?v=6"></script>
+  <script src="assets/js/main.js?v=4" defer></script>
+  <script type="module" src="assets/js/story.js?v=7"></script>
 </head>
 <body>
   <a class="skip-link" href="#work">Skip to content</a>
@@ -56,10 +54,10 @@
   <header class="toolbar">
     <div class="container toolbar__inner">
       <a class="brand" href="#top" aria-label="Jessica Monteiro — home">
-        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1.5c.9 5.6 2.9 7.6 8.5 8.5-5.6.9-7.6 2.9-8.5 8.5-.9-5.6-2.9-7.6-8.5-8.5 5.6-.9 7.6-2.9 8.5-8.5Z" transform="translate(0 2)"/></svg></span>
         <span class="wordmark"><b>J</b>essica <b>M</b>onteiro</span>
       </a>
-      <span class="status-pill">Ready for dev</span>
+      <span class="status-egg" title="psst: every screen here ships with specs">ready for dev</span>
       <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
       <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
         <a href="#discover" data-process>Process</a>
@@ -70,9 +68,9 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="toolbar__tools">
-        <button class="tool-btn" type="button" data-action="grid" aria-pressed="false" title="Toggle layout grid (G)"><span aria-hidden="true">▦</span> Grid <kbd>G</kbd></button>
-        <button class="tool-btn" type="button" data-action="annotations" aria-pressed="true" title="Toggle annotations (A)"><span aria-hidden="true">◉</span> Notes <kbd>A</kbd></button>
-        <button class="tool-btn" type="button" data-action="theme" aria-pressed="false" title="Toggle theme (D)"><span class="label">Light</span> <kbd>D</kbd></button>
+        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)" title="Designer view · G">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3"/><path d="M7.5 2.5v15M12.5 2.5v15"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -88,7 +86,6 @@
 
         <div class="story__chapters">
           <article class="chapter chapter--hero" data-in="0" data-out="0.095" data-at="0" data-shot="0.11">
-            <p class="chapter__hello">Hello, I'm Jess 👋</p>
             <div class="chapter__meta">
               <span class="tag tag--lilac">UI/UX Designer</span>
               <span class="mono">5+ yrs · e-commerce · mobile · web systems · fintech</span>
@@ -96,8 +93,8 @@
             <h1 class="chapter__title">Interfaces people don't have to <em>think</em> about.</h1>
             <p class="chapter__text">My work blends thoughtful design with aesthetic clarity to create functional, intuitive and visually engaging experiences, from research to handoff: wireframes, prototypes, usability testing and the design systems that keep it all consistent.</p>
             <div class="chapter__cta">
-              <a class="btn btn--primary btn--lg" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
-              <a class="btn btn--lg" href="guidelines.html">Design guidelines</a>
+              <a class="btn btn--primary" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn" href="guidelines.html">Design guidelines</a>
             </div>
             <span class="scroll-hint" aria-hidden="true"><i></i>scroll to follow the process ↓</span>
           </article>
@@ -145,12 +142,12 @@
           </article>
 
           <article class="chapter chapter--final" id="finale" data-in="0.905" data-at="0.995" data-shot="1">
-            <div class="chapter__meta"><span class="status-pill">Ready for dev</span></div>
+            <span class="status-egg">ready for dev</span>
             <h2 class="chapter__title">Have a product, a feature or a <em>messy flow</em>?</h2>
             <p class="chapter__text">Communication and close collaboration with clients are essential to my process, so you'll always know what I'm designing, why, and what I need from you next.</p>
             <div class="chapter__cta">
-              <a class="btn btn--primary btn--lg" href="https://www.upwork.com/freelancers/jessicamonteiro" target="_blank" rel="noopener">Hire me on Upwork <span class="arrow" aria-hidden="true">→</span></a>
-              <a class="btn btn--lg" href="https://www.linkedin.com/in/jksmnt/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+              <a class="btn btn--primary" href="https://www.upwork.com/freelancers/jessicamonteiro" target="_blank" rel="noopener">Hire me on Upwork <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn" href="https://www.linkedin.com/in/jksmnt/" target="_blank" rel="noopener">Connect on LinkedIn</a>
             </div>
           </article>
         </div>
@@ -345,7 +342,7 @@
           </article>
         </div>
 
-        <div class="toolkit reveal" style="margin-top: var(--sp-7);">
+        <div class="toolkit reveal" style="margin-top: var(--sp-8);">
           <div class="toolkit__group">
             <h3>Tools</h3>
             <ul>
@@ -388,12 +385,24 @@
         <div class="about">
           <div class="about__intro">
             <div class="about__portrait reveal">
-              <div class="jess-card">
-                <img src="assets/img/jess-oculos.svg" alt="Illustration of Jess sitting on the floor, wearing yellow flower sunglasses" loading="lazy" decoding="async">
-              </div>
-              <svg class="sparkle" style="right:-14px; top:18%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-lilac)"/></svg>
-              <svg class="sparkle" style="left:-16px; top:52%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-mint)"/></svg>
-              <svg class="sparkle" style="right:10%; bottom:-14px;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-yellow)"/></svg>
+              <svg class="jess-blob" viewBox="4 61.37 643 876" aria-hidden="true" focusable="false">
+                <defs>
+                  <radialGradient id="jb-glow" cx="52%" cy="36%" r="64%"><stop offset="0" stop-color="#2E2D26"/><stop offset=".55" stop-color="#1B1A14"/><stop offset="1" stop-color="#121109"/></radialGradient>
+                  <pattern id="jb-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1.05" fill="#F2EFE6" fill-opacity=".13"/></pattern>
+                  <filter id="jb-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .07 0"/></filter>
+                  <clipPath id="jb-clip"><path d="M336 -8 C478 -16 604 50 628 176 C650 282 612 352 628 462 C646 592 640 716 562 786 C474 864 334 846 214 832 C104 818 34 764 24 644 C14 526 58 452 42 344 C26 236 40 120 130 54 C196 8 266 -4 336 -8 Z"/></clipPath>
+                </defs>
+                <path d="M336 -8 C478 -16 604 50 628 176 C650 282 612 352 628 462 C646 592 640 716 562 786 C474 864 334 846 214 832 C104 818 34 764 24 644 C14 526 58 452 42 344 C26 236 40 120 130 54 C196 8 266 -4 336 -8 Z" fill="none" stroke="#C9B8FF" stroke-width="1.6" transform="translate(12 14)"/>
+                <path d="M336 -8 C478 -16 604 50 628 176 C650 282 612 352 628 462 C646 592 640 716 562 786 C474 864 334 846 214 832 C104 818 34 764 24 644 C14 526 58 452 42 344 C26 236 40 120 130 54 C196 8 266 -4 336 -8 Z" fill="url(#jb-glow)"/>
+                <g clip-path="url(#jb-clip)"><rect y="0" width="651" height="947" fill="url(#jb-dots)"/><rect y="0" width="651" height="947" filter="url(#jb-grain)"/></g>
+                <path d="M92 176 C116 156 146 156 166 174" fill="none" stroke="#F2EFE6" stroke-opacity=".35" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M548 640 C566 660 570 690 556 712" fill="none" stroke="#F2EFE6" stroke-opacity=".3" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <img class="jess-art" src="assets/img/jess-portrait.webp" alt="Illustration of Jess sitting on the floor, wearing yellow flower sunglasses" width="1093" height="1489" loading="lazy" decoding="async">
+              <img class="jess-label" src="assets/img/jess-label.svg" alt="" aria-hidden="true" loading="lazy">
+              <svg class="sparkle" style="right:-6px; top:30%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-lilac)"/></svg>
+              <svg class="sparkle" style="left:-10px; top:58%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-mint)"/></svg>
+              <svg class="sparkle" style="left:8%; top:2%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-yellow)"/></svg>
             </div>
             <div class="about__lede reveal" data-delay="1">
               <p class="about__hello">nice to meet you</p>
@@ -460,7 +469,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>© <span data-year>2026</span> Jessica Monteiro · Designed and documented by me</span>
-      <span class="footer__shortcuts"><span><kbd>G</kbd> grid</span><span><kbd>A</kbd> notes</span><span><kbd>D</kbd> theme</span></span>
+      <span class="footer__shortcuts"><span><kbd>G</kbd> designer view</span></span>
       <a href="guidelines.html">Design guidelines · v2.0.0</a>
     </div>
   </footer>

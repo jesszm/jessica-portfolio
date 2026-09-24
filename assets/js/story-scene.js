@@ -634,14 +634,21 @@ export function createStory(canvas, options = {}) {
     return g;
   }
 
-  /* ---------- Discover + Research: stickies → sections ---------- */
-  const STICKY_COLORS = [C.yellow, C.lilac, C.mint, C.pink, C.coral, C.sky];
-  const NOTES = ['why so\nmany steps?', 'hidden\nfees?', 'trust the\npayment?', 'love the\nclean UI', 'where is\nhelp?', 'receipts\nplease', 'too slow\nat checkout', 'icons are\nconfusing', 'one-tap\npay!', 'dark mode\npls', 'track my\norder', 'saved\ncards', 'compare\nprices', 'first time\nlost', 'notify\nme', 'security\n= trust', 'quick\nsetup', 'makes me\nsmile'];
-  const noteTextures = NOTES.map((txt, i) => canvasTexture(256, 256, (g, w, h) => {
-    g.fillStyle = STICKY_COLORS[i % STICKY_COLORS.length]; g.fillRect(0, 0, w, h);
-    g.fillStyle = 'rgba(0,0,0,0.05)'; g.fillRect(0, h - 18, w, 18);
-    g.fillStyle = C.ink900; g.font = `400 46px ${FONT_HAND}`; g.textAlign = 'center'; g.textBaseline = 'middle';
-    txt.split('\n').forEach((line, li, arr) => g.fillText(line, w / 2, h / 2 + (li - (arr.length - 1) / 2) * 50));
+  /* ---------- Discover + Research: stickies → sections ----------
+     The board researches this very portfolio: what clients look for when they
+     judge a designer. One colour per section, white sections, ink text. */
+  const CLUSTER_COLORS = [C.yellow, C.lilac, C.mint];
+  const NOTES_BY_CLUSTER = [
+    ['portfolios all\nlook alike', "can't see\nthe process", "where's the\ncontact?", 'too much\njargon', 'no real\nresults', 'is she\navailable?'],
+    ['see how\nshe thinks', 'real case\nstudies', 'contact in\none click', 'proof of\nteamwork', 'design system\nskills', 'remote\nfriendly'],
+    ['a bit of\npersonality', 'playful\ndetails', 'easy to\nscan', 'feels\nhandmade', 'calm &\nclean', 'a story,\nnot a grid'],
+  ];
+  const NOTES = Array.from({ length: 18 }, (_, i) => NOTES_BY_CLUSTER[i % 3][Math.floor(i / 3)]);
+  const noteTextures = NOTES.map((txt, i) => canvasTexture(320, 320, (g, w, h) => {
+    g.fillStyle = CLUSTER_COLORS[i % 3]; g.fillRect(0, 0, w, h);
+    g.fillStyle = 'rgba(0,0,0,0.045)'; g.fillRect(0, h - 20, w, 20);
+    g.fillStyle = C.ink900; g.font = `400 50px ${FONT_HAND}`; g.textAlign = 'center'; g.textBaseline = 'middle';
+    txt.split('\n').forEach((line, li, arr) => g.fillText(line, w / 2, h / 2 - 6 + (li - (arr.length - 1) / 2) * 56));
   }));
   const notes = [];
   const nr = rng(2024);
@@ -664,22 +671,27 @@ export function createStory(canvas, options = {}) {
       delayCluster: (i % 6) * 0.004 + k * 0.002,
     });
   }
-  const SECTION_TITLES = [['Pain points', C.coral], ['Needs', C.lilac], ['Delights', C.mint]];
+  const SECTION_TITLES = [['What clients said', C.yellow], ['What they need', C.lilac], ['What would delight', C.mint]];
   const sections = SECTION_TITLES.map(([title, color], k) => {
-    const tex = canvasTexture(512, 700, (g, w, h) => {
-      g.fillStyle = color; g.globalAlpha = 0.28; rr(g, 6, 70, w - 12, h - 76, 26); g.fill(); g.globalAlpha = 1;
-      g.strokeStyle = C.ink900; g.lineWidth = 2.5; rr(g, 6, 70, w - 12, h - 76, 26); g.stroke();
-      g.font = `600 40px ${FONT_SANS}`;
-      const tw = g.measureText(title).width + 40;
-      g.fillStyle = color; rr(g, 6, 6, tw, 56, 14); g.fill();
-      g.strokeStyle = C.ink900; g.lineWidth = 2.5; rr(g, 6, 6, tw, 56, 14); g.stroke();
-      g.fillStyle = C.ink900; g.textBaseline = 'middle'; g.fillText(title, 26, 36);
+    const tex = canvasTexture(640, 880, (g, w, h) => {
+      g.fillStyle = '#FFFFFF'; rr(g, 8, 84, w - 16, h - 92, 30); g.fill();
+      g.strokeStyle = C.ink900; g.lineWidth = 2.5; rr(g, 8, 84, w - 16, h - 92, 30); g.stroke();
+      g.font = `600 38px ${FONT_SANS}`;
+      const tw = g.measureText(title).width + 44;
+      g.fillStyle = color; rr(g, 8, 10, tw, 60, 16); g.fill();
+      g.strokeStyle = C.ink900; g.lineWidth = 2.5; rr(g, 8, 10, tw, 60, 16); g.stroke();
+      g.fillStyle = C.ink900; g.textBaseline = 'middle'; g.fillText(title, 30, 41);
     });
     const m = plane(0.8, 1.1, basic('#ffffff', { map: tex, transparent: true, depthWrite: false }), world, clusters[k], 1.8, -3.02);
     m.material.opacity = 0;
     m.renderOrder = -2;
     return m;
   });
+  /* board header: what this research is about */
+  const boardTitle = plane(1.9, 0.12, basic('#ffffff', { map: canvasTexture(1600, 100, (g, w, h) => {
+    g.fillStyle = C.ink500; g.font = `400 40px ${FONT_MONO}`; g.textBaseline = 'middle';
+    g.fillText('RESEARCH BOARD · what clients look for in a designer portfolio', 4, h / 2);
+  }), transparent: true, opacity: 0, depthWrite: false }), world, -0.41, 2.52, -3.02);
 
   /* ---------- Define: FigJam flowchart ---------- */
   const SHAPES = [
@@ -948,26 +960,27 @@ export function createStory(canvas, options = {}) {
   /* =====================================================================
      Stickers — drawn once fonts and the Jess illustration are ready
      ===================================================================== */
-  function dieCut(g, w, h, drawShape, { outline = 14, shadow = true } = {}) {
-    const sil = document.createElement('canvas');
-    sil.width = w; sil.height = h;
-    const sg = sil.getContext('2d');
-    drawShape(sg, w, h);
+  /* Stickers are drawn in millimetres at 9px/mm, so a 100mm sticker is a
+     900px texture: crisp from the top-down finale. Die-cut = smooth white
+     border (1.5mm) + soft shadow; ink lines are 0.35mm everywhere. */
+  const PXMM = 9;
+  const LW = 0.35;
+  function dieCut(g, shape, r) {
+    const W = shape.width, H = shape.height;
     const mask = document.createElement('canvas');
-    mask.width = w; mask.height = h;
+    mask.width = W; mask.height = H;
     const mg = mask.getContext('2d');
-    mg.drawImage(sil, 0, 0);
+    mg.drawImage(shape, 0, 0);
     mg.globalCompositeOperation = 'source-in';
-    mg.fillStyle = '#FFFFFF';
-    mg.fillRect(0, 0, w, h);
-    if (shadow) {
-      g.save(); g.globalAlpha = 0.28; g.filter = 'blur(6px)';
-      for (let a = 0; a < Math.PI * 2; a += Math.PI / 8) g.drawImage(mask, Math.cos(a) * outline + 6, Math.sin(a) * outline + 8);
-      g.restore();
-    }
-    for (let a = 0; a < Math.PI * 2; a += Math.PI / 16) g.drawImage(mask, Math.cos(a) * outline, Math.sin(a) * outline);
-    g.drawImage(mask, 0, 0);
-    g.drawImage(sil, 0, 0);
+    mg.fillStyle = '#FFFFFF'; mg.fillRect(0, 0, W, H);
+    const ring = (ctx, img, rad, steps) => { for (let a = 0; a < Math.PI * 2; a += (Math.PI * 2) / steps) ctx.drawImage(img, Math.cos(a) * rad, Math.sin(a) * rad); };
+    const border = document.createElement('canvas');
+    border.width = W; border.height = H;
+    const bg = border.getContext('2d');
+    ring(bg, mask, r, 56); ring(bg, mask, r * 0.6, 32); bg.drawImage(mask, 0, 0);
+    g.save(); g.globalAlpha = 0.22; g.filter = `blur(${Math.round(r * 0.5)}px)`; g.drawImage(border, r * 0.25, r * 0.4); g.restore();
+    g.drawImage(border, 0, 0);
+    g.drawImage(shape, 0, 0);
   }
   function fillHoles(g, w, h) {
     const img = g.getImageData(0, 0, w, h);
@@ -999,97 +1012,102 @@ export function createStory(canvas, options = {}) {
   }
 
   const STICKERS = [];
-  function addSticker(w, h, pos, tilt, px, py, draw) {
-    const tex = canvasTexture(px, py, (g, cw, ch) => draw(g, cw, ch));
-    const mat = std('#ffffff', 0.45, 0, { map: tex, transparent: true, alphaTest: 0.04 });
-    const m = plane(w, h, mat, stickerLayer, pos[0], pos[1], -MAC.lid - 0.0004 - STICKERS.length * 0.00012);
+  /* w, h in mm; pos in lid metres (x across, y from the hinge); tilt in rad */
+  function addSticker(w, h, pos, tilt, draw, { border = 1.5, pixelFill = false } = {}) {
+    const pad = border + 2.4;
+    const W = Math.round((w + pad * 2) * PXMM);
+    const H = Math.round((h + pad * 2) * PXMM);
+    const tex = canvasTexture(W, H, (g) => {
+      const shape = document.createElement('canvas');
+      shape.width = W; shape.height = H;
+      const sg = shape.getContext('2d');
+      sg.save(); sg.scale(PXMM, PXMM); sg.translate(pad, pad);
+      sg.lineJoin = 'round'; sg.lineCap = 'round'; sg.lineWidth = LW; sg.strokeStyle = C.ink900;
+      draw(sg, w, h);
+      sg.restore();
+      if (pixelFill) fillHoles(sg, W, H);
+      dieCut(g, shape, border * PXMM);
+    });
+    const mat = std('#ffffff', 0.42, 0, { map: tex, transparent: true, alphaTest: 0.05 });
+    const m = plane((w + pad * 2) / 1000, (h + pad * 2) / 1000, mat, stickerLayer, pos[0], pos[1], -MAC.lid - 0.0004 - STICKERS.length * 0.00012);
     m.rotation.set(Math.PI, 0, tilt);
-    m.castShadow = false;
     STICKERS.push({ m, tex });
     return m;
   }
 
-  function buildStickers(characterImage) {
-    const T = (g, text, font, color, x, y, opts = {}) => {
-      g.font = font; g.fillStyle = color; g.textAlign = opts.align || 'center'; g.textBaseline = 'middle';
-      if (opts.stroke) { g.lineWidth = opts.stroke; g.strokeStyle = C.ink900; g.lineJoin = 'round'; g.strokeText(text, x, y); }
-      g.fillText(text, x, y);
+  function buildStickers(characterImage, glassesImage) {
+    const text = (g, str, font, color, x, y, align = 'center') => { g.font = font; g.fillStyle = color; g.textAlign = align; g.textBaseline = 'middle'; g.fillText(str, x, y); };
+    const heartPath = (g, cx, cy, r) => {
+      g.beginPath(); g.moveTo(cx, cy + r * 0.9);
+      g.bezierCurveTo(cx - r * 1.3, cy + r * 0.05, cx - r * 0.95, cy - r * 0.95, cx, cy - r * 0.38);
+      g.bezierCurveTo(cx + r * 0.95, cy - r * 0.95, cx + r * 1.3, cy + r * 0.05, cx, cy + r * 0.9); g.closePath();
     };
-    /* order = stacking (later on top) */
-    addSticker(0.11, 0.05, [-0.09, 0.04], -0.08, 560, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.yellow; rr(s, 24, 24, w - 48, h - 48, 40); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
-      T(s, 'Shall', `500 92px ${FONT_DISPLAY}`, C.ink900, w / 2 - 88, h / 2 + 4);
-      T(s, 'we?', `italic 500 92px ${FONT_DISPLAY}`, C.ink900, w / 2 + 112, h / 2 + 4);
-    }));
-    addSticker(0.1, 0.05, [0.095, 0.035], 0.14, 520, 260, (g, w, h) => dieCut(g, w, h, (s) => {
-      const flower = (cx, cy) => {
-        s.fillStyle = C.yellow; s.strokeStyle = C.ink900; s.lineWidth = 3;
-        for (let i = 0; i < 8; i++) { const a = (i / 8) * Math.PI * 2; s.beginPath(); s.ellipse(cx + Math.cos(a) * 48, cy + Math.sin(a) * 48, 30, 22, a, 0, Math.PI * 2); s.fill(); s.stroke(); }
-        s.fillStyle = '#2E7D5B'; s.beginPath(); s.arc(cx, cy, 40, 0, Math.PI * 2); s.fill(); s.stroke();
-      };
-      flower(140, 140); flower(380, 140);
-      s.fillStyle = '#FFF0E9'; s.fillRect(214, 124, 92, 22); s.strokeStyle = C.ink900; s.lineWidth = 3; s.strokeRect(214, 124, 92, 22);
-    }));
-    addSticker(0.05, 0.05, [-0.125, 0.12], -0.22, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.ink900; rr(s, 24, 24, w - 48, h - 48, 36); s.fill();
-      T(s, '</>', `400 96px ${FONT_MONO}`, C.mint, w / 2, h / 2 + 4);
-    }));
-    addSticker(0.056, 0.056, [0.128, 0.155], 0, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.violet; s.beginPath(); s.arc(w / 2, h / 2, w / 2 - 24, 0, Math.PI * 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
-      T(s, 'UX', `500 104px ${FONT_DISPLAY}`, '#FFFFFF', w / 2, h / 2 + 6);
-    }));
-    addSticker(0.046, 0.046, [-0.13, 0.185], 0.18, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = '#F4F4F2'; rr(s, 28, 28, w - 56, h - 56, 30); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
-      s.fillStyle = 'rgba(0,0,0,0.08)'; rr(s, 28, h - 70, w - 56, 42, 20); s.fill();
-      T(s, '⌘Z', `600 78px ${FONT_SANS}`, C.ink900, w / 2, h / 2 - 4);
-    }));
-    addSticker(0.04, 0.04, [0.13, 0.2], -0.1, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      const px = 22;
-      const heart = ['01100110', '11111111', '11111111', '11111111', '01111110', '00111100', '00011000'];
-      heart.forEach((row, ry) => row.split('').forEach((c, rx) => { if (c === '1') { s.fillStyle = (rx + ry) % 3 ? '#FF5C9A' : C.pink; s.fillRect(40 + rx * px, 50 + ry * px, px, px); s.strokeStyle = C.ink900; s.lineWidth = 3; s.strokeRect(40 + rx * px, 50 + ry * px, px, px); } }));
-    }));
-    addSticker(0.048, 0.048, [0.03, 0.2], 0.08, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = '#1F8A4C'; s.beginPath(); s.arc(w / 2, h / 2, w / 2 - 22, 0, Math.PI * 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
-      s.fillStyle = '#FFD23F'; s.beginPath(); s.moveTo(w / 2, 58); s.lineTo(w - 50, h / 2); s.lineTo(w / 2, h - 58); s.lineTo(50, h / 2); s.closePath(); s.fill();
-      s.fillStyle = '#1E4FB8'; s.beginPath(); s.arc(w / 2, h / 2, 50, 0, Math.PI * 2); s.fill();
-      T(s, 'ORDEM E', `600 19px ${FONT_SANS}`, '#FFFFFF', w / 2, h / 2 - 11);
-      T(s, 'DESIGN', `600 19px ${FONT_SANS}`, '#FFFFFF', w / 2, h / 2 + 12);
-    }));
-    addSticker(0.044, 0.044, [-0.045, 0.205], 0.12, 256, 256, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.ink900; rr(s, 26, 26, w - 52, h - 52, 20); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 4; s.stroke();
-      T(s, 'JM', `italic 500 96px ${FONT_DISPLAY}`, C.lilac, w / 2, h / 2 + 6);
-    }));
-    addSticker(0.1, 0.03, [-0.075, 0.088], -0.16, 560, 170, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.mint; rr(s, 20, 20, w - 40, h - 40, (h - 40) / 2); s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 3.5; s.stroke();
-      s.fillStyle = C.success; s.beginPath(); s.arc(68, h / 2, 14, 0, Math.PI * 2); s.fill();
-      T(s, 'READY FOR DEV', `400 48px ${FONT_MONO}`, C.ink900, 92, h / 2 + 2, { align: 'left' });
-    }));
-    addSticker(0.075, 0.045, [-0.085, 0.165], 0.06, 420, 250, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = '#FFFFFF'; s.strokeStyle = C.ink900; s.lineWidth = 3.5;
-      rr(s, 24, 24, w - 48, h - 90, 34); s.fill(); s.stroke();
-      s.beginPath(); s.moveTo(90, h - 68); s.lineTo(70, h - 26); s.lineTo(130, h - 68); s.fill(); s.stroke();
-      s.fillStyle = '#FFFFFF'; s.fillRect(86, h - 74, 48, 10);
-      T(s, 'Hello 👋', `400 72px ${FONT_HAND}`, C.ink900, w / 2, (h - 66) / 2 + 12);
-    }));
-    addSticker(0.066, 0.044, [0.078, 0.135], 0.1, 360, 240, (g, w, h) => dieCut(g, w, h, (s) => {
-      s.fillStyle = C.lilac; s.strokeStyle = C.ink900; s.lineWidth = 3;
-      s.beginPath(); s.moveTo(30, 24); s.lineTo(120, 70); s.lineTo(78, 86); s.lineTo(62, 128); s.closePath(); s.fill(); s.stroke();
-      sparklePath(s, 250, 150, 48); s.fillStyle = C.yellow; s.fill(); s.stroke();
-    }));
-    [[0.038, [0.052, 0.165], C.lilac], [0.03, [-0.12, 0.075], C.mint], [0.026, [0.118, 0.07], C.yellow]].forEach(([size, pos, color]) => {
-      addSticker(size, size, pos, 0, 200, 200, (g, w, h) => dieCut(g, w, h, (s) => {
-        sparklePath(s, w / 2, h / 2, w / 2 - 28); s.fillStyle = color; s.fill(); s.strokeStyle = C.ink900; s.lineWidth = 3.5; s.stroke();
-      }, { outline: 10 }));
+    /* order = stacking (later on top). Two loose columns around Jess, sizes and tilts varied on purpose. */
+    addSticker(96, 36, [-0.094, 0.036], -0.09, (g, w, h) => {
+      g.fillStyle = C.yellow; rr(g, 0, 0, w, h, h / 2); g.fill(); g.stroke();
+      g.font = `500 17px ${FONT_DISPLAY}`; const a = g.measureText('Shall ').width;
+      g.font = `italic 500 17px ${FONT_DISPLAY}`; const b = g.measureText('we?').width;
+      const x0 = (w - a - b) / 2;
+      text(g, 'Shall ', `500 17px ${FONT_DISPLAY}`, C.ink900, x0, h / 2 + 0.6, 'left');
+      text(g, 'we?', `italic 500 17px ${FONT_DISPLAY}`, C.ink900, x0 + a, h / 2 + 0.6, 'left');
+    });
+    if (glassesImage) addSticker(92, 42, [0.098, 0.034], 0.11, (g, w, h) => g.drawImage(glassesImage, 0, 0, w, h));
+    addSticker(40, 40, [-0.128, 0.089], -0.16, (g, w, h) => {
+      g.fillStyle = C.ink900; rr(g, 0, 0, w, h, 8); g.fill();
+      text(g, '</>', `400 15px ${FONT_MONO}`, C.mint, w / 2, h / 2 + 0.4);
+    });
+    addSticker(46, 46, [0.133, 0.094], 0, (g, w, h) => {
+      g.fillStyle = C.violet; g.beginPath(); g.arc(w / 2, h / 2, w / 2, 0, Math.PI * 2); g.fill(); g.stroke();
+      g.strokeStyle = 'rgba(255,255,255,0.55)'; g.lineWidth = 0.3; g.beginPath(); g.arc(w / 2, h / 2, w / 2 - 3.2, 0, Math.PI * 2); g.stroke();
+      text(g, 'ux', `italic 500 21px ${FONT_DISPLAY}`, '#FFFFFF', w / 2, h / 2 - 1);
+    });
+    addSticker(62, 42, [-0.098, 0.146], 0.06, (g, w, h) => {
+      g.fillStyle = '#FFFFFF';
+      g.beginPath(); g.moveTo(10, 0); g.lineTo(w - 10, 0); g.quadraticCurveTo(w, 0, w, 10); g.lineTo(w, h - 18); g.quadraticCurveTo(w, h - 8, w - 10, h - 8);
+      g.lineTo(22, h - 8); g.lineTo(12, h); g.lineTo(13, h - 8); g.lineTo(10, h - 8); g.quadraticCurveTo(0, h - 8, 0, h - 18); g.lineTo(0, 10); g.quadraticCurveTo(0, 0, 10, 0); g.closePath();
+      g.fill(); g.stroke();
+      text(g, 'hello 👋', `400 13px ${FONT_HAND}`, C.ink900, w / 2, (h - 8) / 2 + 0.5);
+    });
+    addSticker(34, 34, [-0.134, 0.196], 0.16, (g, w, h) => {
+      g.fillStyle = '#E9E5DC'; rr(g, 0, 0, w, h, 6); g.fill(); g.stroke();
+      g.fillStyle = '#FBFAF7'; rr(g, 3, 2.4, w - 6, h - 7.5, 4.5); g.fill();
+      g.lineWidth = 0.2; g.strokeStyle = 'rgba(22,21,15,0.25)'; rr(g, 3, 2.4, w - 6, h - 7.5, 4.5); g.stroke();
+      text(g, '⌘Z', `600 10.5px ${FONT_SANS}`, C.ink900, w / 2, h / 2 - 1.6);
+    });
+    addSticker(36, 36, [-0.076, 0.2], -0.1, (g, w, h) => {
+      g.fillStyle = C.ink900; rr(g, 0, 0, w, h, 7); g.fill();
+      text(g, 'JM', `italic 500 15px ${FONT_DISPLAY}`, C.lilac, w / 2, h / 2 + 0.3);
+    });
+    addSticker(80, 22, [0.098, 0.152], -0.13, (g, w, h) => {
+      g.fillStyle = C.mint; rr(g, 0, 0, w, h, h / 2); g.fill(); g.stroke();
+      g.fillStyle = C.success; g.beginPath(); g.arc(11, h / 2, 2.4, 0, Math.PI * 2); g.fill();
+      text(g, 'READY FOR DEV', `400 7.6px ${FONT_MONO}`, C.ink900, 18, h / 2 + 0.3, 'left');
+    });
+    addSticker(40, 40, [0.074, 0.198], 0.08, (g, w, h) => {
+      const cx = w / 2, cy = h / 2;
+      g.fillStyle = '#1F8A4C'; g.beginPath(); g.arc(cx, cy, w / 2, 0, Math.PI * 2); g.fill(); g.stroke();
+      g.fillStyle = '#FFD23F'; g.beginPath(); g.moveTo(cx, 5.5); g.lineTo(w - 4.5, cy); g.lineTo(cx, h - 5.5); g.lineTo(4.5, cy); g.closePath(); g.fill();
+      g.fillStyle = '#1E4FB8'; g.beginPath(); g.arc(cx, cy, 8.4, 0, Math.PI * 2); g.fill();
+      g.strokeStyle = '#FFFFFF'; g.lineWidth = 1.3; g.beginPath(); g.arc(cx + 2, cy + 12, 14, -Math.PI * 0.8, -Math.PI * 0.28); g.stroke();
+    });
+    addSticker(32, 30, [0.136, 0.2], -0.12, (g, w, h) => {
+      heartPath(g, w / 2, h / 2 + 1, w / 2.3); g.fillStyle = '#FF9EC7'; g.fill(); g.stroke();
+      g.fillStyle = 'rgba(255,255,255,0.7)'; g.beginPath(); g.ellipse(w * 0.34, h * 0.38, 2.6, 1.6, -0.6, 0, Math.PI * 2); g.fill();
+    });
+    addSticker(46, 32, [0.07, 0.088], 0.12, (g, w, h) => {
+      g.fillStyle = C.lilac; g.beginPath(); g.moveTo(2, 2); g.lineTo(22, 11); g.lineTo(13.5, 13.8); g.lineTo(10.4, 22.5); g.closePath(); g.fill(); g.stroke();
+      sparklePath(g, 34, 20, 10); g.fillStyle = C.yellow; g.fill(); g.stroke();
+    });
+    [[18, [-0.034, 0.03], C.mint, 0.2], [15, [0.044, 0.026], C.yellow, -0.1], [16, [0.054, 0.162], C.lilac, 0.3]].forEach(([size, pos, color, tilt]) => {
+      addSticker(size, size, pos, tilt, (g, w, h) => { sparklePath(g, w / 2, h / 2, w / 2); g.fillStyle = color; g.fill(); g.stroke(); }, { border: 1.2 });
     });
     /* Jess goes last: on top, where the logo would be */
     if (characterImage) {
       const iw = characterImage.naturalWidth;
       const ih = characterImage.naturalHeight;
-      const padPx = 40;
-      addSticker(0.1, 0.1 * (ih + padPx * 2) / (iw + padPx * 2), [-0.002, 0.12], 0.05, iw + padPx * 2, ih + padPx * 2, (g, w, h) => dieCut(g, w, h, (s) => {
-        s.drawImage(characterImage, padPx, padPx, iw, ih);
-        fillHoles(s, w, h);
-      }, { outline: 16 }));
+      const w = 96;
+      const h = (w * ih) / iw;
+      addSticker(w, h, [-0.002, 0.12], 0.05, (g) => g.drawImage(characterImage, 0, 0, w, h), { border: 1.8, pixelFill: true });
     }
   }
 
@@ -1105,9 +1123,10 @@ export function createStory(canvas, options = {}) {
       document.fonts.load(`400 40px ${FONT_HAND}`), document.fonts.load(`400 30px ${FONT_MONO}`),
     ]).catch(() => null)
     : Promise.resolve();
-  const ready = Promise.all([fontsReady, loadImage(characterUrl)]).then(([, img]) => {
+  const glassesUrl = options.glassesUrl || 'assets/img/sunglasses.svg';
+  const ready = Promise.all([fontsReady, loadImage(characterUrl), loadImage(glassesUrl)]).then(([, img, glasses]) => {
     disposables.forEach((d) => { if (d.isCanvasTexture && d.userData.draw) redraw(d); });
-    buildStickers(img);
+    buildStickers(img, glasses);
     setProgress(progress);
   });
 
@@ -1130,9 +1149,9 @@ export function createStory(canvas, options = {}) {
     {
       from: 0, to: CUTS.toWorld, offset: new THREE.Vector3(),
       keys: [
-        [0.0, add(B, 0.56, 0.2, 0.56), add(B, 0.02, 0.07, -0.04)],
-        [0.05, add(B, -0.02, 0.22, 0.62), add(B, 0.0, 0.08, -0.05)],
-        [0.1, add(B, -0.46, 0.22, 0.34), add(B, 0.02, 0.09, -0.05)],
+        [0.0, add(B, 0.66, 0.25, 0.68), add(B, 0.02, 0.07, -0.04)],
+        [0.05, add(B, -0.02, 0.27, 0.76), add(B, 0.0, 0.08, -0.05)],
+        [0.1, add(B, -0.54, 0.26, 0.42), add(B, 0.02, 0.09, -0.05)],
         [0.135, along(0.44, 0.02, 0.02), Sv],
         [0.16, along(0.12), Sv],
       ],
@@ -1143,8 +1162,8 @@ export function createStory(canvas, options = {}) {
         [0.16, [0.0, 1.7, 0.4], [0.0, 1.7, -3.0]],
         [0.195, [0.0, 1.5, 3.3], [0.0, 1.62, -3.0]],
         [0.235, [0.0, 1.64, 2.7], [0.0, 1.72, -3.0]],
-        [0.29, [-0.25, 1.84, 1.75], [-0.25, 1.8, -3.0]],
-        [0.33, [-0.12, 1.82, 1.5], [-0.12, 1.8, -3.0]],
+        [0.29, [0.02, 1.86, 1.85], [0.02, 1.8, -3.0]],
+        [0.33, [0.12, 1.84, 1.6], [0.12, 1.8, -3.0]],
         [0.357, [2.6, 1.95, 1.6], [5.0, 1.7, -5.0]],
         [0.385, [5.0, 1.8, 0.2], [5.9, 1.72, -5.0]],
         [0.45, [7.0, 1.85, 0.4], [7.3, 1.72, -5.0]],
@@ -1163,8 +1182,8 @@ export function createStory(canvas, options = {}) {
         [0.83, along(0.12), Sv],
         [0.865, along(0.6, 0.06, 0.06), add(B, 0.0, 0.08, -0.04)],
         [0.91, add(B, 0.08, 0.46, 0.5), add(B, 0.0, 0.03, 0.0)],
-        [0.955, add(B, 0.0, 0.47, 0.21), add(B, 0.0, 0.012, 0.005)],
-        [1.0, add(B, 0.0, 0.46, 0.205), add(B, 0.0, 0.012, 0.005)],
+        [0.955, add(B, -0.015, 0.62, 0.28), add(B, -0.015, 0.012, 0.005)],
+        [1.0, add(B, -0.015, 0.61, 0.275), add(B, -0.015, 0.012, 0.005)],
       ],
     },
   ];
@@ -1258,6 +1277,7 @@ export function createStory(canvas, options = {}) {
       m.material.opacity = t;
       m.scale.setScalar(lerp(0.94, 1, t));
     });
+    boardTitle.material.opacity = ease(pr, 0.29, 0.31);
 
     nodes.forEach((n, i) => {
       let on = i === 0 ? range(pr, 0.366, 0.376) : 0;
@@ -1348,7 +1368,7 @@ export function createStory(canvas, options = {}) {
     portrait = camera.aspect < 0.9;
     camera.fov = camera.aspect < 0.8 ? 58 : camera.aspect < 1.2 ? 46 : 36;
     if (camera.aspect < 0.9) camera.setViewOffset(w, h, 0, h * 0.15, w, h);
-    else camera.setViewOffset(w, h, -w * 0.13, 0, w, h);
+    else camera.setViewOffset(w, h, -w * 0.17, 0, w, h);
     camera.updateProjectionMatrix();
   }
   function resize() { applyProjection(canvas.clientWidth || window.innerWidth, canvas.clientHeight || window.innerHeight); }

@@ -10,18 +10,17 @@
   <script>
     (function (d) {
       var c = d.documentElement.classList; c.remove('no-js'); c.add('js');
-      var t = null; try { t = localStorage.getItem('jm-theme'); } catch (e) {}
-      d.documentElement.setAttribute('data-theme', t || 'light');
+      d.documentElement.setAttribute('data-theme', 'light');
     })(document);
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/tokens.css?v=21">
+  <link rel="stylesheet" href="../assets/css/tokens.css?v=22">
   <link rel="stylesheet" href="../assets/css/styles.css?v=21">
-  <link rel="stylesheet" href="../assets/css/identity.css?v=21">
+  <link rel="stylesheet" href="../assets/css/identity.css?v=22">
   <link rel="stylesheet" href="../assets/css/case.css?v=1">
-  <script src="../assets/js/main.js?v=3" defer></script>
+  <script src="../assets/js/main.js?v=4" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -34,10 +33,10 @@
   <header class="toolbar">
     <div class="container toolbar__inner">
       <a class="brand" href="../index.html" aria-label="Jessica Monteiro — home">
-        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1.5c.9 5.6 2.9 7.6 8.5 8.5-5.6.9-7.6 2.9-8.5 8.5-.9-5.6-2.9-7.6-8.5-8.5 5.6-.9 7.6-2.9 8.5-8.5Z" transform="translate(0 2)"/></svg></span>
         <span class="wordmark"><b>J</b>essica <b>M</b>onteiro</span>
       </a>
-      <span class="status-pill">Case 02</span>
+      <span class="status-egg" title="psst: every screen here ships with specs">case 02</span>
       <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
       <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
         <a href="../index.html#discover">Process</a>
@@ -48,9 +47,9 @@
         <a href="../index.html#contact">Contact</a>
       </nav>
       <div class="toolbar__tools">
-        <button class="tool-btn" type="button" data-action="grid" aria-pressed="false" title="Toggle layout grid (G)"><span aria-hidden="true">▦</span> Grid <kbd>G</kbd></button>
-        <button class="tool-btn" type="button" data-action="annotations" aria-pressed="true" title="Toggle annotations (A)"><span aria-hidden="true">◉</span> Notes <kbd>A</kbd></button>
-        <button class="tool-btn" type="button" data-action="theme" aria-pressed="false" title="Toggle theme (D)"><span class="label">Light</span> <kbd>D</kbd></button>
+        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)" title="Designer view · G">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3"/><path d="M7.5 2.5v15M12.5 2.5v15"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -124,7 +123,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>© <span data-year>2026</span> Jessica Monteiro · Designed and documented by me</span>
-      <span class="footer__shortcuts"><span><kbd>G</kbd> grid</span><span><kbd>A</kbd> notes</span><span><kbd>D</kbd> theme</span></span>
+      <span class="footer__shortcuts"><span><kbd>G</kbd> designer view</span></span>
       <a href="../index.html#work">← Back to all work</a>
     </div>
   </footer>

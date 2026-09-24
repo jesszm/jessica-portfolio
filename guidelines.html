@@ -10,10 +10,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/tokens.css?v=21">
+  <link rel="stylesheet" href="assets/css/tokens.css?v=22">
   <link rel="stylesheet" href="assets/css/styles.css?v=21">
   <link rel="stylesheet" href="assets/css/guidelines.css">
-  <link rel="stylesheet" href="assets/css/identity.css?v=21">
+  <link rel="stylesheet" href="assets/css/identity.css?v=22">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -26,10 +26,10 @@
   <header class="toolbar">
     <div class="container toolbar__inner">
       <a class="brand" href="index.html" aria-label="Back to portfolio">
-        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1.5c.9 5.6 2.9 7.6 8.5 8.5-5.6.9-7.6 2.9-8.5 8.5-.9-5.6-2.9-7.6-8.5-8.5 5.6-.9 7.6-2.9 8.5-8.5Z" transform="translate(0 2)"/></svg></span>
         <span>JM</span><span class="brand__file">guidelines.fig</span>
       </a>
-      <span class="status-pill">v2.1.0 · canvas</span>
+      <span class="status-egg" title="psst: every screen here ships with specs">v2.2.0 · canvas</span>
       <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
       <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
         <a href="index.html">← Portfolio</a>
@@ -40,8 +40,9 @@
         <a href="#handoff">Handoff</a>
       </nav>
       <div class="toolbar__tools">
-        <button class="tool-btn" type="button" data-action="grid" aria-pressed="false" title="Toggle layout grid (G)"><span aria-hidden="true">▦</span> Grid <kbd>G</kbd></button>
-        <button class="tool-btn" type="button" data-action="theme" aria-pressed="false" title="Toggle theme (D)"><span class="label">Light</span> <kbd>D</kbd></button>
+        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)" title="Designer view · G">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3"/><path d="M7.5 2.5v15M12.5 2.5v15"/></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -92,7 +93,7 @@
         <span class="eyebrow">00 · Overview</span>
         <h2 class="display h-lg">JM Design Guidelines</h2>
         <div class="doc__intro">
-          <span class="tag tag--brand">v2.1.0 · Canvas</span><span class="tag">Stable</span><span class="tag">Updated Sep 2026</span><span class="tag">Owner · Jessica Monteiro</span>
+          <span class="tag tag--brand">v2.2.0 · Canvas</span><span class="tag">Stable</span><span class="tag">Updated Sep 2026</span><span class="tag">Owner · Jessica Monteiro</span>
         </div>
         <p class="lead">This document is the design system and the working method behind my portfolio. I built the site the way I build products for clients: with a written process, a token-based visual language, documented components and an accessibility bar that is checked, not assumed.</p>
         <p>Use it in three ways. As a <strong>reference</strong> for how the portfolio is built. As an <strong>example</strong> of the documentation I deliver with design systems. And as a <strong>map of my process</strong>, from the first stakeholder conversation to post-launch metrics.</p>
@@ -151,7 +152,7 @@
             <tr><td>Pure black #000 outlines</td><td><span class="tag tag--yellow">Adapt</span></td><td>ink-900 <code>#16150F</code>: same punch, warmer against paper.</td></tr>
             <tr><td>Lilac used for text</td><td><span class="tag tag--yellow">Adapt</span></td><td>Lilac is a fill only; text uses violet-600 <code>#6445D6</code> (5.6:1).</td></tr>
             <tr><td>Halftone dot background</td><td><span class="tag tag--yellow">Adapt</span></td><td>22px dot grid, the FigJam canvas. It also backs the 3D board.</td></tr>
-            <tr><td>Whole dark sections</td><td><span class="tag tag--yellow">Adapt</span></td><td>One dark card per page (<code>.jess-card</code>). Light is the primary theme.</td></tr>
+            <tr><td>Whole dark sections</td><td><span class="tag tag--yellow">Adapt</span></td><td>One organic ink blob behind the Jess portrait, never a full dark section. Light is the primary theme.</td></tr>
             <tr><td>Wordmark with coloured J and M</td><td><span class="tag tag--yellow">Adapt</span></td><td><code>.wordmark b</code> in violet italic, set in Brygada.</td></tr>
             <tr><td>Pink/lilac text on white</td><td><span class="tag tag--coral">Drop</span></td><td>Fails AA (1.6–2.1:1).</td></tr>
             <tr><td>Four or more hues in one component</td><td><span class="tag tag--coral">Drop</span></td><td>One sticky fill + ink + (optionally) brand per component.</td></tr>
@@ -186,21 +187,21 @@
         <h3>Illustrations &amp; stickers</h3>
         <div class="dodont">
           <div class="do"><b>Do</b><ul>
-            <li>Use <code>assets/img/jess-oculos.svg</code> (sunflower glasses) <strong>always on a dark card</strong> (<code>.jess-card</code>, ink-900). The export has transparent holes; on paper they show through.</li>
+            <li>Use <code>assets/img/jess-portrait.webp</code> (holes filled, vector sunflower glasses) over the organic ink blob, with the vector <code>jess-label.svg</code>. The old export has transparent holes; on paper they show through.</li>
             <li>Use <code>assets/img/jess-character.png</code> (B&amp;W) as a die-cut sticker: white 16px outline, soft shadow.</li>
             <li>Die-cut every sticker: white border 10–16px, ink outline inside, tilt ≤ 15°, overlap allowed.</li>
             <li>4-point sparkles in lilac, mint or yellow, three at most per composition.</li>
           </ul></div>
           <div class="dont"><b>Don't</b><ul>
             <li>Recolour, crop the face of, or add filters to the Jess illustrations.</li>
-            <li>Put jess-oculos on paper, a sticky fill or a photo.</li>
+            <li>Box the portrait in a hard rectangle; the blob is organic on purpose and the figure may overflow it.</li>
             <li>Use stickers as buttons or put essential information in them.</li>
             <li>Add sparkles to text blocks; they decorate images and titles only.</li>
           </ul></div>
         </div>
 
         <h3>The 3D story</h3>
-        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (a lamp-lit night in dark mode). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene.</p>
+        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (light only). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene.</p>
       </section>
 
       <!-- ============ PROCESS ============ -->
@@ -384,25 +385,25 @@
         </div>
 
         <h3>Semantic tokens</h3>
-        <p>Components never reference primitives. They reference intent. That is what lets dark mode be a token swap instead of a redesign. Ratios below were measured, not estimated.</p>
+        <p>Components never reference primitives. They reference intent. That keeps the system easy to change: a token swap, not a redesign. v2.2 is light only; there is no dark theme. Ratios below were measured, not estimated.</p>
         <div class="table--wrap"><table class="table">
-          <thead><tr><th>Token</th><th>Light (primary)</th><th>Dark</th><th>Use for</th><th>Contrast (light / dark)</th></tr></thead>
+          <thead><tr><th>Token</th><th>Value</th><th>Use for</th><th>Contrast</th></tr></thead>
           <tbody>
-            <tr><td><code>--color-bg</code></td><td>paper-50</td><td>#131410</td><td>Page canvas</td><td>—</td></tr>
-            <tr><td><code>--color-bg-elevated</code></td><td>paper-0</td><td>#1C1D18</td><td>Frames, cards, toolbar</td><td>—</td></tr>
-            <tr><td><code>--color-text</code></td><td>ink-900</td><td>#F2EFE6</td><td>Body and headings</td><td><span class="ok">16.5 / 16.1 AAA</span></td></tr>
-            <tr><td><code>--color-text-muted</code></td><td>ink-600</td><td>#B7B3A6</td><td>Secondary text</td><td><span class="ok">7.7 / 8.8 AAA</span></td></tr>
-            <tr><td><code>--color-text-subtle</code></td><td>ink-500</td><td>#9C988C</td><td>Mono labels, meta</td><td><span class="ok">5.3 / 6.4 AA</span></td></tr>
-            <tr><td><code>--color-brand</code></td><td>ink-900</td><td>#F2EFE6</td><td>Primary action, one per view (lilac offset shadow)</td><td><span class="ok">18.3 paper-on / 16.1 ink-on</span></td></tr>
-            <tr><td><code>--color-brand-text</code></td><td>violet-600</td><td>violet-300</td><td>Brand-coloured text and links</td><td><span class="ok">5.6 / 8.7 AA</span></td></tr>
-            <tr><td><code>--color-accent</code></td><td>sticky-lilac</td><td>violet-300</td><td>Highlighter, current step, secondary buttons (fill)</td><td><span class="ok">ink on it: 10.3</span></td></tr>
-            <tr><td><code>--color-accent-text</code></td><td>violet-600</td><td>violet-300</td><td>Accent text, progress, wordmark initials</td><td><span class="ok">5.6 / 8.7 AA</span></td></tr>
-            <tr><td><code>--color-border</code></td><td>paper-300</td><td>#34352D</td><td>Decorative dividers</td><td><span class="warn">1.5, decorative only</span></td></tr>
-            <tr><td><code>--color-border-strong</code></td><td>ink-900</td><td>#F2EFE6</td><td>Buttons, tags, cards, inputs, offset shadows (always 1px)</td><td><span class="ok">≥ 3:1 non-text ✓</span></td></tr>
-            <tr><td><code>--color-focus</code></td><td>violet-600</td><td>violet-300</td><td>Focus ring (2px, 3px offset)</td><td><span class="ok">5.6 / 8.7 non-text ✓</span></td></tr>
-            <tr><td><code>--color-redline</code></td><td>coral-400</td><td>coral-400</td><td>Measurements (label text is ink)</td><td><span class="ok">ink on it: 7.9</span></td></tr>
-            <tr><td>Sticky fills</td><td>yellow · lilac · mint · pink · coral · sky</td><td>same</td><td>Notes, tags, stamps, section tabs</td><td><span class="ok">ink on them: 7.9 – 13.8</span></td></tr>
-            <tr><td>Strong hues</td><td>teal-700 · coral-700</td><td>teal-300 · coral-400</td><td>Coloured text when a sticky would fail</td><td><span class="ok">5.4 · 5.2 on paper</span></td></tr>
+            <tr><td><code>--color-bg</code></td><td>paper-50</td><td>Page canvas</td><td>—</td></tr>
+            <tr><td><code>--color-bg-elevated</code></td><td>paper-0</td><td>Frames, cards, toolbar</td><td>—</td></tr>
+            <tr><td><code>--color-text</code></td><td>ink-900</td><td>Body and headings</td><td><span class="ok">16.5 AAA</span></td></tr>
+            <tr><td><code>--color-text-muted</code></td><td>ink-600</td><td>Secondary text</td><td><span class="ok">7.7 AAA</span></td></tr>
+            <tr><td><code>--color-text-subtle</code></td><td>ink-500</td><td>Mono labels, meta</td><td><span class="ok">5.3 AA</span></td></tr>
+            <tr><td><code>--color-brand</code></td><td>ink-900</td><td>Primary action, one per view (lilac offset shadow)</td><td><span class="ok">18.3 paper on ink</span></td></tr>
+            <tr><td><code>--color-brand-text</code></td><td>violet-600</td><td>Brand-coloured text and links</td><td><span class="ok">5.6 AA</span></td></tr>
+            <tr><td><code>--color-accent</code></td><td>sticky-lilac</td><td>Highlighter, current step, secondary buttons (fill)</td><td><span class="ok">ink on it: 10.3</span></td></tr>
+            <tr><td><code>--color-accent-text</code></td><td>violet-600</td><td>Accent text, progress, wordmark initials</td><td><span class="ok">5.6 AA</span></td></tr>
+            <tr><td><code>--color-border</code></td><td>paper-300</td><td>Decorative dividers</td><td><span class="warn">1.5, decorative only</span></td></tr>
+            <tr><td><code>--color-border-strong</code></td><td>ink-900</td><td>Buttons, tags, cards, inputs, offset shadows (always 1px)</td><td><span class="ok">≥ 3:1 non-text ✓</span></td></tr>
+            <tr><td><code>--color-focus</code></td><td>violet-600</td><td>Focus ring (2px, 3px offset)</td><td><span class="ok">5.6 non-text ✓</span></td></tr>
+            <tr><td><code>--color-redline</code></td><td>coral-400</td><td>Measurements (label text is ink)</td><td><span class="ok">ink on it: 7.9</span></td></tr>
+            <tr><td>Sticky fills</td><td>yellow · lilac · mint · pink · coral · sky</td><td>Notes, tags, stamps, section tabs</td><td><span class="ok">ink on them: 7.9 – 13.8</span></td></tr>
+            <tr><td>Strong hues</td><td>teal-700 · coral-700</td><td>Coloured text when a sticky would fail</td><td><span class="ok">5.4 · 5.2 on paper</span></td></tr>
           </tbody>
         </table></div>
 
@@ -424,7 +425,7 @@
             <tr><td>Display</td><td>Brygada 1918</td><td>400, 500 + italic</td><td>H1–H2, case titles, marquee, quotes, “Shall <em>we?</em>”</td></tr>
             <tr><td>Text</td><td>Hanken Grotesk</td><td>300–600</td><td>Body, UI labels, buttons, H4</td></tr>
             <tr><td>Mono</td><td>Fragment Mono</td><td>400</td><td>Frame labels, tags, measurements, meta, code</td></tr>
-            <tr><td>Hand</td><td>Mynerve</td><td>400</td><td>“Hello, I'm Jess 👋”, sticky notes, scroll hint, hand notes. Never body or UI labels.</td></tr>
+            <tr><td>Hand</td><td>Mynerve</td><td>400</td><td>Sticky notes, scroll hint, “nice to meet you”, hand notes. Never body or UI labels.</td></tr>
           </tbody>
         </table>
 
@@ -745,7 +746,7 @@
       <section id="toolbar">
         <span class="eyebrow">13.6 · Component</span>
         <h2 class="display h-md">Toolbar</h2>
-        <p>The site header is styled as an editor toolbar: file name on the left, status pill, page navigation, and tools (grid, notes, theme) with keyboard shortcuts.</p>
+        <p>The header is a quiet editor toolbar: a sparkle mark and wordmark, a tiny "ready for dev" dot (an easter egg, it reveals its words on hover), page navigation and one icon: <strong>designer view</strong> (<kbd>G</kbd>). Designer view shows the 12-column grid and turns the pointer into an inspector that reads any element's size, font, size/line-height and weight, like Figma. There is no theme or notes toggle.</p>
         <ul class="list">
           <li>Sticky, 56px, translucent elevated background with blur, 1px bottom border.</li>
           <li>Current section is tracked with an IntersectionObserver and marked with <code>aria-current="true"</code> plus a 2px underline.</li>
@@ -826,7 +827,7 @@
         <h2 class="display h-md">Accessibility</h2>
         <p>Target: WCAG 2.2 level AA on every page, checked before every release. This is the checklist I run; items marked done are verified on v2.0.0.</p>
         <ul class="check">
-          <li class="done"><span><b>Text contrast ≥ 4.5:1</b> (1.4.3) for all body and label text, in both themes.<small>All semantic pairs listed in Color · verified by calculation</small></span></li>
+          <li class="done"><span><b>Text contrast ≥ 4.5:1</b> (1.4.3) for all body and label text.<small>All semantic pairs listed in Color · verified by calculation</small></span></li>
           <li class="done"><span><b>Non-text contrast ≥ 3:1</b> (1.4.11) for input borders, button boundaries and focus rings.<small>border-strong + proto focus ring</small></span></li>
           <li class="done"><span><b>Focus visible</b> (2.4.7 / 2.4.11) with a 2px ring that is never obscured by sticky elements.<small>scroll-margin on anchored sections</small></span></li>
           <li class="done"><span><b>Target size ≥ 24 × 24</b> (2.5.8, new in 2.2) with 44px default for primary controls.<small>Buttons 44/52 · pins 24 with spacing</small></span></li>
@@ -861,7 +862,7 @@
           <li>Naming: lowercase, hyphenated, <code>category-property-variant-state</code>. No value words in semantic names ("brand", never "green").</li>
           <li>One-way dependency. A token references exactly one tier below it, never sideways.</li>
           <li>Source of truth is <code>assets/tokens/tokens.json</code> in the W3C Design Tokens (DTCG 2025.10) format; <code>tokens.css</code> is generated from it by hand for now (build step planned).</li>
-          <li>Figma variables mirror the same names in three collections: Primitive, Semantic (Light / Dark modes), Component.</li>
+          <li>Figma variables mirror the same names in three collections: Primitive, Semantic (one mode: Light), Component.</li>
         </ul>
 <pre><code>{
   "semantic": {
@@ -901,7 +902,7 @@
           <tbody>
             <tr><td>Versioning</td><td>Semantic versioning. <strong>Major</strong>: token renamed/removed or a component's API changes. <strong>Minor</strong>: new token, component or variant. <strong>Patch</strong>: fix with no API change.</td></tr>
             <tr><td>Changelog</td><td>Every release lists Added / Changed / Fixed / Deprecated with the reason, in the section below.</td></tr>
-            <tr><td>Proposing a change</td><td>Open a note with: problem, evidence, proposed token/component, contrast check, screenshots in both themes.</td></tr>
+            <tr><td>Proposing a change</td><td>Open a note with: problem, evidence, proposed token/component, contrast check, screenshots at 375 and 1440.</td></tr>
             <tr><td>Review</td><td>Checked against the Principles, the Accessibility checklist and the token dependency rule before merging.</td></tr>
             <tr><td>Deprecation</td><td>Mark as deprecated for one minor version with the replacement named; remove in the next major.</td></tr>
             <tr><td>Ownership</td><td>Jessica Monteiro owns foundations and components. Content per page is owned by whoever writes it, following Content &amp; voice.</td></tr>
@@ -914,6 +915,14 @@
       <section id="changelog">
         <span class="eyebrow">20 · Changelog</span>
         <h2 class="display h-md">Changelog</h2>
+        <h3>2.2.0 · “Canvas, breathing” · Sep 2026</h3>
+        <ul class="list">
+          <li><strong>Removed</strong>: dark theme and the Notes toggle. The site is light only.</li>
+          <li><strong>Changed</strong>: type a notch heavier and smaller (body 420, display 500; hero 3.1rem max, section titles 2.6rem max) and one 8pt rhythm: 32px between blocks in the story chapters, 48px under section heads.</li>
+          <li><strong>Added</strong>: designer view easter egg (grid + inspector), a sparkle brand mark, a quiet "ready for dev" dot.</li>
+          <li><strong>Changed</strong>: About portrait rebuilt from the clean source: holes filled, vector glasses and label, on an organic ink blob with dots and grain.</li>
+          <li><strong>Changed</strong>: 3D story. Research board is about this portfolio (what clients look for), one colour per section on white. Stickers redrawn at 9px/mm with 1.5mm die-cut borders; the glasses sticker uses the original vector.</li>
+        </ul>
         <h3>2.1.0 · “Canvas, refined” · Sep 2026</h3>
         <ul class="list">
           <li><strong>Removed</strong>: the olive ramp. Brand is now ink (primary buttons are ink with a lilac offset shadow); brand text is violet-600.</li>
@@ -949,12 +958,12 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <span>© <span data-year>2026</span> Jessica Monteiro · JM Design Guidelines v2.1.0</span>
-      <span class="footer__shortcuts"><span><kbd>G</kbd> grid</span><span><kbd>D</kbd> theme</span></span>
+      <span>© <span data-year>2026</span> Jessica Monteiro · JM Design Guidelines v2.2.0</span>
+      <span class="footer__shortcuts"><span><kbd>G</kbd> designer view</span></span>
       <a href="index.html">← Back to portfolio</a>
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=3" defer></script>
+  <script src="assets/js/main.js?v=4" defer></script>
 </body>
 </html>
