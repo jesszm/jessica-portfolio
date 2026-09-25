@@ -167,15 +167,15 @@
 /* ---------- Hover to see a screen up close (mouse only, sized in case-crypex.js) ---------- */
 @media (hover: hover) and (pointer: fine) {
   .cx-strip img, .cx-feature__shots img {
-    position: relative; z-index: 1; cursor: zoom-in; transform-origin: center;
+    position: relative; z-index: 1; transform-origin: center;
     transition: transform var(--dur-3) var(--ease-emphasized), filter var(--dur-3) var(--ease-standard);
   }
-  .cx-strip img.is-zoomed, .cx-feature__shots img.is-zoomed { z-index: 30; filter: drop-shadow(0 28px 40px rgba(22, 21, 15, 0.3)); }
-  .cx-strip--6 { --zoom: 2.6; }
-  .cx-strip--3 { --zoom: 1.8; }
-  .cx-feature__shots { --zoom: 1.8; }
-  .cx-feature__shots--three { --zoom: 2.2; }
-  .cx-feature__shots--one { --zoom: 1.5; }
+  .cx-strip img.is-zoomed, .cx-feature__shots img.is-zoomed { z-index: 30; filter: drop-shadow(0 20px 28px rgba(22, 21, 15, 0.22)); }
+  .cx-strip--6 { --zoom: 1.7; }
+  .cx-strip--3 { --zoom: 1.3; }
+  .cx-feature__shots { --zoom: 1.2; }
+  .cx-feature__shots--three { --zoom: 1.4; }
+  .cx-feature__shots--one { --zoom: 1.15; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cx-strip img, .cx-feature__shots img { transition: none; }
