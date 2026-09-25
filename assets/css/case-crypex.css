@@ -219,6 +219,18 @@
 .cx-kit__row--cards img { padding: 10px 8px 8px; }
 .cx-kit figcaption { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em; color: var(--color-text-subtle); }
 
+/* expanded kit: every part at 1x, flowing in its group */
+.cx-kit__flow { columns: 3 280px; column-gap: var(--sp-4); }
+.cx-kit__flow figure {
+  break-inside: avoid; margin: 0 0 var(--sp-4); padding: var(--sp-4) var(--sp-4) var(--sp-3);
+  display: grid; justify-items: center; gap: var(--sp-3); background: #F2F2F2; border-radius: var(--radius-2);
+}
+.cx-kit__flow img { width: min(calc(var(--w, 200px) - 12px), 100%); padding: 0; background: none; border-radius: 6px; }
+.cx-kit__set { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); align-items: end; justify-items: center; width: 100%; }
+.cx-kit__flow .cx-kit__set img { width: min(112px, 100%); }
+.cx-kit__flow .cx-kit__set--status img { width: min(96px, 100%); }
+.cx-kit__flow figcaption { justify-self: stretch; padding-top: var(--sp-2); border-top: 1px solid rgba(22, 21, 15, 0.08); }
+
 /* ---------- Brand ---------- */
 .cx-brand { margin-top: var(--sp-2); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 3fr) minmax(0, 3fr); gap: var(--sp-6); align-items: stretch; }
 .cx-brand figure { position: relative; margin: 0; background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); padding: var(--sp-5); display: grid; align-content: center; justify-items: center; gap: var(--sp-5); }
