@@ -1,38 +1,67 @@
-/* JM · Case 02 · Crypex — hover a screen to see it whole.
-   Mouse only. The screen grows up to its --zoom, but never past the window,
-   and slides back inside it (below the toolbar) when it would spill over. */
+/* JM · Case 02 · Crypex — click a screen to see it up close.
+   Medium-style zoom: the screen flies from its place to the centre of the
+   window over a paper backdrop, and back. Click, Esc or scroll to close.
+   Works with mouse, touch and keyboard (Enter / Space). */
 (() => {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  const TOP = 72, PAD = 16; // toolbar height + breathing room
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const shots = document.querySelectorAll('.cx-strip img, .cx-feature__shots img');
+  const MARGIN = 32, TOP = 64; // keep clear of the edges and the toolbar
+  let open = null;
 
-  // measure the screen at rest, even if it is still shrinking back
-  const restRect = (img) => {
-    const t = img.style.transition, tf = img.style.transform;
-    img.style.transition = 'none'; img.style.transform = '';
-    const r = img.getBoundingClientRect();
-    img.style.transform = tf; void img.offsetWidth; img.style.transition = t;
-    return r;
+  const close = () => {
+    if (!open) return;
+    const { img, clone, veil } = open;
+    open = null;
+    veil.classList.remove('is-open');
+    clone.style.transform = '';
+    let finished = false;
+    const done = () => {
+      if (finished) return; finished = true;
+      clone.remove(); veil.remove(); img.style.visibility = ''; img.focus({ preventScroll: true });
+    };
+    if (reduced) done();
+    else { clone.addEventListener('transitionend', done, { once: true }); setTimeout(done, 450); }
+    removeEventListener('scroll', onScroll);
   };
+
+  let startY = 0;
+  const onScroll = () => { if (Math.abs(scrollY - startY) > 40) close(); };
 
   const zoom = (img) => {
-    const r = restRect(img);
-    const want = parseFloat(getComputedStyle(img).getPropertyValue('--zoom')) || 1.7;
-    const s = Math.max(1, Math.min(want, (innerHeight - TOP - PAD) / r.height, (innerWidth - 2 * PAD) / r.width));
-    const w = r.width * s, h = r.height * s;
-    const left = r.left + (r.width - w) / 2, top = r.top + (r.height - h) / 2;
-    let dx = 0, dy = 0;
-    if (left < PAD) dx = PAD - left; else if (left + w > innerWidth - PAD) dx = innerWidth - PAD - (left + w);
-    if (top < TOP) dy = TOP - top; else if (top + h > innerHeight - PAD) dy = innerHeight - PAD - (top + h);
-    img.style.transform = `translate(${dx}px, ${dy}px) scale(${s})`;
-    img.classList.add('is-zoomed');
+    if (open) return close();
+    const r = img.getBoundingClientRect();
+    const veil = document.createElement('div');
+    veil.className = 'cx-zoom';
+    veil.addEventListener('click', close);
+    const clone = img.cloneNode();
+    clone.removeAttribute('tabindex'); clone.removeAttribute('role'); clone.removeAttribute('aria-label');
+    clone.className = 'cx-zoom__img';
+    Object.assign(clone.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+    clone.addEventListener('click', close);
+    document.body.append(veil, clone);
+    img.style.visibility = 'hidden';
+
+    // fit the window, never past the export's own size (2x files shown at 1x)
+    const maxW = innerWidth - MARGIN * 2, maxH = innerHeight - TOP - MARGIN;
+    const s = Math.min(maxW / r.width, maxH / r.height, (img.naturalWidth / 2) / r.width);
+    const tx = innerWidth / 2 - (r.left + r.width / 2);
+    const ty = TOP + maxH / 2 - (r.top + r.height / 2);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      veil.classList.add('is-open');
+      clone.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
+    }));
+    open = { img, clone, veil };
+    startY = scrollY;
+    addEventListener('scroll', onScroll, { passive: true });
   };
-  const reset = (img) => { img.style.transform = ''; img.classList.remove('is-zoomed'); };
 
   shots.forEach((img) => {
-    img.addEventListener('mouseenter', () => zoom(img));
-    img.addEventListener('mouseleave', () => reset(img));
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', `View larger: ${img.alt}`);
+    img.addEventListener('click', () => zoom(img));
+    img.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zoom(img); } });
   });
-  // a scrolled page would leave the zoomed screen out of place
-  window.addEventListener('scroll', () => document.querySelectorAll('.is-zoomed').forEach(reset), { passive: true });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  addEventListener('resize', close);
 })();
