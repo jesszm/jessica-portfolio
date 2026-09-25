@@ -3,7 +3,7 @@
    scroll and stays in sync through gsap.ticker. Falls back to static stills for
    prefers-reduced-motion, ?motion=reduced, missing WebGL or missing libraries. */
 
-import { createStory } from './story-scene.js?v=9';
+import { createStory } from './story-scene.js?v=13';
 
 const html = document.documentElement;
 const params = new URLSearchParams(window.location.search);
@@ -28,7 +28,7 @@ function navOffset() {
 let scene = null;
 if (story && canvas) {
   try {
-    scene = createStory(canvas, { quality: small ? 'low' : 'high' });
+    scene = createStory(canvas, { quality: small ? 'low' : 'high', lang: window.JM_LANG });
   } catch (err) {
     console.warn('[story] WebGL unavailable, using the static fallback.', err);
   }
