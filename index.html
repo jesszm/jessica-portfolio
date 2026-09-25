@@ -2,6 +2,10 @@
 <html lang="en" class="no-js" data-grid="off" data-annotations="on">
 <head>
   <meta charset="utf-8">
+  <meta name="i18n-page" content="index">
+  <script src="assets/js/i18n.js?v=1"></script>
+  <link rel="alternate" hreflang="en" href="?lang=en">
+  <link rel="alternate" hreflang="pt-BR" href="?lang=pt">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Jessica Monteiro — UI/UX Designer</title>
   <meta name="description" content="Jessica Monteiro is a UI/UX designer with 5+ years of experience across e-commerce, mobile apps, web systems and fintech. Research-driven, systems-minded, built with developers.">
@@ -26,7 +30,7 @@
   <link rel="stylesheet" href="assets/css/tokens.css?v=22">
   <link rel="stylesheet" href="assets/css/styles.css?v=21">
   <link rel="stylesheet" href="assets/css/story.css?v=9">
-  <link rel="stylesheet" href="assets/css/identity.css?v=23">
+  <link rel="stylesheet" href="assets/css/identity.css?v=24">
   <script type="importmap">
     {
       "imports": {
@@ -39,8 +43,8 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
-  <script src="assets/js/main.js?v=4" defer></script>
-  <script type="module" src="assets/js/story.js?v=11"></script>
+  <script src="assets/js/main.js?v=5" defer></script>
+  <script type="module" src="assets/js/story.js?v=12"></script>
 </head>
 <body>
   <a class="skip-link" href="#work">Skip to content</a>
@@ -68,6 +72,9 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="toolbar__tools">
+        <nav class="lang-switch" aria-label="Language" data-no-i18n>
+          <a href="?lang=en" hreflang="en" lang="en" data-lang="en">EN</a><span aria-hidden="true">/</span><a href="?lang=pt" hreflang="pt-BR" lang="pt-BR" data-lang="pt">PT</a>
+        </nav>
         <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)" title="Designer view · G">
           <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3"/><path d="M7.5 2.5v15M12.5 2.5v15"/></svg>
         </button>
@@ -453,9 +460,10 @@
     <div class="container footer__inner">
       <span>© <span data-year>2026</span> Jessica Monteiro · Designed and documented by me</span>
       <span class="footer__shortcuts"><span><kbd>G</kbd> designer view</span></span>
-      <a href="guidelines.html">Design guidelines · v2.2.0</a>
+      <a href="guidelines.html">Design guidelines · v2.3.0</a>
     </div>
   </footer>
 
+  <script>window.jmApplyI18n && window.jmApplyI18n();</script>
 </body>
 </html>

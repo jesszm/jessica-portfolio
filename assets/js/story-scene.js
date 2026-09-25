@@ -50,6 +50,31 @@ export function createStory(canvas, options = {}) {
   const high = options.quality !== 'low';
   let dark = Boolean(options.dark);
   const characterUrl = options.characterUrl || 'assets/img/jess-character.png';
+  /* words drawn inside the scene follow the page language (English is the source) */
+  const PT = options.lang === 'pt';
+  const TX = PT ? {
+    screenTitle: 'Frame 04 · Design / Painel', stickyLow: ['testar c/', '5 pessoas'], stickyHi: ['bora!', '✓ pronto'],
+    notes: [
+      ['todos\niguais', 'processo\ninvisível', 'cadê o\ncontato?', 'jargão\ndemais', 'cadê os\nresultados?', 'ela está\nlivre?'],
+      ['ver como\nela pensa', 'cases\nreais', 'contato em\num clique', 'prova de\nparceria', 'design\nsystem', 'trabalho\nremoto'],
+      ['um toque de\npersonalidade', 'detalhes\ndivertidos', 'fácil de\nescanear', 'feito à\nmão', 'calmo &\nlimpo', 'uma história,\nnão um grid'],
+    ],
+    sections: ['O que os clientes disseram', 'Do que precisam', 'O que encantaria'],
+    board: 'PESQUISA · o que clientes buscam num portfólio de design',
+    flow: ['Abrir app', 'Entrar', 'Novo usuário?', 'Cartão salvo', 'Pagar', 'Recibo ✓'],
+    frameLabel: 'Frame 04 · Painel', cursors: ['Jess', 'Cliente', 'Dev'],
+  } : {
+    screenTitle: 'Frame 04 · Design / Dashboard', stickyLow: ['test w/ 5', 'users'], stickyHi: ['ship it!', '✓ ready'],
+    notes: [
+      ['portfolios all\nlook alike', "can't see\nthe process", "where's the\ncontact?", 'too much\njargon', 'no real\nresults', 'is she\navailable?'],
+      ['see how\nshe thinks', 'real case\nstudies', 'contact in\none click', 'proof of\nteamwork', 'design system\nskills', 'remote\nfriendly'],
+      ['a bit of\npersonality', 'playful\ndetails', 'easy to\nscan', 'feels\nhandmade', 'calm &\nclean', 'a story,\nnot a grid'],
+    ],
+    sections: ['What clients said', 'What they need', 'What would delight'],
+    board: 'RESEARCH BOARD · what clients look for in a designer portfolio',
+    flow: ['Open app', 'Log in', 'New user?', 'Saved card', 'Pay', 'Receipt ✓'],
+    frameLabel: 'Frame 04 · Dashboard', cursors: ['Jess', 'Client', 'Dev'],
+  };
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: high, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, high ? 1.75 : 1.25));
@@ -191,7 +216,7 @@ export function createStory(canvas, options = {}) {
       g.fillStyle = C.lilac; rr(g, 14, 10, 20, 20, 5); g.fill();
       g.fillStyle = 'rgba(22,21,15,0.25)'; for (let i = 0; i < 5; i++) g.fillRect(52 + i * 34, 16, 22, 8);
       const fx = 170, fy = 104, fw = 640, fh = 420;
-      g.fillStyle = C.ink500; g.font = `400 13px ${FONT_MONO}`; g.fillText('Frame 04 · Design / Dashboard', fx, fy - 12);
+      g.fillStyle = C.ink500; g.font = `400 13px ${FONT_MONO}`; g.fillText(TX.screenTitle, fx, fy - 12);
       g.fillStyle = '#FFFFFF'; g.fillRect(fx, fy, fw, fh);
       g.strokeStyle = C.violet; g.lineWidth = 2; g.strokeRect(fx - 1, fy - 1, fw + 2, fh + 2);
       g.fillStyle = C.violet; [[fx, fy], [fx + fw, fy], [fx, fy + fh], [fx + fw, fy + fh]].forEach(([x, y]) => g.fillRect(x - 4, y - 4, 8, 8));
@@ -235,7 +260,7 @@ export function createStory(canvas, options = {}) {
       }
       g.fillStyle = C.yellow; g.save(); g.translate(fx + fw + 20, fy + 40); g.rotate(0.05); g.fillRect(0, 0, 110, 96); g.restore();
       g.fillStyle = C.ink900; g.font = `400 22px ${FONT_HAND}`; g.save(); g.translate(fx + fw + 30, fy + 74); g.rotate(0.05);
-      g.fillText(hifi ? 'ship it!' : 'test w/ 5', 0, 0); g.fillText(hifi ? '✓ ready' : 'users', 0, 26); g.restore();
+      g.fillText((hifi ? TX.stickyHi : TX.stickyLow)[0], 0, 0); g.fillText((hifi ? TX.stickyHi : TX.stickyLow)[1], 0, 26); g.restore();
     };
   }
   const screenLowfi = canvasTexture(1000, 640, drawScreen(false));
@@ -638,11 +663,7 @@ export function createStory(canvas, options = {}) {
      The board researches this very portfolio: what clients look for when they
      judge a designer. One colour per section, white sections, ink text. */
   const CLUSTER_COLORS = [C.yellow, C.lilac, C.mint];
-  const NOTES_BY_CLUSTER = [
-    ['portfolios all\nlook alike', "can't see\nthe process", "where's the\ncontact?", 'too much\njargon', 'no real\nresults', 'is she\navailable?'],
-    ['see how\nshe thinks', 'real case\nstudies', 'contact in\none click', 'proof of\nteamwork', 'design system\nskills', 'remote\nfriendly'],
-    ['a bit of\npersonality', 'playful\ndetails', 'easy to\nscan', 'feels\nhandmade', 'calm &\nclean', 'a story,\nnot a grid'],
-  ];
+  const NOTES_BY_CLUSTER = TX.notes;
   const NOTES = Array.from({ length: 18 }, (_, i) => NOTES_BY_CLUSTER[i % 3][Math.floor(i / 3)]);
   const noteTextures = NOTES.map((txt, i) => canvasTexture(320, 320, (g, w, h) => {
     g.fillStyle = CLUSTER_COLORS[i % 3]; g.fillRect(0, 0, w, h);
@@ -671,7 +692,7 @@ export function createStory(canvas, options = {}) {
       delayCluster: (i % 6) * 0.004 + k * 0.002,
     });
   }
-  const SECTION_TITLES = [['What clients said', C.yellow], ['What they need', C.lilac], ['What would delight', C.mint]];
+  const SECTION_TITLES = [[TX.sections[0], C.yellow], [TX.sections[1], C.lilac], [TX.sections[2], C.mint]];
   const sections = SECTION_TITLES.map(([title, color], k) => {
     const tex = canvasTexture(640, 880, (g, w, h) => {
       g.fillStyle = '#FFFFFF'; rr(g, 8, 84, w - 16, h - 92, 30); g.fill();
@@ -690,17 +711,17 @@ export function createStory(canvas, options = {}) {
   /* board header: what this research is about */
   const boardTitle = plane(1.9, 0.12, basic('#ffffff', { map: canvasTexture(1600, 100, (g, w, h) => {
     g.fillStyle = C.ink500; g.font = `400 40px ${FONT_MONO}`; g.textBaseline = 'middle';
-    g.fillText('RESEARCH BOARD · what clients look for in a designer portfolio', 4, h / 2);
+    g.fillText(TX.board, 4, h / 2);
   }), transparent: true, opacity: 0, depthWrite: false }), world, -0.41, 2.52, -3.02);
 
   /* ---------- Define: FigJam flowchart ---------- */
   const SHAPES = [
-    { label: 'Open app', kind: 'pill', color: C.mint, x: 3.4, y: 1.65 },
-    { label: 'Log in', kind: 'rect', color: C.lilac, x: 4.85, y: 2.1 },
-    { label: 'New user?', kind: 'diamond', color: C.yellow, x: 6.25, y: 2.32 },
-    { label: 'Saved card', kind: 'rect', color: C.sky, x: 6.25, y: 1.18 },
-    { label: 'Pay', kind: 'rect', color: C.pink, x: 7.65, y: 1.86 },
-    { label: 'Receipt ✓', kind: 'pill', color: C.mint, x: 8.95, y: 1.65 },
+    { label: TX.flow[0], kind: 'pill', color: C.mint, x: 3.4, y: 1.65 },
+    { label: TX.flow[1], kind: 'rect', color: C.lilac, x: 4.85, y: 2.1 },
+    { label: TX.flow[2], kind: 'diamond', color: C.yellow, x: 6.25, y: 2.32 },
+    { label: TX.flow[3], kind: 'rect', color: C.sky, x: 6.25, y: 1.18 },
+    { label: TX.flow[4], kind: 'rect', color: C.pink, x: 7.65, y: 1.86 },
+    { label: TX.flow[5], kind: 'pill', color: C.mint, x: 8.95, y: 1.65 },
   ];
   const shapeTex = SHAPES.map((s) => canvasTexture(512, 320, (g, w, h) => {
     g.fillStyle = s.color; g.strokeStyle = C.ink900; g.lineWidth = 4.5;
@@ -754,7 +775,7 @@ export function createStory(canvas, options = {}) {
   box(2.84, 1.79, 0.02, basic(C.ink900), desk, 0, 0, -0.012);
   box(2.8, 1.75, 0.03, frameMat(C.paper0), desk, 0, 0, 0);
   const labelTex = (txt) => canvasTexture(512, 64, (g, w, h) => { g.fillStyle = C.ink500; g.font = `400 30px ${FONT_MONO}`; g.textBaseline = 'middle'; g.fillText(txt, 4, h / 2); });
-  plane(1.1, 0.14, basic('#ffffff', { map: labelTex('Frame 04 · Dashboard'), transparent: true }), desk, -0.85, 0.96, 0);
+  plane(1.1, 0.14, basic('#ffffff', { map: labelTex(TX.frameLabel), transparent: true }), desk, -0.85, 0.96, 0);
 
   const phone = new THREE.Group();
   phone.position.set(14.4, 1.4, -8);
@@ -941,7 +962,7 @@ export function createStory(canvas, options = {}) {
       g.fillStyle = fg; g.textBaseline = 'middle'; g.fillText(name, 46, 61);
     });
   }
-  const cursors = [['Jess', C.violet, '#FFFFFF'], ['Client', C.yellow, C.ink900], ['Dev', C.mint, C.ink900]].map(([name, color, fg], i) => {
+  const cursors = [[TX.cursors[0], C.violet, '#FFFFFF'], [TX.cursors[1], C.yellow, C.ink900], [TX.cursors[2], C.mint, C.ink900]].map(([name, color, fg], i) => {
     const s = new THREE.Sprite(track(new THREE.SpriteMaterial({ map: cursorTex(name, color, fg), transparent: true, depthTest: false })));
     s.center.set(0.03, 0.95);
     s.scale.set(0.34, 0.1275, 1);

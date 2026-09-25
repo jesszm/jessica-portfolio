@@ -64,7 +64,10 @@
       document.addEventListener('pointerout', onOut);
       window.addEventListener('scroll', place, { passive: true });
       const first = store.get('jm-found-grid') !== '1';
-      toast.textContent = first ? '✦ You found the designer view. Hover anything to inspect it. Press G to close.' : 'Designer view on · G to close';
+      const pt = window.JM_LANG === 'pt';
+      toast.textContent = first
+        ? (pt ? '✦ Você achou o modo designer. Passe o mouse em qualquer coisa para inspecionar. G fecha.' : '✦ You found the designer view. Hover anything to inspect it. Press G to close.')
+        : (pt ? 'Modo designer ligado · G para fechar' : 'Designer view on · G to close');
       store.set('jm-found-grid', '1');
       toast.classList.add('is-on'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('is-on'), first ? 4200 : 1800);
     } else {

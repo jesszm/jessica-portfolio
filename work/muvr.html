@@ -2,6 +2,10 @@
 <html lang="en" class="no-js" data-grid="off" data-annotations="on">
 <head>
   <meta charset="utf-8">
+  <meta name="i18n-page" content="muvr">
+  <script src="../assets/js/i18n.js?v=1"></script>
+  <link rel="alternate" hreflang="en" href="?lang=en">
+  <link rel="alternate" hreflang="pt-BR" href="?lang=pt">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Marketplace App Redesign — Jessica Monteiro</title>
   <meta name="description" content="Muvr is an existing app going through a complete revamp. This is my contribution on the customer app redesign while on the team.">
@@ -18,9 +22,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/tokens.css?v=22">
   <link rel="stylesheet" href="../assets/css/styles.css?v=21">
-  <link rel="stylesheet" href="../assets/css/identity.css?v=22">
+  <link rel="stylesheet" href="../assets/css/identity.css?v=24">
   <link rel="stylesheet" href="../assets/css/case.css?v=1">
-  <script src="../assets/js/main.js?v=4" defer></script>
+  <script src="../assets/js/main.js?v=5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -47,6 +51,9 @@
         <a href="../index.html#contact">Contact</a>
       </nav>
       <div class="toolbar__tools">
+        <nav class="lang-switch" aria-label="Language" data-no-i18n>
+          <a href="?lang=en" hreflang="en" lang="en" data-lang="en">EN</a><span aria-hidden="true">/</span><a href="?lang=pt" hreflang="pt-BR" lang="pt-BR" data-lang="pt">PT</a>
+        </nav>
         <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)" title="Designer view · G">
           <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3"/><path d="M7.5 2.5v15M12.5 2.5v15"/></svg>
         </button>
@@ -122,5 +129,6 @@
       <a href="../index.html#work">← Back to all work</a>
     </div>
   </footer>
+  <script>window.jmApplyI18n && window.jmApplyI18n();</script>
 </body>
 </html>
