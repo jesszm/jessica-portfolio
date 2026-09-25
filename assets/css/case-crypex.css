@@ -169,73 +169,6 @@
 .cx-honest .sticky { transform: rotate(-2deg); max-width: 260px; font-size: 1.3rem; }
 .cx-honest .sticky b { display: block; margin-bottom: var(--sp-2); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
 
-/* ---------- Prototype: the real screens with Figma-style hotspots ---------- */
-html:not(.js) .cx-proto { display: none; }
-.cx-proto {
-  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--sp-8); align-items: center;
-  margin-bottom: var(--sp-9); padding: var(--sp-7) var(--sp-7); border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-3); background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg);
-}
-.cx-proto__stage { display: grid; justify-items: center; padding: var(--sp-5); border-radius: var(--radius-3); background: #2A2A2A; }
-.cx-proto__phone { position: relative; width: min(100%, 300px); container-type: inline-size; }
-.cx-proto__screen { display: block; width: 100%; height: auto; filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.35)); }
-.cx-proto__hotspots { position: absolute; inset: 0; }
-.cx-hotspot {
-  position: absolute; padding: 0; border: 0; border-radius: 10px; background: transparent; cursor: pointer;
-  transition: background var(--dur-2) var(--ease-standard), box-shadow var(--dur-2) var(--ease-standard);
-}
-/* Figma's prototype blue, used only for hotspots */
-.cx-hotspot:hover, .cx-hotspot:focus-visible, .is-flash .cx-hotspot { background: rgba(13, 153, 255, 0.18); box-shadow: inset 0 0 0 2px #0D99FF; outline: none; }
-.cx-hotspot--primary { box-shadow: inset 0 0 0 2px rgba(13, 153, 255, 0.85); }
-@media (prefers-reduced-motion: no-preference) {
-  .cx-hotspot--primary { animation: cx-ping 1.8s var(--ease-standard) infinite; }
-}
-@keyframes cx-ping { 0%, 100% { box-shadow: inset 0 0 0 2px rgba(13, 153, 255, 0.85), 0 0 0 0 rgba(13, 153, 255, 0.35); } 60% { box-shadow: inset 0 0 0 2px rgba(13, 153, 255, 0.85), 0 0 0 8px rgba(13, 153, 255, 0); } }
-
-.cx-proto__panel .cx-label { margin-bottom: var(--sp-3); }
-.cx-proto__lead { margin-top: var(--sp-3); color: var(--color-text-muted); max-width: 46ch; }
-.cx-proto__steps { list-style: none; padding: 0; margin: var(--sp-5) 0 0; display: flex; flex-wrap: wrap; gap: var(--sp-2); }
-.cx-proto__steps button {
-  display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 12px 0 6px; cursor: pointer;
-  border: 1px solid var(--color-border-strong); border-radius: var(--radius-full); background: var(--color-bg-elevated);
-  font: 500 var(--fs-13) / 1 var(--font-sans); color: var(--color-text);
-  transition: background var(--dur-2), transform var(--dur-1) var(--ease-standard);
-}
-.cx-proto__steps button span { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink-900); font: 400 10px/1 var(--font-mono); }
-.cx-proto__steps button:hover { transform: translateY(-1px); }
-.cx-proto__steps button[aria-current] { background: var(--sticky-lilac); box-shadow: 1.5px 1.5px 0 var(--ink-900); }
-.cx-proto__steps button[aria-current] span { background: var(--ink-900); color: var(--paper-0); }
-.cx-proto__hint { margin-top: var(--sp-5); min-height: 3.2em; font-family: var(--font-hand); font-size: 1.2rem; line-height: 1.35; color: var(--color-text); }
-.cx-proto__timer { display: inline-flex; align-items: center; gap: 8px; margin-top: var(--sp-2); padding: 6px 12px; border-radius: var(--radius-full); background: var(--sticky-yellow); border: 1px solid var(--ink-900); font: 400 11px/1 var(--font-mono); letter-spacing: 0.04em; }
-.cx-proto__timer[hidden] { display: none; }
-.cx-proto__timer b { font-weight: 400; font-variant-numeric: tabular-nums; }
-.cx-proto__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-900); }
-@media (prefers-reduced-motion: no-preference) { .cx-proto__dot { animation: pulse 1s var(--ease-standard) infinite; } }
-.cx-proto__controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4) var(--sp-5); margin-top: var(--sp-5); padding-top: var(--sp-5); border-top: 1px dashed var(--color-border-strong); }
-.cx-proto__restart { height: 36px; font-size: var(--fs-13); }
-
-/* switch: a real checkbox, restyled */
-.cx-switch { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: var(--fs-14); cursor: pointer; }
-.cx-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.cx-switch__track { position: relative; width: 38px; height: 22px; border-radius: 999px; border: 1px solid var(--ink-900); background: var(--color-bg-sunken); transition: background var(--dur-2); flex: none; }
-.cx-switch__track::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--paper-0); border: 1px solid var(--ink-900); transition: transform var(--dur-2) var(--ease-standard); }
-.cx-switch input:checked + .cx-switch__track { background: var(--sticky-pink); }
-.cx-switch input:checked + .cx-switch__track::after { transform: translateX(16px); }
-.cx-switch input:focus-visible + .cx-switch__track { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-
-/* ---------- Comment pins on screens, numbered lists that point to them ---------- */
-.cx-shot { position: relative; }
-.cx-shot .pin { transform: translate(-50%, -50%); animation: none; cursor: pointer; }
-/* closed bubbles leave the layout, so they never widen the page on small screens */
-.cx-shot .pin:not([data-open="true"]):not(:hover):not(:focus-visible) .pin__bubble { display: none; }
-.cx-list--pins { counter-reset: pin; }
-.cx-list--pins li { counter-increment: pin; padding-left: calc(var(--sp-5) + 10px); }
-.cx-list--pins li::before {
-  content: counter(pin); top: 0.2em; width: 20px; height: 20px; transform: none; display: grid; place-items: center;
-  border-radius: 50% 50% 50% 4px; background: var(--violet-600); border: 0; color: var(--paper-0);
-  font: 600 10px/1 var(--font-mono);
-}
-
 /* ---------- Features ---------- */
 .cx-feature { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--sp-8); align-items: center; }
 .cx-feature + .cx-feature { margin-top: var(--sp-9); }
@@ -319,7 +252,6 @@ html:not(.js) .cx-proto { display: none; }
   .cx-compare { grid-template-columns: 1fr; }
   .cx-brand { grid-template-columns: 1fr 1fr; }
   .cx-kit__row--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cx-proto { grid-template-columns: 1fr; gap: var(--sp-6); padding: var(--sp-5); }
   .cx-notes li { grid-template-columns: 1fr; }
   .cx-notes__did { border-left: 0; border-top: 1px dashed var(--color-border-strong); padding-left: calc(var(--sp-6) + var(--sp-5)); }
   .cx-kit__split { grid-template-columns: 1fr; }
@@ -342,9 +274,6 @@ html:not(.js) .cx-proto { display: none; }
   .cx-flowframe { padding: var(--sp-5); }
   .cx-hmw { padding: var(--sp-5); }
   .cx-glance li { padding: var(--sp-4); }
-  .cx-shot .pin .pin__bubble, .cx-shot .pin[data-open="true"] .pin__bubble, .cx-shot .pin:hover .pin__bubble { left: 0; right: auto; transform: none; min-width: 0; width: max-content; max-width: min(160px, 42vw); }
-  .cx-shot .pin--left .pin__bubble, .cx-shot .pin--left[data-open="true"] .pin__bubble, .cx-shot .pin--left:hover .pin__bubble { left: auto; right: 0; }
-  .cx .frame__label { max-width: 100%; white-space: normal; }
   .cx-feature__shots--three { gap: var(--sp-2); }
   .cx-kit { padding: var(--sp-4); }
   .cx-kit__row--3, .cx-kit__row--2 { grid-template-columns: 1fr; }

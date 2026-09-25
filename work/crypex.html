@@ -22,7 +22,6 @@
   <link rel="stylesheet" href="../assets/css/case.css?v=1">
   <link rel="stylesheet" href="../assets/css/case-crypex.css?v=1">
   <script src="../assets/js/main.js?v=4" defer></script>
-  <script src="../assets/js/case-crypex.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -271,85 +270,38 @@
           <h2 id="cx-solution" class="display cx-h2">An app that feels like <em>paying</em>, not trading</h2>
         </header>
 
-        <!-- Prototype: click through the real screens -->
-        <div class="cx-proto" data-proto>
-          <div class="cx-proto__stage">
-            <div class="cx-proto__phone" data-proto-phone>
-              <img class="cx-proto__screen" data-proto-screen src="../assets/img/crypex/home.webp" width="786" height="1704" alt="Home screen.">
-              <div class="cx-proto__hotspots" data-proto-hotspots></div>
-            </div>
-          </div>
-          <div class="cx-proto__panel">
-            <p class="cx-label">Prototype · pay a Pix with ETH</p>
-            <h3 class="cx-h3">Click through the real flow</h3>
-            <p class="cx-proto__lead">These are the final screens with their hotspots, like a Figma prototype. Click the highlighted areas, or jump to any step.</p>
-            <ol class="cx-proto__steps" data-proto-steps>
-              <li><button type="button" data-go="home"><span>1</span>Home</button></li>
-              <li><button type="button" data-go="amount0"><span>2</span>Amount</button></li>
-              <li><button type="button" data-go="recipient"><span>3</span>Recipient</button></li>
-              <li><button type="button" data-go="review"><span>4</span>Review</button></li>
-              <li><button type="button" data-go="result"><span>5</span>Result</button></li>
-              <li><button type="button" data-go="history"><span>6</span>History</button></li>
-            </ol>
-            <p class="cx-proto__hint" data-proto-hint>Start with the Pay button in the tab bar.</p>
-            <p class="cx-proto__timer" data-proto-timer hidden><span class="cx-proto__dot" aria-hidden="true"></span>Quote locked · <b data-proto-clock>10:00</b> left</p>
-            <div class="cx-proto__controls">
-              <label class="cx-switch">
-                <input type="checkbox" data-proto-fail>
-                <span class="cx-switch__track" aria-hidden="true"></span>
-                <span>Simulate a failed payment</span>
-              </label>
-              <button type="button" class="btn cx-proto__restart" data-proto-restart>Restart</button>
-            </div>
-            <p class="visually-hidden" aria-live="polite" data-proto-live></p>
-          </div>
-        </div>
-
         <!-- Pay -->
         <article class="cx-feature">
           <div class="cx-feature__shots">
             <img src="../assets/img/crypex/pay-amount-empty.webp" width="786" height="1704" alt="Pay screen before typing: ETH and Pix fields at zero and the Continue button disabled." loading="lazy">
-            <div class="cx-shot">
-              <img src="../assets/img/crypex/pay-amount.webp" width="786" height="1704" alt="Pay screen with an amount: ETH converted to R$ 2,500.00 and Continue enabled." loading="lazy">
-              <span class="pin" id="pin-pay-1" style="left: 6%; top: 25%;">1<span class="pin__bubble"><b>Both sides</b>From ETH on top, to Pix below.</span></span>
-              <span class="pin pin--left" id="pin-pay-2" style="left: 33%; top: 40.3%;">2<span class="pin__bubble"><b>Live rate</b>No maths to do.</span></span>
-              <span class="pin pin--left" id="pin-pay-3" style="left: 88%; top: 45%;">3<span class="pin__bubble"><b>Built-in keypad</b>Both values stay in view.</span></span>
-              <span class="pin pin--left" id="pin-pay-4" style="left: 92%; top: 76%;">4<span class="pin__bubble"><b>Continue wakes up</b>Only once there's an amount.</span></span>
-            </div>
+            <img src="../assets/img/crypex/pay-amount.webp" width="786" height="1704" alt="Pay screen with an amount: ETH converted to R$ 2,500.00 and Continue enabled." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Pay · amount</p>
             <h3 class="cx-h3">One screen, both sides of the trade</h3>
-            <ol class="cx-list cx-list--pins">
-              <li data-pin="pin-pay-1">“From ETH” on top, “To Pix” below: the same pattern people know from exchanges and currency apps.</li>
-              <li data-pin="pin-pay-2">The live rate sits right under the fields, so there's no maths to do.</li>
-              <li data-pin="pin-pay-3">A built-in keypad keeps both numbers visible while typing, with no system keyboard in the way.</li>
-              <li data-pin="pin-pay-4">Continue only wakes up once there's an amount to pay.</li>
-            </ol>
+            <ul class="cx-list">
+              <li>“From ETH” on top, “To Pix” below: the same pattern people know from exchanges and currency apps.</li>
+              <li>The live rate sits right under the fields, so there's no maths to do.</li>
+              <li>A built-in keypad keeps both numbers visible while typing, with no system keyboard in the way.</li>
+              <li>Continue only wakes up once there's an amount to pay.</li>
+            </ul>
           </div>
         </article>
 
         <!-- Recipient + Review -->
         <article class="cx-feature cx-feature--flip">
           <div class="cx-feature__shots">
-            <div class="cx-shot">
-              <img src="../assets/img/crypex/pay-recipient.webp" width="786" height="1704" alt="Recipient screen: Pix key entered and the recipient's name, masked CPF and bank shown." loading="lazy">
-              <span class="pin" id="pin-rev-1" style="left: 8%; top: 40%;">1<span class="pin__bubble"><b>Who's receiving</b>Name, masked CPF and bank.</span></span>
-            </div>
-            <div class="cx-shot">
-              <img src="../assets/img/crypex/pay-review.webp" width="786" height="1704" alt="Review screen: route from ETH to Pix, value, 10% fee, total in reais and in ETH, wallet address with copy button and a countdown." loading="lazy">
-              <span class="pin pin--left" id="pin-rev-2" style="left: 84%; top: 55%;">2<span class="pin__bubble"><b>No hidden fee</b>Value, 10% fee, totals in R$ and ETH.</span></span>
-              <span class="pin pin--left" id="pin-rev-3" style="left: 84%; top: 78%;">3<span class="pin__bubble"><b>A price that holds</b>Quote locked for ten minutes.</span></span>
-            </div>
+            <img src="../assets/img/crypex/pay-recipient.webp" width="786" height="1704" alt="Recipient screen: Pix key entered and the recipient's name, masked CPF and bank shown." loading="lazy">
+            <img src="../assets/img/crypex/pay-review.webp" width="786" height="1704" alt="Review screen: route from ETH to Pix, value, 10% fee, total in reais and in ETH, wallet address with copy button and a countdown." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Pay · recipient and review</p>
             <h3 class="cx-h3">Every number in the open</h3>
-            <ol class="cx-list cx-list--pins">
-              <li data-pin="pin-rev-1"><strong>Check before you send.</strong> As soon as the Pix key goes in, the app shows who is receiving, with a masked CPF and the bank. A typo shows up as the wrong name, not as lost money.</li>
-              <li data-pin="pin-rev-2"><strong>No hidden fee.</strong> The review lists the value, the 10% service fee and the total twice: in reais and in ETH.</li>
-              <li data-pin="pin-rev-3"><strong>A price that holds.</strong> Crypto moves by the minute, so the quote is locked for ten minutes. The countdown makes that window visible instead of surprising people with a new price.</li>
-            </ol>
+            <ul class="cx-list">
+              <li><strong>Check before you send.</strong> As soon as the Pix key goes in, the app shows who is receiving, with a masked CPF and the bank. A typo shows up as the wrong name, not as lost money.</li>
+              <li><strong>No hidden fee.</strong> The review lists the value, the 10% service fee and the total twice: in reais and in ETH.</li>
+              <li><strong>A price that holds.</strong> Crypto moves by the minute, so the quote is locked for ten minutes. The countdown makes that window visible instead of surprising people with a new price.</li>
+            </ul>
           </div>
         </article>
 
@@ -463,7 +415,7 @@
             <p>Each state lives as a variant in Figma, so the build never depends on guesswork. The bell turns orange when there's something new, the tab bar has one state per tab, and the main action works both on the page and on a sheet. Service cards carry a badge for what's new or coming soon, so the roadmap shows up in the app itself.</p>
           </div>
           <div class="frame cx-kit">
-            <span class="frame__label"><b>Components</b> 4 parts · 13 variants</span>
+            <span class="frame__label"><b>Components</b> Top bar · Tab bar · Bottom action · Service card</span>
 
             <div class="cx-kit__group">
               <p class="cx-label">Top bar</p>
