@@ -25,8 +25,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css?v=22">
   <link rel="stylesheet" href="assets/css/styles.css?v=21">
-  <link rel="stylesheet" href="assets/css/story.css?v=8">
-  <link rel="stylesheet" href="assets/css/identity.css?v=22">
+  <link rel="stylesheet" href="assets/css/story.css?v=9">
+  <link rel="stylesheet" href="assets/css/identity.css?v=23">
   <script type="importmap">
     {
       "imports": {
@@ -40,7 +40,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
   <script src="assets/js/main.js?v=4" defer></script>
-  <script type="module" src="assets/js/story.js?v=7"></script>
+  <script type="module" src="assets/js/story.js?v=11"></script>
 </head>
 <body>
   <a class="skip-link" href="#work">Skip to content</a>
@@ -90,7 +90,7 @@
               <span class="tag tag--lilac">UI/UX Designer</span>
               <span class="mono">e-commerce · mobile · web systems · fintech</span>
             </div>
-            <h1 class="chapter__title">Interfaces people don't have to <em>think</em> about.</h1>
+            <h1 class="chapter__title">Interfaces you don't have to <em>think</em> about.</h1>
             <p class="chapter__text">Thoughtful design with aesthetic clarity to create functional, intuitive and visually engaging experiences, from research to handoff.</p>
             <div class="chapter__cta">
               <a class="btn btn--primary" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
@@ -185,40 +185,6 @@
         </div>
         <div class="work-grid">
 
-          <!-- Case 00: this portfolio -->
-          <a class="case case--wide reveal" href="guidelines.html">
-            <div class="frame case__frame">
-              <span class="frame__label"><b>Case 00</b> This portfolio, documented <span class="dim">Web · 1440</span></span>
-              <span class="frame__handles"><span></span></span>
-              <div class="case__thumb">
-                <div class="mini mini--web">
-                  <div class="bar"><i></i><i></i><i></i></div>
-                  <div class="content">
-                    <div style="display:flex; flex-direction:column; gap:10px;">
-                      <div class="wf-line wf-line--mid" style="height:12px;"></div>
-                      <div class="wf-line wf-line--long"></div>
-                      <div class="wf-line wf-line--short"></div>
-                      <div style="display:flex; gap:8px; margin-top:6px;"><div class="wf-btn wf-btn--fill" style="width:70px;"></div><div class="wf-btn" style="width:70px;"></div></div>
-                    </div>
-                    <div class="wf-box wf-box--x" style="min-height:90px;"></div>
-                  </div>
-                </div>
-                <div class="pin" style="left: 64%; top: 30%;" data-author="jm">1<span class="pin__bubble"><b>Note</b>Every decision on this site is written down in the guidelines: tokens, components, process.</span></div>
-                <div class="measure measure--h" style="left: 16%; width: 14%; top: 42%;"><span>24</span></div>
-                <div class="spec" style="right: 8%; bottom: 10%;">TOKENS · DTCG · v2.0.0</div>
-              </div>
-              <div class="case__body">
-                <div>
-                  <h3 class="case__title">This portfolio, documented as a design system</h3>
-                  <p class="case__desc">I treated my own site as a client project: a paper-and-ink palette with sticky-note accents, a 4pt spacing scale, accessible components, a wireframe-inspired annotation language and a full write-up of the UI/UX process I follow.</p>
-                  <div class="tags"><span class="tag tag--brand">Design system</span><span class="tag">Tokens</span><span class="tag">WCAG 2.2 AA</span><span class="tag">Process</span></div>
-                  <span class="case__cta">Read the guidelines <span class="arrow" aria-hidden="true">→</span></span>
-                </div>
-                <div class="case__meta"><span>Self-initiated</span><span>2026 · Live</span><span class="tag tag--proto">Open guidelines →</span></div>
-              </div>
-            </div>
-          </a>
-
           <!-- Case 01: Muvr (real case, from the v1 Figma portfolio) -->
           <a class="case reveal" href="work/muvr.html" data-delay="1">
             <div class="frame case__frame">
@@ -265,6 +231,58 @@
                   <span class="case__cta">View case <span class="arrow" aria-hidden="true">→</span></span>
                 </div>
                 <div class="case__meta"><span>Crypex</span><span>Customer app redesign</span></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Case 00: this portfolio, shown as the system it is built on -->
+          <a class="case case--wide case--system reveal" href="guidelines.html">
+            <div class="frame case__frame">
+              <span class="frame__label"><b>Case 00</b> This portfolio, as a design system <span class="dim">Web · 1440</span></span>
+              <span class="frame__handles"><span></span></span>
+              <div class="case__thumb">
+                <div class="sys" aria-hidden="true">
+                  <div class="sys__col sys__type">
+                    <span class="sys__label">01 · Type</span>
+                    <span class="sys__aa">A<i>a</i></span>
+                    <ul class="sys__fonts">
+                      <li><span class="sys__f sys__f--display">Brygada 1918</span><em>display</em></li>
+                      <li><span class="sys__f">Hanken Grotesk</span><em>text</em></li>
+                      <li><span class="sys__f sys__f--mono">Fragment Mono</span><em>labels</em></li>
+                      <li><span class="sys__f sys__f--hand">Mynerve</span><em>notes</em></li>
+                    </ul>
+                  </div>
+                  <div class="sys__col sys__colour">
+                    <span class="sys__label">02 · Colour</span>
+                    <div class="sys__swatches">
+                      <span style="--c:#F7F3EA"><b>paper</b>F7F3EA</span>
+                      <span style="--c:#16150F" class="is-dark"><b>ink</b>16150F</span>
+                      <span style="--c:#C9B8FF"><b>lilac</b>C9B8FF</span>
+                      <span style="--c:#FFD95A"><b>yellow</b>FFD95A</span>
+                      <span style="--c:#B5EBDD"><b>mint</b>B5EBDD</span>
+                      <span style="--c:#FFC4DE"><b>pink</b>FFC4DE</span>
+                      <span style="--c:#FF8A66"><b>coral</b>FF8A66</span>
+                      <span style="--c:#A9D4FF"><b>sky</b>A9D4FF</span>
+                    </div>
+                    <span class="sys__note">ink on paper · 16.5:1 · every text pair AA or better</span>
+                  </div>
+                  <div class="sys__col sys__ui">
+                    <span class="sys__label">03 · Components</span>
+                    <div class="sys__row"><span class="sys__btn sys__btn--primary">View work →</span><span class="sys__btn">Guidelines</span></div>
+                    <div class="sys__row"><span class="tag tag--lilac">UI/UX</span><span class="tag tag--mint">Tokens</span><span class="tag">1px ink</span></div>
+                    <div class="sys__sticky">tokens → components → pages</div>
+                  </div>
+                </div>
+                <div class="spec" style="right: 2.5%; bottom: 5%;">TOKENS · DTCG · v2.2</div>
+              </div>
+              <div class="case__body">
+                <div>
+                  <h3 class="case__title">This portfolio, built as a design system</h3>
+                  <p class="case__desc">I treated my own site like a client project: a token system of paper, ink and six sticky colours, four type families with a job each, accessible components, a 3D story of how I work, and guidelines that explain every decision.</p>
+                  <div class="tags"><span class="tag tag--brand">Design system</span><span class="tag">Tokens · DTCG</span><span class="tag">WCAG 2.2 AA</span><span class="tag">Process</span></div>
+                  <span class="case__cta">Read the guidelines <span class="arrow" aria-hidden="true">→</span></span>
+                </div>
+                <div class="case__meta"><span>Self-initiated</span><span>2026 · Live</span></div>
               </div>
             </div>
           </a>
@@ -415,7 +433,7 @@
           <svg class="sparkle" style="right:9%; top:22%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-mint)"/></svg>
           <svg class="sparkle" style="left:16%; bottom:16%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-yellow)"/></svg>
           <h2 class="shall__title"><span class="a">Shall</span> <span class="b">we?</span></h2>
-          <p>Let's transform ideas into functional and engaging designs. Have a product, a feature or a messy flow?<br> Tell me about it.</p>
+          <p>Let's transform ideas into functional and engaging designs.<br> Have a product, a feature or a messy flow?<br> Tell me about it.</p>
           <div class="contact__links">
             <a class="btn btn--primary btn--lg" href="https://www.upwork.com/freelancers/jessicamonteiro" target="_blank" rel="noopener">Hire me on Upwork <span class="arrow" aria-hidden="true">→</span></a>
             <a class="btn btn--lilac btn--lg" href="https://www.linkedin.com/in/jksmnt/" target="_blank" rel="noopener">Connect on LinkedIn</a>
@@ -435,7 +453,7 @@
     <div class="container footer__inner">
       <span>© <span data-year>2026</span> Jessica Monteiro · Designed and documented by me</span>
       <span class="footer__shortcuts"><span><kbd>G</kbd> designer view</span></span>
-      <a href="guidelines.html">Design guidelines · v2.0.0</a>
+      <a href="guidelines.html">Design guidelines · v2.2.0</a>
     </div>
   </footer>
 

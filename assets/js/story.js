@@ -3,7 +3,7 @@
    scroll and stays in sync through gsap.ticker. Falls back to static stills for
    prefers-reduced-motion, ?motion=reduced, missing WebGL or missing libraries. */
 
-import { createStory } from './story-scene.js?v=7';
+import { createStory } from './story-scene.js?v=9';
 
 const html = document.documentElement;
 const params = new URLSearchParams(window.location.search);
@@ -64,6 +64,7 @@ function cinematic() {
     scene.setProgress(state.p);
     if (cut) cut.style.opacity = scene.cutOpacity(state.p).toFixed(3);
     if (bar) bar.style.transform = `scaleX(${state.p.toFixed(4)})`;
+    if (bar) bar.parentElement.classList.toggle('is-done', state.p > 0.985);
   };
 
   const tl = gsap.timeline({
@@ -96,6 +97,7 @@ function cinematic() {
 
   function syncUi() {
     const p = state.p;
+    if (bar && tl.scrollTrigger) bar.parentElement.classList.toggle('is-done', tl.scrollTrigger.progress > 0.985);
     let current = 0;
     chapters.forEach((el, i) => { if (p >= Number(el.dataset.in) - 0.005) current = i; });
     railLinks.forEach((a, i) => a.setAttribute('aria-current', i === current ? 'step' : 'false'));

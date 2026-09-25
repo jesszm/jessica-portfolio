@@ -38,8 +38,8 @@ html.is-ready .story__canvas { opacity: 1; }
 .story__scrim {
   position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(var(--story-veil), 0.9) 0%, rgba(var(--story-veil), 0.55) 32%, rgba(var(--story-veil), 0) 58%),
-    linear-gradient(0deg, rgba(var(--story-veil), 0.75) 0%, rgba(var(--story-veil), 0) 38%);
+    linear-gradient(90deg, rgba(var(--story-veil), 0.95) 0%, rgba(var(--story-veil), 0.86) 30%, rgba(var(--story-veil), 0.4) 46%, rgba(var(--story-veil), 0) 60%),
+    linear-gradient(0deg, rgba(var(--story-veil), 0.7) 0%, rgba(var(--story-veil), 0) 30%);
 }
 .story__grain {
   position: absolute; inset: -50%; pointer-events: none; opacity: 0.05; mix-blend-mode: multiply;
@@ -107,9 +107,11 @@ html.is-ready .story__canvas { opacity: 1; }
   padding: calc(var(--nav-height) + var(--sp-8)) 0 var(--sp-8);
 }
 .chapter--hero .chapter__title, .chapter--final .chapter__title { margin-bottom: 0 !important; }
-.chapter--hero { width: min(540px, calc(100vw - 2 * var(--gutter))); }
-.chapter--hero .chapter__title { font-size: clamp(2.1rem, 3.4vw, 3.1rem); line-height: 1.1; letter-spacing: -0.015em; max-width: 14ch; }
-.chapter--hero .chapter__text { font-size: var(--fs-16); max-width: 46ch; }
+.chapter--hero { width: min(620px, calc(100vw - 2 * var(--gutter))); }
+/* two balanced lines: "Interfaces you don't / have to think about." */
+.chapter--hero .chapter__title { font-size: clamp(2.3rem, 3.9vw, 3.5rem); line-height: 1.08; letter-spacing: -0.018em; max-width: 12em; text-wrap: balance; }
+.chapter--hero .chapter__text { font-size: 1.0625rem; line-height: 1.6; max-width: 40ch; }
+.chapter--hero .chapter__meta { gap: var(--sp-3); }
 .chapter__cta { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
 .chapter__meta { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
 .chapter__meta .mono { font-size: 11px; color: var(--color-text-subtle); letter-spacing: 0.06em; }
