@@ -1099,35 +1099,54 @@ export function createStory(canvas, options = {}) {
       g.fillStyle = C.ink900; rr(g, 0, 0, w, h, 7); g.fill();
       text(g, 'JM', `italic 500 15px ${FONT_DISPLAY}`, C.lilac, w / 2, h / 2 + 0.3);
     });
-    addSticker(80, 22, [0.098, 0.152], -0.13, (g, w, h) => {
+    addSticker(80, 22, [0.103, 0.138], -0.13, (g, w, h) => {
       g.fillStyle = C.mint; rr(g, 0, 0, w, h, h / 2); g.fill(); g.stroke();
       g.fillStyle = C.success; g.beginPath(); g.arc(11, h / 2, 2.4, 0, Math.PI * 2); g.fill();
       text(g, 'READY FOR DEV', `400 7.6px ${FONT_MONO}`, C.ink900, 18, h / 2 + 0.3, 'left');
     });
-    /* Brazil badge: the flag's band reads "ORDEM E DESIGN" instead of "Ordem e Progresso" */
-    addSticker(44, 44, [0.072, 0.19], 0.08, (g, w, h) => {
-      const cx = w / 2, cy = h / 2;
-      g.fillStyle = '#1F8A4C'; g.beginPath(); g.arc(cx, cy, w / 2, 0, Math.PI * 2); g.fill(); g.stroke();
-      g.fillStyle = '#FFD23F'; g.beginPath(); g.moveTo(cx, 5); g.lineTo(w - 4, cy); g.lineTo(cx, h - 5); g.lineTo(4, cy); g.closePath(); g.fill();
-      const R = 27, ox = cx, oy = cy + 25.5;
-      g.save();
-      g.beginPath(); g.arc(cx, cy, 11.2, 0, Math.PI * 2); g.fillStyle = '#1E4FB8'; g.fill(); g.clip();
-      g.strokeStyle = '#FFFFFF'; g.lineWidth = 3.8; g.beginPath(); g.arc(ox, oy, R, -Math.PI, 0); g.stroke();
-      g.fillStyle = '#FFFFFF';
-      [[-4, -5.5], [3.5, 3], [-2, 6.5], [5.5, -2], [0.5, 8.4], [-6.5, 2.2]].forEach(([sx, sy]) => { g.beginPath(); g.arc(cx + sx, cy + sy, 0.45, 0, Math.PI * 2); g.fill(); });
-      const label = 'ORDEM E DESIGN';
-      g.font = `600 2.35px ${FONT_SANS}`; g.fillStyle = '#1F8A4C'; g.textAlign = 'center'; g.textBaseline = 'middle';
-      const widths = [...label].map((ch) => g.measureText(ch).width + 0.12);
-      let a = -Math.PI / 2 - widths.reduce((t, x) => t + x, 0) / 2 / R;
-      [...label].forEach((ch, k) => {
-        const aw = widths[k] / R;
-        g.save(); g.translate(ox + Math.cos(a + aw / 2) * R, oy + Math.sin(a + aw / 2) * R); g.rotate(a + aw / 2 + Math.PI / 2); g.fillText(ch, 0, 0.1); g.restore();
-        a += aw;
-      });
+    /* Brazil badge, comic style: a little flag mascot (the globe has a face) over a ribbon
+       that reads ORDEM E / DESIGN in two big lines. Same sticker rules: 1.5mm die-cut, ink 0.35mm. */
+    addSticker(58, 46, [0.093, 0.187], -0.07, (g, W, H) => {
+      /* drawn on a 48 × 38 grid, scaled up to the sticker's size */
+      g.scale(W / 48, H / 38);
+      const w = 48;
+      const green = '#46B37A', blue = '#4C7FE0', yellow = C.yellow;
+      /* flag */
+      g.fillStyle = green; rr(g, 0, 0, w, 24, 6); g.fill();
+      g.save(); rr(g, 0, 0, w, 24, 6); g.clip();
+      g.fillStyle = 'rgba(22, 21, 15, 0.13)';
+      for (let y = 1.6; y < 24; y += 2.2) for (let x = (Math.round(y / 2.2) % 2) * 1.1 + 1; x < w; x += 2.2) { g.beginPath(); g.arc(x, y, 0.42, 0, Math.PI * 2); g.fill(); }
       g.restore();
-      g.beginPath(); g.arc(cx, cy, 11.2, 0, Math.PI * 2); g.lineWidth = 0.25; g.strokeStyle = C.ink900; g.stroke();
+      g.lineWidth = LW; g.strokeStyle = C.ink900; rr(g, 0, 0, w, 24, 6); g.stroke();
+      g.fillStyle = yellow; g.beginPath(); g.moveTo(24, 2.4); g.quadraticCurveTo(26, 3.4, 44.5, 11.2); g.quadraticCurveTo(45.6, 12, 44.5, 12.8); g.quadraticCurveTo(26, 20.6, 24, 21.6); g.quadraticCurveTo(22, 20.6, 3.5, 12.8); g.quadraticCurveTo(2.4, 12, 3.5, 11.2); g.quadraticCurveTo(22, 3.4, 24, 2.4); g.closePath(); g.fill(); g.stroke();
+      /* globe with a face */
+      g.fillStyle = blue; g.beginPath(); g.arc(24, 12, 7.2, 0, Math.PI * 2); g.fill(); g.stroke();
+      g.fillStyle = '#FFFFFF'; [[19.6, 8.4, 0.35], [28.8, 9.2, 0.3], [27.2, 16.6, 0.3], [20.4, 16.2, 0.25]].forEach(([x, y, r]) => { g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill(); });
+      g.fillStyle = C.ink900; [21.6, 26.4].forEach((x) => { g.beginPath(); g.ellipse(x, 11.4, 0.85, 1.1, 0, 0, Math.PI * 2); g.fill(); });
+      g.fillStyle = '#FFFFFF'; [21.9, 26.7].forEach((x) => { g.beginPath(); g.arc(x, 10.9, 0.32, 0, Math.PI * 2); g.fill(); });
+      g.fillStyle = 'rgba(255, 158, 199, 0.9)'; [19.9, 28.1].forEach((x) => { g.beginPath(); g.ellipse(x, 13.6, 1.2, 0.7, 0, 0, Math.PI * 2); g.fill(); });
+      g.strokeStyle = C.ink900; g.lineWidth = 0.45; g.beginPath(); g.arc(24, 13.1, 1.5, 0.15 * Math.PI, 0.85 * Math.PI); g.stroke();
+      g.lineWidth = LW;
+      /* ribbon: folded tails, then the band */
+      const tail = (x0, dir) => {
+        g.fillStyle = C.lilac; g.beginPath();
+        g.moveTo(x0, 24.5); g.lineTo(x0 + dir * 7, 24.5); g.lineTo(x0 + dir * 7, 35.5); g.lineTo(x0, 35.5); g.lineTo(x0 + dir * 2.6, 30); g.closePath(); g.fill(); g.stroke();
+      };
+      tail(0.4, 1); tail(w - 0.4, -1);
+      g.fillStyle = C.ink900; rr(g, 5.2, 21.8, w - 10.4, 15.2, 3); g.fill();
+      g.fillStyle = '#FFFFFF'; rr(g, 4.4, 21, w - 10.4, 15.2, 3); g.fill(); g.stroke();
+      const line = (txt, y) => {
+        g.font = `600 5.6px ${FONT_SANS}`; g.textAlign = 'center'; g.textBaseline = 'middle';
+        if ('letterSpacing' in g) g.letterSpacing = '0.25px';
+        g.fillStyle = C.lilac; g.fillText(txt, w / 2 + 0.45, y + 0.45);
+        g.fillStyle = C.ink900; g.fillText(txt, w / 2, y);
+        if ('letterSpacing' in g) g.letterSpacing = '0px';
+      };
+      line('ORDEM E', 25.4); line('DESIGN', 31.9);
+      /* a tiny comic spark */
+      sparklePath(g, w - 4.2, 3.6, 2.6); g.fillStyle = '#FFFFFF'; g.fill(); g.stroke();
     });
-    addSticker(30, 28, [0.128, 0.194], -0.12, (g, w, h) => {
+    addSticker(22, 20, [0.138, 0.205], -0.12, (g, w, h) => {
       heartPath(g, w / 2, h / 2 + 1, w / 2.3); g.fillStyle = '#FF9EC7'; g.fill(); g.stroke();
       g.fillStyle = 'rgba(255,255,255,0.7)'; g.beginPath(); g.ellipse(w * 0.34, h * 0.38, 2.6, 1.6, -0.6, 0, Math.PI * 2); g.fill();
     });
