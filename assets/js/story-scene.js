@@ -1056,10 +1056,10 @@ export function createStory(canvas, options = {}) {
       g.fillStyle = C.ink900; rr(g, 0, 0, w, h, 8); g.fill();
       text(g, '</>', `400 15px ${FONT_MONO}`, C.mint, w / 2, h / 2 + 0.4);
     });
-    addSticker(46, 46, [0.133, 0.094], 0, (g, w, h) => {
+    addSticker(42, 42, [0.12, 0.096], 0, (g, w, h) => {
       g.fillStyle = C.violet; g.beginPath(); g.arc(w / 2, h / 2, w / 2, 0, Math.PI * 2); g.fill(); g.stroke();
       g.strokeStyle = 'rgba(255,255,255,0.55)'; g.lineWidth = 0.3; g.beginPath(); g.arc(w / 2, h / 2, w / 2 - 3.2, 0, Math.PI * 2); g.stroke();
-      text(g, 'ux', `italic 500 21px ${FONT_DISPLAY}`, '#FFFFFF', w / 2, h / 2 - 1);
+      text(g, 'ux', `italic 500 19px ${FONT_DISPLAY}`, '#FFFFFF', w / 2, h / 2 - 1);
     });
     addSticker(62, 42, [-0.098, 0.146], 0.06, (g, w, h) => {
       g.fillStyle = '#FFFFFF';
@@ -1068,7 +1068,7 @@ export function createStory(canvas, options = {}) {
       g.fill(); g.stroke();
       text(g, 'hello 👋', `400 13px ${FONT_HAND}`, C.ink900, w / 2, (h - 8) / 2 + 0.5);
     });
-    addSticker(34, 34, [-0.134, 0.196], 0.16, (g, w, h) => {
+    addSticker(34, 34, [-0.126, 0.19], 0.16, (g, w, h) => {
       g.fillStyle = '#E9E5DC'; rr(g, 0, 0, w, h, 6); g.fill(); g.stroke();
       g.fillStyle = '#FBFAF7'; rr(g, 3, 2.4, w - 6, h - 7.5, 4.5); g.fill();
       g.lineWidth = 0.2; g.strokeStyle = 'rgba(22,21,15,0.25)'; rr(g, 3, 2.4, w - 6, h - 7.5, 4.5); g.stroke();
@@ -1083,14 +1083,30 @@ export function createStory(canvas, options = {}) {
       g.fillStyle = C.success; g.beginPath(); g.arc(11, h / 2, 2.4, 0, Math.PI * 2); g.fill();
       text(g, 'READY FOR DEV', `400 7.6px ${FONT_MONO}`, C.ink900, 18, h / 2 + 0.3, 'left');
     });
-    addSticker(40, 40, [0.074, 0.198], 0.08, (g, w, h) => {
+    /* Brazil badge: the flag's band reads "ORDEM E DESIGN" instead of "Ordem e Progresso" */
+    addSticker(44, 44, [0.072, 0.19], 0.08, (g, w, h) => {
       const cx = w / 2, cy = h / 2;
       g.fillStyle = '#1F8A4C'; g.beginPath(); g.arc(cx, cy, w / 2, 0, Math.PI * 2); g.fill(); g.stroke();
-      g.fillStyle = '#FFD23F'; g.beginPath(); g.moveTo(cx, 5.5); g.lineTo(w - 4.5, cy); g.lineTo(cx, h - 5.5); g.lineTo(4.5, cy); g.closePath(); g.fill();
-      g.fillStyle = '#1E4FB8'; g.beginPath(); g.arc(cx, cy, 8.4, 0, Math.PI * 2); g.fill();
-      g.strokeStyle = '#FFFFFF'; g.lineWidth = 1.3; g.beginPath(); g.arc(cx + 2, cy + 12, 14, -Math.PI * 0.8, -Math.PI * 0.28); g.stroke();
+      g.fillStyle = '#FFD23F'; g.beginPath(); g.moveTo(cx, 5); g.lineTo(w - 4, cy); g.lineTo(cx, h - 5); g.lineTo(4, cy); g.closePath(); g.fill();
+      const R = 27, ox = cx, oy = cy + 25.5;
+      g.save();
+      g.beginPath(); g.arc(cx, cy, 11.2, 0, Math.PI * 2); g.fillStyle = '#1E4FB8'; g.fill(); g.clip();
+      g.strokeStyle = '#FFFFFF'; g.lineWidth = 3.8; g.beginPath(); g.arc(ox, oy, R, -Math.PI, 0); g.stroke();
+      g.fillStyle = '#FFFFFF';
+      [[-4, -5.5], [3.5, 3], [-2, 6.5], [5.5, -2], [0.5, 8.4], [-6.5, 2.2]].forEach(([sx, sy]) => { g.beginPath(); g.arc(cx + sx, cy + sy, 0.45, 0, Math.PI * 2); g.fill(); });
+      const label = 'ORDEM E DESIGN';
+      g.font = `600 2.35px ${FONT_SANS}`; g.fillStyle = '#1F8A4C'; g.textAlign = 'center'; g.textBaseline = 'middle';
+      const widths = [...label].map((ch) => g.measureText(ch).width + 0.12);
+      let a = -Math.PI / 2 - widths.reduce((t, x) => t + x, 0) / 2 / R;
+      [...label].forEach((ch, k) => {
+        const aw = widths[k] / R;
+        g.save(); g.translate(ox + Math.cos(a + aw / 2) * R, oy + Math.sin(a + aw / 2) * R); g.rotate(a + aw / 2 + Math.PI / 2); g.fillText(ch, 0, 0.1); g.restore();
+        a += aw;
+      });
+      g.restore();
+      g.beginPath(); g.arc(cx, cy, 11.2, 0, Math.PI * 2); g.lineWidth = 0.25; g.strokeStyle = C.ink900; g.stroke();
     });
-    addSticker(32, 30, [0.136, 0.2], -0.12, (g, w, h) => {
+    addSticker(30, 28, [0.128, 0.194], -0.12, (g, w, h) => {
       heartPath(g, w / 2, h / 2 + 1, w / 2.3); g.fillStyle = '#FF9EC7'; g.fill(); g.stroke();
       g.fillStyle = 'rgba(255,255,255,0.7)'; g.beginPath(); g.ellipse(w * 0.34, h * 0.38, 2.6, 1.6, -0.6, 0, Math.PI * 2); g.fill();
     });
