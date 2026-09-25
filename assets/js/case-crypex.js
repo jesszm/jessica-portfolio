@@ -58,7 +58,7 @@
   shots.forEach((img) => {
     img.tabIndex = 0;
     img.setAttribute('role', 'button');
-    img.setAttribute('aria-label', `View larger: ${img.alt}`);
+    img.setAttribute('aria-label', `${window.JM_LANG === 'pt' ? 'Ver maior' : 'View larger'}: ${img.alt}`);
     img.addEventListener('click', () => zoom(img));
     img.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zoom(img); } });
   });

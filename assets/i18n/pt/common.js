@@ -25,9 +25,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "5olw7e": "Redesign de app de marketplace",
  "1uc7p34": "O Muvr é um app que está passando por uma reformulação completa. Aqui está a minha contribuição no redesign do app do cliente enquanto fiz parte do time.",
  "366dvg": "App mobile",
- "fpvuj": "EM ANDAMENTO · REFORMULAÇÃO COMPLETA",
- "1gokbu1": "App de pagamentos em cripto",
- "9j67tx": "O Crypex é uma plataforma em andamento, passando por uma reformulação completa. Aqui está a minha contribuição no redesign do app do cliente enquanto fiz parte do time.",
  "dc7alm": "Site",
  "ha1d98": "Financeiro",
  "9e8o47": "<b>lilás</b>C9B8FF",
@@ -67,5 +64,10 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1p3oa8d": "O que mudou depois do lançamento e o que eu faria em seguida.",
  "3sxfgv": "Trabalhando em algo parecido? Me conta sobre o produto, a feature ou o fluxo bagunçado.",
  "1antc99": "← Voltar para todos os trabalhos",
- "pe5yct": "Mais trabalhos"
+ "pe5yct": "Mais trabalhos",
+ "1u8wzn6": "<b>Case 02</b> Pagamentos em cripto <span class=\"dim\">App iOS · 0 → 1</span>",
+ "1pqappy": "0 → 1 · DESIGN CONCLUÍDO",
+ "11nz0yk": "Pagar com cripto, tão fácil quanto um Pix",
+ "2zme62": "Um app 0 → 1 que permite pagar um Pix direto do saldo em cripto. UX/UI solo, do arquivo em branco ao pronto para o dev em cerca de seis semanas.",
+ "adxyid": "Product design 0 → 1"
 });

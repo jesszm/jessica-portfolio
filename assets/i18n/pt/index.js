@@ -40,8 +40,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "ut4lwn": "<b>Case 01</b> Redesign de app de marketplace <span class=\"dim\">Mobile · 390</span>",
  "w4jr92": "Ver case <span class=\"arrow\" aria-hidden=\"true\">→</span>",
  "lls28u": "App do cliente",
- "q68btd": "<b>Case 02</b> App de pagamentos em cripto <span class=\"dim\">Mobile · Web</span>",
- "hw9xv9": "Redesign do app do cliente",
  "1nf1xo0": "<b>Case 00</b> Este portfólio, como design system <span class=\"dim\">Web · 1440</span>",
  "u7s809": "01 · Tipografia",
  "j9ctud": "títulos",
