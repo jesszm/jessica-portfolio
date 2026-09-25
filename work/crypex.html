@@ -7,8 +7,8 @@
   <link rel="alternate" hreflang="en" href="?lang=en">
   <link rel="alternate" hreflang="pt-BR" href="?lang=pt">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Crypto Payment App — Jessica Monteiro</title>
-  <meta name="description" content="Crypex is an ongoing platform going through a complete revamp. This is my contribution on the customer app redesign while on the team.">
+  <title>Crypex, paying with crypto as easily as Pix — Jessica Monteiro</title>
+  <meta name="description" content="A 0→1 mobile app that lets people in Brazil pay a Pix straight from their crypto balance. Solo UX/UI, about six weeks, from blank file to dev-ready.">
   <meta name="theme-color" content="#F7F3EA">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='5' width='24' height='24' rx='5' fill='%2316150F'/%3E%3Crect x='3' y='3' width='24' height='24' rx='5' fill='%23C9B8FF' stroke='%2316150F' stroke-width='1.5'/%3E%3C/svg%3E">
   <script>
@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="../assets/css/styles.css?v=21">
   <link rel="stylesheet" href="../assets/css/identity.css?v=24">
   <link rel="stylesheet" href="../assets/css/case.css?v=1">
+  <link rel="stylesheet" href="../assets/css/case-crypex.css?v=1">
   <script src="../assets/js/main.js?v=5" defer></script>
 </head>
 <body>
@@ -61,43 +62,465 @@
     </div>
   </header>
 
-  <main id="main" class="case-page">
+  <main id="main" class="case-page cx">
     <div class="container">
       <a class="case-back" href="../index.html#work"><span class="arrow" aria-hidden="true">←</span> All work</a>
 
+      <!-- ============ Hero ============ -->
       <header class="case-hero">
         <div>
-          <p class="case-hero__label"><b>Case 02</b> · Crypto payment app · Mobile · Web</p>
-          <h1 class="display">Crypto Payment App</h1>
-          <p class="lead">Crypex is an ongoing platform going through a complete revamp. This is my contribution on the customer app redesign while on the team.</p>
-          <div class="tags"><span class="tag tag--lilac">UI/UX</span><span class="tag">Mobile App</span><span class="tag tag--yellow">Website</span><span class="tag tag--mint">Financial</span></div>
+          <p class="case-hero__label"><b>Case 02</b> · Crypto payments · iOS app · 0 → 1</p>
+          <h1 class="display cx-title">Paying with crypto, as easily as <em>Pix</em></h1>
+          <p class="lead">Crypex lets people in Brazil pay a Pix straight from their crypto balance, without selling, withdrawing and waiting first. I designed it from a blank file to a dev-ready handoff in about six weeks, as the only designer, side by side with the engineer who founded it.</p>
+          <div class="tags"><span class="tag tag--lilac">UI/UX</span><span class="tag">Mobile App</span><span class="tag tag--mint">Fintech</span><span class="tag tag--yellow">0 → 1</span></div>
         </div>
-        <div class="case-meta"><div><b>Client</b><span>Crypex</span></div><div><b>Role</b><span>UI/UX Designer</span></div><div><b>Platform</b><span>Customer app · website</span></div><div><b>Status</b><span>Ongoing · complete revamp</span></div></div>
+        <div class="case-meta">
+          <div><b>Client</b><span>Independent founder, software engineer</span></div>
+          <div><b>Role</b><span>Sole product designer, UX + UI</span></div>
+          <div><b>Timeline</b><span>2024 · about 6 weeks</span></div>
+          <div><b>Status</b><span>Design complete · launch on hold</span></div>
+        </div>
       </header>
 
       <div class="case-cover">
         <div class="frame">
-          <span class="frame__label"><b>Cover</b> Crypto payment app <span class="dim">Mobile · Web</span></span>
-          <div class="case__thumb">
-                <div class="crypex" aria-hidden="true"><span>CRYPE<i>X</i></span><span>CRYPE<i>X</i></span></div>
-                <div class="spec" style="right: 4%; bottom: 8%;">ONGOING · COMPLETE REVAMP</div>
+          <span class="frame__label"><b>Cover</b> Crypex <span class="dim">iOS · 390</span></span>
+          <div class="case__thumb cx-cover">
+            <div class="cx-cover__brand">
+              <img src="../assets/img/crypex/logo-light.webp" width="406" height="135" alt="Crypex">
+              <p>Cryptocurrencies as conventional payment methods</p>
+            </div>
+            <div class="cx-cover__phones">
+              <img src="../assets/img/crypex/pay-amount.webp" width="786" height="1704" alt="Pay screen: converting ETH into a Pix of R$ 2,500.00.">
+              <img src="../assets/img/crypex/home.webp" width="786" height="1704" alt="Home screen: AI insights, services and the crypto market.">
+              <img src="../assets/img/crypex/pay-review.webp" width="786" height="1704" alt="Payment review with fee, totals and a ten-minute quote timer.">
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- TODO: replace each placeholder part with the real write-up, screens and metrics -->
-      <div class="case-wip">
-        <aside class="case-wip__note">
-          <div class="sticky"><b>Work in progress</b>Full case study coming soon. Want the walkthrough now? Just ask ✍️</div>
-        </aside>
-        <div class="case-outline">
-            <section class="case-part"><h2>Overview</h2><p>The product, the people it serves and where I came in.</p><div class="skeleton" aria-hidden="true"><i></i><i></i><i></i></div></section>
-            <section class="case-part"><h2>The challenge</h2><p>What was broken, for whom, and how we knew.</p><div class="skeleton" aria-hidden="true"><i></i><i></i><i></i></div></section>
-            <section class="case-part"><h2>Process</h2><p>Research, flows and the decisions that shaped the solution.</p><div class="skeleton" aria-hidden="true"><i></i><i></i><i></i></div></section>
-            <section class="case-part"><h2>The solution</h2><p>Key screens, components and the system behind them.</p><div class="skeleton" aria-hidden="true"><i></i><i></i><i></i></div></section>
-            <section class="case-part"><h2>Outcomes</h2><p>What changed after launch, and what I would do next.</p><div class="skeleton" aria-hidden="true"><i></i><i></i><i></i></div></section>
+      <!-- ============ At a glance ============ -->
+      <ul class="cx-glance" aria-label="At a glance">
+        <li><strong>6 → 3</strong><span>steps to pay a Pix, from first draft to final flow</span></li>
+        <li><strong>5</strong><span>usability testers, developers and people new to crypto</span></li>
+        <li><strong>~6 wks</strong><span>from a blank Figma file to a dev-ready handoff</span></li>
+        <li><strong>1 + 1</strong><span>one designer, one engineer, in constant conversation</span></li>
+      </ul>
+
+      <!-- ============ 01 Overview ============ -->
+      <section class="cx-section" aria-labelledby="cx-overview">
+        <header class="cx-head">
+          <span class="cx-num">01</span>
+          <p class="cx-kicker">Overview</p>
+          <h2 id="cx-overview" class="display cx-h2">A crypto wallet that pays like a bank app</h2>
+        </header>
+        <div class="cx-split">
+          <div class="cx-prose">
+            <p>The founder, a software engineer, wanted to see a simple idea take shape: treat cryptocurrencies as a conventional payment method. Hold ETH, BTC or USDT, and use that balance to pay a Pix, the instant payment most Brazilians already use every day, without ever leaving the app.</p>
+            <p>There was no earlier version to fix. The brief was the product itself: the flows, the interface and a small set of components a developer could build from. All of the UX and UI in the file is mine, from the first drafts and the splash screen to the handoff, shaped in close, direct conversation with the founder.</p>
+          </div>
+          <aside class="cx-card" aria-label="Scope">
+            <p class="cx-label">What I designed</p>
+            <ul class="cx-list">
+              <li>Sign-up, sign-in and Face ID</li>
+              <li>Home, balance and market</li>
+              <li>Pay a Pix with crypto, every state</li>
+              <li>Payment history and filters</li>
+              <li>Brand, app icon and splash</li>
+              <li>Components and dev handoff</li>
+            </ul>
+          </aside>
         </div>
-      </div>
+      </section>
+
+      <!-- ============ 02 Challenge ============ -->
+      <section class="cx-section" aria-labelledby="cx-challenge">
+        <header class="cx-head">
+          <span class="cx-num">02</span>
+          <p class="cx-kicker">The challenge</p>
+          <h2 id="cx-challenge" class="display cx-h2">Crypto is easy to hold and <em>hard</em> to spend</h2>
+        </header>
+        <div class="cx-prose cx-prose--wide">
+          <p>Paying a bill with crypto usually means selling on an exchange, withdrawing to a bank account, waiting for the transfer and only then paying. Every hop adds a fee, a delay and one more chance to make a mistake with money that can't be pulled back.</p>
+        </div>
+        <blockquote class="cx-hmw">
+          <p class="cx-label">How might we</p>
+          <p>make paying with crypto feel as ordinary, and as safe, as paying with Pix?</p>
+        </blockquote>
+        <p class="cx-label cx-label--gap">Constraints</p>
+        <ul class="cx-constraints">
+          <li><span class="cx-dot cx-dot--coral" aria-hidden="true"></span><h3>A fixed brand colour</h3><p>Orange was the founder's colour and not up for debate. The system had to be built around it.</p></li>
+          <li><span class="cx-dot cx-dot--yellow" aria-hidden="true"></span><h3>Prices that never sit still</h3><p>Crypto quotes move by the minute, so reais and crypto can drift apart in the middle of a payment.</p></li>
+          <li><span class="cx-dot cx-dot--pink" aria-hidden="true"></span><h3>No undo</h3><p>A transfer on the blockchain can't be reversed. Every step before confirming has to leave room to check.</p></li>
+          <li><span class="cx-dot cx-dot--sky" aria-hidden="true"></span><h3>Freelance pace</h3><p>About six weeks, one designer and one engineer. Every idea had to be cheap to test.</p></li>
+        </ul>
+      </section>
+
+      <!-- ============ 03 Process ============ -->
+      <section class="cx-section" aria-labelledby="cx-process">
+        <header class="cx-head">
+          <span class="cx-num">03</span>
+          <p class="cx-kicker">Process</p>
+          <h2 id="cx-process" class="display cx-h2">Lean by <em>design</em></h2>
+        </header>
+        <div class="cx-prose cx-prose--wide">
+          <p>A freelance timeline has no room for interviews and personas. So I leaned on what we did have: a founder who knew the domain, a developer who could put screens on localhost within days, and five people willing to try them.</p>
+        </div>
+
+        <ol class="cx-steps">
+          <li><span class="cx-step__n">1</span><h3>Frame</h3><p>Pin down the one job with the founder: pay a Pix using a crypto balance.</p></li>
+          <li><span class="cx-step__n">2</span><h3>Draft</h3><p>Sketch the pay flow screen by screen, then sign-in and home around it.</p></li>
+          <li><span class="cx-step__n">3</span><h3>Test</h3><p>Try the flows on a localhost build with 5 people: developers and people new to crypto.</p></li>
+          <li><span class="cx-step__n">4</span><h3>Refine</h3><p>Rebuild the pay flow around what worked, then add every state and error.</p></li>
+          <li><span class="cx-step__n">5</span><h3>Hand off</h3><p>Components and sections marked ready for dev, for the founder to build from.</p></li>
+        </ol>
+
+        <!-- Flow map -->
+        <figure class="cx-block">
+          <div class="cx-block__head">
+            <h3 class="cx-h3">The pay flow, mapped</h3>
+            <p class="cx-note">Redrawn for this case study from the final screens.</p>
+          </div>
+          <div class="frame cx-flowframe">
+            <ol class="cx-flow" aria-label="Pay flow">
+              <li class="cx-node cx-node--start"><small>Start</small><b>Home</b><span>Pay button in the tab bar</span></li>
+              <li class="cx-node"><small>Step 1</small><b>Amount</b><span>From ETH, to Pix, live rate</span></li>
+              <li class="cx-node"><small>Step 2</small><b>Recipient</b><span>Pix key, then who's receiving</span></li>
+              <li class="cx-node"><small>Step 3</small><b>Review</b><span>Fee, totals, 10:00 quote lock</span></li>
+              <li class="cx-node cx-node--end">
+                <div class="cx-outcome cx-outcome--ok"><b>Paid</b><span>See payment history</span></div>
+                <div class="cx-outcome cx-outcome--fail"><b>Failed</b><span>Check the details, try again</span></div>
+              </li>
+            </ol>
+          </div>
+          <figcaption class="visually-hidden">Home, then amount, recipient and review, ending in either a successful or a failed payment.</figcaption>
+        </figure>
+
+        <!-- Iteration -->
+        <div class="cx-block">
+          <div class="cx-block__head">
+            <h3 class="cx-h3">From six questions to one converter</h3>
+          </div>
+          <div class="cx-compare">
+            <figure class="cx-compare__col">
+              <p class="cx-label">First draft · 6 screens</p>
+              <div class="cx-strip cx-strip--6">
+                <img src="../assets/img/crypex/draft-1.webp" width="786" height="1704" alt="Draft 1: “What do you want to pay today?” with Pix and boleto options." loading="lazy">
+                <img src="../assets/img/crypex/draft-2.webp" width="786" height="1704" alt="Draft 2: “Who do you want to send to?” with a Pix key field." loading="lazy">
+                <img src="../assets/img/crypex/draft-3.webp" width="786" height="1704" alt="Draft 3: the recipient's name, CPF and bank shown for confirmation." loading="lazy">
+                <img src="../assets/img/crypex/draft-4.webp" width="786" height="1704" alt="Draft 4: “How much do you want to send?” with an amount in reais." loading="lazy">
+                <img src="../assets/img/crypex/draft-5.webp" width="786" height="1704" alt="Draft 5: choose how to pay, from balance, Bitcoin, Ethereum or Tether." loading="lazy">
+                <img src="../assets/img/crypex/draft-6.webp" width="786" height="1704" alt="Draft 6: payment confirmation with fee, totals and the wallet address." loading="lazy">
+              </div>
+              <figcaption>One question per screen. Clear, but long, and the crypto amount only showed up on the very last screen.</figcaption>
+            </figure>
+            <figure class="cx-compare__col cx-compare__col--final">
+              <p class="cx-label">Final · 3 steps</p>
+              <div class="cx-strip cx-strip--3">
+                <img src="../assets/img/crypex/pay-amount.webp" width="786" height="1704" alt="Final step 1: a converter with ETH on top, Pix below and a numeric keypad." loading="lazy">
+                <img src="../assets/img/crypex/pay-recipient.webp" width="786" height="1704" alt="Final step 2: Pix key entered and the recipient's details shown." loading="lazy">
+                <img src="../assets/img/crypex/pay-review.webp" width="786" height="1704" alt="Final step 3: review with fee, totals in reais and ETH, wallet address and timer." loading="lazy">
+              </div>
+              <figcaption>Amount and currency on one screen, like an exchange. Both sides of the trade in view from the first tap.</figcaption>
+            </figure>
+          </div>
+          <div class="cx-prose cx-prose--wide cx-after">
+            <p>The drafts asked for the amount in reais and only later for the currency to pay with, so people saw what they were really spending at the very end. Folding both into a single converter put the trade in plain sight and cut the path from six screens to three steps. On the localhost build, it was the version that worked best for both groups, developers and people new to crypto.</p>
+          </div>
+        </div>
+
+        <!-- Test notes -->
+        <div class="cx-block">
+          <div class="cx-block__head">
+            <h3 class="cx-h3">What the five sessions showed</h3>
+            <p class="cx-note">Notes from the localhost build, and what each one changed.</p>
+          </div>
+          <ol class="cx-notes">
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>People typed an amount in reais and only met the crypto side on the last screen. Some went back to change the value once they saw it in ETH.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Put both sides of the trade on one screen, with the live rate right under them.</p></div>
+            </li>
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>People new to crypto compared it with the Pix in their bank app, which they finish in seconds. Six screens felt like filling in a form, not paying.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Merged six questions into three steps: amount, recipient, review.</p></div>
+            </li>
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>With the phone keyboard open, the other currency and the rate slid out of view while people typed.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Designed a built-in keypad that leaves both values and the rate on screen.</p></div>
+            </li>
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>Before tapping continue, people looked for the recipient's name, the habit their bank app has taught them.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Show name, masked CPF and bank as soon as the Pix key goes in, before anything is sent.</p></div>
+            </li>
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>Developers asked what happens if the price moves while the transfer is pending. Everyone else asked about the fee.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Locked the quote for ten minutes with a visible countdown, and listed the fee and both totals, reais and ETH, in plain view.</p></div>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="cx-honest">
+          <div class="sticky"><b>Honest note</b>What a freelance pace skips, and how I made up for it</div>
+          <ul class="cx-list">
+            <li><strong>No formal research.</strong> The founder's knowledge of the domain stood in for interviews, and we checked it against real people as early as possible.</li>
+            <li><strong>Tests over opinions.</strong> Five sessions on a working build shaped the pay flow, from the converter to the quote timer.</li>
+            <li><strong>Stickies as the backlog.</strong> Open questions lived next to the screens in Figma, so nothing got lost between calls.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- ============ 04 Solution ============ -->
+      <section class="cx-section" aria-labelledby="cx-solution">
+        <header class="cx-head">
+          <span class="cx-num">04</span>
+          <p class="cx-kicker">The solution</p>
+          <h2 id="cx-solution" class="display cx-h2">An app that feels like <em>paying</em>, not trading</h2>
+        </header>
+
+        <!-- Pay -->
+        <article class="cx-feature">
+          <div class="cx-feature__shots">
+            <img src="../assets/img/crypex/pay-amount-empty.webp" width="786" height="1704" alt="Pay screen before typing: ETH and Pix fields at zero and the Continue button disabled." loading="lazy">
+            <img src="../assets/img/crypex/pay-amount.webp" width="786" height="1704" alt="Pay screen with an amount: ETH converted to R$ 2,500.00 and Continue enabled." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Pay · amount</p>
+            <h3 class="cx-h3">One screen, both sides of the trade</h3>
+            <ul class="cx-list">
+              <li>“From ETH” on top, “To Pix” below: the same pattern people know from exchanges and currency apps.</li>
+              <li>The live rate sits right under the fields, so there's no maths to do.</li>
+              <li>A built-in keypad keeps both numbers visible while typing, with no system keyboard in the way.</li>
+              <li>Continue only wakes up once there's an amount to pay.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Recipient + Review -->
+        <article class="cx-feature cx-feature--flip">
+          <div class="cx-feature__shots">
+            <img src="../assets/img/crypex/pay-recipient.webp" width="786" height="1704" alt="Recipient screen: Pix key entered and the recipient's name, masked CPF and bank shown." loading="lazy">
+            <img src="../assets/img/crypex/pay-review.webp" width="786" height="1704" alt="Review screen: route from ETH to Pix, value, 10% fee, total in reais and in ETH, wallet address with copy button and a countdown." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Pay · recipient and review</p>
+            <h3 class="cx-h3">Every number in the open</h3>
+            <ul class="cx-list">
+              <li><strong>Check before you send.</strong> As soon as the Pix key goes in, the app shows who is receiving, with a masked CPF and the bank. A typo shows up as the wrong name, not as lost money.</li>
+              <li><strong>No hidden fee.</strong> The review lists the value, the 10% service fee and the total twice: in reais and in ETH.</li>
+              <li><strong>A price that holds.</strong> Crypto moves by the minute, so the quote is locked for ten minutes. The countdown makes that window visible instead of surprising people with a new price.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Endings -->
+        <article class="cx-feature">
+          <div class="cx-feature__shots">
+            <img src="../assets/img/crypex/pay-success.webp" width="786" height="1704" alt="Success screen: a green check and “Payment complete”, with a link to payment history." loading="lazy">
+            <img src="../assets/img/crypex/pay-failure.webp" width="786" height="1704" alt="Failure screen: a red cross and “Payment failed”, with an explanation and a link to payment history." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Pay · endings</p>
+            <h3 class="cx-h3">Clear endings, good or bad</h3>
+            <p>With money on the line, the last screen matters as much as the first. Success and failure share one calm layout: a single symbol, one sentence in plain words and one way forward, straight to the payment history.</p>
+          </div>
+        </article>
+
+        <!-- Home -->
+        <article class="cx-feature cx-feature--flip">
+          <div class="cx-feature__shots cx-feature__shots--one">
+            <img src="../assets/img/crypex/home.webp" width="786" height="1704" alt="Home: greeting, an AI insights card, services for Pix, boleto and payments, a market list for BTC, ETH and USDT with 24-hour change, and the tab bar." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Home</p>
+            <h3 class="cx-h3">The market at a glance, payments one tap away</h3>
+            <ul class="cx-list">
+              <li><strong>AI insights</strong> read the market as it is right now, before any decision about what to spend.</li>
+              <li><strong>Services</strong> put Pix, boleto and payments up front, the way a bank app would.</li>
+              <li><strong>Market</strong> shows BTC, ETH and USDT with price, volume and 24-hour change: green up, red down.</li>
+              <li>Three tabs only, home, pay and profile, with the active one in orange.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- History -->
+        <article class="cx-feature">
+          <div class="cx-feature__shots">
+            <img src="../assets/img/crypex/history.webp" width="786" height="1704" alt="Payment history: total sent in the period, number of transactions, a search field and a list of payments by date." loading="lazy">
+            <img src="../assets/img/crypex/history-calendar.webp" width="786" height="1704" alt="Date range picker: a monthly calendar with a start and end date selected in orange." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Payment history</p>
+            <h3 class="cx-h3">Know where the money went</h3>
+            <p>A running total for the period, the number of transactions and a search by name or code. The period opens a calendar for any range, with a year picker for going further back.</p>
+          </div>
+        </article>
+
+        <!-- Sign in -->
+        <article class="cx-feature cx-feature--flip">
+          <div class="cx-feature__shots cx-feature__shots--three">
+            <img src="../assets/img/crypex/login.webp" width="786" height="1704" alt="Sign-in: the Crypex logo, “Connect and pay with crypto, fast and safe”, an email field, and Google and Apple sign-in." loading="lazy">
+            <img src="../assets/img/crypex/login-error.webp" width="786" height="1704" alt="Password step with an inline error under the field: incorrect password, try again." loading="lazy">
+            <img src="../assets/img/crypex/login-faceid.webp" width="786" height="1704" alt="Prompt asking whether to turn on Face ID sign-in, with Turn on and Skip." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Sign-up and sign-in</p>
+            <h3 class="cx-h3">Safe, without the ceremony</h3>
+            <ul class="cx-list">
+              <li>Email, Google or Apple, so nobody has to invent yet another password to get started.</li>
+              <li>Errors appear inline, right under the field that caused them.</li>
+              <li>Face ID is offered once, after sign-up or the first sign-in, and can be skipped. From then on, every return is one glance.</li>
+              <li>Password recovery in three short screens, with a countdown before the email can be resent.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Visual system -->
+        <div class="cx-block">
+          <div class="cx-block__head">
+            <h3 class="cx-h3">Built around orange</h3>
+          </div>
+          <div class="cx-split">
+            <div class="cx-prose">
+              <p>Orange came with the brief. Rather than fight it, I built the whole system to make it earn its place. It's the colour people already link to Bitcoin, and it's warm in a market that usually dresses in cold black and blue.</p>
+              <p>To keep it from shouting, everything else stays calm: soft greys, white cards and near-black type. Orange is saved for what matters: the main button, the active tab and the one number worth checking twice, the total. Green and red appear only for results and market moves.</p>
+            </div>
+            <ul class="cx-swatches" aria-label="Crypex colours">
+              <li><i style="--sw: #F36935"></i><b>Action</b><span>#F36935</span></li>
+              <li><i style="--sw: #F2F2F2"></i><b>Surface</b><span>#F2F2F2</span></li>
+              <li><i style="--sw: #FFFFFF"></i><b>Card</b><span>#FFFFFF</span></li>
+              <li><i style="--sw: #1E1E1E"></i><b>Text</b><span>#1E1E1E</span></li>
+              <li><i style="--sw: #52C265"></i><b>Up · success</b><span>#52C265</span></li>
+              <li><i style="--sw: #E25448"></i><b>Down · failure</b><span>#E25448</span></li>
+            </ul>
+          </div>
+
+          <div class="cx-contrast">
+            <div class="cx-prose">
+              <p class="cx-label">One thing I'd change</p>
+              <p>White on this orange reaches 3.05:1. WCAG accepts that for large text, 14 pt bold or 18 pt regular, but not for a 16 pt regular label. So the fix is typographic, not chromatic: same orange, same white, with the label set at 19 pt bold. It passes, and the main action reads with more confidence.</p>
+            </div>
+            <div class="cx-contrast__pair">
+              <figure>
+                <span class="cx-demo-btn" aria-hidden="true">Continuar</span>
+                <figcaption><b>As designed</b><span>16 pt regular · 3.05:1</span><span class="tag tag--pink">Below AA</span></figcaption>
+              </figure>
+              <figure>
+                <span class="cx-demo-btn cx-demo-btn--large" aria-hidden="true">Continuar</span>
+                <figcaption><b>Proposed</b><span>19 pt bold · 3.05:1</span><span class="tag tag--mint">Passes AA · large text</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- Components -->
+        <div class="cx-block">
+          <div class="cx-block__head">
+            <h3 class="cx-h3">A small kit, built to hand off</h3>
+            <p class="cx-note">Every screen is made of these four.</p>
+          </div>
+          <div class="cx-prose cx-prose--wide cx-kit__intro">
+            <p>Each state lives as a variant in Figma, so the build never depends on guesswork. The bell turns orange when there's something new, the tab bar has one state per tab, and the main action works both on the page and on a sheet. Service cards carry a badge for what's new or coming soon, so the roadmap shows up in the app itself.</p>
+          </div>
+          <div class="frame cx-kit">
+            <span class="frame__label"><b>Components</b> 4 parts · 13 variants</span>
+
+            <div class="cx-kit__group">
+              <p class="cx-label">Top bar</p>
+              <div class="cx-kit__row cx-kit__row--4">
+                <figure><img src="../assets/img/crypex/components/topbar-greeting.webp" width="786" height="260" alt="Top bar with the status bar, “Olá, Rafael” and a grey bell." loading="lazy"><figcaption>Greeting</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/topbar-greeting-alert.webp" width="786" height="260" alt="Top bar with “Olá, Rafael” and an orange bell for new notifications." loading="lazy"><figcaption>Greeting · new notification</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/topbar-title-close.webp" width="786" height="260" alt="Top bar with the title “Pagamentos” and a close button." loading="lazy"><figcaption>Title · close</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/topbar-title.webp" width="786" height="260" alt="Top bar with the title “Pagamentos” only." loading="lazy"><figcaption>Title</figcaption></figure>
+              </div>
+            </div>
+
+            <div class="cx-kit__group">
+              <p class="cx-label">Tab bar</p>
+              <div class="cx-kit__row cx-kit__row--3">
+                <figure><img src="../assets/img/crypex/components/tab-home.webp" width="786" height="216" alt="Tab bar with Home active in an orange circle." loading="lazy"><figcaption>Home active</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/tab-pay.webp" width="786" height="216" alt="Tab bar with Pay active in an orange circle." loading="lazy"><figcaption>Pay active</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/tab-profile.webp" width="786" height="216" alt="Tab bar with Profile active in an orange circle." loading="lazy"><figcaption>Profile active</figcaption></figure>
+              </div>
+            </div>
+
+            <div class="cx-kit__split">
+              <div class="cx-kit__group">
+                <p class="cx-label">Bottom action</p>
+                <div class="cx-kit__row cx-kit__row--2">
+                  <figure><img src="../assets/img/crypex/components/cta.webp" width="786" height="216" alt="Full-width orange Continue button above the home indicator." loading="lazy"><figcaption>On the page</figcaption></figure>
+                  <figure><img src="../assets/img/crypex/components/cta-sheet.webp" width="802" height="232" alt="The same Continue button on a white sheet." loading="lazy"><figcaption>On a sheet</figcaption></figure>
+                </div>
+              </div>
+              <div class="cx-kit__group">
+                <p class="cx-label">Service card</p>
+                <div class="cx-kit__row cx-kit__row--cards">
+                  <figure><img src="../assets/img/crypex/components/card-pix.webp" width="260" height="224" alt="Service card: Pix, pay a Pix using your crypto." loading="lazy"><figcaption>Pix</figcaption></figure>
+                  <figure><img src="../assets/img/crypex/components/card-boleto.webp" width="260" height="229" alt="Service card: Boleto, with a “Novo” badge." loading="lazy"><figcaption>Boleto · new</figcaption></figure>
+                  <figure><img src="../assets/img/crypex/components/card-payments.webp" width="260" height="224" alt="Service card: Payments, see your payments." loading="lazy"><figcaption>Payments</figcaption></figure>
+                  <figure><img src="../assets/img/crypex/components/card-card.webp" width="260" height="228" alt="Service card: Card, with an “Em breve” badge." loading="lazy"><figcaption>Card · coming soon</figcaption></figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand -->
+        <div class="cx-block">
+          <div class="cx-block__head">
+            <h3 class="cx-h3">A mark that crosses over</h3>
+            <p class="cx-note">Logo, app icon and splash, all part of the file.</p>
+          </div>
+          <div class="cx-brand">
+            <figure class="frame cx-brand__logo">
+              <span class="frame__label"><b>Logo</b> Wordmark</span>
+              <div class="cx-brand__split">
+                <span><img src="../assets/img/crypex/logo-light.webp" width="406" height="135" alt="Crypex wordmark in white on black, with the final X drawn as two crossing strokes." loading="lazy"></span>
+                <span><img src="../assets/img/crypex/logo-dark.webp" width="406" height="135" alt="Crypex wordmark in black on light grey." loading="lazy"></span>
+              </div>
+              <figcaption>A thin, wide-set wordmark whose last letter breaks the line: the X leans out like a signature, a small gesture of one currency crossing into another.</figcaption>
+            </figure>
+            <figure class="frame cx-brand__icons">
+              <span class="frame__label"><b>App icon</b></span>
+              <img src="../assets/img/crypex/icon-light.webp" width="360" height="360" alt="App icon: a black X on a light grey tile." loading="lazy">
+            </figure>
+            <figure class="frame cx-brand__splash">
+              <span class="frame__label"><b>Splash</b></span>
+              <img src="../assets/img/crypex/splash-light.webp" width="860" height="1864" alt="Splash screen with the Crypex wordmark centred on soft grey." loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 Outcome ============ -->
+      <section class="cx-section" aria-labelledby="cx-outcome">
+        <header class="cx-head">
+          <span class="cx-num">05</span>
+          <p class="cx-kicker">Outcome</p>
+          <h2 id="cx-outcome" class="display cx-h2">Designed, tested, <em>on hold</em></h2>
+        </header>
+        <div class="cx-split">
+          <div class="cx-prose">
+            <p>The founder wanted to see how the product would look and feel before committing to it, and the file answered that. It was handed off complete: sign-up and sign-in, home, the Pix flow with all of its states, payment history and a small component set, in sections marked ready for dev.</p>
+            <p>Launch was put on hold by Brazilian bureaucracy. At the time, the rules for crypto service providers were still being written: the Central Bank became the sector's regulator in 2023, and its authorisation rules only came out in November 2025. The project is paused, not dropped, and I'm still the founder's designer for when it picks up again.</p>
+          </div>
+          <aside class="cx-card">
+            <p class="cx-label">Next, from the Figma stickies</p>
+            <ul class="cx-roadmap">
+              <li><span class="tag tag--yellow">Backlog</span> Pay a boleto with crypto</li>
+              <li><span class="tag">Next</span> Pick any coin in the converter</li>
+              <li><span class="tag">Next</span> Expanded payment details</li>
+              <li><span class="tag">Next</span> Download payment history</li>
+              <li><span class="tag">Next</span> Permissions after sign-up</li>
+              <li><span class="tag tag--mint">Soon</span> Cards</li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="cx-reflect">
+          <p class="hand">When it picks up again</p>
+          <p class="cx-reflect__quote">The next flows, boleto and card, go through the same <em>five-person</em> loop before they reach the file as final.</p>
+        </div>
+      </section>
 
       <nav class="case-next" aria-label="More work">
         <a href="muvr.html"><small>← Case 01</small><strong>Marketplace App Redesign</strong></a>
