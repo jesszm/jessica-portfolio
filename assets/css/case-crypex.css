@@ -14,9 +14,9 @@
 
 /* ---------- Cover: the brand split with three real screens ---------- */
 .case-cover .cx-cover { background: linear-gradient(90deg, #1E1E1E 0 42%, #EDEDED 42% 100%); overflow: hidden; }
-.cx-cover__brand { position: absolute; left: 0; top: 0; bottom: 0; width: 42%; display: grid; place-content: center; justify-items: start; gap: var(--sp-4); padding: 0 clamp(var(--sp-5), 5vw, var(--sp-8)); }
-.cx-cover__brand img { width: clamp(140px, 17vw, 230px); height: auto; }
-.cx-cover__brand p { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: #BDBDBD; max-width: 24ch; line-height: 1.5; }
+/* the dark splash itself: its diagonal plane of light runs along the X */
+.cx-cover__brand { position: absolute; left: 0; top: 0; bottom: 0; width: 42%; background: #1E1E1E url("../img/crypex/cover-brand.webp") center / cover no-repeat; }
+.cx-cover__brand p { position: absolute; left: 0; right: 0; top: 66%; margin: 0 auto; text-align: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: #BDBDBD; max-width: 24ch; line-height: 1.5; }
 .cx-cover__phones { position: absolute; left: 47%; right: 4%; top: 9%; bottom: -30%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4%; align-items: start; }
 .cx-cover__phones img { width: 100%; height: auto; filter: drop-shadow(0 22px 28px rgba(22, 21, 15, 0.22)); }
 .cx-cover__phones img:nth-child(2) { margin-top: -9%; }
@@ -164,6 +164,23 @@
 .cx-notes p:not(.cx-label) { font-size: var(--fs-15, 0.9375rem); line-height: 1.6; color: var(--color-text-muted); }
 .cx-notes__did p:not(.cx-label) { color: var(--color-text); }
 
+/* ---------- Hover to see a screen up close (mouse only, sized in case-crypex.js) ---------- */
+@media (hover: hover) and (pointer: fine) {
+  .cx-strip img, .cx-feature__shots img {
+    position: relative; z-index: 1; cursor: zoom-in; transform-origin: center;
+    transition: transform var(--dur-3) var(--ease-emphasized), filter var(--dur-3) var(--ease-standard);
+  }
+  .cx-strip img.is-zoomed, .cx-feature__shots img.is-zoomed { z-index: 30; filter: drop-shadow(0 28px 40px rgba(22, 21, 15, 0.3)); }
+  .cx-strip--6 { --zoom: 2.6; }
+  .cx-strip--3 { --zoom: 1.8; }
+  .cx-feature__shots { --zoom: 1.8; }
+  .cx-feature__shots--three { --zoom: 2.2; }
+  .cx-feature__shots--one { --zoom: 1.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cx-strip img, .cx-feature__shots img { transition: none; }
+}
+
 /* ---------- Honest note ---------- */
 .cx-honest { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-7); align-items: start; margin-top: var(--sp-9); }
 .cx-honest .sticky { transform: rotate(-2deg); max-width: 260px; font-size: 1.3rem; }
@@ -238,9 +255,7 @@
 .cx-brand figure { position: relative; margin: 0; background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); padding: var(--sp-5); display: grid; align-content: center; justify-items: center; gap: var(--sp-5); }
 .cx-brand .frame__label { position: absolute; top: auto; bottom: calc(100% + 6px); left: 0; }
 .cx-brand__split { width: 100%; display: grid; grid-template-columns: 1fr 1fr; border-radius: var(--radius-2); overflow: hidden; }
-.cx-brand__split span { display: grid; place-items: center; aspect-ratio: 4 / 3; background: #1E1E1E; }
-.cx-brand__split span + span { background: #EDEDED; }
-.cx-brand__split img { width: 72%; height: auto; }
+.cx-brand__split img { display: block; width: 100%; height: auto; }
 .cx-brand__logo figcaption { font-size: var(--fs-14); line-height: 1.6; color: var(--color-text-muted); max-width: 52ch; justify-self: start; }
 .cx-brand__icons img { width: min(140px, 70%); height: auto; border-radius: 22.5%; box-shadow: 0 12px 20px -10px rgba(22, 21, 15, 0.35); }
 .cx-brand__splash img { width: min(170px, 80%); height: auto; border-radius: 11% / 5%; border: 1px solid var(--color-border); }
@@ -294,8 +309,7 @@
   .cx-kit__row--3, .cx-kit__row--2 { grid-template-columns: 1fr; }
   .cx-kit__row--cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-cover .cx-cover { background: linear-gradient(180deg, #1E1E1E 0 26%, #EDEDED 26% 100%); }
-  .cx-cover__brand { width: auto; right: 0; bottom: auto; height: 26%; padding: 0; justify-items: center; }
-  .cx-cover__brand img { width: 104px; }
+  .cx-cover__brand { width: auto; right: 0; bottom: auto; height: 26%; }
   .cx-cover__brand p { display: none; }
   .cx-cover__phones { left: 6%; right: 6%; top: 33%; bottom: -60%; }
 }
