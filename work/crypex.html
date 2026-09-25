@@ -222,11 +222,41 @@
           </div>
         </div>
 
+        <!-- Test notes -->
+        <div class="cx-block">
+          <div class="cx-block__head">
+            <h3 class="cx-h3">What the five sessions showed</h3>
+            <p class="cx-note">Notes from the localhost build, and what each one changed.</p>
+          </div>
+          <ol class="cx-notes">
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>People typed an amount in reais and only met the crypto side on the last screen. Some went back to change the value once they saw it in ETH.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Put both sides of the trade on one screen, with the live rate right under them.</p></div>
+            </li>
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>People new to crypto compared it with the Pix in their bank app, which they finish in seconds. Six screens felt like filling in a form, not paying.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Merged six questions into three steps: amount, recipient, review.</p></div>
+            </li>
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>With the phone keyboard open, the other currency and the rate slid out of view while people typed.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Designed a built-in keypad that leaves both values and the rate on screen.</p></div>
+            </li>
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>Before tapping continue, people looked for the recipient's name, the habit their bank app has taught them.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Show name, masked CPF and bank as soon as the Pix key goes in, before anything is sent.</p></div>
+            </li>
+            <li>
+              <div class="cx-notes__seen"><p class="cx-label">We saw</p><p>Developers asked what happens if the price moves while the transfer is pending. Everyone else asked about the fee.</p></div>
+              <div class="cx-notes__did"><p class="cx-label">So I</p><p>Locked the quote for ten minutes with a visible countdown, and listed the fee and both totals, reais and ETH, in plain view.</p></div>
+            </li>
+          </ol>
+        </div>
+
         <aside class="cx-honest">
           <div class="sticky"><b>Honest note</b>What a freelance pace skips, and how I made up for it</div>
           <ul class="cx-list">
             <li><strong>No formal research.</strong> The founder's knowledge of the domain stood in for interviews, and we checked it against real people as early as possible.</li>
-            <li><strong>Tests over opinions.</strong> Five sessions on a working build settled the one decision that mattered most: how the pay flow is shaped.</li>
+            <li><strong>Tests over opinions.</strong> Five sessions on a working build shaped the pay flow, from the converter to the quote timer.</li>
             <li><strong>Stickies as the backlog.</strong> Open questions lived next to the screens in Figma, so nothing got lost between calls.</li>
           </ul>
         </aside>
@@ -375,6 +405,58 @@
           </div>
         </div>
 
+        <!-- Components -->
+        <div class="cx-block">
+          <div class="cx-block__head">
+            <h3 class="cx-h3">A small kit, built to hand off</h3>
+            <p class="cx-note">Every screen is made of these four.</p>
+          </div>
+          <div class="cx-prose cx-prose--wide cx-kit__intro">
+            <p>Each state lives as a variant in Figma, so the build never depends on guesswork. The bell turns orange when there's something new, the tab bar has one state per tab, and the main action works both on the page and on a sheet. Service cards carry a badge for what's new or coming soon, so the roadmap shows up in the app itself.</p>
+          </div>
+          <div class="frame cx-kit">
+            <span class="frame__label"><b>Components</b> Top bar · Tab bar · Bottom action · Service card</span>
+
+            <div class="cx-kit__group">
+              <p class="cx-label">Top bar</p>
+              <div class="cx-kit__row cx-kit__row--4">
+                <figure><img src="../assets/img/crypex/components/topbar-greeting.webp" width="786" height="260" alt="Top bar with the status bar, “Olá, Rafael” and a grey bell." loading="lazy"><figcaption>Greeting</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/topbar-greeting-alert.webp" width="786" height="260" alt="Top bar with “Olá, Rafael” and an orange bell for new notifications." loading="lazy"><figcaption>Greeting · new notification</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/topbar-title-close.webp" width="786" height="260" alt="Top bar with the title “Pagamentos” and a close button." loading="lazy"><figcaption>Title · close</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/topbar-title.webp" width="786" height="260" alt="Top bar with the title “Pagamentos” only." loading="lazy"><figcaption>Title</figcaption></figure>
+              </div>
+            </div>
+
+            <div class="cx-kit__group">
+              <p class="cx-label">Tab bar</p>
+              <div class="cx-kit__row cx-kit__row--3">
+                <figure><img src="../assets/img/crypex/components/tab-home.webp" width="786" height="216" alt="Tab bar with Home active in an orange circle." loading="lazy"><figcaption>Home active</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/tab-pay.webp" width="786" height="216" alt="Tab bar with Pay active in an orange circle." loading="lazy"><figcaption>Pay active</figcaption></figure>
+                <figure><img src="../assets/img/crypex/components/tab-profile.webp" width="786" height="216" alt="Tab bar with Profile active in an orange circle." loading="lazy"><figcaption>Profile active</figcaption></figure>
+              </div>
+            </div>
+
+            <div class="cx-kit__split">
+              <div class="cx-kit__group">
+                <p class="cx-label">Bottom action</p>
+                <div class="cx-kit__row cx-kit__row--2">
+                  <figure><img src="../assets/img/crypex/components/cta.webp" width="786" height="216" alt="Full-width orange Continue button above the home indicator." loading="lazy"><figcaption>On the page</figcaption></figure>
+                  <figure><img src="../assets/img/crypex/components/cta-sheet.webp" width="802" height="232" alt="The same Continue button on a white sheet." loading="lazy"><figcaption>On a sheet</figcaption></figure>
+                </div>
+              </div>
+              <div class="cx-kit__group">
+                <p class="cx-label">Service card</p>
+                <div class="cx-kit__row cx-kit__row--cards">
+                  <figure><img src="../assets/img/crypex/components/card-pix.webp" width="260" height="224" alt="Service card: Pix, pay a Pix using your crypto." loading="lazy"><figcaption>Pix</figcaption></figure>
+                  <figure><img src="../assets/img/crypex/components/card-boleto.webp" width="260" height="229" alt="Service card: Boleto, with a “Novo” badge." loading="lazy"><figcaption>Boleto · new</figcaption></figure>
+                  <figure><img src="../assets/img/crypex/components/card-payments.webp" width="260" height="224" alt="Service card: Payments, see your payments." loading="lazy"><figcaption>Payments</figcaption></figure>
+                  <figure><img src="../assets/img/crypex/components/card-card.webp" width="260" height="228" alt="Service card: Card, with an “Em breve” badge." loading="lazy"><figcaption>Card · coming soon</figcaption></figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Brand -->
         <div class="cx-block">
           <div class="cx-block__head">
@@ -428,8 +510,8 @@
         </div>
 
         <div class="cx-reflect">
-          <p class="hand">If I did it again</p>
-          <p class="cx-reflect__quote">I'd write the tests <em>down</em>. Five sessions shaped the most important decision in this app, and I kept the conclusion but not the notes.</p>
+          <p class="hand">When it picks up again</p>
+          <p class="cx-reflect__quote">The next flows, boleto and card, go through the same <em>five-person</em> loop before they reach the file as final.</p>
         </div>
       </section>
 
