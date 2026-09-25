@@ -169,6 +169,22 @@
 .cx-swatches i { display: block; aspect-ratio: 4 / 3; border: 1px solid var(--ink-900); border-radius: var(--radius-2); background: var(--sw); margin-bottom: var(--sp-2); box-shadow: var(--shadow-hard); }
 .cx-swatches b { font-weight: 600; }
 .cx-swatches span { font-family: var(--font-mono); font-size: 11px; color: var(--color-text-subtle); }
+/* ---------- Contrast note: the orange button, as designed vs proposed ---------- */
+.cx-contrast { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-8); align-items: center; margin-top: var(--sp-7); padding-top: var(--sp-6); border-top: 1px dashed var(--color-border-strong); }
+.cx-contrast .cx-label { margin-bottom: var(--sp-3); }
+.cx-contrast__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
+.cx-contrast__pair figure { margin: 0; display: grid; gap: var(--sp-3); padding: var(--sp-5); border-radius: var(--radius-3); background: #F2F2F2; border: 1px solid var(--color-border); }
+/* a replica of the app's primary button, set in the iOS system face */
+.cx-demo-btn {
+  display: grid; place-items: center; height: 48px; border-radius: 12px; background: #F36935; color: #FFFFFF;
+  font: 400 16px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.01em;
+}
+.cx-demo-btn--dark { color: #1E1E1E; }
+.cx-contrast__pair figcaption { display: grid; gap: 4px; justify-items: start; font-size: var(--fs-13); }
+.cx-contrast__pair figcaption b { font-weight: 600; }
+.cx-contrast__pair figcaption span:not(.tag) { font-family: var(--font-mono); font-size: 11px; color: var(--color-text-subtle); }
+.cx-contrast__pair .tag { margin-top: 4px; }
+
 /* ---------- Brand ---------- */
 .cx-brand { margin-top: var(--sp-2); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 3fr) minmax(0, 3fr); gap: var(--sp-6); align-items: stretch; }
 .cx-brand figure { position: relative; margin: 0; background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); padding: var(--sp-5); display: grid; align-content: center; justify-items: center; gap: var(--sp-5); }
@@ -207,7 +223,7 @@
   .cx-glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cx-glance li:nth-child(3) { border-left: 0; }
   .cx-glance li:nth-child(n+3) { border-top: 1px solid var(--color-border-strong); }
-  .cx-split, .cx-honest, .cx-feature { grid-template-columns: 1fr; gap: var(--sp-6); }
+  .cx-split, .cx-honest, .cx-feature, .cx-contrast { grid-template-columns: 1fr; gap: var(--sp-6); }
   .cx-feature--flip .cx-feature__shots { order: 0; }
   .cx-compare__col { grid-template-columns: minmax(0, 1fr); }
   .cx-compare__col figcaption { margin-top: var(--sp-5); max-width: none; }
