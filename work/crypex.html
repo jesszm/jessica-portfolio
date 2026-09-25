@@ -390,16 +390,16 @@
           <div class="cx-contrast">
             <div class="cx-prose">
               <p class="cx-label">One thing I'd change</p>
-              <p>White text on this orange reaches 3.05:1. That's fine for icons, the active tab and large type, but short of AA for a button label. The fix keeps the brand intact: near-black labels on the very same orange reach 5.46:1.</p>
+              <p>White on this orange reaches 3.05:1. WCAG accepts that for large text, 14 pt bold or 18 pt regular, but not for a 16 pt regular label. So the fix is typographic, not chromatic: same orange, same white, with the label set at 19 pt bold. It passes, and the main action reads with more confidence.</p>
             </div>
             <div class="cx-contrast__pair">
               <figure>
                 <span class="cx-demo-btn" aria-hidden="true">Continuar</span>
-                <figcaption><b>As designed</b><span>White label · 3.05:1</span><span class="tag tag--pink">AA large text only</span></figcaption>
+                <figcaption><b>As designed</b><span>16 pt regular · 3.05:1</span><span class="tag tag--pink">Below AA</span></figcaption>
               </figure>
               <figure>
-                <span class="cx-demo-btn cx-demo-btn--dark" aria-hidden="true">Continuar</span>
-                <figcaption><b>Proposed</b><span>#1E1E1E label · 5.46:1</span><span class="tag tag--mint">Passes AA</span></figcaption>
+                <span class="cx-demo-btn cx-demo-btn--large" aria-hidden="true">Continuar</span>
+                <figcaption><b>Proposed</b><span>19 pt bold · 3.05:1</span><span class="tag tag--mint">Passes AA · large text</span></figcaption>
               </figure>
             </div>
           </div>

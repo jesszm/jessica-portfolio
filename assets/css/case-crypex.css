@@ -196,7 +196,7 @@
   display: grid; place-items: center; height: 48px; border-radius: 12px; background: #F36935; color: #FFFFFF;
   font: 400 16px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.01em;
 }
-.cx-demo-btn--dark { color: #1E1E1E; }
+.cx-demo-btn--large { font-size: 19px; font-weight: 700; letter-spacing: -0.015em; }
 .cx-contrast__pair figcaption { display: grid; gap: 4px; justify-items: start; font-size: var(--fs-13); }
 .cx-contrast__pair figcaption b { font-weight: 600; }
 .cx-contrast__pair figcaption span:not(.tag) { font-family: var(--font-mono); font-size: 11px; color: var(--color-text-subtle); }
