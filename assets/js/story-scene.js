@@ -373,43 +373,61 @@ export function createStory(canvas, options = {}) {
   const rightHalf = new THREE.Mesh(track(new THREE.BoxGeometry(0.24, 0.006, 0.33)), [M.edge, M.edge, pageB, M.cover, M.edge, M.edge]);
   rightHalf.position.set(0.121, 0.005, 0); rightHalf.castShadow = high; rightHalf.receiveShadow = high; book.add(rightHalf);
 
+  /* mug: open ceramic with coffee inside, handle in the right plane */
   const mug = new THREE.Group();
   mug.position.set(0.47, 0.75, -0.18);
   studio.add(mug);
-  mesh(new THREE.CylinderGeometry(0.038, 0.034, 0.095, 32), M.mugMat, mug, 0, 0.0475, 0, { cast: true });
-  mesh(new THREE.CylinderGeometry(0.033, 0.033, 0.002, 32), std('#3a2414', 0.2), mug, 0, 0.087, 0);
-  mesh(new THREE.TorusGeometry(0.022, 0.006, 10, 24), M.mugMat, mug, 0.042, 0.05, 0, { cast: true }).rotation.y = Math.PI / 2;
+  const lathe = (pts, seg = 40) => new THREE.LatheGeometry(pts.map(([x, y]) => new THREE.Vector2(x, y)), seg);
+  const mugMat2 = std(C.lilac, 0.35, 0.05, { side: THREE.DoubleSide });
+  mesh(lathe([[0, 0], [0.033, 0], [0.036, 0.003], [0.0375, 0.09], [0.0372, 0.0955], [0.0342, 0.0955], [0.0338, 0.09], [0.031, 0.008], [0, 0.008]]), mugMat2, mug, 0, 0, 0, { cast: true, receive: true });
+  mesh(new THREE.CircleGeometry(0.0336, 32), std('#4A2E1C', 0.12), mug, 0, 0.08, 0).rotation.x = -Math.PI / 2;
+  mesh(new THREE.TorusGeometry(0.019, 0.0048, 12, 32, Math.PI * 1.2), mugMat2, mug, 0.036, 0.05, 0, { cast: true }).rotation.z = -Math.PI * 0.6;
 
+  /* snake plant in a terracotta pot: pointed upright blades */
   const plant = new THREE.Group();
   plant.position.set(-0.7, 0.75, -0.28);
   studio.add(plant);
-  mesh(new THREE.CylinderGeometry(0.055, 0.045, 0.1, 24), M.terracotta, plant, 0, 0.05, 0, { cast: true });
+  mesh(lathe([[0, 0], [0.04, 0], [0.047, 0.08], [0.054, 0.082], [0.054, 0.098], [0.047, 0.098], [0.044, 0.09], [0, 0.09]], 32), M.terracotta, plant, 0, 0, 0, { cast: true, receive: true });
+  mesh(new THREE.CircleGeometry(0.044, 24), std('#5B4332', 0.95), plant, 0, 0.092, 0).rotation.x = -Math.PI / 2;
   const pr = rng(5);
-  for (let i = 0; i < 9; i++) {
-    const leaf = mesh(new THREE.SphereGeometry(0.03, 12, 10), i % 2 ? M.leaf : M.leafDark, plant, 0, 0, 0, { cast: true });
-    const a = (i / 9) * Math.PI * 2;
-    leaf.scale.set(0.5, 1.9, 0.26);
-    leaf.position.set(Math.cos(a) * 0.035, 0.15 + pr() * 0.06, Math.sin(a) * 0.035);
-    leaf.rotation.set(Math.sin(a) * 0.6, a, Math.cos(a) * 0.6);
+  const bladeGeo = track(new THREE.ConeGeometry(1, 1, 10, 1));
+  const bladeMats = [M.leafDark, M.leaf, std('#7FA85C', 0.65)];
+  for (let i = 0; i < 8; i++) {
+    const hgt = 0.15 + pr() * 0.11;
+    const b = new THREE.Mesh(bladeGeo, bladeMats[i % 3]);
+    b.scale.set(0.017 + pr() * 0.005, hgt, 0.0045);
+    const a = (i / 8) * Math.PI * 2 + pr() * 0.4;
+    b.position.set(Math.cos(a) * 0.014, 0.09 + hgt / 2, Math.sin(a) * 0.014);
+    b.rotation.set(Math.sin(a) * 0.16, a + Math.PI / 2, -Math.cos(a) * 0.16);
+    b.castShadow = high;
+    plant.add(b);
   }
 
+  /* desk lamp: jointed arm that meets the shade at its neck */
   const lampBase = new THREE.Vector3(0.66, 0.75, -0.3);
   const lampHead = new THREE.Vector3(0.42, 1.18, -0.16);
   const lampMat = std(C.yellow, 0.45, 0.1);
-  mesh(new THREE.CylinderGeometry(0.07, 0.08, 0.02, 32), lampMat, studio, lampBase.x, 0.76, lampBase.z, { cast: true });
+  mesh(lathe([[0, 0], [0.08, 0], [0.08, 0.008], [0.072, 0.02], [0, 0.02]], 40), lampMat, studio, lampBase.x, 0.75, lampBase.z, { cast: true, receive: true });
   function rod(a, b, r, mat) {
     const m = mesh(new THREE.CylinderGeometry(r, r, a.distanceTo(b), 12), mat, studio, (a.x + b.x) / 2, (a.y + b.y) / 2, (a.z + b.z) / 2, { cast: true });
     m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize());
   }
+  const joint = (v, r = 0.011) => mesh(new THREE.SphereGeometry(r, 16, 12), M.black, studio, v.x, v.y, v.z, { cast: true });
   const elbow = new THREE.Vector3(0.7, 1.08, -0.34);
-  rod(new THREE.Vector3(lampBase.x, 0.77, lampBase.z), elbow, 0.008, M.black);
-  rod(elbow, lampHead, 0.008, M.black);
   const lampTarget = new THREE.Vector3(0.05, 0.75, 0.05);
   const headDir = lampTarget.clone().sub(lampHead).normalize();
-  const shade = mesh(new THREE.CylinderGeometry(0.035, 0.085, 0.11, 32, 1, true), std(C.yellow, 0.45, 0.1, { side: THREE.DoubleSide }), studio, lampHead.x, lampHead.y, lampHead.z, { cast: true });
+  const neck = lampHead.clone().addScaledVector(headDir, -0.062);
+  const baseTop = new THREE.Vector3(lampBase.x, 0.785, lampBase.z);
+  mesh(new THREE.CylinderGeometry(0.012, 0.014, 0.02, 16), M.black, studio, baseTop.x, 0.775, baseTop.z, { cast: true });
+  rod(baseTop, elbow, 0.0075, M.black);
+  rod(elbow, neck, 0.0075, M.black);
+  joint(baseTop); joint(elbow, 0.012); joint(neck, 0.01);
+  const shade = mesh(new THREE.CylinderGeometry(0.035, 0.085, 0.11, 40, 1, true), std(C.yellow, 0.45, 0.1, { side: THREE.DoubleSide }), studio, lampHead.x, lampHead.y, lampHead.z, { cast: true });
   shade.quaternion.setFromUnitVectors(new THREE.Vector3(0, -1, 0), headDir);
+  const cap = mesh(new THREE.CylinderGeometry(0.02, 0.035, 0.012, 32), lampMat, studio, neck.x + headDir.x * 0.004, neck.y + headDir.y * 0.004, neck.z + headDir.z * 0.004, { cast: true });
+  cap.quaternion.copy(shade.quaternion);
   const bulbMat = basic('#fff1d6', { toneMapped: false });
-  mesh(new THREE.SphereGeometry(0.022, 16, 12), bulbMat, studio, lampHead.x + headDir.x * 0.03, lampHead.y + headDir.y * 0.03, lampHead.z + headDir.z * 0.03);
+  mesh(new THREE.SphereGeometry(0.022, 16, 12), bulbMat, studio, lampHead.x + headDir.x * 0.012, lampHead.y + headDir.y * 0.012, lampHead.z + headDir.z * 0.012);
   const lampLight = new THREE.SpotLight('#ffd6a0', 0, 4, 0.62, 0.65, 2);
   lampLight.position.copy(lampHead);
   lampLight.target.position.copy(lampTarget);
@@ -443,33 +461,69 @@ export function createStory(canvas, options = {}) {
     mesh(new THREE.ConeGeometry(0.0038, 0.012, 6), std(k % 2 ? '#E9D8BE' : C.ink900, 0.6), pen, 0, len / 2 + 0.006, 0);
   });
 
-  /* sunflowers in a white vase */
+  /* sunflowers in a white vase: real petals and seed discs (no textured quads),
+     curved stems that splay out, leaves attached to the stems */
   const vase = put(new THREE.Group(), -0.5, DESK_Y, -0.3);
-  mesh(new THREE.CylinderGeometry(0.03, 0.042, 0.13, 28), std('#F2EEE6', 0.35, 0.05), vase, 0, 0.065, 0, { cast: true });
-  const petalTex = canvasTexture(256, 256, (g, w, h) => {
-    g.translate(w / 2, h / 2);
-    for (let k = 0; k < 18; k++) {
-      g.rotate((Math.PI * 2) / 18);
-      g.fillStyle = k % 2 ? '#FFC93C' : '#FFD95A';
-      g.beginPath(); g.ellipse(0, -74, 17, 50, 0, 0, Math.PI * 2); g.fill();
-    }
-    g.fillStyle = '#5A3A1E'; g.beginPath(); g.arc(0, 0, 44, 0, Math.PI * 2); g.fill();
-    g.fillStyle = 'rgba(0,0,0,0.25)';
-    for (let k = 0; k < 60; k++) { const a = k * 2.4; const r = Math.sqrt(k) * 5.4; g.beginPath(); g.arc(Math.cos(a) * r, Math.sin(a) * r, 2.4, 0, Math.PI * 2); g.fill(); }
+  const vaseMat = std('#F2EEE6', 0.3, 0.05, { side: THREE.DoubleSide });
+  mesh(lathe([[0, 0], [0.036, 0], [0.043, 0.03], [0.04, 0.095], [0.027, 0.12], [0.029, 0.132], [0.025, 0.132], [0.023, 0.122], [0, 0.122]], 40), vaseMat, vase, 0, 0, 0, { cast: true, receive: true });
+  const seedTex = canvasTexture(128, 128, (g, w, h) => {
+    const grd = g.createRadialGradient(w / 2, h / 2, 4, w / 2, h / 2, w / 2);
+    grd.addColorStop(0, '#6B4A22'); grd.addColorStop(0.7, '#4A2F16'); grd.addColorStop(1, '#3A2410');
+    g.fillStyle = grd; g.fillRect(0, 0, w, h);
+    g.fillStyle = 'rgba(255, 214, 120, 0.35)';
+    for (let k = 0; k < 140; k++) { const a = k * 2.39996; const r = Math.sqrt(k) * 5.1; g.beginPath(); g.arc(w / 2 + Math.cos(a) * r, h / 2 + Math.sin(a) * r, 1.6, 0, Math.PI * 2); g.fill(); }
   });
-  const petalMat = std('#ffffff', 0.8, 0, { map: petalTex, transparent: true, alphaTest: 0.3, side: THREE.DoubleSide });
+  const discMat = std('#ffffff', 0.9, 0, { map: seedTex });
+  const petalGeo = track(new THREE.SphereGeometry(1, 12, 8));
+  const petalMats = [std('#FFCD2E', 0.6), std('#FFD95A', 0.6)];
   const stemMat = std(C.stem, 0.7);
-  [[0.0, 0.3, 0.1, -0.15], [-0.04, 0.25, -0.25, 0.1], [0.045, 0.22, 0.3, 0.25]].forEach(([dx, hgt, tiltX, tiltZ]) => {
-    const f = new THREE.Group();
-    f.position.set(dx * 0.3, 0.1, 0);
-    f.rotation.set(tiltX * 0.5, 0, tiltZ);
-    vase.add(f);
-    mesh(new THREE.CylinderGeometry(0.0028, 0.0032, hgt, 6), stemMat, f, 0, hgt / 2, 0, { cast: true });
-    const head = plane(0.12, 0.12, petalMat, f, 0, hgt + 0.01, 0.01);
-    head.rotation.set(-0.25, 0.55, 0);
-    head.castShadow = high;
-    const leafM = mesh(new THREE.SphereGeometry(0.02, 10, 8), M.leaf, f, 0.014, hgt * 0.45, 0);
-    leafM.scale.set(1.3, 0.35, 0.6);
+  const leafGeo = track(new THREE.SphereGeometry(1, 14, 10));
+  const leafMat = std(C.leaf, 0.65, 0, { side: THREE.DoubleSide });
+  const FLOWERS = [
+    { tip: [-0.004, 0.33, 0.012], bend: [0.012, 0.22, 0.0], face: [0.1, 0.25, 1], s: 1.0, leaf: 0.42 },
+    { tip: [-0.07, 0.27, 0.02], bend: [-0.03, 0.2, 0.01], face: [-0.7, 0.2, 1], s: 0.88, leaf: 0.5 },
+    { tip: [0.068, 0.25, -0.01], bend: [0.03, 0.18, 0.0], face: [0.75, 0.3, 0.9], s: 0.8, leaf: 0.55 },
+  ];
+  FLOWERS.forEach((f, fi) => {
+    const p0 = new THREE.Vector3(0, 0.1, 0);
+    const curve = new THREE.CatmullRomCurve3([p0, new THREE.Vector3(...f.bend), new THREE.Vector3(...f.tip)]);
+    mesh(new THREE.TubeGeometry(curve, 24, 0.0032, 6, false), stemMat, vase, 0, 0, 0, { cast: true });
+    /* one leaf per stem, its base on the stem */
+    const lp = curve.getPoint(f.leaf);
+    const lt = curve.getTangent(f.leaf);
+    const side = new THREE.Vector3(fi === 1 ? -1 : 1, 0.25, fi === 2 ? -0.4 : 0.5).normalize();
+    const leafG = new THREE.Group();
+    leafG.position.copy(lp);
+    leafG.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), side.add(lt.multiplyScalar(0.8)).normalize());
+    vase.add(leafG);
+    const leaf = new THREE.Mesh(leafGeo, leafMat);
+    leaf.scale.set(0.011, 0.0022, 0.03);
+    leaf.position.z = 0.028;
+    leaf.castShadow = high;
+    leafG.add(leaf);
+    /* head: faces outward and a little up, towards the room */
+    const head = new THREE.Group();
+    head.position.set(...f.tip);
+    head.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), new THREE.Vector3(...f.face).normalize());
+    head.scale.setScalar(f.s);
+    vase.add(head);
+    mesh(new THREE.CylinderGeometry(0.012, 0.007, 0.012, 16), stemMat, head, 0, 0, -0.006, { cast: true }).rotation.x = Math.PI / 2;
+    const disc = mesh(new THREE.CylinderGeometry(0.019, 0.02, 0.007, 28), std('#4A2F16', 0.9), head, 0, 0, 0.002, { cast: true });
+    disc.rotation.x = Math.PI / 2;
+    mesh(new THREE.CircleGeometry(0.0185, 28), discMat, head, 0, 0, 0.0057);
+    const N = 16;
+    for (let layer = 0; layer < 2; layer++) {
+      for (let k = 0; k < N; k++) {
+        const a = (k / N) * Math.PI * 2 + layer * (Math.PI / N);
+        const pet = new THREE.Mesh(petalGeo, petalMats[(k + layer) % 2]);
+        pet.scale.set(0.0072, 0.022 - layer * 0.003, 0.0022);
+        pet.position.set(Math.cos(a) * 0.036, Math.sin(a) * 0.036, -0.001 - layer * 0.002);
+        pet.rotation.set(0, 0, a - Math.PI / 2);
+        pet.rotateX(0.18 + layer * 0.12);
+        pet.castShadow = high;
+        head.add(pet);
+      }
+    }
   });
 
   /* stack of books with the sunflower sunglasses on top */
@@ -480,20 +534,35 @@ export function createStory(canvas, options = {}) {
     mesh(new THREE.BoxGeometry(bw - 0.008, bh - 0.006, bd + 0.001), std('#F7F3EA', 0.9), stack, 0.004, y + bh / 2, 0).rotation.y = rot;
     return y + bh;
   }, 0);
-  function drawGlasses(g, w, h) {
-    const flower = (cx, cy, r) => {
-      g.fillStyle = C.yellow; g.strokeStyle = C.ink900; g.lineWidth = 2.5;
-      for (let k = 0; k < 8; k++) { const a = (k / 8) * Math.PI * 2; g.beginPath(); g.ellipse(cx + Math.cos(a) * r * 0.62, cy + Math.sin(a) * r * 0.62, r * 0.38, r * 0.28, a, 0, Math.PI * 2); g.fill(); g.stroke(); }
-      g.fillStyle = '#2E7D5B'; g.beginPath(); g.arc(cx, cy, r * 0.52, 0, Math.PI * 2); g.fill(); g.stroke();
-      g.fillStyle = 'rgba(255,255,255,0.35)'; g.beginPath(); g.arc(cx - r * 0.18, cy - r * 0.18, r * 0.16, 0, Math.PI * 2); g.fill();
-    };
-    flower(w * 0.27, h * 0.5, h * 0.44); flower(w * 0.73, h * 0.5, h * 0.44);
-    g.strokeStyle = C.ink900; g.lineWidth = 4; g.beginPath(); g.moveTo(w * 0.43, h * 0.46); g.quadraticCurveTo(w / 2, h * 0.36, w * 0.57, h * 0.46); g.stroke();
-  }
-  const glassesTex = canvasTexture(512, 220, drawGlasses);
-  const glasses = plane(0.15, 0.064, std('#ffffff', 0.5, 0, { map: glassesTex, transparent: true, alphaTest: 0.3, side: THREE.DoubleSide }), stack, 0.01, 0.086, 0.005);
-  glasses.rotation.set(-Math.PI / 2, 0, 0.35);
-  glasses.castShadow = high;
+  /* the sunflower sunglasses, folded on the books: extruded flower frames, green lenses */
+  const flowerShape = (R, hole) => {
+    const sh = new THREE.Shape();
+    for (let k = 0; k <= 96; k++) {
+      const a = (k / 96) * Math.PI * 2;
+      const r = R * (1 + 0.16 * Math.cos(8 * a));
+      const x = Math.cos(a) * r, y = Math.sin(a) * r;
+      if (k === 0) sh.moveTo(x, y); else sh.lineTo(x, y);
+    }
+    const hp = new THREE.Path(); hp.absarc(0, 0, hole, 0, Math.PI * 2, true); sh.holes.push(hp);
+    return sh;
+  };
+  const shades = new THREE.Group();
+  shades.position.set(0.01, 0.084, 0.004);
+  shades.rotation.set(-Math.PI / 2, 0, 0.35);
+  stack.add(shades);
+  const frameGeo = track(new THREE.ExtrudeGeometry(flowerShape(0.024, 0.013), { depth: 0.004, bevelEnabled: true, bevelThickness: 0.0012, bevelSize: 0.0012, bevelSegments: 2, curveSegments: 6 }));
+  const shadesFrameMat = std('#FED33D', 0.4, 0.05);
+  const lensMat = std('#3F9672', 0.12, 0.2, { transparent: true, opacity: 0.88 });
+  [-0.031, 0.031].forEach((x) => {
+    mesh(frameGeo, shadesFrameMat, shades, x, 0, 0, { cast: true });
+    mesh(new THREE.CircleGeometry(0.0132, 32), lensMat, shades, x, 0, 0.0025);
+  });
+  const bridge = mesh(new THREE.CylinderGeometry(0.0016, 0.0016, 0.016, 8), std('#FFF0E9', 0.4), shades, 0, 0.004, 0.003);
+  bridge.rotation.z = Math.PI / 2;
+  [-1, 1].forEach((sd) => {
+    const arm = mesh(new THREE.BoxGeometry(0.1, 0.0024, 0.0028), std('#F6C730', 0.45), shades, sd * 0.012, -0.006 * sd, -0.0035, { cast: true });
+    arm.rotation.z = sd * 0.06;
+  });
 
   /* colour swatch fan, like a Pantone book */
   const swatch = put(new THREE.Group(), -0.21, DESK_Y + 0.0046, 0.29, 0.5);
@@ -1106,7 +1175,7 @@ export function createStory(canvas, options = {}) {
     });
     /* Brazil badge, comic style: a little flag mascot (the globe has a face) over a ribbon
        that reads ORDEM E / DESIGN in two big lines. Same sticker rules: 1.5mm die-cut, ink 0.35mm. */
-    addSticker(58, 46, [0.093, 0.187], -0.07, (g, W, H) => {
+    addSticker(51, 40, [0.089, 0.19], -0.07, (g, W, H) => {
       /* drawn on a 48 × 38 grid, scaled up to the sticker's size */
       g.scale(W / 48, H / 38);
       const w = 48;
