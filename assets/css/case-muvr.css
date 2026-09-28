@@ -1,0 +1,197 @@
+/* ==========================================================================
+   JM · Case 01 · Muvr — v2.0.0
+   Page-only layer. The case layout (.cx-*) comes from case-crypex.css, so both
+   cases share one structure; this file adds what Muvr needs on top:
+   the two-ends cover, the side-by-side overview, the FigJam boards, wide
+   features and galleries, the journey map, the component kit and the order
+   cards. Canvas v2.2 tokens only; Muvr's own colours live inside the screens,
+   the cover and the swatch list.
+   ========================================================================== */
+
+.mv { --mv-purple: #9506E6; --mv-purple-deep: #59048A; --mv-lilac: #F3EAFD; --mv-tile: #F5F3F8; }
+
+/* ---------- Cover: both ends of the move, the brand in the middle ---------- */
+.case-cover .mv-cover {
+  overflow: hidden;
+  background:
+    radial-gradient(42% 60% at 50% 46%, rgba(190, 90, 250, 0.55) 0, transparent 70%),
+    linear-gradient(135deg, #7A05C4 0%, var(--mv-purple) 48%, #6A04B3 100%);
+}
+.mv-cover__center { position: absolute; left: 37%; right: 37%; top: 0; bottom: 0; display: grid; place-content: center; justify-items: center; gap: var(--sp-4); text-align: center; }
+.mv-cover__center img { width: clamp(110px, 13vw, 180px); height: auto; }
+.mv-cover__center p { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: #FFFFFF; }
+.mv-cover__end { position: absolute; top: 8%; width: 34%; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 6%; align-content: start; }
+.mv-cover__end--user { left: 2.5%; }
+.mv-cover__end--driver { right: 2.5%; }
+.mv-cover__end figcaption {
+  grid-column: 1 / -1; justify-self: center; margin-bottom: var(--sp-4); padding: 4px 10px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-900);
+  background: var(--sticky-lilac); border: 1px solid var(--ink-900); border-radius: var(--radius-full); box-shadow: 1.5px 1.5px 0 var(--ink-900);
+}
+.mv-cover__end--driver figcaption { background: var(--sticky-mint); }
+.mv-cover__end img { width: 100%; height: auto; border-radius: 9% / 4.2%; outline: 1.5px solid rgba(255, 255, 255, 0.5); outline-offset: -1px; box-shadow: 0 26px 40px -16px rgba(30, 0, 60, 0.6); }
+/* outer phones sit lower, inner phones lean toward the brand */
+.mv-cover__end--user img:nth-of-type(1), .mv-cover__end--driver img:nth-of-type(2) { margin-top: 16%; }
+
+/* ---------- Screens: Muvr exports are square, so the page rounds them ---------- */
+.mv .cx-strip img, .mv .cx-feature__shots img {
+  border-radius: clamp(10px, 1.4vw, 20px); border: 1px solid rgba(22, 21, 15, 0.1); background: #FFFFFF;
+  filter: drop-shadow(0 12px 18px rgba(22, 21, 15, 0.12));
+}
+.mv .cx-feature__shots { align-items: start; }
+
+/* ---------- Overview: the two ends, side by side ---------- */
+.mv-ends { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-6); margin-top: var(--sp-7); }
+.mv-end { border: 1px solid var(--color-border-strong); border-radius: var(--radius-3); background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); overflow: hidden; }
+.mv-end header { padding: var(--sp-5) var(--sp-6); display: grid; gap: var(--sp-3); justify-items: start; border-bottom: 1px solid var(--color-border-strong); }
+.mv-end--user header { background: var(--mv-lilac); }
+.mv-end--driver header { background: color-mix(in srgb, var(--sticky-mint) 45%, #FFFFFF); }
+.mv-end dl { margin: 0; padding: var(--sp-3) var(--sp-6) var(--sp-5); }
+.mv-end dl div { display: grid; grid-template-columns: 9.5rem 1fr; gap: var(--sp-4); padding: var(--sp-3) 0; border-bottom: 1px dashed var(--color-border); }
+.mv-end dl div:last-child { border-bottom: 0; }
+.mv-end dt { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-subtle); padding-top: 3px; }
+.mv-end dd { margin: 0; line-height: 1.5; }
+.mv-role { margin-top: var(--sp-8); }
+.mv-role .cx-label { margin-bottom: var(--sp-3); }
+
+/* ---------- FigJam boards ---------- */
+.mv-boards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-7) var(--sp-6); margin-top: var(--sp-2); }
+.mv-board { position: relative; margin: 0; padding: var(--sp-4); background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); display: grid; gap: var(--sp-4); align-content: start; }
+.mv-board--wide { grid-column: 1 / -1; }
+.mv-board .frame__label { position: absolute; top: auto; bottom: calc(100% + 6px); left: 0; }
+.mv-board__img { display: block; border-radius: var(--radius-2); overflow: hidden; border: 1px solid var(--color-border); background: #FAFAFA; }
+.mv-board__img img { display: block; width: 100%; height: auto; transition: transform var(--dur-4) var(--ease-standard); }
+@media (hover: hover) and (pointer: fine) { .mv-board__img:hover img { transform: scale(1.02); } }
+.mv-board__img:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.mv-board figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--sp-2) var(--sp-5); font-size: var(--fs-14); color: var(--color-text-muted); }
+.mv-board figcaption a { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-text); white-space: nowrap; }
+
+/* ---------- Acts: the kicker becomes the app's badge ---------- */
+.mv-app .cx-kicker { justify-self: start; padding: 4px 10px; border: 1px solid var(--ink-900); border-radius: var(--radius-full); color: var(--ink-900); }
+.mv .mv-app--user .cx-kicker, .mv .mv-app--user .cx-num { background: var(--sticky-lilac); }
+.mv .mv-app--driver .cx-kicker, .mv .mv-app--driver .cx-num { background: var(--sticky-mint); }
+.mv-app .cx-h2 { max-width: 20ch; }
+
+/* ---------- Wide features: text on top, screens large below ---------- */
+.mv-feature { margin-top: var(--sp-9); }
+.mv-feature__text { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--sp-8); align-items: start; margin-bottom: var(--sp-6); }
+.mv-feature__text .cx-label { margin-bottom: var(--sp-3); }
+.mv-feature__text > p { color: var(--color-text-muted); max-width: 60ch; }
+.mv .cx-feature__shots.mv-shots--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-7); padding: var(--sp-7) var(--sp-8); }
+.mv-shots--3 img:nth-child(2) { margin-top: var(--sp-6); }
+.mv .cx-feature + .cx-feature, .mv-feature + .cx-feature { margin-top: var(--sp-9); }
+
+.mv-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-6); align-items: start; padding: var(--sp-6); border-radius: var(--radius-3); background: var(--color-bg-sunken); border: 1px solid var(--color-border); }
+.mv-gallery figure { margin: 0; display: grid; gap: var(--sp-4); }
+.mv-gallery figcaption { display: grid; gap: 2px; }
+.mv-gallery figcaption b { font-weight: 600; font-size: var(--fs-14); }
+.mv-gallery figcaption span { font-size: var(--fs-13); line-height: 1.45; color: var(--color-text-muted); }
+
+/* ---------- Journey: nine steps in three phases ---------- */
+.mv-journey { background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); padding: var(--sp-7) var(--sp-6) var(--sp-6); }
+.mv-journey__phases { display: grid; grid-template-columns: 3fr 4fr 2fr; gap: var(--sp-5); }
+.mv-phase { display: grid; align-content: start; gap: var(--sp-3); }
+.mv-phase > .cx-label { padding-bottom: var(--sp-2); border-bottom: 1px solid var(--color-border-strong); }
+.mv-phase ol { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-3); }
+.mv-phase--1 ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.mv-phase--2 ol { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mv-phase--3 ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mv-node { display: grid; align-content: start; gap: 4px; padding: var(--sp-3) var(--sp-3) var(--sp-4); border-radius: var(--radius-2); border: 1px dashed var(--ink-400); background: var(--color-bg-elevated); min-height: 100%; }
+.mv-node small { font-family: var(--font-mono); font-size: 10px; letter-spacing: var(--tracking-wide); color: var(--color-text-subtle); }
+.mv-node b { overflow-wrap: break-word; hyphens: auto; font-weight: 600; font-size: var(--fs-14); line-height: 1.3; }
+.mv-node span { font-size: var(--fs-13); line-height: 1.45; color: var(--color-text-muted); }
+.mv-node--done { border: 1px solid var(--ink-900); background: var(--sticky-mint); box-shadow: var(--shadow-hard); }
+.mv-node--done small, .mv-node--done span { color: var(--ink-800); }
+.mv-journey__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3) var(--sp-6); margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px dashed var(--color-border); }
+.mv-legend { display: flex; gap: var(--sp-5); list-style: none; margin: 0; padding: 0; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--color-text-muted); }
+.mv-legend li { display: inline-flex; align-items: center; gap: var(--sp-2); }
+.mv-legend i { width: 14px; height: 14px; border-radius: 3px; border: 1px dashed var(--ink-400); background: var(--color-bg-elevated); }
+.mv-legend li:first-child i { border: 1px solid var(--ink-900); background: var(--sticky-mint); }
+.mv-journey__foot p { font-size: var(--fs-14); color: var(--color-text-muted); max-width: 60ch; }
+
+/* ---------- Orders: cards straight from the board ---------- */
+.mv-orders { margin: var(--sp-7) 0 0; background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); padding: var(--sp-5); }
+.mv-orders__scroll { overflow-x: auto; scrollbar-width: thin; }
+.mv-orders__scroll img { display: block; width: 100%; min-width: 880px; height: auto; border-radius: var(--radius-2); background: #F7F7F8; }
+.mv-orders__scroll:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; border-radius: var(--radius-2); }
+.mv-orders__steps { list-style: none; padding: 0; margin: var(--sp-5) 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-5); }
+.mv-orders__steps li { font-size: var(--fs-14); line-height: 1.55; color: var(--color-text-muted); border-top: 1px solid var(--color-border-strong); padding-top: var(--sp-3); }
+.mv-orders__steps b { display: block; color: var(--color-text); font-weight: 600; margin-bottom: 2px; }
+.mv-doubts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-5); margin-top: var(--sp-7); }
+.mv-doubts .sticky { font-size: 1.1rem; line-height: 1.35; }
+.mv-doubts .sticky:nth-child(1) { transform: rotate(-1.5deg); }
+.mv-doubts .sticky:nth-child(2) { transform: rotate(1deg); background: var(--sticky-pink); }
+.mv-doubts .sticky:nth-child(3) { transform: rotate(-0.5deg); background: var(--sticky-sky); }
+
+/* ---------- Component kit: six groups, one tile per part ---------- */
+.mv-kit { position: relative; margin-top: var(--sp-7); padding: var(--sp-6) var(--sp-6) var(--sp-4); background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); }
+.mv-kit .frame__label { position: absolute; top: auto; bottom: calc(100% + 6px); left: 0; }
+.mv-kit__group { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: var(--sp-6); padding: var(--sp-6) 0; }
+.mv-kit__group + .mv-kit__group { border-top: 1px dashed var(--color-border); }
+.mv-kit__group:first-of-type { padding-top: 0; }
+.mv-kit__head .cx-label { color: var(--color-text); margin-bottom: var(--sp-2); }
+.mv-kit__head p:not(.cx-label) { font-size: var(--fs-14); line-height: 1.5; color: var(--color-text-muted); }
+.mv-kit__tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: var(--sp-4); align-items: start; }
+.mv-tile { margin: 0; display: grid; gap: var(--sp-3); }
+.mv-tile__art { display: grid; place-items: center; min-height: 9.5rem; padding: var(--sp-5) var(--sp-4); border-radius: var(--radius-2); background: var(--mv-tile); border: 1px solid rgba(22, 21, 15, 0.06); }
+.mv-tile__art--stack { gap: var(--sp-3); align-content: center; }
+.mv-tile__art img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+.mv-tile figcaption { display: grid; gap: 2px; padding: 0 2px; }
+.mv-tile figcaption b { font-size: var(--fs-14); font-weight: 600; }
+.mv-tile figcaption span { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em; color: var(--color-text-subtle); }
+
+/* ---------- Illustrations ---------- */
+.mv-illus { margin: 0; padding: var(--sp-4); background: #F9F9F9; box-shadow: var(--shadow-hard-lg); }
+.mv-illus img { display: block; width: 100%; height: auto; }
+
+/* ---------- One thing I'd change: replicas of the app's own text ---------- */
+.mv .cx-contrast + .cx-contrast { margin-top: var(--sp-6); }
+.mv .cx-contrast__pair figure { background: #FFFFFF; }
+.mv-demo { font: 400 15px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.005em; min-height: 66px; }
+.mv-demo--hint { color: #A7A7AC; }
+.mv-demo--fixed { color: #6E6E76; }
+.mv-demo b { display: block; color: #232430; font-weight: 600; margin-bottom: 2px; }
+.mv-demo mark { white-space: nowrap; background: none; color: var(--mv-purple); font-weight: 600; }
+
+/* ---------- Outcome ---------- */
+.mv-measure { margin-top: var(--sp-7); padding: var(--sp-5) var(--sp-6); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-3); }
+.mv-measure .cx-label { margin-bottom: var(--sp-4); }
+.mv-measure .cx-roadmap { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3) var(--sp-6); }
+.mv-credit { margin-top: var(--sp-8); text-align: center; font-size: var(--fs-13); color: var(--color-text-subtle); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1080px) {
+  .mv-journey__phases { grid-template-columns: 1fr; gap: var(--sp-6); }
+  .mv-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mv-orders__steps { grid-template-columns: 1fr 1fr; }
+  .mv .cx-feature__shots.mv-shots--3 { gap: var(--sp-5); padding: var(--sp-6); }
+  .mv-kit__group { grid-template-columns: 1fr; gap: var(--sp-4); }
+}
+@media (max-width: 860px) {
+  .mv-ends, .mv-boards, .mv-feature__text { grid-template-columns: 1fr; }
+  .mv-feature__text { gap: var(--sp-4); }
+  .mv-doubts { grid-template-columns: 1fr; max-width: 420px; }
+  .mv-measure .cx-roadmap { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .case-cover .mv-cover { background: linear-gradient(160deg, #7A05C4 0%, var(--mv-purple) 50%, #6A04B3 100%); }
+  .mv-cover__center { left: 0; right: 0; bottom: auto; height: 26%; gap: var(--sp-2); }
+  .mv-cover__center img { width: 88px; }
+  .mv-cover__center p { display: none; }
+  .mv-cover__end { top: 28%; width: 43%; gap: 0 8%; }
+  .mv-cover__end--user { left: 4.5%; }
+  .mv-cover__end--driver { right: 4.5%; }
+  .mv-cover__end figcaption { font-size: 8.5px; padding: 2px 7px; margin-bottom: var(--sp-2); white-space: nowrap; }
+  .mv-end dl div { grid-template-columns: 1fr; gap: 2px; }
+  .mv-end header, .mv-end dl { padding-inline: var(--sp-5); }
+  .mv-journey { padding: var(--sp-5); }
+  .mv-phase ol, .mv-phase--1 ol, .mv-phase--2 ol, .mv-phase--3 ol { grid-template-columns: 1fr 1fr; }
+  .mv .cx-feature__shots.mv-shots--3 { gap: var(--sp-3); padding: var(--sp-4); }
+  .mv-shots--3 img:nth-child(2) { margin-top: var(--sp-4); }
+  .mv-gallery { gap: var(--sp-4); padding: var(--sp-4); }
+  .mv-orders { padding: var(--sp-4); }
+  .mv-orders__steps { grid-template-columns: 1fr; }
+  .mv-kit { padding: var(--sp-5) var(--sp-4) var(--sp-3); }
+  .mv-kit__tiles { grid-template-columns: 1fr; }
+  .mv-board { padding: var(--sp-3); }
+}
