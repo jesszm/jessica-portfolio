@@ -78,8 +78,8 @@
   var pageMeta = d.querySelector('meta[name="i18n-page"]');
   var page = pageMeta ? pageMeta.getAttribute('content') : 'index';
   window.JM_PT = {};
-  d.write('<script src="' + base + 'assets/i18n/pt/common.js?v=12"><\/script>');
-  d.write('<script src="' + base + 'assets/i18n/pt/' + page + '.js?v=12"><\/script>');
+  d.write('<script src="' + base + 'assets/i18n/pt/common.js?v=13"><\/script>');
+  d.write('<script src="' + base + 'assets/i18n/pt/' + page + '.js?v=13"><\/script>');
 
   /* called by an inline script at the end of <body>, before deferred scripts touch the DOM */
   window.jmApplyI18n = function () {

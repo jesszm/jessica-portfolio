@@ -28,20 +28,6 @@
 .case-cover .frame { overflow: hidden; box-shadow: var(--shadow-hard-lg); background: var(--color-bg-elevated); }
 .case-cover .frame__label { top: auto; bottom: calc(100% + 6px); }
 
-.case-wip { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-8); margin-top: var(--sp-9); align-items: start; }
-.case-wip__note { position: sticky; top: calc(var(--nav-height) + var(--sp-6)); transform: rotate(-2deg); max-width: 280px; }
-.case-wip__note .sticky { font-size: 1.35rem; }
-.case-wip__note .sticky b { margin-bottom: var(--sp-2); }
-
-.case-outline { display: grid; gap: var(--sp-5); counter-reset: part; }
-.case-part { position: relative; border: 1px dashed var(--color-border-strong); border-radius: var(--radius-3); padding: var(--sp-6); background: color-mix(in srgb, var(--color-bg-elevated) 70%, transparent); }
-.case-part h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 2.4vw, 2rem); letter-spacing: -0.015em; display: flex; align-items: baseline; gap: var(--sp-3); }
-.case-part h2::before { counter-increment: part; content: counter(part, decimal-leading-zero); font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-text-subtle); letter-spacing: 0.04em; }
-.case-part p { margin-top: var(--sp-2); color: var(--color-text-muted); max-width: 56ch; }
-.case-part .skeleton { display: grid; gap: 8px; margin-top: var(--sp-5); }
-.case-part .skeleton i { display: block; height: 8px; border-radius: 4px; background: var(--color-bg-sunken); }
-.case-part .skeleton i:nth-child(1) { width: 92%; } .case-part .skeleton i:nth-child(2) { width: 78%; } .case-part .skeleton i:nth-child(3) { width: 54%; }
-
 .case-next { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); margin-top: var(--sp-9); }
 .case-next a { display: block; text-decoration: none; color: inherit; border: 1px solid var(--color-border-strong); border-radius: var(--radius-3); padding: var(--sp-5) var(--sp-6); background: var(--color-bg-elevated); box-shadow: var(--shadow-hard); transition: transform var(--dur-1) var(--ease-standard), box-shadow var(--dur-1) var(--ease-standard); }
 .case-next a:hover { transform: translate(-1.5px, -1.5px); box-shadow: 3.5px 3.5px 0 var(--color-border-strong); }
@@ -52,8 +38,7 @@
 .case-contact { margin-top: var(--sp-9); }
 
 @media (max-width: 860px) {
-  .case-hero, .case-wip { grid-template-columns: 1fr; gap: var(--sp-6); }
-  .case-wip__note { position: static; }
+  .case-hero { grid-template-columns: 1fr; gap: var(--sp-6); }
   .case-cover .case__thumb { aspect-ratio: 4 / 3; }
   .case-next { grid-template-columns: 1fr; }
   .case-next a:last-child { text-align: left; }

@@ -153,7 +153,9 @@ html.is-ready .story__canvas { opacity: 1; }
 .story__progress span { display: block; height: 100%; background: var(--color-accent-text); transform-origin: left; transform: scaleX(0); }
 
 /* ---------- Mode: cinematic ---------- */
-html.is-cinematic .chapter:not(.chapter--hero) { opacity: 0; visibility: hidden; }
+/* opacity only (no visibility: hidden), so every chapter stays in the accessibility tree */
+html.is-cinematic .chapter:not(.chapter--hero) { opacity: 0; }
+html.is-cinematic .chapter:not(.is-current) { pointer-events: none; }
 
 /* ---------- Mode: static & no-JS ---------- */
 html.no-js .story__stage,

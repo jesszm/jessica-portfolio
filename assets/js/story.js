@@ -93,10 +93,10 @@ function cinematic() {
     const a = Number(el.dataset.in);
     const b = el.dataset.out ? Number(el.dataset.out) : null;
     if (a > 0) {
-      tl.fromTo(el, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.014, ease: 'power2.out' }, a);
+      tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.014, ease: 'power2.out' }, a);
     }
     if (b !== null) {
-      tl.to(el, { autoAlpha: 0, y: -32, duration: 0.012, ease: 'power2.in' }, b);
+      tl.to(el, { opacity: 0, y: -32, duration: 0.012, ease: 'power2.in' }, b);
     }
   });
 
@@ -106,6 +106,8 @@ function cinematic() {
     let current = 0;
     chapters.forEach((el, i) => { if (p >= Number(el.dataset.in) - 0.005) current = i; });
     railLinks.forEach((a, i) => a.setAttribute('aria-current', i === current ? 'step' : 'false'));
+    /* chapters fade with opacity only, so screen readers keep all of them; only the one on screen takes clicks */
+    chapters.forEach((el, i) => el.classList.toggle('is-current', i === current));
     if (counter) {
       const el = chapters[current];
       const num = el.querySelector('.num');
@@ -142,6 +144,12 @@ function cinematic() {
       lenis.scrollTo(el, { offset: -navOffset(), duration: 1.6, immediate });
     }
   }
+
+  /* Tab into a chapter that isn't on screen: bring the story to it, so focus is never on something invisible */
+  story.addEventListener('focusin', (e) => {
+    const ch = e.target.closest('.chapter');
+    if (ch && !ch.classList.contains('is-current')) scrollToTarget(ch, true);
+  });
 
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"]');

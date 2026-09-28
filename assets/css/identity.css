@@ -26,8 +26,6 @@ strong, b { font-weight: 600; }
   box-decoration-break: clone;
 }
 .hl { font-style: normal; }
-.hl--yellow { background: linear-gradient(transparent 62%, var(--sticky-yellow) 62%, var(--sticky-yellow) 90%, transparent 90%); }
-.hl--mint   { background: linear-gradient(transparent 62%, var(--sticky-mint) 62%, var(--sticky-mint) 90%, transparent 90%); }
 .hand { font-family: var(--font-hand); font-weight: 400; letter-spacing: 0; text-transform: none; }
 
 /* ---------- Custom cursor: the real pointer, restyled (no fake follower) ---------- */
@@ -106,7 +104,6 @@ html.is-inspecting[data-grid="on"] .inspect-box, html.is-inspecting[data-grid="o
 .btn--primary { --_bg: var(--color-brand); --_fg: var(--color-text-on-brand); --_bd: var(--color-border-strong); box-shadow: 2px 2px 0 var(--sticky-lilac), 2px 2px 0 1px var(--color-border-strong); }
 .btn--primary:hover { --_bg: var(--color-brand-hover); box-shadow: 3.5px 3.5px 0 var(--sticky-lilac), 3.5px 3.5px 0 1px var(--color-border-strong); }
 .btn--lilac { --_bg: var(--sticky-lilac); --_fg: var(--ink-900); }
-.btn--yellow { --_bg: var(--sticky-yellow); --_fg: var(--ink-900); }
 .btn--ghost { box-shadow: none; border-color: transparent; }
 
 /* ---------- Tags: candy pills ---------- */
@@ -117,7 +114,6 @@ html.is-inspecting[data-grid="on"] .inspect-box, html.is-inspecting[data-grid="o
 .tag--mint   { background: var(--sticky-mint); color: var(--ink-900); border-color: var(--ink-900); }
 .tag--pink   { background: var(--sticky-pink); color: var(--ink-900); border-color: var(--ink-900); }
 .tag--coral  { background: var(--sticky-coral); color: var(--ink-900); border-color: var(--ink-900); }
-.tag--ink    { background: var(--color-brand); color: var(--color-text-on-brand); border-color: var(--color-border-strong); }
 .tag--proto  { background: var(--color-accent-subtle); color: var(--color-accent-text); border-color: currentColor; }
 
 /* ---------- FigJam section tabs ---------- */
@@ -144,7 +140,6 @@ html.is-inspecting[data-grid="on"] .inspect-box, html.is-inspecting[data-grid="o
 .case__cta { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--sp-4); font-size: var(--fs-14); font-weight: 500; color: var(--color-text); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 .case:hover .case__cta .arrow { transform: translateX(3px); }
 .case__cta .arrow { transition: transform var(--dur-2) var(--ease-standard); }
-.mini--phone, .mini--dash, .mini--web { border-width: 1px; border-color: var(--color-border-strong); }
 
 /* Crypex thumbnail: the brand's plane of light with the pay flow */
 .crypex { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -223,11 +218,7 @@ html.is-inspecting[data-grid="on"] .inspect-box, html.is-inspecting[data-grid="o
 .about__quote .hand { display: block; font-size: 1.4rem; color: var(--color-text-muted); margin-bottom: var(--sp-3); }
 .about__quote em { font-style: italic; background: linear-gradient(transparent 62%, var(--sticky-mint) 62%, var(--sticky-mint) 90%, transparent 90%); }
 
-.about__pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-6); }
-.about__block { position: relative; background: var(--color-bg-elevated); border: 1px solid var(--color-border-strong); border-radius: var(--radius-3); padding: var(--sp-7) var(--sp-6) var(--sp-6); box-shadow: var(--shadow-hard); }
 .about__kicker { position: absolute; top: -13px; left: var(--sp-5); }
-.about__block h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 2.4vw, 2rem); letter-spacing: -0.015em; margin-bottom: var(--sp-3); }
-.about__block p { color: var(--color-text-muted); line-height: 1.65; max-width: 52ch; }
 
 .about__cv { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-7); margin-top: clamp(var(--sp-8), 8vw, var(--sp-9)); padding-top: var(--sp-6); border-top: 1px solid var(--color-border); }
 .about__cv h3 { font-family: var(--font-mono); font-size: var(--fs-12); font-weight: 400; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-text-subtle); margin-bottom: var(--sp-4); }
@@ -238,8 +229,7 @@ html.is-inspecting[data-grid="on"] .inspect-box, html.is-inspecting[data-grid="o
 @media (max-width: 860px) {
   .about__intro { grid-template-columns: 1fr; gap: var(--sp-7); }
   .about__portrait { max-width: 340px; }
-  .about__pair, .about__cv { grid-template-columns: 1fr; }
-  .about__pair { gap: var(--sp-7); }
+  .about__cv { grid-template-columns: 1fr; }
 }
 
 /* ---------- Sparkles (the 4-point stars of v1) ---------- */
@@ -251,11 +241,6 @@ html.is-inspecting[data-grid="on"] .inspect-box, html.is-inspecting[data-grid="o
   .sparkle:nth-of-type(3) { animation-delay: 1.6s; }
 }
 @keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); } 50% { transform: scale(0.82) rotate(12deg); } }
-
-/* hand-drawn note + arrow, FigJam style */
-.hand-note { position: absolute; font-family: var(--font-hand); font-size: 1.4rem; color: var(--color-text); display: flex; align-items: flex-end; gap: 4px; pointer-events: none; z-index: 3; }
-.hand-note svg { width: 46px; height: 46px; stroke: currentColor; fill: none; stroke-width: 1.4; stroke-linecap: round; }
-.hand-note--light { color: #F2EFE6; }
 
 /* ---------- Contact: Shall we? ---------- */
 .shall { position: relative; text-align: center; padding: var(--sp-9) var(--sp-5); border: 1px solid var(--color-border-strong); border-radius: var(--radius-3); background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); overflow: hidden; }
@@ -316,8 +301,6 @@ p { line-height: 1.65; }
 .about__intro-text { margin-top: var(--sp-6); font-size: var(--fs-16); }
 .about__quote { font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2.2rem); line-height: 1.25; }
 .about__quote .hand { font-size: 1.15rem; margin-bottom: var(--sp-4); }
-.about__block { padding: var(--sp-7) var(--sp-6) var(--sp-6); }
-.about__block h3 { font-weight: 500; font-size: clamp(1.3rem, 1.8vw, 1.6rem); margin-bottom: var(--sp-3); }
 .about__cv { gap: var(--sp-8); }
 
 .shall { padding: clamp(var(--sp-8), 9vw, var(--sp-9)) var(--sp-5); }

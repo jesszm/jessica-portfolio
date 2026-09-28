@@ -1,5 +1,8 @@
 /* JM · pt-BR · Crypex case page (template parts live in common). Keys: hash of the English block (see assets/js/i18n.js). */
 window.JM_PT = Object.assign(window.JM_PT || {}, {
+ "1xvzpo6": "Entregue completo em 2024, em seções marcadas como prontas para o dev. O lançamento foi adiado pela incerteza regulatória; o projeto está pausado, não abandonado.",
+ "p8l8ix": "Um conversor com a cripto em cima e o Pix embaixo, todos os números à vista antes de confirmar e finais claros para sucesso e falha, testado com cinco pessoas.",
+ "1ib8w2b": "Pagar com cripto significava vender, sacar e esperar, com uma taxa e uma chance de erro irreversível a cada etapa.",
  "1303w73": "<b>Case 02</b> · Pagamentos em cripto · App iOS · 0 → 1 · 2024",
  "jwhllf": "Pagar com cripto, tão fácil quanto um <em>Pix</em>",
  "1snz34t": "A Crypex permite pagar um Pix direto do saldo em cripto, sem precisar vender, sacar e esperar antes. Desenhei o app de ponta a ponta como única designer, lado a lado com o engenheiro que fundou a empresa.",
@@ -222,7 +225,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1ss2ac": "Tela Início: insights com IA, serviços e o mercado de cripto.",
  "1mwmwz7": "Confirmação do pagamento com taxa, totais e um timer de dez minutos para a cotação.",
  "c24d0t": "Em resumo",
- "rpvfkb": "O que foi meu",
  "xnk23r": "Fluxo de pagamento",
  "kyshds": "Rascunho 1: “O que você deseja pagar hoje?” com as opções Pix e boleto.",
  "wue6er": "Rascunho 2: “Para quem você quer transferir?” com um campo de chave Pix.",
@@ -235,8 +237,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "cl46ad": "Etapa final 3: confirmação com taxa, totais em reais e ETH, endereço da carteira e timer.",
  "abexap": "Tela Pagar antes de digitar: campos de ETH e Pix zerados e o botão Continuar desativado.",
  "1ikwf5w": "Tela Pagar com um valor: ETH convertido em R$ 2.500,00 e Continuar ativo.",
- "1tyestf": "Tela do destinatário: chave Pix digitada e nome, CPF mascarado e banco de quem recebe.",
- "1itvxb1": "Tela de confirmação: rota de ETH para Pix, valor, taxa de 10%, total em reais e em ETH, endereço da carteira com botão de copiar e uma contagem regressiva.",
  "h2058p": "Tela de sucesso: um check verde e “Pagamento Concluído”, com um link para o histórico de pagamentos.",
  "8n85sp": "Tela de falha: um X vermelho e “Falha no Pagamento”, com uma explicação e um link para o histórico de pagamentos.",
  "1aswixa": "Início: saudação, um card de insights com IA, serviços de Pix, boleto e pagamentos, uma lista de mercado com BTC, ETH e USDT e a variação em 24 horas, e a tab bar.",

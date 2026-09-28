@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="muvr">
-  <script src="../assets/js/i18n.js?v=12"></script>
+  <script src="../assets/js/i18n.js?v=13"></script>
   <link rel="alternate" hreflang="en" href="https://www.jessmonteiro.com/work/muvr.html">
   <link rel="alternate" hreflang="pt-BR" href="https://www.jessmonteiro.com/work/muvr.html?lang=pt">
   <link rel="alternate" hreflang="x-default" href="https://www.jessmonteiro.com/work/muvr.html">
@@ -33,10 +33,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/tokens.css?v=22">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=23">
-  <link rel="stylesheet" href="../assets/css/identity.css?v=32">
-  <link rel="stylesheet" href="../assets/css/case.css?v=2">
-  <link rel="stylesheet" href="../assets/css/case-crypex.css?v=5">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=24">
+  <link rel="stylesheet" href="../assets/css/identity.css?v=33">
+  <link rel="stylesheet" href="../assets/css/case.css?v=3">
+  <link rel="stylesheet" href="../assets/css/case-crypex.css?v=6">
   <link rel="stylesheet" href="../assets/css/case-muvr.css?v=10">
   <script src="../assets/js/main.js?v=9" defer></script>
   <script src="../assets/js/case-crypex.js?v=7" defer></script>
@@ -105,7 +105,7 @@
               <p>One move, two apps</p>
             </div>
             <div class="mv-cover__screens">
-              <img src="../assets/img/muvr/home.webp" width="750" height="1664" alt="User app home: moves grouped as residential and commercial, each with its own illustration.">
+              <img fetchpriority="high" src="../assets/img/muvr/home.webp" width="750" height="1664" alt="User app home: moves grouped as residential and commercial, each with its own illustration.">
               <img src="../assets/img/muvr/help-home.webp" width="750" height="1664" alt="Driver app help center: onboarding and tickets tabs, search and six illustrated categories.">
               <img src="../assets/img/muvr/crew-dashboard-progress.webp" width="750" height="1664" alt="Driver app onboarding dashboard at 60%, with one recommended next step.">
             </div>
@@ -119,6 +119,16 @@
         <li><strong>8</strong><span>move types, from a dorm room to a warehouse</span></li>
         <li><strong>9</strong><span>booking steps mapped, from address to proof</span></li>
       </ul>
+
+      <!-- ============ In 30 seconds ============ -->
+      <section class="cx-tldr" aria-labelledby="cx-tldr-title">
+        <h2 class="cx-tldr__title" id="cx-tldr-title">In 30 seconds</h2>
+        <dl class="cx-tldr__grid">
+          <div><dt>The problem</dt><dd>The booking asked everything at once and still missed what mattered. Drivers faced up to ten requirements with no clear order, and declines with no explanation.</dd></div>
+          <div><dt>What I did</dt><dd>A booking that asks about the home step by step, adapted to each of the eight move types, and an onboarding checklist with one clear next step and an answer for every submission.</dd></div>
+          <div><dt>Where it landed</dt><dd>The core flows of both apps designed with components and states, and the booking journey mapped end to end, handed off in 2025.</dd></div>
+        </dl>
+      </section>
 
       <!-- ============ On this page ============ -->
       <nav class="cx-toc" aria-label="On this page">
@@ -196,11 +206,11 @@
         </div>
 
         <ol class="cx-steps">
-          <li><span class="cx-step__n">1</span><h3>Review</h3><p>The old flows, where each one broke, and the complaints users sent in.</p></li>
-          <li><span class="cx-step__n">2</span><h3>Map</h3><p>Every journey in FigJam, step by step, for each move type.</p></li>
-          <li><span class="cx-step__n">3</span><h3>Structure</h3><p>Find what repeats across the journeys, and what has to change.</p></li>
-          <li><span class="cx-step__n">4</span><h3>Design</h3><p>Screens, components and every state, one app at a time.</p></li>
-          <li><span class="cx-step__n">5</span><h3>Validate</h3><p>Walk the flows with the CEO, who knew the trade inside out.</p></li>
+          <li><span class="cx-step__n">1</span><h3>Review</h3><span class="cx-step__stage">Stage · Research</span><p>The old flows, where each one broke, and the complaints users sent in.</p></li>
+          <li><span class="cx-step__n">2</span><h3>Map</h3><span class="cx-step__stage">Stage · Define</span><p>Every journey in FigJam, step by step, for each move type.</p></li>
+          <li><span class="cx-step__n">3</span><h3>Structure</h3><span class="cx-step__stage">Stage · Define</span><p>Find what repeats across the journeys, and what has to change.</p></li>
+          <li><span class="cx-step__n">4</span><h3>Design</h3><span class="cx-step__stage">Stage · Design</span><p>Screens, components and every state, one app at a time.</p></li>
+          <li><span class="cx-step__n">5</span><h3>Validate</h3><span class="cx-step__stage">Stage · Validate</span><p>Walk the flows with the CEO, who knew the trade inside out.</p></li>
         </ol>
 
         <!-- Boards, redrawn in the site's own language -->
