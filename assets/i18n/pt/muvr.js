@@ -138,7 +138,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "av6kor": "apps, um para cada ponta da mudança",
  "40grhi": "tipos de mudança, de um quarto de alojamento a um galpão",
  "155z02l": "etapas de agendamento mapeadas, do endereço ao comprovante",
- "11ayl4q": "telas e estados desenhados",
  "1b7cfob": "<span>02</span> Processo",
  "l5eioh": "<span>03</span> App do usuário",
  "jw0wh1": "<span>04</span> App do motorista",
