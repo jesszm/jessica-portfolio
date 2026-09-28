@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../assets/css/identity.css?v=24">
   <link rel="stylesheet" href="../assets/css/case.css?v=1">
   <link rel="stylesheet" href="../assets/css/case-crypex.css?v=3">
-  <link rel="stylesheet" href="../assets/css/case-muvr.css?v=3">
+  <link rel="stylesheet" href="../assets/css/case-muvr.css?v=4">
   <script src="../assets/js/main.js?v=5" defer></script>
   <script src="../assets/js/case-crypex.js?v=6" defer></script>
 </head>
@@ -96,22 +96,11 @@
 
       <div class="case-cover">
         <div class="frame">
-          <span class="frame__label"><b>Cover</b> Muvr <span class="dim">User app + Driver app · 375</span></span>
+          <span class="frame__label"><b>Cover</b> Muvr <span class="dim">User app + Driver app</span></span>
           <div class="case__thumb mv-cover">
-            <figure class="mv-cover__end mv-cover__end--user">
-              <figcaption>User app</figcaption>
-              <img src="../assets/img/muvr/type-home.webp" width="750" height="1624" alt="User app: the Home Move page, with the first question on top and the Standard, Premium and White-Glove levels compared below.">
-              <img src="../assets/img/muvr/home.webp" width="750" height="1624" alt="User app home: moves grouped as residential and commercial, each with its own illustration.">
-            </figure>
-            <div class="mv-cover__center">
-              <img src="../assets/img/muvr/logo-white.webp" width="211" height="77" alt="Muvr">
-              <p>One move · two apps</p>
-            </div>
-            <figure class="mv-cover__end mv-cover__end--driver">
-              <figcaption>Driver app</figcaption>
-              <img src="../assets/img/muvr/crew-welcome.webp" width="750" height="1624" alt="Driver app welcome: a friendly character with flags on Muvr purple and a Begin button.">
-              <img src="../assets/img/muvr/crew-dashboard-progress.webp" width="750" height="1624" alt="Driver app onboarding dashboard at 60%, with one recommended next step.">
-            </figure>
+            <picture><source media="(max-width: 560px)" srcset="../assets/img/muvr/cover-page-m.webp" width="1200" height="900"><img class="mv-cover__img" src="../assets/img/muvr/cover-page.webp" width="2400" height="1200" alt="The Muvr wordmark in the middle; on the left, two screens of the User app, a move type and the home; on the right, two screens of the Driver app, the onboarding dashboard and an accepted submission."></picture>
+            <span class="mv-cover__tag mv-cover__tag--user">User app</span>
+            <span class="mv-cover__tag mv-cover__tag--driver">Driver app</span>
           </div>
         </div>
       </div>
@@ -141,7 +130,7 @@
         <header class="cx-head">
           <span class="cx-num">01</span>
           <p class="cx-kicker">Overview</p>
-          <h2 id="cx-overview" class="display cx-h2">Same move, two different <em>jobs</em></h2>
+          <h2 id="cx-overview" class="display cx-h2">Same move, two&nbsp;different&nbsp;<em>jobs</em></h2>
         </header>
         <div class="cx-prose cx-prose--wide">
           <p>A move looks like one event, but it's two very different experiences. For the person moving, it's a stressful day they want off their plate. For the driver, it's work: getting approved, taking the job, getting paid. So Muvr runs two apps, and each one had to be designed for its own person.</p>
@@ -213,23 +202,53 @@
             <h3 class="cx-h3">The boards behind it</h3>
             <p class="cx-note">From my FigJam files.</p>
           </div>
-          <div class="mv-boards">
-            <figure class="frame mv-board mv-board--wide">
-              <span class="frame__label"><b>FigJam</b> Booking journey · User app</span>
-              <a class="mv-board__img" href="../assets/img/muvr/fj-journey.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-journey.webp" width="3200" height="1497" alt="The booking journey board: service selection and business rules on the left; on the right, one row per move type, residential, commercial, labor only and storage, each broken into nine steps with notes under every step." loading="lazy"></a>
-              <figcaption><span>Eight move types, nine steps each, with what every step asks and what the system does with it.</span><a href="../assets/img/muvr/fj-journey.webp" target="_blank" rel="noopener">Open the full board <span aria-hidden="true">↗</span></a></figcaption>
-            </figure>
-            <figure class="frame mv-board">
-              <span class="frame__label"><b>Detail</b> One row, up close</span>
-              <a class="mv-board__img" href="../assets/img/muvr/fj-journey-row.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-journey-row.webp" width="3200" height="839" alt="Close-up of the home move row: pickup, home layout and items, drop-off, service level, vehicle and movers, schedule, review, live tracking and proof of completion, each with its rules." loading="lazy"></a>
-              <figcaption><span>A home move, step by step: the questions, the rules and the suggestions the system makes.</span><a href="../assets/img/muvr/fj-journey-row.webp" target="_blank" rel="noopener">Open <span aria-hidden="true">↗</span></a></figcaption>
-            </figure>
-            <figure class="frame mv-board">
-              <span class="frame__label"><b>FigJam</b> Home and orders · Driver app</span>
-              <a class="mv-board__img" href="../assets/img/muvr/fj-orders.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-orders.webp" width="3000" height="2052" alt="The driver home and orders board: context and references on the left, then the app structure, wireframes of the map and order status, and the order card in four states, with open questions beside them." loading="lazy"></a>
-              <figcaption><span>Context, app structure, order-card states and the questions still open.</span><a href="../assets/img/muvr/fj-orders.webp" target="_blank" rel="noopener">Open <span aria-hidden="true">↗</span></a></figcaption>
-            </figure>
-          </div>
+
+          <figure class="mv-bd">
+            <div class="mv-bd__bar">
+              <span class="mv-bd__app tag tag--lilac">User app</span>
+              <b>Booking journey</b>
+              <a href="../assets/img/muvr/fj-journey.webp" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="mv-bd__body">
+              <div class="mv-bd__canvas">
+                <a class="mv-bd__img" href="../assets/img/muvr/fj-journey.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-journey.webp" width="3000" height="1638" alt="The booking journey board: service selection, service rules and tracking on the left; on the right, one row per move type, each broken into nine steps, and a follow-up column." loading="lazy"></a>
+                <span class="mv-pin" style="left: 1.1%; top: 1.6%;" aria-hidden="true">1</span><span class="mv-pin" style="left: 1.1%; top: 24%;" aria-hidden="true">2</span><span class="mv-pin" style="left: 2.2%; top: 47.6%;" aria-hidden="true">3</span><span class="mv-pin" style="left: 31.4%; top: 17.4%;" aria-hidden="true">4</span><span class="mv-pin" style="left: 31.4%; top: 77.4%;" aria-hidden="true">5</span><span class="mv-pin" style="left: 86.5%; top: 4.4%;" aria-hidden="true">6</span>
+              </div>
+              <ol class="mv-bd__legend">
+                <li><b>Service selection</b><span>Where booking begins: moves, deliveries and junk removal on one home screen.</span></li>
+                <li><b>Rules of the service</b><span>Service levels, add-ons for homes and businesses, and schedule options, agreed before any screen.</span></li>
+                <li><b>On the day</b><span>Tracking milestones and push or SMS messages, different for homes and businesses.</span></li>
+                <li><b>One row per move type</b><span>The same nine steps for every move, with what each step asks and what the system does with the answer.</span></li>
+                <li><b>The short path</b><span>Labor only skips the drive and takes seven steps.</span></li>
+                <li><b>Follow-up</b><span>Live tracking and proof of completion, shared by every move type.</span></li>
+              </ol>
+            </div>
+            <figcaption class="mv-bd__zoom">
+              <p class="cx-label">Up close · a home move</p>
+              <a class="mv-bd__img" href="../assets/img/muvr/fj-journey-row.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-journey-row.webp" width="3200" height="909" alt="Close-up of the home, apartment and dorm-room rows: pickup, layout and items, drop-off, service level, vehicle and movers, schedule, review, live tracking and proof of completion, each with its rules." loading="lazy"></a>
+            </figcaption>
+          </figure>
+
+          <figure class="mv-bd mv-bd--driver">
+            <div class="mv-bd__bar">
+              <span class="mv-bd__app tag tag--mint">Driver app</span>
+              <b>Home and orders</b>
+              <a href="../assets/img/muvr/fj-orders.webp" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="mv-bd__body">
+              <div class="mv-bd__canvas">
+                <a class="mv-bd__img" href="../assets/img/muvr/fj-orders.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-orders.webp" width="3000" height="1507" alt="The driver home and orders board: context and references on the left; then the app structure, the order flow with its open questions, and the order card in four states." loading="lazy"></a>
+                <span class="mv-pin" style="left: 2%; top: 12.4%;" aria-hidden="true">1</span><span class="mv-pin" style="left: 28%; top: 11.9%;" aria-hidden="true">2</span><span class="mv-pin" style="left: 28%; top: 42.8%;" aria-hidden="true">3</span><span class="mv-pin" style="left: 63.5%; top: 45.3%;" aria-hidden="true">4</span><span class="mv-pin" style="left: 28%; top: 76.6%;" aria-hidden="true">5</span>
+              </div>
+              <ol class="mv-bd__legend">
+                <li><b>Context</b><span>The brief on one page: revamp home and orders, keep accepting and finishing a job easy, and learn from Uber and Lyft.</span></li>
+                <li><b>App structure</b><span>Wireframes for the online and offline views, earnings and the menu, with everything the old app had to keep.</span></li>
+                <li><b>The job, step by step</b><span>From the map to the current order card, with the actions each status needs: navigate, chat, cancel, report an issue.</span></li>
+                <li><b>Open questions</b><span>Pinned beside the flow, to settle with the team before the next round.</span></li>
+                <li><b>Order card</b><span>Four states as the job gets closer: tomorrow, today, now and on the way.</span></li>
+              </ol>
+            </div>
+          </figure>
         </div>
 
         <aside class="cx-honest">
@@ -732,7 +751,7 @@
         <div class="cx-split">
           <div class="cx-prose">
             <p>The feedback on the work was good. When I handed over, both apps had their core flows designed, with components and states, and the booking journey was mapped end to end for every move type.</p>
-            <p>The next phase called for a different kind of engagement, a full-time, day-to-day role inside the team. For that particular setup, the terms and the scope didn't match, so we agreed to close my part at that milestone, on good terms, with everything documented for the team to build on.</p>
+            <p>The next phase called for a different kind of engagement, a <span class="mv-nw">full-time</span>, <span class="mv-nw">day-to-day</span> role inside the team. For that particular setup, the terms and the scope didn't match, so we agreed to close my part at that milestone, on good terms, with everything documented for the team to build on.</p>
           </div>
           <aside class="cx-card">
             <p class="cx-label">Handed over</p>

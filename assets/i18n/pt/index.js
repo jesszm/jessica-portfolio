@@ -127,5 +127,11 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1xrijq1": "Ilustração da Jess sentada no chão, usando óculos de sol de flor amarelos",
  "1bo9dl3": "Jessica Monteiro — Designer de UI/UX",
  "qhecsu": "Jessica Monteiro é designer de UI/UX com mais de 5 anos de experiência em e-commerce, apps mobile, sistemas web e fintech. Guiada por pesquisa, pensando em sistemas, construindo junto com devs.",
- "3ys644": "Diretrizes de design · v2.3.0"
+ "3ys644": "Diretrizes de design · v2.3.0",
+ "zt63yk": "<b>Case 01</b> Marketplace de mudanças <span class=\"dim\">2 apps · 2025</span>",
+ "1ov877r": "2 APPS · REVAMP",
+ "1oasd6": "O dia da mudança, pelas duas pontas",
+ "19qa5e5": "Os dois apps do Muvr, redesenhados do zero: um para quem vai se mudar, outro para o motorista que faz a mudança. UX/UI solo, freela, 2025.",
+ "rhl2s": "Revamp",
+ "2y5x1x": "Apps de usuário + motorista"
 });
