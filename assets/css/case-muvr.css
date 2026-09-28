@@ -1,5 +1,5 @@
 /* ==========================================================================
-   JM · Case 01 · Muvr — v3.0.0
+   JM · Case 01 · Muvr — v3.1.0
    Page-only layer. The case layout (.cx-*) comes from case-crypex.css, so both
    cases share one structure; this file adds what Muvr needs on top:
    the two-ends cover, the side-by-side overview, the FigJam boards, wide
@@ -10,31 +10,34 @@
 
 .mv { --mv-purple: #9506E6; --mv-purple-deep: #59048A; --mv-lilac: #F3EAFD; --mv-tile: #F5F3F8; }
 
-/* ---------- Cover: one rendered image, the two app tags set in HTML ---------- */
-.case-cover .mv-cover { overflow: hidden; background: #F1EAFB; }
-.mv-cover picture { position: absolute; inset: 0; }
-.mv-cover__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* ---------- Cover: the Crypex pattern, brand panel on the left, three screens on the right ---------- */
+.case-cover .mv-cover { overflow: hidden; background: linear-gradient(90deg, var(--mv-purple) 0 38%, #F3EAFD 38% 100%); }
+.mv-cover__brand {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 38%; display: grid; place-content: center; justify-items: center; gap: var(--sp-3); text-align: center;
+  background: radial-gradient(90% 70% at 30% 20%, #A93BF0 0, transparent 70%), var(--mv-purple);
+}
+.mv-cover__brand img { width: clamp(84px, 9vw, 128px); height: auto; }
+.mv-cover__brand p { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: rgba(255, 255, 255, 0.86); }
+.mv-cover__screens { position: absolute; left: 43%; right: 4%; top: 9%; bottom: -30%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4%; align-items: start; }
+.mv-cover__screens img { width: 100%; height: auto; border-radius: 9% / 4.2%; box-shadow: 0 22px 36px -12px rgba(60, 10, 100, 0.28), 0 2px 6px rgba(22, 21, 15, 0.06); }
+.mv-cover__screens img:nth-child(2) { margin-top: -9%; }
+.mv-cover__screens img:nth-child(3) { margin-top: 6%; }
 
 /* ---------- Typography: balanced headings, no orphans in body copy ---------- */
 .mv-nw { white-space: nowrap; }
 .mv h1, .mv h2, .mv h3, .mv .cx-h3, .mv figcaption b, .mv .mv-end dd, .mv .cx-steps p { text-wrap: balance; }
 .mv p, .mv li, .mv figcaption span { text-wrap: pretty; }
 
-/* ---------- Screens: framed like the cover, on a dotted canvas tinted by app ---------- */
-.mv { --mv-canvas: #F1EAFB; --mv-canvas-dot: rgba(89, 4, 138, 0.16); }
-.mv-app--driver { --mv-canvas: #E7F5EF; --mv-canvas-dot: rgba(22, 90, 70, 0.16); }
+/* ---------- Screens: the screen itself, rounded, with a soft shadow (no device, no outline) ---------- */
 .mv .cx-strip img, .mv .cx-feature__shots img {
-  border: 1.5px solid var(--ink-900); border-radius: 18px; background: #FFFFFF;
-  box-shadow: 5px 5px 0 var(--ink-900); filter: none;
+  border: 0; border-radius: clamp(14px, 1.8vw, 26px); background: #FFFFFF;
+  box-shadow: 0 18px 32px -14px rgba(40, 20, 70, 0.22), 0 2px 6px rgba(22, 21, 15, 0.05); filter: none;
 }
-.mv .cx-feature__shots, .mv-shots, .mv-gallery {
-  border: 1px solid var(--color-border-strong); border-radius: var(--radius-3);
-  background-color: var(--mv-canvas);
-  background-image: radial-gradient(var(--mv-canvas-dot) 1.1px, transparent 1.3px); background-size: 22px 22px;
-}
+.mv .cx-feature__shots, .mv-shots, .mv-gallery { border: 1px solid var(--color-border); border-radius: var(--radius-3); background: #F3EEF9; }
+.mv-app--driver .cx-feature__shots, .mv-app--driver .mv-gallery, .mv-app--driver .mv-shots { background: #EDF6F2; }
 .mv .cx-feature__shots { align-items: start; gap: var(--sp-6); padding: var(--sp-7) var(--sp-6); }
 @media (hover: hover) and (pointer: fine) {
-  .mv .cx-strip img:hover, .mv .cx-feature__shots img:hover { transform: translate(-2px, -3px); box-shadow: 7px 8px 0 var(--ink-900); filter: none; }
+  .mv .cx-strip img:hover, .mv .cx-feature__shots img:hover { transform: translateY(-4px); box-shadow: 0 24px 40px -14px rgba(40, 20, 70, 0.3), 0 2px 6px rgba(22, 21, 15, 0.05); filter: none; }
 }
 
 /* ---------- Overview: the two ends, side by side ---------- */
@@ -121,6 +124,7 @@
 
 .mv-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-6); align-items: start; padding: var(--sp-7) var(--sp-6) var(--sp-6); }
 .mv-gallery figure { margin: 0; display: grid; gap: var(--sp-5); }
+.mv-gallery--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-8); padding-inline: var(--sp-8); }
 .mv-gallery figcaption { display: grid; gap: 2px; }
 .mv-gallery figcaption b { font-weight: 600; font-size: var(--fs-14); }
 .mv-gallery figcaption span { font-size: var(--fs-13); line-height: 1.45; color: var(--color-text-muted); }
@@ -200,7 +204,7 @@
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
   .mv-journey__phases { grid-template-columns: 1fr; gap: var(--sp-6); }
-  .mv-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mv-gallery, .mv-gallery--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-6); padding-inline: var(--sp-6); }
   .mv-orders__steps { grid-template-columns: 1fr 1fr; }
   .mv-shots--3 { gap: var(--sp-5); padding: var(--sp-6); }
   .mv-canvas, .mv-canvas--three { grid-template-columns: 1fr; }
@@ -223,7 +227,13 @@
   .mv .cx-feature__shots { padding: var(--sp-5) var(--sp-4); gap: var(--sp-4); }
   .mv-stickies { grid-template-columns: 1fr; }
   .mv-canvas { padding: var(--sp-4); }
-  .mv .cx-strip img, .mv .cx-feature__shots img { border-radius: 12px; box-shadow: 3px 3px 0 var(--ink-900); }
+  .mv .cx-strip img, .mv .cx-feature__shots img { border-radius: 12px; }
+  .mv-gallery, .mv-gallery--3 { gap: var(--sp-4); padding: var(--sp-5) var(--sp-4); }
+  .case-cover .mv-cover { background: linear-gradient(180deg, var(--mv-purple) 0 24%, #F3EAFD 24% 100%); }
+  .mv-cover__brand { width: auto; right: 0; bottom: auto; height: 24%; }
+  .mv-cover__brand img { width: 76px; }
+  .mv-cover__brand p { display: none; }
+  .mv-cover__screens { left: 6%; right: 6%; top: 32%; bottom: -60%; }
   .mv-shots--3 img:nth-child(2) { margin-top: var(--sp-4); }
   .mv-gallery { gap: var(--sp-4); padding: var(--sp-4); }
   .mv-orders { padding: var(--sp-4); }

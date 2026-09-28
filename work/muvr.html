@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://jessica-portfolio-ruddy.vercel.app/assets/img/muvr/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="The Muvr wordmark in the middle, two screens of the User app on the left and two of the Driver app on the right.">
+  <meta property="og:image:alt" content="The Muvr wordmark in white on purple, beside the User app home and the Driver app help centre.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='5' width='24' height='24' rx='5' fill='%2316150F'/%3E%3Crect x='3' y='3' width='24' height='24' rx='5' fill='%23C9B8FF' stroke='%2316150F' stroke-width='1.5'/%3E%3C/svg%3E">
   <script>
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../assets/css/identity.css?v=24">
   <link rel="stylesheet" href="../assets/css/case.css?v=1">
   <link rel="stylesheet" href="../assets/css/case-crypex.css?v=3">
-  <link rel="stylesheet" href="../assets/css/case-muvr.css?v=5">
+  <link rel="stylesheet" href="../assets/css/case-muvr.css?v=6">
   <script src="../assets/js/main.js?v=5" defer></script>
   <script src="../assets/js/case-crypex.js?v=6" defer></script>
 </head>
@@ -98,7 +98,15 @@
         <div class="frame">
           <span class="frame__label"><b>Cover</b> Muvr <span class="dim">User app + Driver app</span></span>
           <div class="case__thumb mv-cover">
-            <picture><source media="(max-width: 560px)" srcset="../assets/img/muvr/cover-page-m.webp" width="1200" height="900"><img class="mv-cover__img" src="../assets/img/muvr/cover-page.webp" width="2400" height="1200" alt="The Muvr wordmark and a sticky note reading “one move, two apps”, beside two User app screens, the home and a move type, and two Driver app screens, the driver’s licence photo step and the skills profile."></picture>
+            <div class="mv-cover__brand">
+              <img src="../assets/img/muvr/logo-white.webp" width="211" height="77" alt="Muvr">
+              <p>One move, two apps</p>
+            </div>
+            <div class="mv-cover__screens">
+              <img src="../assets/img/muvr/home.webp" width="750" height="1624" alt="User app home: moves grouped as residential and commercial, each with its own illustration.">
+              <img src="../assets/img/muvr/help-home.webp" width="750" height="1624" alt="Driver app help centre: onboarding and tickets tabs, search and six illustrated categories.">
+              <img src="../assets/img/muvr/crew-dashboard-progress.webp" width="750" height="1624" alt="Driver app onboarding dashboard at 60%, with one recommended next step.">
+            </div>
           </div>
         </div>
       </div>
@@ -370,33 +378,37 @@
         </article>
 
         <!-- F2 · Move types -->
-        <article class="mv-feature">
-          <div class="mv-feature__text">
-            <div><p class="cx-label">Move types</p><h3 class="cx-h3">A page for every kind of move</h3></div>
-            <p>Each move type opens its own page: an illustration, one line on what it covers, the first question on top and the three service levels side by side. The rows change with the move, so labor only talks about floor protection and a storage move about placement by category.</p>
+        <article class="cx-feature cx-feature--flip">
+          <div class="cx-feature__shots">
+            <img src="../assets/img/muvr/type-home.webp" width="750" height="1624" alt="Home Move: a one-line description, “Where are you moving from?” and a table comparing Standard, Premium and White-Glove." loading="lazy">
+            <img src="../assets/img/muvr/type-labor.webp" width="750" height="1624" alt="Labor-Only page: rows for rearranging, furniture and floor protection and staged placement." loading="lazy">
           </div>
-          <div class="mv-gallery cx-strip">
-            <figure><img src="../assets/img/muvr/type-home.webp" width="750" height="1624" alt="Home Move: a one-line description, “Where are you moving from?” and a table comparing Standard, Premium and White-Glove." loading="lazy"><figcaption><b>Home move</b><span>Townhomes to family houses</span></figcaption></figure>
-            <figure><img src="../assets/img/muvr/type-office.webp" width="750" height="1624" alt="Office Move: the same layout, with an office illustration and its own description." loading="lazy"><figcaption><b>Office move</b><span>Desks, IT and business hours</span></figcaption></figure>
-            <figure><img src="../assets/img/muvr/type-storage.webp" width="750" height="1624" alt="Storage Unit Move: service levels including placement by category." loading="lazy"><figcaption><b>Storage unit</b><span>Placement by category</span></figcaption></figure>
-            <figure><img src="../assets/img/muvr/type-labor.webp" width="750" height="1624" alt="Labor-Only page: rows for rearranging, furniture and floor protection and staged placement." loading="lazy"><figcaption><b>Labor only</b><span>No truck, just hands</span></figcaption></figure>
+          <div class="cx-feature__text">
+            <p class="cx-label">Move types</p>
+            <h3 class="cx-h3">A page for every kind of move</h3>
+            <ul class="cx-list">
+              <li>Each move type explains itself in one line, next to its own illustration.</li>
+              <li><strong>Three levels, side by side.</strong> Ticks show exactly what Premium and White-Glove add.</li>
+              <li>The rows change with the move: labor only talks about floor protection, not transport.</li>
+              <li>The first question sits on top, so booking starts without leaving the page.</li>
+            </ul>
           </div>
         </article>
 
         <!-- F3 · Buildings -->
-        <article class="mv-feature">
-          <div class="mv-feature__text">
-            <div><p class="cx-label">Booking · steps 1 and 3</p><h3 class="cx-h3">One form that knows the building</h3></div>
+        <article class="cx-feature">
+          <div class="cx-feature__shots">
+            <img src="../assets/img/muvr/pickup-apartment.webp" width="750" height="1630" alt="Pickup details for an apartment: unit number 57B, access by elevator and a time window from 8 am to 6 pm." loading="lazy">
+            <img src="../assets/img/muvr/dropoff-warehouse.webp" width="750" height="2126" alt="Drop-off details for a warehouse: both addresses on top, 9th floor by freight elevator, access hours from 8 am to 6 pm and a note about pre-scheduled loading dock slots." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Booking · steps 1 and 3</p>
+            <h3 class="cx-h3">One form that knows the building</h3>
             <ul class="cx-list">
               <li>Pickup and drop-off share one form, and its fields change with the place: unit, hall and room, floor, loading dock.</li>
               <li><strong>Access only when it applies.</strong> Turn a switch on and its counter or time picker appears.</li>
               <li>A short note carries what no field can, like a gate code or where the sofa goes.</li>
             </ul>
-          </div>
-          <div class="mv-shots mv-shots--3 cx-strip">
-            <img src="../assets/img/muvr/pickup-apartment.webp" width="750" height="1630" alt="Pickup details for an apartment: unit number 57B, access by elevator and a time window from 8 am to 6 pm." loading="lazy">
-            <img src="../assets/img/muvr/pickup-dorm.webp" width="750" height="2148" alt="Pickup details for a dorm room: Maple Hall, room 312B, elevator access and a time picker open to set the access window." loading="lazy">
-            <img src="../assets/img/muvr/dropoff-warehouse.webp" width="750" height="2126" alt="Drop-off details for a warehouse: both addresses on top, 9th floor by freight elevator, access hours from 8 am to 6 pm and a note about pre-scheduled loading dock slots." loading="lazy">
           </div>
         </article>
 
@@ -487,8 +499,8 @@
         <!-- D3 · Dashboard -->
         <article class="cx-feature">
           <div class="cx-feature__shots">
-            <img src="../assets/img/muvr/crew-dashboard.webp" width="750" height="2344" alt="Onboarding dashboard at 0%: a progress ring and a to-do list of ten requirements, with the Muvr explanation video marked as the recommended next step." loading="lazy">
-            <img src="../assets/img/muvr/crew-dashboard-progress.webp" width="750" height="1624" alt="The same dashboard at 60%: three items left, the certificate of insurance recommended next, and optional and completed sections folded away." loading="lazy">
+            <img src="../assets/img/muvr/crew-dashboard-progress.webp" width="750" height="1624" alt="Onboarding dashboard at 60%: three items left, the certificate of insurance recommended next, and optional and completed sections folded away." loading="lazy">
+            <img src="../assets/img/muvr/crew-accepted-popup.webp" width="750" height="1624" alt="Dashboard with a pop-up: Accepted Submission. Your Lifting Video submission has been verified and accepted, with See Updates." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Onboarding dashboard</p>
@@ -505,10 +517,9 @@
         <article class="mv-feature">
           <div class="mv-feature__text">
             <div><p class="cx-label">Requirements</p><h3 class="cx-h3">Each requirement shaped around its proof</h3></div>
-            <p>A licence is a photo, a vehicle is a short form, safety gear is a checklist and skills are switches. Each requirement asks in the way that fits what it proves, with the same header, progress and buttons around it.</p>
+            <p>A vehicle is a short form, safety gear is a checklist and skills are switches. Each requirement asks in the way that fits what it proves, with the same header, progress and buttons around it.</p>
           </div>
-          <div class="mv-gallery cx-strip">
-            <figure><img src="../assets/img/muvr/req-license.webp" width="750" height="1624" alt="Driver’s licence, front: a sample licence card framed on screen, with tips for a sharp photo and a Take Photo button." loading="lazy"><figcaption><b>Driver’s licence</b><span>A photo, with the card shown</span></figcaption></figure>
+          <div class="mv-gallery mv-gallery--3 cx-strip">
             <figure><img src="../assets/img/muvr/req-vehicle.webp" width="750" height="1624" alt="Vehicle information, step one: a list of vehicle types with Pickup Truck selected." loading="lazy"><figcaption><b>Vehicle</b><span>Type first, details next</span></figcaption></figure>
             <figure><img src="../assets/img/muvr/req-equipment.webp" width="750" height="1706" alt="Essential equipment checklist for movers: 4-wheel dolly, hand truck, lifting straps, furniture blankets, stretch wrap and a disassembly kit, all ticked." loading="lazy"><figcaption><b>Equipment</b><span>A checklist, then a photo</span></figcaption></figure>
             <figure><img src="../assets/img/muvr/req-skills.webp" width="750" height="1986" alt="Highlight your skills: core skills as switches, with stairs navigation, fragile items, communication and loading switched on." loading="lazy"><figcaption><b>Skills</b><span>Switches, grouped by service</span></figcaption></figure>
@@ -521,28 +532,28 @@
             <div><p class="cx-label">After you submit</p><h3 class="cx-h3">Every submission gets an answer</h3></div>
             <p>The same moments repeat across the eight requirements that need a review, so drivers learn the pattern once. Waiting has a shape, good news gets a small celebration and a decline is never a dead end.</p>
           </div>
-          <div class="mv-gallery cx-strip">
+          <div class="mv-gallery mv-gallery--3 cx-strip">
             <figure><img src="../assets/img/muvr/st-verifying.webp" width="750" height="1624" alt="Lifting video under review: an illustration of a character with a video, and a note that the review takes 24 to 48 hours." loading="lazy"><figcaption><b>In review</b><span>24 to 48 hours, then a notification</span></figcaption></figure>
-            <figure><img src="../assets/img/muvr/st-watched.webp" width="750" height="1624" alt="Muvr explanation video completely watched: a cheering character and a line of encouragement." loading="lazy"><figcaption><b>Done</b><span>A word of encouragement</span></figcaption></figure>
             <figure><img src="../assets/img/muvr/st-accepted.webp" width="750" height="1624" alt="Driver’s licence verified: a character waving flags and Verification Completed with a green badge." loading="lazy"><figcaption><b>Accepted</b><span>A small celebration</span></figcaption></figure>
             <figure><img src="../assets/img/muvr/crew-declined.webp" width="750" height="1624" alt="Declined profile photo: a short explanation, a link to the decline report, Help and Retake Submission." loading="lazy"><figcaption><b>Declined</b><span>A report, and a retake</span></figcaption></figure>
           </div>
         </article>
 
         <!-- D6 · Help -->
-        <article class="cx-feature cx-feature--flip">
-          <div class="cx-feature__shots">
-            <img src="../assets/img/muvr/crew-help.webp" width="750" height="1624" alt="Help centre: onboarding and tickets tabs, a search field, six categories with illustrations and a Contact Us link." loading="lazy">
-            <img src="../assets/img/muvr/help-empty.webp" width="750" height="1624" alt="Tickets with no history: a magnifying-glass illustration, “Nothing Here…”, and Open a Ticket." loading="lazy">
-          </div>
-          <div class="cx-feature__text">
-            <p class="cx-label">Help centre</p>
-            <h3 class="cx-h3">Help that knows where you're stuck</h3>
+        <article class="mv-feature">
+          <div class="mv-feature__text">
+            <div><p class="cx-label">Help centre</p><h3 class="cx-h3">Help that knows where you're stuck</h3></div>
             <ul class="cx-list">
-              <li>Categories follow onboarding itself: roles, requirements, verification.</li>
-              <li>Articles ask “Was this helpful?”, and a ticket is one tap away when they aren't.</li>
-              <li>Even an empty ticket list points somewhere: open your first one.</li>
+              <li>Categories follow onboarding itself: roles, requirements, optionals, verification.</li>
+              <li>Articles answer one question each, and ask “Was this helpful?” at the end.</li>
+              <li>When they don't help, a ticket is one tap away, and its status is easy to follow.</li>
             </ul>
+          </div>
+          <div class="mv-gallery cx-strip">
+            <figure><img src="../assets/img/muvr/help-home.webp" width="750" height="1624" alt="Help centre home: onboarding and tickets tabs, a search field and six illustrated categories." loading="lazy"><figcaption><b>Home</b><span>Search and illustrated topics</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/help-categories.webp" width="750" height="1624" alt="All categories as a list: onboarding, roles, tickets and contact, requirements, optionals and verification, then Contact Us." loading="lazy"><figcaption><b>Categories</b><span>Named after onboarding</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/help-article.webp" width="750" height="1882" alt="Article: Changing your role, with steps to change it, whether you can keep more than one role, and Was this helpful?" loading="lazy"><figcaption><b>Article</b><span>One question, one answer</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/help-tickets.webp" width="750" height="1624" alt="Ticket history grouped by date: payout, vehicle details, a COI question and a role change, each with its status." loading="lazy"><figcaption><b>Tickets</b><span>Status at a glance</span></figcaption></figure>
           </div>
         </article>
 
