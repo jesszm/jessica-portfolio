@@ -154,5 +154,8 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1w3enj1": "Perfil na Upwork ↗",
  "1vtatul": "Diretrizes de design · v2.4.0",
  "j6puq3": "Pausar as animações decorativas",
- "1stxxrp": "<i aria-hidden=\"true\"></i><b>Case mais recente</b> <span class=\"arrow\" aria-hidden=\"true\">→</span> Crypex: pagar um Pix com cripto, de 6 telas para 3 passos."
+ "aufxb0": "<b>Case 02</b> Pagamentos em cripto <span class=\"dim\">iOS · 390</span>",
+ "1xd10p6": "Design concluído",
+ "11rknnz": "No ar",
+ "y63c97": "Página 02 · 4 serviços"
 });

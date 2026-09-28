@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="guidelines">
-  <script src="assets/js/i18n.js?v=3"></script>
+  <script src="assets/js/i18n.js?v=4"></script>
   <link rel="alternate" hreflang="en" href="https://jessica-portfolio-ruddy.vercel.app/guidelines.html">
   <link rel="alternate" hreflang="pt-BR" href="https://jessica-portfolio-ruddy.vercel.app/guidelines.html?lang=pt">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -218,7 +218,7 @@
         </div>
 
         <h3>The 3D story</h3>
-        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (light only). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene. Save-Data and low-memory devices (or <code>?motion=lite</code>) never download three.js and get a painted still instead. The story runs about 6.5 screens on desktop and 5 on a phone, always with a chapter counter and a “Skip to work” way out.</p>
+        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (light only). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene. Save-Data and low-memory devices (or <code>?motion=lite</code>) never download three.js and get a painted still instead. The story runs about 6.5 screens on desktop and 5 on a phone. Between the hero and the finale a “Skip to work” button is always on screen, plus a chapter counter on phones, where the rail is hidden.</p>
       </section>
 
       <!-- ============ PROCESS ============ -->
@@ -934,10 +934,11 @@
         <h2 class="display h-md">Changelog</h2>
         <h3>2.4.0 · “Canvas, heuristic pass” · Sep 2026</h3>
         <ul class="list">
-          <li><strong>Changed</strong>: the 3D story is shorter (about 6.5 screens on desktop, 5 on a phone), with a chapter counter and a “Skip to work” button. On phones the finale frames the laptop lid closer so the stickers can be read.</li>
+          <li><strong>Changed</strong>: the 3D story is shorter (about 6.5 screens on desktop, 5 on a phone), with a “Skip to work” button between the hero and the finale (plus a chapter counter on phones). On phones the finale frames the laptop lid closer so the stickers can be read.</li>
           <li><strong>Added</strong>: a pause button for everything that loops (the ribbon, sparkles, grain and status dot), remembered between visits (WCAG 2.2.2). EN / PT links are at least 28 × 28 px, 40 × 40 on touch (WCAG 2.5.8).</li>
           <li><strong>Added</strong>: lite mode. Save-Data and low-memory devices skip the 3D download and see a painted still; three.js now loads only when the story needs it, and the laptop sticker moved to WebP (187 KB → 32 KB).</li>
-          <li><strong>Changed</strong>: work cards show the real product (Crypex screens), share one height and one meta line: role · year · platform. Services lost the internal jargon and gained “How we start” in three steps; contact states availability and reply time.</li>
+          <li><strong>Changed</strong>: work cards show the real product (Crypex screens), share one height and one meta line: role · year · status. Services lost the internal jargon and gained “How we start” in three steps; contact states availability and reply time.</li>
+          <li><strong>Removed</strong>: repeats. The “ready for dev” tag in the finale (the toolbar already has it), the Upwork and LinkedIn text links under the contact buttons, the platform in card meta (the tags say it) and the Crypex card’s hover spec.</li>
           <li><strong>Added</strong>: share images, canonical links, structured data (Person), a custom 404 in the canvas style, and a sticky “on this page” bar with reading time on the Crypex case.</li>
         </ul>
         <h3>2.3.0 · “Canvas, bilingual” · Sep 2026</h3>

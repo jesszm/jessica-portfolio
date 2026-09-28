@@ -112,7 +112,7 @@ function cinematic() {
       const label = railLinks[current]?.textContent.trim() || '';
       counter.innerHTML = num ? `<b>${num.textContent}</b> / 06 <span>${label}</span>` : `<span>${label}</span>`;
     }
-    if (hud && tl.scrollTrigger) hud.classList.toggle('is-done', tl.scrollTrigger.progress > 0.985);
+    if (hud) hud.classList.toggle('is-hidden', current === 0 || current === chapters.length - 1);
     if (processLink) {
       const inProcess = tl.scrollTrigger.isActive && p > 0.165 && p < 0.83;
       processLink.setAttribute('aria-current', inProcess ? 'true' : 'false');
