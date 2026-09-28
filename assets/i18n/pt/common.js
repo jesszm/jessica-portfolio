@@ -79,5 +79,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "11nz0yk": "Pagar com cripto, tão fácil quanto um Pix",
  "2zme62": "Um app 0 → 1 que permite pagar um Pix direto do saldo em cripto. UX/UI solo, do arquivo em branco ao pronto para o dev em cerca de seis semanas.",
  "adxyid": "Product design 0 → 1",
- "d15lig": "Perfil no Upwork"
+ "d15lig": "Perfil no Upwork",
+ "1j38rmd": "Modo designer"
 });

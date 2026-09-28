@@ -478,57 +478,98 @@ html.is-paused .availability i::after { animation-play-state: paused !important;
 }
 @keyframes ping { 0% { transform: scale(0.6); opacity: 0.8; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
 
-/* ---------- About · the pair, promoted (v2.4) ----------
-   The two stories carry the voice of the page, so they get colour, an icon,
-   ink-strength text and an "in practice" row instead of muted grey cards. */
-.about__pair { gap: var(--sp-6); align-items: stretch; }
-.about__block {
-  --card-tint: var(--sticky-lilac); --card-em: var(--violet-600);
-  display: flex; flex-direction: column;
-  padding: var(--sp-8) var(--sp-7) var(--sp-6);
-  background: color-mix(in srgb, var(--card-tint) 34%, var(--color-bg-elevated));
-  border: 1px solid var(--ink-900); box-shadow: 4px 4px 0 var(--ink-900);
-  transition: transform var(--dur-3) var(--ease-emphasized), box-shadow var(--dur-3) var(--ease-emphasized);
+/* ---------- About · one story: statement → the rule → two paths → facts ----------
+   The two paths hang from the bridge line like a FigJam connector: thin ink
+   elbows land on numbered nodes; no card fill, so they sit in the page. */
+.about__quote { margin-bottom: var(--sp-5); }
+.about__bridge { text-align: center; margin: 0 auto; font-size: var(--fs-16); color: var(--color-text-muted); }
+.about__paths {
+  position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 6%;
+  padding-top: calc(64px + var(--sp-3)); margin-top: var(--sp-3);
 }
-.about__block--freedom { --card-tint: var(--sticky-mint); --card-em: var(--teal-700); }
-.about__block:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink-900); }
-.about__kicker { top: -13px; left: var(--sp-6); }
-.about__icon {
-  position: absolute; top: var(--sp-6); right: var(--sp-6); width: 44px; height: 44px;
-  fill: none; stroke: var(--ink-900); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round;
-  transform: rotate(-6deg);
+.about__fork { position: absolute; left: 0; right: 0; top: 0; width: 100%; height: 64px; overflow: visible; }
+.about__fork path {
+  fill: none; stroke: var(--ink-900); stroke-opacity: 0.45; stroke-width: 1; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1; stroke-dashoffset: 0;
 }
-.about__block--freedom .about__icon { transform: rotate(8deg); }
-.about__block h3 {
-  font-family: var(--font-display); font-weight: 500; letter-spacing: -0.018em; line-height: 1.08;
-  font-size: clamp(1.9rem, 3vw, 2.6rem); margin: 0 0 var(--sp-5); padding-right: 56px;
+@supports selector(:has(*)) {
+  @media (prefers-reduced-motion: no-preference) {
+    html.js .about__fork path { stroke-dashoffset: 1; transition: stroke-dashoffset 1.2s var(--ease-standard); }
+    html.js .about__paths:has(.about__path.is-in) .about__fork path { stroke-dashoffset: 0; }
+  }
 }
-.about__block h3 em { font-style: italic; color: var(--card-em); }
-.about__block p { color: var(--color-text); font-size: var(--fs-16); line-height: 1.7; max-width: 54ch; margin: 0; }
-.about__proof {
-  margin-top: auto; padding-top: var(--sp-6);
-  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3);
+.about__path { position: relative; border-top: 1px dashed rgba(22, 21, 15, 0.3); padding-top: var(--sp-7); }
+.about__node {
+  position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+  width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%;
+  font: 400 11px/1 var(--font-mono); color: var(--ink-900);
+  background: var(--color-bg); border: 1px solid var(--ink-900); box-shadow: 1.5px 1.5px 0 var(--ink-900);
+  transition: background-color var(--dur-3) var(--ease-standard), transform var(--dur-3) var(--ease-bounce);
 }
-.about__proof::before { content: ""; flex-basis: 100%; height: 0; border-top: 1px dashed rgba(22, 21, 15, 0.35); margin-bottom: var(--sp-3); }
-.about__proof > span { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--ink-900); opacity: 0.7; margin-right: var(--sp-1); }
-.about__proof ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2); }
-.about__proof li {
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
-  padding: 4px 10px; border: 1px solid var(--ink-900); border-radius: var(--radius-full); background: var(--color-bg-elevated);
+.about__path--eye { --path-tint: var(--sticky-lilac); --path-em: var(--violet-600); }
+.about__path--mind { --path-tint: var(--sticky-mint); --path-em: var(--teal-700); }
+.about__path:hover .about__node { background: var(--path-tint); transform: translate(-50%, -50%) scale(1.08); }
+.about__kicker {
+  position: static; margin: 0 0 var(--sp-3);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-text-subtle);
+}
+.about__path h3 {
+  font-family: var(--font-display); font-weight: 500; letter-spacing: -0.015em; line-height: 1.12;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem); margin: 0 0 var(--sp-4);
+}
+/* the key word gets a highlighter pass on hover, in the path's colour */
+.about__path h3 em {
+  font-style: italic; color: var(--path-em); padding: 0 0.06em;
+  background: linear-gradient(transparent 62%, var(--path-tint) 62%, var(--path-tint) 90%, transparent 90%) no-repeat 0 0 / 0% 100%;
+  transition: background-size var(--dur-4) var(--ease-emphasized);
+}
+.about__path:hover h3 em, .about__path:focus-within h3 em { background-size: 100% 100%; }
+.about__path > p:not([class]) { color: var(--color-text); font-size: var(--fs-16); line-height: 1.7; max-width: 54ch; margin: 0; }
+.about__practice {
+  margin: var(--sp-5) 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--color-text-muted);
+}
+.about__practice span { color: var(--color-text-subtle); text-transform: uppercase; letter-spacing: var(--tracking-wide); margin-right: 4px; }
+.about__practice i {
+  display: inline-block; width: 9px; height: 9px; background: var(--path-tint);
+  clip-path: path("M4.5 0 C5 3.2 5.8 4 9 4.5 C5.8 5 5 5.8 4.5 9 C4 5.8 3.2 5 0 4.5 C3.2 4 4 3.2 4.5 0 Z");
+  filter: drop-shadow(0 0 0.5px var(--ink-900));
 }
 @media (max-width: 860px) {
-  .about__block { padding: var(--sp-7) var(--sp-5) var(--sp-5); }
-  .about__icon { width: 36px; height: 36px; top: var(--sp-5); right: var(--sp-5); }
+  .about__fork { display: none; }
+  .about__paths { grid-template-columns: 1fr; row-gap: var(--sp-8); padding-top: var(--sp-7); }
+  .about__node { left: 0; transform: translate(0, -50%); }
+  .about__path:hover .about__node { transform: translate(0, -50%) scale(1.08); }
 }
-@media (prefers-reduced-motion: reduce) { .about__block, .about__block:hover { transition: none; transform: none; } }
 
-/* About reads as one story: statement → the rule → two paths → facts */
-.about__quote { margin-bottom: var(--sp-5); }
-.about__bridge {
-  text-align: center; margin: 0 auto clamp(var(--sp-7), 6vw, var(--sp-8));
-  font-size: var(--fs-16); color: var(--color-text-muted);
+/* ---------- Designer view: a visible easter egg ----------
+   A named pill in the toolbar (dashed like a Figma selection) plus a one-time
+   hand-written nudge when the reader reaches the work. */
+.grid-egg {
+  width: auto; height: 32px; display: inline-flex; align-items: center; gap: 7px; padding: 0 8px 0 10px;
+  font: 400 11px/1 var(--font-mono); letter-spacing: 0.04em; color: var(--color-text);
+  border: 1px dashed var(--ink-900); border-radius: var(--radius-full); background: transparent; cursor: pointer;
 }
-.about__bridge::after {
-  content: ""; display: block; width: 1px; height: 32px; margin: var(--sp-4) auto 0;
-  background: repeating-linear-gradient(180deg, var(--ink-900) 0 4px, transparent 4px 8px); opacity: 0.45;
+.grid-egg svg { width: 15px; height: 15px; transition: transform var(--dur-3) var(--ease-bounce); }
+.grid-egg kbd {
+  font: inherit; font-size: 10px; line-height: 1; padding: 3px 5px; border-radius: 4px;
+  border: 1px solid var(--color-border-strong); background: var(--color-bg-elevated); color: var(--color-text-muted);
 }
+.grid-egg:hover { transform: none; border-style: solid; background: var(--color-bg-elevated); box-shadow: 1.5px 1.5px 0 var(--ink-900); }
+.grid-egg:hover svg { transform: rotate(-12deg) scale(1.1); }
+.grid-egg:focus-visible { outline: 2px solid var(--color-text); outline-offset: 2px; }
+.grid-egg[aria-pressed="true"] { border-style: solid; background: var(--sticky-lilac); }
+.grid-egg[aria-pressed="true"] kbd { background: var(--ink-900); color: var(--paper-50); border-color: var(--ink-900); }
+@media (max-width: 1100px) { .grid-egg__label, .grid-egg kbd { display: none; } .grid-egg { padding: 0 8px; } }
+
+.egg-hint {
+  position: fixed; z-index: calc(var(--z-overlay) + 3); width: 210px; pointer-events: auto; cursor: pointer;
+  font-family: var(--font-hand); font-size: 1.2rem; line-height: 1.2; color: var(--ink-900);
+  background: var(--sticky-yellow); padding: 12px 14px 14px; border-radius: 2px;
+  box-shadow: 0 14px 20px -12px rgba(22, 21, 15, 0.4); transform: rotate(-2deg) translateY(-6px); opacity: 0;
+  transition: opacity var(--dur-3) var(--ease-standard), transform var(--dur-4) var(--ease-bounce);
+}
+.egg-hint.is-on { opacity: 1; transform: rotate(-2deg) translateY(0); }
+.egg-hint b { display: block; font: 400 10px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.6; margin-bottom: 6px; }
+.egg-hint svg { position: absolute; right: 18px; top: -30px; width: 34px; height: 34px; fill: none; stroke: var(--ink-900); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: reduce) { .egg-hint { transition: opacity var(--dur-2); } }

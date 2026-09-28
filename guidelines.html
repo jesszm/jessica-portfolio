@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="guidelines">
-  <script src="assets/js/i18n.js?v=7"></script>
+  <script src="assets/js/i18n.js?v=8"></script>
   <link rel="alternate" hreflang="en" href="https://jessica-portfolio-ruddy.vercel.app/guidelines.html">
   <link rel="alternate" hreflang="pt-BR" href="https://jessica-portfolio-ruddy.vercel.app/guidelines.html?lang=pt">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="assets/css/tokens.css?v=22">
   <link rel="stylesheet" href="assets/css/styles.css?v=21">
   <link rel="stylesheet" href="assets/css/guidelines.css">
-  <link rel="stylesheet" href="assets/css/identity.css?v=28">
+  <link rel="stylesheet" href="assets/css/identity.css?v=29">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -57,8 +57,9 @@
         <nav class="lang-switch" aria-label="Language" data-no-i18n>
           <a href="?lang=en" hreflang="en" lang="en" data-lang="en">EN</a><span aria-hidden="true">/</span><a href="?lang=pt" hreflang="pt-BR" lang="pt-BR" data-lang="pt">PT</a>
         </nav>
-        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)" title="Designer view · G">
+        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)">
           <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3"/><path d="M7.5 2.5v15M12.5 2.5v15"/></svg>
+          <span class="grid-egg__label">Designer view</span><kbd aria-hidden="true">G</kbd>
         </button>
       </div>
     </div>
@@ -937,8 +938,9 @@
           <li><strong>Changed</strong>: the 3D story is shorter (about 6.5 screens on desktop, 5 on a phone), with a “Skip to work” button between the hero and the finale (plus a chapter counter on phones). On phones the finale frames the laptop lid closer so the stickers can be read.</li>
           <li><strong>Added</strong>: a pause button for everything that loops (the ribbon, sparkles, grain and status dot), remembered between visits (WCAG 2.2.2). EN / PT links are at least 28 × 28 px, 40 × 40 on touch (WCAG 2.5.8).</li>
           <li><strong>Added</strong>: lite mode. Save-Data and low-memory devices skip the 3D download and see a painted still; three.js now loads only when the story needs it, and the laptop sticker moved to WebP (187 KB → 32 KB).</li>
-          <li><strong>Changed</strong>: work cards show the real product (Crypex screens), share one height and one meta line: role · year · status. Services lost the internal jargon and gained “How we start” in three steps; contact states availability and reply time.</li>
-          <li><strong>Changed</strong>: About leads with what I deliver, not years of experience. “Shaped by creativity” and “Guided by freedom” are promoted to tinted cards with an icon and an “in practice” row. The story’s finale has its own message and points to the work, so it no longer repeats the contact section.</li>
+          <li><strong>Changed</strong>: work cards show the real product (Crypex screens), share one height and one meta line: role · year · status. Services lost the internal jargon and gained “How we start” in three steps; contact shows availability.</li>
+          <li><strong>Changed</strong>: About reads as one introduction: what I deliver (no years of experience), the rule I design by, then two paths, “Shaped by creativity” and “Guided by freedom”, hanging from it like a FigJam connector, with numbered nodes and an “in practice” line. The story’s finale has its own message and points to the work, so it no longer repeats the contact section.</li>
+          <li><strong>Changed</strong>: designer view is a named pill in the toolbar (dashed, like a Figma selection) and a sticky note points to it once, when the reader reaches the work. The footer shortcut is gone.</li>
           <li><strong>Removed</strong>: repeats. The “ready for dev” tag in the finale (the toolbar already has it), the Upwork and LinkedIn text links under the contact buttons, the platform in card meta (the tags say it) and the Crypex card’s hover spec.</li>
           <li><strong>Added</strong>: share images, canonical links, structured data (Person) and a custom 404 in the canvas style.</li>
         </ul>
@@ -992,12 +994,11 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>© <span data-year>2026</span> Jessica Monteiro · JM Design Guidelines v2.4.0</span>
-      <span class="footer__shortcuts"><span><kbd>G</kbd> designer view</span></span>
       <a href="index.html">← Back to portfolio</a>
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=6" defer></script>
+  <script src="assets/js/main.js?v=7" defer></script>
   <script>window.jmApplyI18n && window.jmApplyI18n();</script>
 </body>
 </html>

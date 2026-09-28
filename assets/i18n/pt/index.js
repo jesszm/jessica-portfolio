@@ -181,12 +181,17 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1038hp5": "Meu caminho começou com cores e linhas, na ilustração, muito antes de eu abrir o Figma. Isso treinou meu olho para equilíbrio, ritmo e os pequenos detalhes que as pessoas sentem antes de perceber. Aparece em todo projeto como uma hierarquia visual clara e um acabamento cuidadoso. Quando um produto precisa de uma voz visual própria e o prazo permite, também posso desenhar ilustrações e ícones sob medida.",
  "1bfn6uk": "Acabamento",
  "1tl1bx1": "Ilustração sob demanda",
- "rb5dln": "<span class=\"hand\">a regra que guia o meu design</span>“Bom design fica do seu lado,<br> <em>nunca no seu caminho</em>.”",
+ "rb5dln": "<span class=\"hand\">a regra que guia o meu design</span>“Um bom design está do seu lado,<br> <em>nunca no meio do caminho</em>.”",
  "qxhktr": "Dois caminhos me ensinaram o que isso significa.",
  "1mzphv9": "01 · O olhar",
  "1ela256": "02 · O jeito de trabalhar",
  "1aw1b8q": "Meu caminho começou com cores e linhas, na ilustração, muito antes de eu abrir o Figma. Isso treinou meu olho para equilíbrio, ritmo e os pequenos detalhes que as pessoas sentem antes de perceber. É esse olhar que levo para cada interface: uma hierarquia que guia a atenção, consistência em cada estado e tela, e o acabamento que faz um produto passar confiança. Quando uma marca pede uma linguagem visual própria e o escopo permite, levo esse cuidado para ilustrações e iconografia sob medida.",
  "9coe4j": "Consistência de UI",
  "1eilgpu": "Ilustração, quando cabe no escopo",
- "8anm29": "02 · A mentalidade"
+ "8anm29": "02 · A mentalidade",
+ "htcbf5": "O olhar",
+ "8dpdak": "A mentalidade",
+ "1edraa0": "<span>Na prática</span> Hierarquia visual <i aria-hidden=\"true\"></i> Consistência de UI <i aria-hidden=\"true\"></i> Ilustração, quando cabe no escopo",
+ "oenqld": "<span>Na prática</span> Adaptação rápida <i aria-hidden=\"true\"></i> Times multiculturais <i aria-hidden=\"true\"></i> Trabalho assíncrono",
+ "1qz9py0": "<i aria-hidden=\"true\"></i>Aberta a novos projetos"
 });
