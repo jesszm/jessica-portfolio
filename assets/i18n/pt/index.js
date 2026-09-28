@@ -153,5 +153,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "14nrfqv": "<i aria-hidden=\"true\"></i>Aberta a novos projetos · respondo em até um dia útil",
  "1w3enj1": "Perfil na Upwork ↗",
  "1vtatul": "Diretrizes de design · v2.4.0",
- "j6puq3": "Pausar as animações decorativas"
+ "j6puq3": "Pausar as animações decorativas",
+ "1stxxrp": "<i aria-hidden=\"true\"></i><b>Case mais recente</b> <span class=\"arrow\" aria-hidden=\"true\">→</span> Crypex: pagar um Pix com cripto, de 6 telas para 3 passos."
 });
