@@ -55,14 +55,15 @@ export function createStory(canvas, options = {}) {
   const TX = PT ? {
     screenTitle: 'Frame 04 · Design / Painel', stickyLow: ['testar c/', '5 pessoas'], stickyHi: ['bora!', '✓ pronto'],
     notes: [
-      ['todos\niguais', 'processo\ninvisível', 'cadê o\ncontato?', 'jargão\ndemais', 'cadê os\nresultados?', 'ela está\nlivre?'],
+      ['todos\niguais', 'processo\ninvisível', 'cadê o\ncontato?', 'jargão\ndemais', 'cadê os\nresultados?', 'ela está\ndisponível?'],
       ['ver como\nela pensa', 'cases\nreais', 'contato em\num clique', 'prova de\nparceria', 'design\nsystem', 'trabalho\nremoto'],
       ['um toque de\npersonalidade', 'detalhes\ndivertidos', 'fácil de\nescanear', 'feito à\nmão', 'calmo &\nlimpo', 'uma história,\nnão um grid'],
     ],
-    sections: ['O que os clientes disseram', 'Do que precisam', 'O que encantaria'],
+    sections: ['O que os clientes disseram', 'Do que precisam', 'O que os encantaria'],
     board: 'PESQUISA · o que clientes buscam num portfólio de design',
     flow: ['Abrir app', 'Entrar', 'Novo usuário?', 'Cartão salvo', 'Pagar', 'Recibo ✓'],
     frameLabel: 'Frame 04 · Painel', cursors: ['Jess', 'Cliente', 'Dev'],
+    quote: ['Bom design', 'fica do', 'seu lado.'], shall: ['Vamos ', 'nessa?'], ready: 'PRONTO P/ DEV', hello: 'oi 👋', mobile: 'Celular · 390',
   } : {
     screenTitle: 'Frame 04 · Design / Dashboard', stickyLow: ['test w/ 5', 'users'], stickyHi: ['ship it!', '✓ ready'],
     notes: [
@@ -70,10 +71,11 @@ export function createStory(canvas, options = {}) {
       ['see how\nshe thinks', 'real case\nstudies', 'contact in\none click', 'proof of\nteamwork', 'design system\nskills', 'remote\nfriendly'],
       ['a bit of\npersonality', 'playful\ndetails', 'easy to\nscan', 'feels\nhandmade', 'calm &\nclean', 'a story,\nnot a grid'],
     ],
-    sections: ['What clients said', 'What they need', 'What would delight'],
+    sections: ['What clients said', 'What they need', 'What would delight them'],
     board: 'RESEARCH BOARD · what clients look for in a designer portfolio',
     flow: ['Open app', 'Log in', 'New user?', 'Saved card', 'Pay', 'Receipt ✓'],
     frameLabel: 'Frame 04 · Dashboard', cursors: ['Jess', 'Client', 'Dev'],
+    quote: ['Good design', 'is on', 'your side.'], shall: ['Shall ', 'we?'], ready: 'READY FOR DEV', hello: 'hello 👋', mobile: 'Mobile · 390',
   };
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: high, powerPreference: 'high-performance' });
@@ -636,9 +638,9 @@ export function createStory(canvas, options = {}) {
     g.fillStyle = C.yellow; sparklePath(g, w * 0.3, h * 0.2, 34); g.fill();
     g.strokeStyle = C.ink900; g.lineWidth = 1.5; sparklePath(g, w * 0.3, h * 0.2, 34); g.stroke();
     g.fillStyle = C.ink900; g.textAlign = 'left'; g.textBaseline = 'alphabetic';
-    g.font = `400 34px ${FONT_DISPLAY}`; g.fillText('Good design', 34, h * 0.66);
-    g.fillText('stands on', 34, h * 0.66 + 40);
-    g.font = `italic 400 34px ${FONT_DISPLAY}`; g.fillText('your side.', 34, h * 0.66 + 80);
+    g.font = `400 34px ${FONT_DISPLAY}`; g.fillText(TX.quote[0], 34, h * 0.66);
+    g.fillText(TX.quote[1], 34, h * 0.66 + 40);
+    g.font = `italic 400 34px ${FONT_DISPLAY}`; g.fillText(TX.quote[2], 34, h * 0.66 + 80);
     g.font = `400 12px ${FONT_MONO}`; g.fillStyle = C.ink500; g.fillText('JM · 2026', 34, h - 26);
   });
   box(0.36, 0.46, 0.02, std(C.ink900, 0.5), studio, 0.5, 1.6, -1.09, { cast: true });
@@ -851,7 +853,7 @@ export function createStory(canvas, options = {}) {
   world.add(phone);
   mesh(new RoundedBoxGeometry(0.68, 1.34, 0.04, 3, 0.06), basic(C.ink900), phone, 0, 0, -0.006);
   mesh(new RoundedBoxGeometry(0.62, 1.28, 0.03, 3, 0.05), frameMat(C.paper0), phone, 0, 0, 0);
-  plane(0.9, 0.12, basic('#ffffff', { map: labelTex('Mobile · 390'), transparent: true }), phone, -0.1, 0.74, 0);
+  plane(0.9, 0.12, basic('#ffffff', { map: labelTex(TX.mobile), transparent: true }), phone, -0.1, 0.74, 0);
 
   const Z = 0.0165;
   const uiEls = [];
@@ -1016,7 +1018,7 @@ export function createStory(canvas, options = {}) {
     g.fillStyle = C.mint; rr(g, 3, 3, w - 6, h - 6, h / 2 - 3); g.fill();
     g.strokeStyle = C.ink900; g.lineWidth = 2; g.stroke();
     g.fillStyle = C.success; g.beginPath(); g.arc(34, h / 2, 9, 0, Math.PI * 2); g.fill();
-    g.fillStyle = C.ink900; g.font = `400 28px ${FONT_MONO}`; g.textBaseline = 'middle'; g.fillText('READY FOR DEV', 54, h / 2 + 1);
+    g.fillStyle = C.ink900; g.font = `400 28px ${FONT_MONO}`; g.textBaseline = 'middle'; g.fillText(TX.ready, 54, h / 2 + 1);
   });
   const pill = plane(0.5, 0.125, basic('#ffffff', { map: pillTex, transparent: true, opacity: 0 }), desk, -0.1, 0.99, 0.01);
 
@@ -1135,11 +1137,15 @@ export function createStory(canvas, options = {}) {
     /* order = stacking (later on top). Two loose columns around Jess, sizes and tilts varied on purpose. */
     addSticker(96, 36, [-0.094, 0.036], -0.09, (g, w, h) => {
       g.fillStyle = C.yellow; rr(g, 0, 0, w, h, h / 2); g.fill(); g.stroke();
-      g.font = `500 17px ${FONT_DISPLAY}`; const a = g.measureText('Shall ').width;
-      g.font = `italic 500 17px ${FONT_DISPLAY}`; const b = g.measureText('we?').width;
+      /* the longer pt-BR line shrinks to fit the pill */
+      let fs = 17, a, b;
+      do {
+        g.font = `500 ${fs}px ${FONT_DISPLAY}`; a = g.measureText(TX.shall[0]).width;
+        g.font = `italic 500 ${fs}px ${FONT_DISPLAY}`; b = g.measureText(TX.shall[1]).width;
+      } while (a + b > w - 14 && --fs > 11);
       const x0 = (w - a - b) / 2;
-      text(g, 'Shall ', `500 17px ${FONT_DISPLAY}`, C.ink900, x0, h / 2 + 0.6, 'left');
-      text(g, 'we?', `italic 500 17px ${FONT_DISPLAY}`, C.ink900, x0 + a, h / 2 + 0.6, 'left');
+      text(g, TX.shall[0], `500 ${fs}px ${FONT_DISPLAY}`, C.ink900, x0, h / 2 + 0.6, 'left');
+      text(g, TX.shall[1], `italic 500 ${fs}px ${FONT_DISPLAY}`, C.ink900, x0 + a, h / 2 + 0.6, 'left');
     });
     if (glassesImage) addSticker(92, 42, [0.098, 0.034], 0.11, (g, w, h) => g.drawImage(glassesImage, 0, 0, w, h));
     addSticker(40, 40, [-0.128, 0.089], -0.16, (g, w, h) => {
@@ -1156,7 +1162,7 @@ export function createStory(canvas, options = {}) {
       g.beginPath(); g.moveTo(10, 0); g.lineTo(w - 10, 0); g.quadraticCurveTo(w, 0, w, 10); g.lineTo(w, h - 18); g.quadraticCurveTo(w, h - 8, w - 10, h - 8);
       g.lineTo(22, h - 8); g.lineTo(12, h); g.lineTo(13, h - 8); g.lineTo(10, h - 8); g.quadraticCurveTo(0, h - 8, 0, h - 18); g.lineTo(0, 10); g.quadraticCurveTo(0, 0, 10, 0); g.closePath();
       g.fill(); g.stroke();
-      text(g, 'hello 👋', `400 13px ${FONT_HAND}`, C.ink900, w / 2, (h - 8) / 2 + 0.5);
+      text(g, TX.hello, `400 13px ${FONT_HAND}`, C.ink900, w / 2, (h - 8) / 2 + 0.5);
     });
     addSticker(34, 34, [-0.126, 0.19], 0.16, (g, w, h) => {
       g.fillStyle = '#E9E5DC'; rr(g, 0, 0, w, h, 6); g.fill(); g.stroke();
@@ -1171,7 +1177,7 @@ export function createStory(canvas, options = {}) {
     addSticker(80, 22, [0.103, 0.138], -0.13, (g, w, h) => {
       g.fillStyle = C.mint; rr(g, 0, 0, w, h, h / 2); g.fill(); g.stroke();
       g.fillStyle = C.success; g.beginPath(); g.arc(11, h / 2, 2.4, 0, Math.PI * 2); g.fill();
-      text(g, 'READY FOR DEV', `400 7.6px ${FONT_MONO}`, C.ink900, 18, h / 2 + 0.3, 'left');
+      text(g, TX.ready, `400 7.6px ${FONT_MONO}`, C.ink900, 18, h / 2 + 0.3, 'left');
     });
     /* Brazil badge, comic style: a little flag mascot (the globe has a face) over a ribbon
        that reads ORDEM E / DESIGN in two big lines. Same sticker rules: 1.5mm die-cut, ink 0.35mm. */

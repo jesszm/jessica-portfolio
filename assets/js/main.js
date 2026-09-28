@@ -13,10 +13,16 @@
   store.set('jm-theme', 'light');
 
   /* ---------- Designer view: the grid easter egg ----------
-     G (or the grid icon) shows the 12-column grid and turns the pointer into
-     an inspector: hover anything to read its size and type, like in Figma. */
+     Option/Alt + G (or the pill) shows the 12-column grid and turns the pointer
+     into an inspector: hover or tab to anything to read its size and type, like
+     in Figma. The shortcut needs a modifier so a stray "g" (or a voice command)
+     never toggles it (WCAG 2.1.4). */
   const gridBtn = document.querySelector('[data-action="grid"]');
   const fine = window.matchMedia('(pointer: fine)').matches;
+  const mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  const keyName = mac ? '⌥G' : 'Alt+G';
+  document.querySelectorAll('.grid-egg kbd').forEach((k) => { k.textContent = keyName; });
+  gridBtn?.setAttribute('aria-keyshortcuts', 'Alt+G');
   let box = null, tag = null, toast = null, current = null;
   const ensureUi = () => {
     if (box) return;
@@ -62,17 +68,19 @@
     if (on) {
       document.addEventListener('pointerover', onOver);
       document.addEventListener('pointerout', onOut);
+      document.addEventListener('focusin', onOver);
       window.addEventListener('scroll', place, { passive: true });
       const first = store.get('jm-found-grid') !== '1';
       const pt = window.JM_LANG === 'pt';
       toast.textContent = first
-        ? (pt ? '✦ Modo designer ligado: passe o mouse em qualquer coisa para inspecionar. G fecha.' : '✦ Designer view on: hover anything to inspect it. Press G to close.')
-        : (pt ? 'Modo designer ligado · G para fechar' : 'Designer view on · G to close');
+        ? (pt ? `✦ Modo designer ligado: passe o mouse em qualquer coisa para inspecionar. ${keyName} fecha.` : `✦ Designer view on: hover anything to inspect it. Press ${keyName} to close.`)
+        : (pt ? `Modo designer ligado · ${keyName} para fechar` : `Designer view on · ${keyName} to close`);
       store.set('jm-found-grid', '1');
       toast.classList.add('is-on'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('is-on'), first ? 4200 : 1800);
     } else {
       document.removeEventListener('pointerover', onOver);
       document.removeEventListener('pointerout', onOut);
+      document.removeEventListener('focusin', onOver);
       window.removeEventListener('scroll', place);
       current = null; html.classList.remove('is-inspecting'); toast.classList.remove('is-on');
     }
@@ -112,10 +120,10 @@
   html.setAttribute('data-annotations', 'on');
   gridBtn?.addEventListener('click', () => { hideHint(); setGrid(html.getAttribute('data-grid') !== 'on'); });
   document.addEventListener('keydown', (e) => {
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.metaKey || e.ctrlKey) return;
     const t = (e.target && e.target.tagName) || '';
     if (/INPUT|TEXTAREA|SELECT/.test(t) || e.target?.isContentEditable) return;
-    if (e.key === 'g' || e.key === 'G') { hideHint(); setGrid(html.getAttribute('data-grid') !== 'on'); }
+    if (e.altKey && e.code === 'KeyG') { e.preventDefault(); hideHint(); setGrid(html.getAttribute('data-grid') !== 'on'); }
     if (e.key === 'Escape') hideHint();
     if (e.key === 'Escape' && html.getAttribute('data-grid') === 'on') setGrid(false);
   });
@@ -187,15 +195,24 @@
   document.querySelectorAll('.pin').forEach(pin => {
     pin.setAttribute('tabindex', '0');
     pin.setAttribute('role', 'button');
+    pin.setAttribute('aria-expanded', 'false');
     const toggle = () => {
       const open = pin.getAttribute('data-open') === 'true';
-      document.querySelectorAll('.pin[data-open="true"]').forEach(p => p.setAttribute('data-open', 'false'));
+      document.querySelectorAll('.pin[data-open="true"]').forEach(p => { p.setAttribute('data-open', 'false'); p.setAttribute('aria-expanded', 'false'); });
       pin.setAttribute('data-open', open ? 'false' : 'true');
+      pin.setAttribute('aria-expanded', open ? 'false' : 'true');
     };
     pin.addEventListener('click', toggle);
     pin.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
   });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.pin[data-open="true"]').forEach(p => p.setAttribute('data-open', 'false')); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.pin[data-open="true"]').forEach(p => { p.setAttribute('data-open', 'false'); p.setAttribute('aria-expanded', 'false'); }); });
+
+  /* ---------- Ribbon: pauses on hover, on focus, and on a click / tap / Enter (WCAG 2.2.2) ---------- */
+  document.querySelectorAll('.marquee[role="button"]').forEach((rib) => {
+    const flip = () => { const on = !rib.classList.contains('is-paused'); rib.classList.toggle('is-paused', on); rib.setAttribute('aria-pressed', on ? 'true' : 'false'); };
+    rib.addEventListener('click', flip);
+    rib.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+  });
 
   /* The cursor is the real pointer restyled in CSS (identity.css), no JS follower. */
 

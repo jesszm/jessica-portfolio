@@ -3,16 +3,16 @@
    ========================================================================== */
 .doc { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--sp-8); padding-block: var(--sp-7) var(--sp-9); }
 .doc__nav { position: sticky; top: calc(var(--nav-height) + var(--sp-5)); align-self: start; max-height: calc(100vh - var(--nav-height) - var(--sp-7)); overflow: auto; }
-.doc__nav h2 { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-text-subtle); margin: var(--sp-4) 0 var(--sp-2); font-weight: 500; }
-.doc__nav h2:first-child { margin-top: 0; }
+.doc__nav p { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-text-subtle); margin: var(--sp-4) 0 var(--sp-2); font-weight: 500; }
+.doc__nav p:first-child { margin-top: 0; }
 .doc__nav a { display: block; text-decoration: none; font-size: var(--fs-14); color: var(--color-text-muted); padding: 5px 10px; border-left: 1px solid var(--color-border); transition: all var(--dur-2); }
 .doc__nav a:hover { color: var(--color-text); border-color: var(--color-border-strong); }
 .doc__nav a[aria-current="true"] { color: var(--color-brand-text); border-color: var(--color-brand); background: var(--color-brand-subtle); }
 .doc__body > section { padding-block: var(--sp-7); border-top: var(--bw-hair) dashed var(--color-border); scroll-margin-top: calc(var(--nav-height) + var(--sp-5)); }
 .doc__body > section:first-child { border-top: 0; padding-top: 0; }
-.doc__body h2 { margin-bottom: var(--sp-2); }
+.doc__body h1, .doc__body h2 { margin-bottom: var(--sp-2); }
 .doc__body h3 { font-size: var(--fs-20); font-weight: 500; margin: var(--sp-6) 0 var(--sp-3); line-height: 1.3; }
-.doc__body h4 { font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-subtle); font-weight: 500; margin: var(--sp-5) 0 var(--sp-2); }
+.doc__body h4, .doc__body .doc__kicker { font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-subtle); font-weight: 500; line-height: var(--lh-relaxed); margin: var(--sp-5) 0 var(--sp-2); }
 .doc__body p { max-width: 68ch; margin-bottom: var(--sp-3); }
 .doc__body ul.list, .doc__body ol.list { max-width: 68ch; margin-bottom: var(--sp-4); padding-left: 1.2em; list-style: disc; }
 .doc__body ol.list { list-style: decimal; }
@@ -128,7 +128,7 @@
 @media (max-width: 960px) {
   .doc { grid-template-columns: 1fr; gap: var(--sp-5); }
   .doc__nav { position: static; max-height: none; display: flex; flex-wrap: wrap; gap: 4px; padding-bottom: var(--sp-4); border-bottom: 1px dashed var(--color-border); }
-  .doc__nav h2 { width: 100%; margin: var(--sp-3) 0 4px; }
+  .doc__nav p { width: 100%; margin: var(--sp-3) 0 4px; }
   .doc__nav a { border: 1px solid var(--color-border); border-radius: var(--radius-1); font-size: var(--fs-13); }
   .swatches { grid-template-columns: repeat(6, 1fr); }
   .semantic-grid, .phase, .dodont { grid-template-columns: 1fr; }

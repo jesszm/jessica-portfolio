@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" data-grid="off" data-annotations="on">
+<html lang="en" class="no-js" data-grid="off" data-annotations="on">
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="guidelines">
-  <script src="assets/js/i18n.js?v=11"></script>
-  <link rel="alternate" hreflang="en" href="https://jessica-portfolio-ruddy.vercel.app/guidelines.html">
-  <link rel="alternate" hreflang="pt-BR" href="https://jessica-portfolio-ruddy.vercel.app/guidelines.html?lang=pt">
+  <script src="assets/js/i18n.js?v=12"></script>
+  <script>(function (c) { c.remove('no-js'); c.add('js'); })(document.documentElement.classList);</script>
+  <link rel="alternate" hreflang="en" href="https://www.jessmonteiro.com/guidelines.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.jessmonteiro.com/guidelines.html?lang=pt">
+  <link rel="alternate" hreflang="x-default" href="https://www.jessmonteiro.com/guidelines.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Design Guidelines — Jessica Monteiro</title>
+  <title>Design guidelines · Jessica Monteiro</title>
   <meta name="description" content="The design system and UI/UX process behind Jessica Monteiro's portfolio: principles, process, foundations, components, accessibility, research, handoff and governance.">
-  <link rel="canonical" href="https://jessica-portfolio-ruddy.vercel.app/guidelines.html">
+  <link rel="canonical" href="https://www.jessmonteiro.com/guidelines.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Jessica Monteiro">
-  <meta property="og:url" content="https://jessica-portfolio-ruddy.vercel.app/guidelines.html">
-  <meta property="og:title" content="Design Guidelines · Jessica Monteiro">
-  <meta property="og:description" content="The design system behind this portfolio: tokens, type, colour, components, motion and accessibility.">
-  <meta property="og:image" content="https://jessica-portfolio-ruddy.vercel.app/assets/img/og/og-home.jpg">
+  <meta property="og:url" content="https://www.jessmonteiro.com/guidelines.html">
+  <meta property="og:title" content="Design guidelines · Jessica Monteiro">
+  <meta property="og:description" content="The design system behind this portfolio: tokens, type, color, components, motion and accessibility.">
+  <meta property="og:image" content="https://www.jessmonteiro.com/assets/img/og/og-home.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -25,8 +27,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css?v=22">
-  <link rel="stylesheet" href="assets/css/styles.css?v=22">
-  <link rel="stylesheet" href="assets/css/guidelines.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=23">
+  <link rel="stylesheet" href="assets/css/guidelines.css?v=2">
   <link rel="stylesheet" href="assets/css/identity.css?v=32">
 </head>
 <body>
@@ -48,7 +50,7 @@
       <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
         <a href="index.html">← Portfolio</a>
         <a href="#process">Process</a>
-        <a href="#foundations">Foundations</a>
+        <a href="#color">Foundations</a>
         <a href="#components">Components</a>
         <a href="#accessibility">Accessibility</a>
         <a href="#handoff">Handoff</a>
@@ -57,9 +59,9 @@
         <nav class="lang-switch" aria-label="Language" data-no-i18n>
           <a href="?lang=en" hreflang="en" lang="en" data-lang="en">EN</a><span aria-hidden="true">/</span><a href="?lang=pt" hreflang="pt-BR" lang="pt-BR" data-lang="pt">PT</a>
         </nav>
-        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)">
+        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (Alt+G)">
           <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3"/><path d="M7.5 2.5v15M12.5 2.5v15"/></svg>
-          <span class="grid-egg__label">Designer view</span><kbd aria-hidden="true">G</kbd>
+          <span class="grid-egg__label">Designer view</span><kbd aria-hidden="true">Alt+G</kbd>
         </button>
       </div>
     </div>
@@ -68,15 +70,15 @@
   <main id="main" class="container doc">
     <!-- ============ SIDE NAV ============ -->
     <nav class="doc__nav" aria-label="Guidelines sections">
-      <h2>Start</h2>
+      <p>Start</p>
       <a href="#overview" data-nav>Overview</a>
       <a href="#principles" data-nav>Principles</a>
       <a href="#identity" data-nav>Identity v2</a>
-      <h2>Process</h2>
+      <p>Process</p>
       <a href="#process" data-nav>UI/UX process</a>
       <a href="#collab" data-nav>Working together</a>
       <a href="#research" data-nav>Research &amp; metrics</a>
-      <h2>Foundations</h2>
+      <p>Foundations</p>
       <a href="#color" data-nav>Color</a>
       <a href="#typography" data-nav>Typography</a>
       <a href="#spacing" data-nav>Spacing</a>
@@ -85,7 +87,7 @@
       <a href="#motion" data-nav>Motion</a>
       <a href="#iconography" data-nav>Iconography</a>
       <a href="#annotation" data-nav>Annotation language</a>
-      <h2>Components</h2>
+      <p>Components</p>
       <a href="#components" data-nav>Overview</a>
       <a href="#button" data-nav>Button</a>
       <a href="#tag" data-nav>Tag</a>
@@ -93,11 +95,11 @@
       <a href="#pin" data-nav>Comment pin</a>
       <a href="#field" data-nav>Form field</a>
       <a href="#toolbar" data-nav>Toolbar</a>
-      <h2>Patterns</h2>
+      <p>Patterns</p>
       <a href="#patterns" data-nav>Page patterns</a>
       <a href="#casestudy" data-nav>Case study template</a>
       <a href="#content" data-nav>Content &amp; voice</a>
-      <h2>Quality</h2>
+      <p>Quality</p>
       <a href="#accessibility" data-nav>Accessibility</a>
       <a href="#handoff" data-nav>Handoff &amp; tokens</a>
       <a href="#governance" data-nav>Governance</a>
@@ -109,15 +111,15 @@
       <!-- ============ OVERVIEW ============ -->
       <section id="overview">
         <span class="eyebrow">00 · Overview</span>
-        <h2 class="display h-lg">JM Design Guidelines</h2>
+        <h1 class="display h-lg">JM Design Guidelines</h1>
         <div class="doc__intro">
           <span class="tag tag--brand">v2.4.0 · Canvas</span><span class="tag">Stable</span><span class="tag">Updated Sep 2026</span><span class="tag">Owner · Jessica Monteiro</span>
         </div>
         <p class="lead">This document is the design system and the working method behind my portfolio. I built the site the way I build products for clients: with a written process, a token-based visual language, documented components and an accessibility bar that is checked, not assumed.</p>
         <p>Use it in three ways. As a <strong>reference</strong> for how the portfolio is built. As an <strong>example</strong> of the documentation I deliver with design systems. And as a <strong>map of my process</strong>, from the first stakeholder conversation to post-launch metrics.</p>
-        <div class="callout"><b>How this document is organised</b>Process first (how I work), then foundations (tokens), then components (built from tokens), then patterns (built from components), then the quality gates: accessibility, handoff and governance. Each layer only depends on the layer before it.</div>
-        <h4>Concept</h4>
-        <p>The visual concept is <em>"the file, not the render"</em>. Instead of hiding the design process behind polished screens, the site borrows the visual language of the tools where the work actually happens: frames with labels, redline measurements, comment pins, prototype hotspots and a layout grid you can switch on. Since v2.0 the file became a <em>whiteboard</em>: a light paper canvas, ink lines, FigJam-flavoured sticky notes and the personality of my first portfolio. v2.1 made it finer: 1px lines, a book serif for the voice, and no more olive. See <a href="#identity">Identity v2</a>.</p>
+        <div class="callout"><b>How this document is organized</b>Process first (how I work), then foundations (tokens), then components (built from tokens), then patterns (built from components), then the quality gates: accessibility, handoff and governance. Each layer only depends on the layer before it.</div>
+        <h2 class="doc__kicker">Concept</h2>
+        <p>The visual concept is <em>"the file, not the render"</em>. Instead of hiding the design process behind polished screens, the site borrows the visual language of the tools where the work actually happens: frames with labels, redline measurements, comment pins, prototype hotspots and a layout grid you can switch on. In v2.0 the file became a <em>whiteboard</em>: a light paper canvas, ink lines, FigJam-style sticky notes and the personality of my first portfolio. v2.1 made it finer: 1px lines and a book serif for the voice. See <a href="#identity">Identity v2</a>.</p>
       </section>
 
       <!-- ============ PRINCIPLES ============ -->
@@ -163,23 +165,23 @@
             <tr><td>Candy tags (lilac, yellow, mint, pink)</td><td><span class="tag tag--mint">Keep</span></td><td><code>.tag--lilac / yellow / mint / pink / coral / ink</code>, always ink text on the fill.</td></tr>
             <tr><td>Black outline + offset shadow on buttons</td><td><span class="tag tag--yellow">Adapt</span></td><td>1px outline, 2px offset (the primary button casts a lilac shadow). Hover lifts 1.5px, active presses 2px.</td></tr>
             <tr><td>“Hello 👋”, “Check out my work ↓”</td><td><span class="tag tag--mint">Keep</span></td><td>Handwritten greeting in Mynerve over the hero title; scroll hint in the same hand.</td></tr>
-            <tr><td>Outlined marquee “USER INTERFACE • USER EXPERIENCE”</td><td><span class="tag tag--yellow">Adapt</span></td><td>A serif ribbon: Brygada, alternating roman and italic, separated by sparkles in lilac → mint → yellow.</td></tr>
-            <tr><td>“SHALL WE?” footer CTA</td><td><span class="tag tag--mint">Keep</span></td><td>Contact block and the laptop sticker. Letters outlined with a 4px offset shadow instead of hatching.</td></tr>
+            <tr><td>Outlined ribbon “USER INTERFACE • USER EXPERIENCE”</td><td><span class="tag tag--yellow">Adapt</span></td><td>A serif ribbon: Brygada, alternating roman and italic, separated by sparkles in lilac → mint → yellow.</td></tr>
+            <tr><td>“SHALL WE?” footer CTA</td><td><span class="tag tag--mint">Keep</span></td><td>Contact block and the laptop sticker. Brygada 500 with a highlighted italic “we?”, on a card with a 4px offset shadow instead of hatching.</td></tr>
             <tr><td>B&amp;W Jess illustration, sunflower-glasses photo</td><td><span class="tag tag--mint">Keep</span></td><td>Die-cut sticker on the MacBook lid; portrait card in About.</td></tr>
-            <tr><td>Real case copy: Crypex, Muvr, “Shaped by creativity”, “Guided by freedom”</td><td><span class="tag tag--mint">Keep</span></td><td>Case 01 (Muvr), Case 02 (Crypex) and the About pair, in her own words.</td></tr>
+            <tr><td>Real case copy: Crypex, Muvr, “Shaped by creativity”, “Guided by freedom”</td><td><span class="tag tag--mint">Keep</span></td><td>Case 01 (Muvr), Case 02 (Crypex) and the About pair, in my own words.</td></tr>
             <tr><td>Pure black #000 outlines</td><td><span class="tag tag--yellow">Adapt</span></td><td>ink-900 <code>#16150F</code>: same punch, warmer against paper.</td></tr>
             <tr><td>Lilac used for text</td><td><span class="tag tag--yellow">Adapt</span></td><td>Lilac is a fill only; text uses violet-600 <code>#6445D6</code> (5.6:1).</td></tr>
             <tr><td>Halftone dot background</td><td><span class="tag tag--yellow">Adapt</span></td><td>22px dot grid, the FigJam canvas. It also backs the 3D board.</td></tr>
             <tr><td>Whole dark sections</td><td><span class="tag tag--yellow">Adapt</span></td><td>One organic ink blob behind the Jess portrait, never a full dark section. Light is the primary theme.</td></tr>
-            <tr><td>Wordmark with coloured J and M</td><td><span class="tag tag--yellow">Adapt</span></td><td><code>.wordmark b</code> in violet italic, set in Brygada.</td></tr>
+            <tr><td>Wordmark with colored J and M</td><td><span class="tag tag--yellow">Adapt</span></td><td><code>.wordmark b</code> in violet italic, set in Brygada.</td></tr>
             <tr><td>Pink/lilac text on white</td><td><span class="tag tag--coral">Drop</span></td><td>Fails AA (1.6–2.1:1).</td></tr>
             <tr><td>Four or more hues in one component</td><td><span class="tag tag--coral">Drop</span></td><td>One sticky fill + ink + (optionally) brand per component.</td></tr>
-            <tr><td>Language selector with one language</td><td><span class="tag tag--coral">Drop</span></td><td>Returns with the pt-BR translation.</td></tr>
-            <tr><td>Long centred paragraphs</td><td><span class="tag tag--coral">Drop</span></td><td>Left-aligned, 68ch max.</td></tr>
+            <tr><td>Language selector with one language</td><td><span class="tag tag--yellow">Adapt</span></td><td>Back in 2.3 as EN / PT.</td></tr>
+            <tr><td>Long centered paragraphs</td><td><span class="tag tag--coral">Drop</span></td><td>Left-aligned, 68ch max.</td></tr>
           </tbody>
         </table></div>
 
-        <h3>Colour proportion</h3>
+        <h3>Color proportion</h3>
         <p>60 · 30 · 10. <strong>Paper</strong> is the canvas (60), <strong>ink</strong> draws the lines and the text (30), and the rest (sticky fills and violet) is the 10% that carries attention. If a screen looks like confetti, the 10% grew.</p>
         <div class="swatches swatches--5" style="max-width:620px">
           <div class="swatch swatch--light" style="background:#F7F3EA"><b>paper 60%</b>F7F3EA</div>
@@ -194,24 +196,24 @@
           <thead><tr><th>Element</th><th>Spec</th><th>Job</th></tr></thead>
           <tbody>
             <tr><td>Sticky note</td><td>Square, sticky fill, Mynerve, soft drop shadow, tilt ≤ 3°</td><td>Raw thoughts, research quotes, “test w/ 5 users”</td></tr>
-            <tr><td>Section</td><td>Fill at 28%, 1px ink border, radius 14, title tab in the same sticky colour</td><td>Groups stickies: Pain points, Needs, Delights</td></tr>
+            <tr><td>Section</td><td>Fill at 28%, 1px ink border, radius 14, title tab in the same sticky color</td><td>Groups stickies: Pain points, Needs, Delights</td></tr>
             <tr><td>Shape + connector</td><td>Pastel fill, 2–3px ink outline; elbow connectors with rounded corners and a filled arrowhead</td><td>Flows and decisions (diamond = decision)</td></tr>
             <tr><td>Stamp</td><td>Circle, sticky fill, ink ring, 4px offset shadow, one emoji or “+1”</td><td>Reactions during validation</td></tr>
             <tr><td>Cursor</td><td>Arrow + name tag. Jess = violet, Client = yellow, Dev = mint</td><td>Shows collaboration is part of the process</td></tr>
           </tbody>
         </table></div>
-        <p class="muted">What keeps it ours: our own palette, ink outlines on everything (FigJam uses none), Mynerve and Brygada instead of FigJam's type, and no copied UI chrome or icons.</p>
+        <p class="muted">What keeps it mine: my own palette, ink outlines on everything (FigJam uses none), Mynerve and Brygada instead of FigJam's type, and no copied UI chrome or icons.</p>
 
         <h3>Illustrations &amp; stickers</h3>
         <div class="dodont">
           <div class="do"><b>Do</b><ul>
-            <li>Use <code>assets/img/jess-portrait.webp</code> (holes filled, vector sunflower glasses) over the organic ink blob, with the vector <code>jess-label.svg</code>. The old export has transparent holes; on paper they show through.</li>
+            <li>Use <code>assets/img/jess-portrait.webp</code> (holes filled, vector sunflower glasses) over the organic ink blob, with the vector <code>jess-label.svg</code>.</li>
             <li>Use <code>assets/img/jess-character.webp</code> (B&amp;W) as a die-cut sticker: white 16px outline, soft shadow.</li>
             <li>Die-cut every sticker: white border 10–16px, ink outline inside, tilt ≤ 15°, overlap allowed.</li>
             <li>4-point sparkles in lilac, mint or yellow, three at most per composition.</li>
           </ul></div>
           <div class="dont"><b>Don't</b><ul>
-            <li>Recolour, crop the face of, or add filters to the Jess illustrations.</li>
+            <li>Recolor, crop the face of, or add filters to the Jess illustrations.</li>
             <li>Box the portrait in a hard rectangle; the blob is organic on purpose and the figure may overflow it.</li>
             <li>Use stickers as buttons or put essential information in them.</li>
             <li>Add sparkles to text blocks; they decorate images and titles only.</li>
@@ -219,14 +221,14 @@
         </div>
 
         <h3>The 3D story</h3>
-        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (light only). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene. Save-Data and low-memory devices (or <code>?motion=lite</code>) never download three.js and get a painted still instead. The story runs about 6.5 screens on desktop and 5 on a phone. Between the hero and the finale a “Skip to work” button is always on screen, plus a chapter counter on phones, where the rail is hidden.</p>
+        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (light only). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene. Save-Data and low-memory devices (or <code>?motion=lite</code>) never download three.js and get a painted still instead. Between the hero and the finale a “Skip to work” button is always on screen, plus a chapter counter on phones, where the rail is hidden.</p>
       </section>
 
       <!-- ============ PROCESS ============ -->
       <section id="process">
         <span class="eyebrow">02 · Process</span>
         <h2 class="display h-md">The UI/UX process, end to end</h2>
-        <p class="lead">Eight phases, grouped into the six stages shown on the portfolio. The order is the default; the loop is the rule. Every phase has an entry, a set of activities, deliverables and an exit criterion so a client always knows where we are.</p>
+        <p class="lead">Eight phases, grouped into the six stages shown on the portfolio. The order is the default; the loop is the rule. Every phase has a goal, activities, deliverables and exit criteria, so a client always knows where we are.</p>
         <div class="callout"><b>Fidelity ladder</b>Sketch → low-fi wireframe → mid-fi wireframe → hi-fi UI → interactive prototype → production. Each rung is tested before the next one is climbed. Going up a rung is cheap; going down one because we skipped a test is expensive.</div>
 
         <article class="phase">
@@ -244,9 +246,9 @@
         </article>
 
         <article class="phase">
-          <div class="phase__head"><span class="n">Phase 03</span><h3>Synthesise &amp; define</h3><p class="goal">Turn raw findings into shared models of the user and a sharp definition of what we are solving.</p></div>
-          <div><h4>Activities &amp; methods</h4><ul><li>Affinity mapping of observations into themes</li><li>Personas or JTBD profiles (only as many as the data supports)</li><li>Empathy maps and current-state journey maps with pain points and opportunities</li><li>Problem framing: "How might we…" statements</li><li>Prioritisation with impact × effort or RICE</li></ul></div>
-          <div><h4>Deliverables</h4><ul><li>Research synthesis report (insights, evidence, quotes, confidence level)</li><li>Personas / JTBD cards</li><li>Journey map(s) with opportunity areas</li><li>Prioritised opportunity backlog</li><li>Design principles for the project</li></ul></div>
+          <div class="phase__head"><span class="n">Phase 03</span><h3>Synthesize &amp; define</h3><p class="goal">Turn raw findings into shared models of the user and a sharp definition of what we are solving.</p></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Affinity mapping of observations into themes</li><li>Personas or JTBD profiles (only as many as the data supports)</li><li>Empathy maps and current-state journey maps with pain points and opportunities</li><li>Problem framing: "How might we…" statements</li><li>Prioritization with impact × effort or RICE</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Research synthesis report (insights, evidence, quotes, confidence level)</li><li>Personas / JTBD cards</li><li>Journey map(s) with opportunity areas</li><li>Prioritized opportunity backlog</li><li>Design principles for the project</li></ul></div>
           <div class="exit"><b>Exit criteria</b>Team agrees on who we design for and which 1–3 problems we tackle first.</div>
         </article>
 
@@ -260,20 +262,20 @@
         <article class="phase">
           <div class="phase__head"><span class="n">Phase 05</span><h3>Ideate &amp; wireframe</h3><p class="goal">Explore many solutions cheaply, converge on one, and express it at low fidelity so the conversation stays about structure.</p></div>
           <div><h4>Activities &amp; methods</h4><ul><li>Crazy 8s / design studio sessions with the team</li><li>Sketches → low-fi wireframes (grayscale, real content, no styling)</li><li>Mid-fi wireframes with layout, hierarchy and copy in place</li><li>Wireflow: wireframes connected as a flow</li><li>Early guerrilla tests on paper or clickable wireframes</li></ul></div>
-          <div><h4>Deliverables</h4><ul><li>Concept sketches with rationale</li><li>Wireframe set at mid-fi, annotated (behaviour, states, content rules)</li><li>Clickable wireframe prototype</li><li>Decision log (options considered, choice, why)</li></ul></div>
+          <div><h4>Deliverables</h4><ul><li>Concept sketches with rationale</li><li>Wireframe set at mid-fi, annotated (behavior, states, content rules)</li><li>Clickable wireframe prototype</li><li>Decision log (options considered, choice, why)</li></ul></div>
           <div class="exit"><b>Exit criteria</b>Stakeholders approve structure and content · no unresolved "what happens when…" questions.</div>
         </article>
 
         <article class="phase">
           <div class="phase__head"><span class="n">Phase 06</span><h3>UI design &amp; design system</h3><p class="goal">Apply the visual language, build reusable components and design every state so engineering never has to guess.</p></div>
-          <div><h4>Activities &amp; methods</h4><ul><li>Moodboard and style tiles → visual direction approved</li><li>Foundations: color, type, spacing, grid, elevation, motion, iconography as tokens</li><li>Component library in Figma with variants, auto layout, properties and variables</li><li>All states designed: default, hover, focus, active, disabled, loading, empty, error, success</li><li>Responsive behaviour per breakpoint; dark mode when in scope</li><li>Accessibility pass: contrast, target size, focus order, semantics</li></ul></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Moodboard and style tiles → visual direction approved</li><li>Foundations: color, type, spacing, grid, elevation, motion, iconography as tokens</li><li>Component library in Figma with variants, auto layout, properties and variables</li><li>All states designed: default, hover, focus, active, disabled, loading, empty, error, success</li><li>Responsive behavior per breakpoint; dark mode when in scope</li><li>Accessibility pass: contrast, target size, focus order, semantics</li></ul></div>
           <div><h4>Deliverables</h4><ul><li>Hi-fi screens for every flow, every breakpoint</li><li>Figma library + variables (tokens) + documentation pages</li><li>Component specs with anatomy, usage, do/don't</li><li>Illustration / icon set when needed (Illustrator, Procreate)</li></ul></div>
-          <div class="exit"><b>Exit criteria</b>Zero detached instances · every colour is a token · every component has all states · AA contrast verified.</div>
+          <div class="exit"><b>Exit criteria</b>Zero detached instances · every color is a token · every component has all states · AA contrast verified.</div>
         </article>
 
         <article class="phase">
           <div class="phase__head"><span class="n">Phase 07</span><h3>Prototype &amp; validate</h3><p class="goal">Test the design with real users before it is built, measure it, and fix what matters most.</p></div>
-          <div><h4>Activities &amp; methods</h4><ul><li>Interactive prototype (Figma) with realistic content and key micro-interactions</li><li>Test plan: goals, tasks, participants (5 per round per segment), script, metrics</li><li>Moderated usability testing (think-aloud) or unmoderated remote tests</li><li>Metrics: task success, time on task, error rate, SEQ after each task, SUS after the session</li><li>Findings prioritised by severity × frequency; fix, then re-test the fixes</li><li>A/B or preference tests when two directions remain</li></ul></div>
+          <div><h4>Activities &amp; methods</h4><ul><li>Interactive prototype (Figma) with realistic content and key micro-interactions</li><li>Test plan: goals, tasks, participants (5 per round per segment), script, metrics</li><li>Moderated usability testing (think-aloud) or unmoderated remote tests</li><li>Metrics: task success, time on task, error rate, SEQ after each task, SUS after the session</li><li>Findings prioritized by severity × frequency; fix, then re-test the fixes</li><li>A/B or preference tests when two directions remain</li></ul></div>
           <div><h4>Deliverables</h4><ul><li>Test plan and script</li><li>Findings report with clips, severity and recommendations</li><li>Iteration summary (what changed and why)</li><li>Updated prototype</li></ul></div>
           <div class="exit"><b>Exit criteria</b>No severity-3/4 issues remain · task success ≥ target · SUS ≥ 68 (industry average) or agreed target.</div>
         </article>
@@ -327,7 +329,7 @@
           <tbody>
             <tr><td>Stakeholder interviews</td><td>Qual · generative</td><td>Goals, constraints, politics</td><td>4–8</td><td>Brief, assumptions</td></tr>
             <tr><td>User interviews</td><td>Qual · generative</td><td>Needs, motivations, context</td><td>5–8 / segment</td><td>Insights, quotes, JTBD</td></tr>
-            <tr><td>Surveys</td><td>Quant · generative</td><td>Sizing attitudes and behaviours</td><td>100+</td><td>Distributions, segments</td></tr>
+            <tr><td>Surveys</td><td>Quant · generative</td><td>Sizing attitudes and behaviors</td><td>100+</td><td>Distributions, segments</td></tr>
             <tr><td>Analytics review</td><td>Quant · evaluative</td><td>Where people drop off</td><td>All traffic</td><td>Funnel, top issues</td></tr>
             <tr><td>Heuristic evaluation</td><td>Expert · evaluative</td><td>Fast audit of an existing UI</td><td>1–3 evaluators</td><td>Issues with severity 0–4</td></tr>
             <tr><td>Card sorting</td><td>Quant/qual · generative</td><td>How people group content</td><td>15–30</td><td>Categories, labels</td></tr>
@@ -365,7 +367,7 @@
       <section id="color">
         <span class="eyebrow">05 · Foundations</span>
         <h2 class="display h-md">Color</h2>
-        <p>v2 “Canvas” is light-first. A warm <strong>paper</strong> and a near-black <strong>ink</strong> do most of the work. Since v2.1 the brand is <strong>ink</strong> itself (olive was retired: it fought the pastel stickies). <strong>Sticky</strong> fills bring the FigJam energy and are always paired with ink text. Each sticky has a <strong>strong</strong>, text-safe sibling for when the colour has to be read, not just seen.</p>
+        <p>v2 “Canvas” is light-first. A warm <strong>paper</strong> and a near-black <strong>ink</strong> do most of the work. The brand is <strong>ink</strong> itself. <strong>Sticky</strong> fills bring the FigJam energy and are always paired with ink text. Each sticky has a <strong>strong</strong>, text-safe sibling for when the color has to be read, not just seen.</p>
 
         <h3>Primitives · paper &amp; ink</h3>
         <div class="swatches">
@@ -403,7 +405,7 @@
         </div>
 
         <h3>Semantic tokens</h3>
-        <p>Components never reference primitives. They reference intent. That keeps the system easy to change: a token swap, not a redesign. v2.2 is light only; there is no dark theme. Ratios below were measured, not estimated.</p>
+        <p>Components never reference primitives. They reference intent. That keeps the system easy to change: a token swap, not a redesign. v2.4.0 is light only; there is no dark theme. Ratios below were measured, not estimated.</p>
         <div class="table--wrap"><table class="table">
           <thead><tr><th>Token</th><th>Value</th><th>Use for</th><th>Contrast</th></tr></thead>
           <tbody>
@@ -413,7 +415,7 @@
             <tr><td><code>--color-text-muted</code></td><td>ink-600</td><td>Secondary text</td><td><span class="ok">7.7 AAA</span></td></tr>
             <tr><td><code>--color-text-subtle</code></td><td>ink-500</td><td>Mono labels, meta</td><td><span class="ok">5.3 AA</span></td></tr>
             <tr><td><code>--color-brand</code></td><td>ink-900</td><td>Primary action, one per view (lilac offset shadow)</td><td><span class="ok">18.3 paper on ink</span></td></tr>
-            <tr><td><code>--color-brand-text</code></td><td>violet-600</td><td>Brand-coloured text and links</td><td><span class="ok">5.6 AA</span></td></tr>
+            <tr><td><code>--color-brand-text</code></td><td>violet-600</td><td>Brand-colored text and links</td><td><span class="ok">5.6 AA</span></td></tr>
             <tr><td><code>--color-accent</code></td><td>sticky-lilac</td><td>Highlighter, current step, secondary buttons (fill)</td><td><span class="ok">ink on it: 10.3</span></td></tr>
             <tr><td><code>--color-accent-text</code></td><td>violet-600</td><td>Accent text, progress, wordmark initials</td><td><span class="ok">5.6 AA</span></td></tr>
             <tr><td><code>--color-border</code></td><td>paper-300</td><td>Decorative dividers</td><td><span class="warn">1.5, decorative only</span></td></tr>
@@ -421,14 +423,14 @@
             <tr><td><code>--color-focus</code></td><td>violet-600</td><td>Focus ring (2px, 3px offset)</td><td><span class="ok">5.6 non-text ✓</span></td></tr>
             <tr><td><code>--color-redline</code></td><td>coral-400</td><td>Measurements (label text is ink)</td><td><span class="ok">ink on it: 7.9</span></td></tr>
             <tr><td>Sticky fills</td><td>yellow · lilac · mint · pink · coral · sky</td><td>Notes, tags, stamps, section tabs</td><td><span class="ok">ink on them: 7.9 – 13.8</span></td></tr>
-            <tr><td>Strong hues</td><td>teal-700 · coral-700</td><td>Coloured text when a sticky would fail</td><td><span class="ok">5.4 · 5.2 on paper</span></td></tr>
+            <tr><td>Strong hues</td><td>teal-700 · coral-700</td><td>Colored text when a sticky would fail</td><td><span class="ok">5.4 · 5.2 on paper</span></td></tr>
           </tbody>
         </table></div>
 
         <h4>Rules</h4>
         <div class="dodont">
-          <div class="do"><b>Do</b><ul><li>Pair every sticky fill with ink text and, if interactive, a 1px ink border.</li><li>Use <code>brand</code> for one primary action per view; lilac or yellow for the secondary.</li><li>Use the strong sibling (violet-600, teal-700, coral-700) when colour has to be read as text.</li><li>Check contrast for every new pair and record it here.</li></ul></div>
-          <div class="dont"><b>Don't</b><ul><li>Set text in a sticky colour on paper (1.2–2.1:1).</li><li>Use white text on sticky fills.</li><li>Put two sticky fills on the same component.</li><li>Use pure black; ink-900 is the darkest value in the light theme.</li></ul></div>
+          <div class="do"><b>Do</b><ul><li>Pair every sticky fill with ink text and, if interactive, a 1px ink border.</li><li>Use <code>brand</code> for one primary action per view; lilac or yellow for the secondary.</li><li>Use the strong sibling (violet-600, teal-700, coral-700) when color has to be read as text.</li><li>Check contrast for every new pair and record it here.</li></ul></div>
+          <div class="dont"><b>Don't</b><ul><li>Set text in a sticky color on paper (1.2–2.1:1).</li><li>Use white text on sticky fills.</li><li>Put two sticky fills on the same component.</li><li>Use pure black; ink-900 is the darkest value in the light theme.</li></ul></div>
         </div>
       </section>
 
@@ -440,7 +442,7 @@
         <table class="table">
           <thead><tr><th>Role</th><th>Family</th><th>Weights</th><th>Used for</th></tr></thead>
           <tbody>
-            <tr><td>Display</td><td>Brygada 1918</td><td>400, 500 + italic</td><td>H1–H2, case titles, marquee, quotes, “Shall <em>we?</em>”</td></tr>
+            <tr><td>Display</td><td>Brygada 1918</td><td>400, 500 + italic</td><td>H1–H2, case titles, ribbon, quotes, “Shall <em>we?</em>”</td></tr>
             <tr><td>Text</td><td>Hanken Grotesk</td><td>300–600</td><td>Body, UI labels, buttons, H4</td></tr>
             <tr><td>Mono</td><td>Fragment Mono</td><td>400</td><td>Frame labels, tags, measurements, meta, code</td></tr>
             <tr><td>Hand</td><td>Mynerve</td><td>400</td><td>Sticky notes, scroll hint, “nice to meet you”, hand notes. Never body or UI labels.</td></tr>
@@ -449,17 +451,17 @@
 
         <h3>Scale</h3>
         <p>A 12-step scale in rem. Display sizes use <code>clamp()</code> so headlines scale with the viewport between the min and max steps.</p>
-        <div class="specimen"><small>display · 96/72/56<br>h-xl · lh 1.05 · −0.02em</small><div class="sample display" style="font-size: clamp(2.5rem, 5vw, 4.5rem)">Interfaces you don't have to <em>think</em> about.</div></div>
+        <div class="specimen"><small>display · 35–54<br>h-xl · lh 1.04 · −0.015em</small><div class="sample display" style="font-size: clamp(2.2rem, 4vw, 3.4rem)">Interfaces you don't have to <em>think</em> about.</div></div>
         <div class="specimen"><small>hand · 30 · 400<br>greeting · Mynerve</small><div class="sample" style="font-family: var(--font-hand); font-size: 1.9rem">Hello, I'm Jess 👋</div></div>
-        <div class="specimen"><small>display · 56/40/32<br>h-lg · lh 1.05</small><div class="sample display" style="font-size: clamp(2rem, 3.5vw, 3rem)">Selected work</div></div>
-        <div class="specimen"><small>display · 40/24<br>h-md · lh 1.05</small><div class="sample display" style="font-size: 2rem">The UI/UX process, end to end</div></div>
+        <div class="specimen"><small>display · 30–42<br>h-lg · lh 1.1</small><div class="sample display" style="font-size: clamp(1.9rem, 3vw, 2.6rem)">Selected work</div></div>
+        <div class="specimen"><small>display · 24–32<br>h-md · lh 1.15</small><div class="sample display" style="font-size: clamp(1.5rem, 2.2vw, 2rem)">The UI/UX process, end to end</div></div>
         <div class="specimen"><small>text · 24 · 500<br>h-sm / case title</small><div class="sample" style="font-size: 1.5rem; font-weight: 500">Guest-facing booking &amp; stay flow</div></div>
         <div class="specimen"><small>text · 20 · 500<br>h3 · lh 1.3</small><div class="sample" style="font-size: 1.25rem; font-weight: 500">Discover &amp; scope</div></div>
         <div class="specimen"><small>text · 18 · 400<br>lead · lh 1.65 · muted</small><div class="sample muted" style="font-size: 1.125rem; line-height: 1.65">I design digital products from research to handoff.</div></div>
         <div class="specimen"><small>text · 16 · 400<br>body · lh 1.65 · max 68ch</small><div class="sample" style="line-height: 1.65">What ties it together is the same habit: understand the person on the other side of the screen first, then design the smallest interface that gets them what they came for.</div></div>
-        <div class="specimen"><small>text · 14 · 400/500<br>small / button / table</small><div class="sample" style="font-size: .875rem">Output → findings report · prioritised fixes</div></div>
+        <div class="specimen"><small>text · 14 · 400/500<br>small / button / table</small><div class="sample" style="font-size: .875rem">Output → findings report · prioritized fixes</div></div>
         <div class="specimen"><small>mono · 12 · 400<br>label · +0.08em · uppercase</small><div class="sample mono">Frame 01 · Hero / Dashboard · 1440 × 900</div></div>
-        <div class="specimen"><small>mono · 11/10<br>tag / measure</small><div class="sample"><span class="tag">Design system</span> <span class="tag tag--brand">UI/UX Designer</span> <span class="tag tag--proto">Ready for dev</span></div></div>
+        <div class="specimen"><small>mono · 10.5/10<br>tag / measure</small><div class="sample"><span class="tag">Design system</span> <span class="tag tag--brand">UI/UX Designer</span> <span class="tag tag--proto">Ready for dev</span></div></div>
 
         <h4>Rules</h4>
         <ul class="list">
@@ -468,8 +470,8 @@
           <li>Display weight stays at 400–500. Hierarchy comes from size and the italic, not from bold. No outlined or stroked text.</li>
           <li>Mynerve never below 18px and never for anything a user must read to complete a task.</li>
           <li>Mono text is uppercase with +0.08em tracking at 12px and below; never uppercase body text.</li>
-          <li>Minimum sizes: 14px for UI text, 11px for mono meta, 10px only inside measurement labels (decorative, hidden from assistive tech).</li>
-          <li>Weight is for hierarchy, colour is for meaning. Don't use both for the same job.</li>
+          <li>Minimum sizes: 14px for UI text; 10px for uppercase mono meta: tags (10.5px), pin author lines and measurement labels (decorative, hidden from assistive tech).</li>
+          <li>Weight is for hierarchy, color is for meaning. Don't use both for the same job.</li>
         </ul>
       </section>
 
@@ -507,7 +509,7 @@
       <section id="layout">
         <span class="eyebrow">08 · Foundations</span>
         <h2 class="display h-md">Layout &amp; grid</h2>
-        <p>A 12-column fluid grid inside a 1200px container with 24px gutters. Press <kbd>G</kbd> on any page to see it. The grid is tinted on purpose: it should never be mistaken for content.</p>
+        <p>A 12-column fluid grid inside a 1200px container with 24px gutters. Press <kbd>Alt</kbd> + <kbd>G</kbd> (<kbd>⌥G</kbd> on a Mac) on any page to see it. The grid is tinted on purpose: it should never be mistaken for content.</p>
         <table class="table">
           <thead><tr><th>Breakpoint</th><th>Width</th><th>Columns</th><th>Notes</th></tr></thead>
           <tbody>
@@ -520,7 +522,7 @@
         <ul class="list">
           <li>Containers: <code>--container</code> 1200px for layouts, <code>--container-narrow</code> 760px for long reading.</li>
           <li>Case frames span 6 or 12 columns; never 4, 5 or 7 (odd rhythm).</li>
-          <li>Nothing scrolls horizontally at 375px. Tables wrap in a scroll container instead.</li>
+          <li>Nothing scrolls horizontally at 320px. Tables wrap in a scroll container instead.</li>
           <li>The toolbar is sticky and 60px tall; anchored sections offset by its height.</li>
         </ul>
       </section>
@@ -532,10 +534,10 @@
         <p>The system is wireframe-first: modest corners, 1px hairlines, dashed lines for things that aren't final. Depth comes from borders and layering; shadows are small, offset and always ink.</p>
         <div class="demo-row">
           <div class="radius-demo" style="border-radius:0">0</div>
-          <div class="radius-demo" style="border-radius:2px">2 · buttons, tags</div>
-          <div class="radius-demo" style="border-radius:4px">4 · cards, bubbles</div>
-          <div class="radius-demo" style="border-radius:8px">8 · mobile frames</div>
-          <div class="radius-demo" style="border-radius:999px">full · pills</div>
+          <div class="radius-demo" style="border-radius:4px">4 · inputs, chips</div>
+          <div class="radius-demo" style="border-radius:8px">8 · buttons, bubbles</div>
+          <div class="radius-demo" style="border-radius:14px">14 · cards, frames</div>
+          <div class="radius-demo" style="border-radius:999px">full · tags, pills</div>
         </div>
         <table class="table">
           <thead><tr><th>Line</th><th>Style</th><th>Meaning</th></tr></thead>
@@ -562,7 +564,7 @@
         <table class="table">
           <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
           <tbody>
-            <tr><td><code>dur-1</code></td><td>120ms</td><td>Colour and opacity on hover</td></tr>
+            <tr><td><code>dur-1</code></td><td>120ms</td><td>Color and opacity on hover</td></tr>
             <tr><td><code>dur-2</code></td><td>200ms</td><td>Buttons, toggles, small transforms</td></tr>
             <tr><td><code>dur-3</code></td><td>320ms</td><td>Cards lifting, nav sheet, bubbles</td></tr>
             <tr><td><code>dur-4</code></td><td>600ms</td><td>Scroll reveals, pins dropping</td></tr>
@@ -574,7 +576,7 @@
           <li>Stagger siblings by 80ms, max five steps.</li>
           <li>Only animate <code>transform</code> and <code>opacity</code> (and SVG <code>stroke-dashoffset</code>). No layout animation.</li>
           <li>Reduced motion: all durations drop to ~0, reveals render in their final state and the 3D story becomes still images.</li>
-          <li>The marquee pauses on hover so the text can actually be read.</li>
+          <li>The ribbon pauses on hover, on keyboard focus and on tap, so the text can actually be read.</li>
         </ul>
       </section>
 
@@ -589,9 +591,9 @@
             <tr><td>Grid</td><td>24 × 24 with 2px padding (20 live area); 16 × 16 for inline</td></tr>
             <tr><td>Stroke</td><td>1.5px, round caps and joins, no fills except the brand mark</td></tr>
             <tr><td>Corners</td><td>Square or 2px, matching the shape system</td></tr>
-            <tr><td>Colour</td><td><code>currentColor</code>, inherit from the text next to it</td></tr>
+            <tr><td>Color</td><td><code>currentColor</code>, inherit from the text next to it</td></tr>
             <tr><td>Accessibility</td><td>Decorative icons get <code>aria-hidden</code>; icon-only buttons get an <code>aria-label</code></td></tr>
-            <tr><td>Illustration</td><td>Drawn in Illustrator / Procreate on the same 24-col grid as the UI, ink outlines, paper + ink + one sticky fill, textures allowed, gradients not</td></tr>
+            <tr><td>Illustration</td><td>Drawn in Illustrator / Procreate on the same 24 × 24 grid as the icons, ink outlines, paper + ink + one sticky fill, textures allowed, gradients not</td></tr>
           </tbody>
         </table>
       </section>
@@ -601,7 +603,7 @@
         <span class="eyebrow">12 · Foundations</span>
         <h2 class="display h-md">Annotation language</h2>
         <p>This is the layer that makes the portfolio look like a working file. It's a small vocabulary borrowed from Figma and from classic redlining, each mark with one fixed meaning.</p>
-        <div class="anno-demo" aria-label="Annotation language demo">
+        <div class="anno-demo" role="group" aria-label="Annotation language demo">
           <span class="frame__label" style="top:-1.6rem; left:-1px;"><b>Frame 12</b> Annotation demo <span class="dim">640 × 220</span></span>
           <div class="wf-box wf-box--x" style="left:24px; top:24px; width:140px; height:100px;"></div>
           <div class="wf-line" style="position:absolute; left:188px; top:28px; width:200px; height:12px;"></div>
@@ -619,13 +621,13 @@
           <thead><tr><th>Mark</th><th>Looks like</th><th>Means</th><th>Rules</th></tr></thead>
           <tbody>
             <tr><td>Frame label</td><td>Mono, above the top-left corner</td><td>What this artboard is, and its size</td><td>Format: <code>Frame NN · Name · W × H</code>. Always present on a frame.</td></tr>
-            <tr><td>Selection handles</td><td>Four small blue squares</td><td>This frame is selected / interactive</td><td>Only on hover or on the hero. Never on two frames at once.</td></tr>
+            <tr><td>Selection handles</td><td>Four small violet squares</td><td>This frame is selected / interactive</td><td>Only on hover or on the hero. Never on two frames at once.</td></tr>
             <tr><td>Comment pin</td><td>Numbered teardrop</td><td>A conversation happened here</td><td>Violet = designer, yellow = client. Numbered per frame. Hover/click/focus opens the bubble; Esc closes.</td></tr>
             <tr><td>Measurement</td><td>Red line with end ticks and a value</td><td>Distance in px</td><td>Value on the scale. Decorative: <code>aria-hidden</code>, never carries essential information.</td></tr>
-            <tr><td>Hotspot</td><td>Blue rectangle with a dot</td><td>Prototype interaction starts here</td><td>Only on things that are actually interactive in the story.</td></tr>
-            <tr><td>Connector</td><td>Blue dashed curve with arrow</td><td>Flows to this frame</td><td>Left-to-right, one per hotspot.</td></tr>
-            <tr><td>Spec label</td><td>Blue mono chip</td><td>Auto-layout / constraint info</td><td>Uppercase, ≤ 32 characters.</td></tr>
-            <tr><td>Sticky note</td><td>Sand square, slightly rotated</td><td>Workshop note or next step</td><td>Max 2 lines. One per section.</td></tr>
+            <tr><td>Hotspot</td><td>Violet rectangle with a dot</td><td>Prototype interaction starts here</td><td>Only on things that are actually interactive in the story.</td></tr>
+            <tr><td>Connector</td><td>Violet dashed curve with arrow</td><td>Flows to this frame</td><td>Left-to-right, one per hotspot.</td></tr>
+            <tr><td>Spec label</td><td>Violet mono chip</td><td>Auto-layout / constraint info</td><td>Uppercase, ≤ 32 characters.</td></tr>
+            <tr><td>Sticky note</td><td>Yellow sticky square, slightly rotated</td><td>Workshop note or next step</td><td>Max 2 lines. One per section.</td></tr>
             <tr><td>Placeholder box</td><td>Dashed box with an X</td><td>Image or content to come</td><td>Says what should replace it and at what size.</td></tr>
           </tbody>
         </table>
@@ -635,12 +637,12 @@
       <section id="components">
         <span class="eyebrow">13 · Components</span>
         <h2 class="display h-md">Component library</h2>
-        <p>Every component below is rendered live from the site's CSS, so this page can never drift from the product. Each entry documents anatomy, variants, states, accessibility and usage. Components consume semantic tokens only.</p>
+        <p>Every example below uses the site's production CSS. Each entry documents anatomy, variants, states, accessibility and usage. Components consume semantic tokens only.</p>
         <table class="table">
           <thead><tr><th>Component</th><th>Status</th><th>Variants</th><th>Where it's used</th></tr></thead>
           <tbody>
             <tr><td>Button</td><td><span class="tag tag--brand">Stable</span></td><td>primary · secondary · ghost × sm · md · lg</td><td>Hero, contact, toolbar</td></tr>
-            <tr><td>Tag</td><td><span class="tag tag--brand">Stable</span></td><td>default · brand · proto · redline</td><td>Cases, hero, this page</td></tr>
+            <tr><td>Tag</td><td><span class="tag tag--brand">Stable</span></td><td>default · brand · proto · redline · lilac · yellow · mint · pink · coral · ink</td><td>Cases, hero, this page</td></tr>
             <tr><td>Frame</td><td><span class="tag tag--brand">Stable</span></td><td>solid · dashed · selected</td><td>Hero art, cases, contact</td></tr>
             <tr><td>Comment pin</td><td><span class="tag tag--brand">Stable</span></td><td>designer · client · left-bubble</td><td>Hero, cases</td></tr>
             <tr><td>Measure / Hotspot / Spec</td><td><span class="tag tag--brand">Stable</span></td><td>h · v</td><td>Annotation layer</td></tr>
@@ -661,7 +663,7 @@
           <span class="lbl">Variants</span>
           <div class="showcase__row"><a class="btn btn--primary" href="#button">Primary action</a><a class="btn" href="#button">Secondary</a><a class="btn btn--ghost" href="#button">Ghost</a></div>
           <span class="lbl" style="margin-top: var(--sp-4)">Sizes</span>
-          <div class="showcase__row"><a class="btn btn--primary btn--sm" href="#button">Small · 32</a><a class="btn btn--primary" href="#button">Medium · 44</a><a class="btn btn--primary btn--lg" href="#button">Large · 52 <span class="arrow" aria-hidden="true">→</span></a></div>
+          <div class="showcase__row"><a class="btn btn--primary btn--sm" href="#button">Small · 32</a><a class="btn btn--primary" href="#button">Medium · 44</a><a class="btn btn--primary btn--lg" href="#button">Large · 48 <span class="arrow" aria-hidden="true">→</span></a></div>
           <span class="lbl" style="margin-top: var(--sp-4)">States (hover any button to see it)</span>
           <div class="state-list">
             <div><small>Default</small><a class="btn btn--primary" href="#button">Label</a></div>
@@ -673,15 +675,15 @@
         </div>
         <div class="anatomy">
           <a class="btn btn--primary btn--lg" href="#button" style="pointer-events:none">View work <span class="arrow" aria-hidden="true">→</span></a>
-          <div class="pin" style="left:-10px; top:-12px;">1<span class="pin__bubble"><b>1 · Container</b>Height 52 (lg) · padding-x 32 · radius 8 · 1px ink border.</span></div>
-          <div class="pin" style="left:44%; top:-12px;">2<span class="pin__bubble"><b>2 · Label</b>Hanken Grotesk 500 · 16 (lg) / 14 (md) · verb first.</span></div>
+          <div class="pin" style="left:-10px; top:-12px;">1<span class="pin__bubble"><b>1 · Container</b>Height 48 (lg) · padding-x 32 · radius 8 · 1px ink border.</span></div>
+          <div class="pin" style="left:44%; top:-12px;">2<span class="pin__bubble"><b>2 · Label</b>Hanken Grotesk 500 · 15 (lg) / 14 (md) · verb first.</span></div>
           <div class="pin" style="right:-10px; top:-12px; left:auto;">3<span class="pin__bubble"><b>3 · Trailing icon</b>Optional · gap 8 · slides 3px on hover.</span></div>
           <div class="measure measure--h" style="left:0; bottom:-18px; width:100%;"><span>hug · min 44</span></div>
         </div>
-        <h4>Accessibility</h4>
+        <h3 class="doc__kicker">Accessibility</h3>
         <ul class="list">
           <li>Minimum height 44px (md, lg). Small (32px) is only for the toolbar and always has 8px of space around it, satisfying WCAG 2.2 target size (24 × 24 minimum).</li>
-          <li>Focus ring: 2px <code>focus</code> colour, 3px offset, visible on every variant, never removed.</li>
+          <li>Focus ring: 2px <code>focus</code> color, 3px offset, visible on every variant, never removed.</li>
           <li>Disabled buttons keep their label readable (opacity .45 on an 8.2:1 pair stays above 3:1 for large text) and are excluded from tab order only if truly inert.</li>
           <li>Anchors styled as buttons are real links; buttons that don't navigate are real <code>&lt;button&gt;</code> elements.</li>
         </ul>
@@ -697,7 +699,7 @@
         <p>Tags label things: skills, status, categories. They are not buttons and never navigate.</p>
         <div class="showcase"><div class="showcase__row"><span class="tag">Default</span><span class="tag tag--brand">Brand · status / role</span><span class="tag tag--proto">Proto · ready for dev</span><span class="tag tag--redline">Redline · needs fix</span><span class="status-pill">Live status pill</span></div></div>
         <ul class="list">
-          <li>Mono 11px uppercase, padding 3 × 10, pill shape, 1px border.</li>
+          <li>Mono 10.5px uppercase, padding 3 × 10, pill shape, 1px border.</li>
           <li>Max three tags per case card. If you need more, the card needs a better title.</li>
           <li>The <code>status-pill</code> variant carries a pulsing dot meaning "live"; it is decorative and hidden on mobile.</li>
         </ul>
@@ -737,7 +739,7 @@
             <tr><td>Pin</td><td>24 × 24 · radius 50% 50% 50% 4px · 2px ring in bg-elevated · mono 11 600 number</td></tr>
             <tr><td>Bubble</td><td>min 190 / max 240 · padding 8 × 12 · radius 8 · border 1px · 2px offset shadow</td></tr>
             <tr><td>Author line</td><td>Mono 10 uppercase subtle: "Name · role"</td></tr>
-            <tr><td>Behaviour</td><td><code>role="button"</code>, <code>tabindex="0"</code>, Enter/Space toggle, Esc closes all, hover opens without click</td></tr>
+            <tr><td>Behavior</td><td><code>role="button"</code>, <code>tabindex="0"</code>, Enter/Space toggle, Esc closes all, hover opens without click</td></tr>
             <tr><td>Placement</td><td>Bubble opens right; <code>.pin--left</code> flips it when near the right edge</td></tr>
           </tbody>
         </table>
@@ -756,7 +758,7 @@
         </div>
         <ul class="list">
           <li>Every input has a visible <code>&lt;label&gt;</code>; placeholders are examples, never labels.</li>
-          <li>Errors: red border + text below, linked with <code>aria-describedby</code>, and <code>aria-invalid="true"</code>. Never colour alone.</li>
+          <li>Errors: red border + text below, linked with <code>aria-describedby</code>, and <code>aria-invalid="true"</code>. Never color alone.</li>
           <li>Required fields say "required"; optional ones say nothing (default is required).</li>
         </ul>
       </section>
@@ -764,12 +766,12 @@
       <section id="toolbar">
         <span class="eyebrow">13.6 · Component</span>
         <h2 class="display h-md">Toolbar</h2>
-        <p>The header is a quiet editor toolbar: a sparkle mark and wordmark, a tiny "ready for dev" dot (an easter egg, it reveals its words on hover), page navigation, the EN / PT language switch and one icon: <strong>designer view</strong> (<kbd>G</kbd>). Designer view shows the 12-column grid and turns the pointer into an inspector that reads any element's size, font, size/line-height and weight, like Figma. There is no theme or notes toggle.</p>
+        <p>The header is a quiet editor toolbar: a sparkle mark and wordmark, a tiny status dot (an easter egg, it reveals its words on hover), page navigation, the EN / PT language switch and a <strong>Designer view</strong> toggle pill (<kbd>Alt</kbd> + <kbd>G</kbd>). Designer view shows the 12-column grid and turns the pointer into an inspector that reads any element's dimensions, font family, size/line height and weight, like Figma. There is no theme or notes toggle.</p>
         <ul class="list">
           <li>Sticky, 60px, translucent elevated background with blur, 1px bottom border.</li>
           <li>Current section is tracked from the scroll position and marked with <code>aria-current="true"</code> plus a 2px underline.</li>
           <li>Below 860px the nav becomes a sheet toggled by a "Menu" button with <code>aria-expanded</code> and <code>aria-controls</code>.</li>
-          <li>The designer-view icon is a toggle: <code>aria-pressed</code> reflects state; the G shortcut is ignored while typing in a field, and Esc closes it.</li>
+          <li>The Designer view pill is a toggle: <code>aria-pressed</code> reflects state; the Alt + G shortcut (a modifier, so a stray key or a voice command never fires it) is ignored while typing in a field, and Esc closes it.</li>
         </ul>
       </section>
 
@@ -781,7 +783,7 @@
         <p>Number chip · display title · mono meta on the right. The number ties the section to the nav and to this document; the meta describes the section in file terms ("Frame 02 · Auto layout"). On mobile the meta drops under the title.</p>
         <h3>Process flow</h3>
         <p>Six equal steps connected by prototype lines, with a dashed "loop" line underneath to say the process is iterative. Collapses to 3 columns under 1100px and to a stack under 640px, where connectors are hidden.</p>
-        <h3>Responsive behaviour</h3>
+        <h3>Responsive behavior</h3>
         <ul class="list">
           <li>Grids collapse from 12 → 8 → 4 columns; components never shrink below their minimum target size.</li>
           <li>Annotations are positioned in percentages so they scale with the frame; bubbles are limited to 240px and flip near edges.</li>
@@ -816,7 +818,7 @@
           <li><strong>Outcome</strong>: results against the goals; what shipped; what didn't and why.</li>
           <li><strong>Reflection</strong>: what I'd do differently. Honest, short.</li>
         </ol>
-        <div class="callout"><b>Under NDA?</b>Keep the structure, anonymise the client, describe the category, show wireframes instead of final UI, and state which numbers are withheld rather than inventing them.</div>
+        <div class="callout"><b>Under NDA?</b>Keep the structure, anonymize the client, describe the category, show wireframes instead of final UI, and state which numbers are withheld rather than inventing them.</div>
       </section>
 
       <section id="content">
@@ -843,12 +845,12 @@
       <section id="accessibility">
         <span class="eyebrow">17 · Quality</span>
         <h2 class="display h-md">Accessibility</h2>
-        <p>Target: WCAG 2.2 level AA on every page, checked before every release. This is the checklist I run; items marked done are verified on v2.2.0.</p>
+        <p>Target: WCAG 2.2 level AA on every page, checked before every release. This is the checklist I run; items marked done are verified on v2.4.0.</p>
         <ul class="check">
           <li class="done"><span><b>Text contrast ≥ 4.5:1</b> (1.4.3) for all body and label text.<small>All semantic pairs listed in Color · verified by calculation</small></span></li>
           <li class="done"><span><b>Non-text contrast ≥ 3:1</b> (1.4.11) for input borders, button boundaries and focus rings.<small>border-strong + proto focus ring</small></span></li>
           <li class="done"><span><b>Focus visible</b> (2.4.7 / 2.4.11) with a 2px ring that is never obscured by sticky elements.<small>scroll-margin on anchored sections</small></span></li>
-          <li class="done"><span><b>Target size ≥ 24 × 24</b> (2.5.8, new in 2.2) with 44px default for primary controls.<small>Buttons 44/52 · pins 24 with spacing</small></span></li>
+          <li class="done"><span><b>Target size ≥ 24 × 24</b> (2.5.8, new in 2.2) with 44px default for primary controls.<small>Buttons 44/48 · pins 24 with spacing</small></span></li>
           <li class="done"><span><b>Keyboard operable</b> (2.1.1): all controls including pins, toggles and mobile nav.<small>Enter/Space/Esc handled</small></span></li>
           <li class="done"><span><b>Reduced motion respected</b> (2.3.3): animations disabled under the OS preference.<small>media query in styles.css</small></span></li>
           <li class="done"><span><b>Semantics</b>: one h1 per page, landmarks (header, nav, main, footer), lists for lists, skip link first.<small>Verified in the DOM</small></span></li>
@@ -858,7 +860,7 @@
           <li><span><b>Screen reader pass</b> with VoiceOver + Safari and NVDA + Firefox.<small>Scheduled</small></span></li>
           <li><span><b>Automated audit</b> (axe / Lighthouse) with zero critical issues, recorded in the changelog.<small>Scheduled</small></span></li>
         </ul>
-        <h4>What "decorative" means here</h4>
+        <h3 class="doc__kicker">What "decorative" means here</h3>
         <p>Measurements, spec labels and the cursors on the 3D board are part of the visual concept and carry no information a reader needs. They are hidden from assistive technology. Comment pins do carry content, so they are real, focusable controls.</p>
       </section>
 
@@ -896,17 +898,17 @@
     }
   }
 }</code></pre>
-        <h3>Handoff checklist</h3>
-        <ul class="check">
-          <li class="done"><span><b>Frames marked "Ready for dev"</b> in Figma, one section per flow.</span></li>
-          <li class="done"><span><b>Every colour, size and space is a variable</b>; zero hard-coded values in ready frames.</span></li>
-          <li class="done"><span><b>All states present</b>: default, hover, focus, active, disabled, loading, empty, error.</span></li>
-          <li class="done"><span><b>Responsive frames</b> at 375, 768, 1440 with constraints and min/max notes.</span></li>
-          <li class="done"><span><b>Annotations for intent</b>: what happens on click, validation rules, transitions, copy that changes.</span></li>
-          <li class="done"><span><b>Layer and component names match code</b> (Button/Primary/Md ↔ <code>.btn.btn--primary</code>).</span></li>
-          <li class="done"><span><b>Assets exported</b>: SVG icons, 1×/2× images, fonts and licences listed.</span></li>
-          <li class="done"><span><b>Walkthrough recorded</b> or held live; open questions logged with owners.</span></li>
-          <li class="done"><span><b>Design QA plan</b> agreed: what I check, on which environment, by when.</span></li>
+        <h3>What every handoff includes</h3>
+        <ul class="list">
+          <li><span><b>Frames marked "Ready for dev"</b> in Figma, one section per flow.</span></li>
+          <li><span><b>Every color, size and space is a variable</b>; zero hard-coded values in ready frames.</span></li>
+          <li><span><b>All states present</b>: default, hover, focus, active, disabled, loading, empty, error.</span></li>
+          <li><span><b>Responsive frames</b> at 375, 768, 1440 with constraints and min/max notes.</span></li>
+          <li><span><b>Annotations for intent</b>: what happens on click, validation rules, transitions, copy that changes.</span></li>
+          <li><span><b>Layer and component names match code</b> (Button/Primary/Md ↔ <code>.btn.btn--primary</code>).</span></li>
+          <li><span><b>Assets exported</b>: SVG icons, 1×/2× images, fonts and licenses listed.</span></li>
+          <li><span><b>Walkthrough recorded</b> or held live; open questions logged with owners.</span></li>
+          <li><span><b>Design QA plan</b> agreed: what I check, on which environment, by when.</span></li>
         </ul>
       </section>
 
@@ -949,6 +951,8 @@
           <li><strong>Added</strong>: a Brazilian Portuguese version of the whole site; English stays the main one. An EN / PT switch sits in the toolbar, the choice is remembered, and <code>?lang=pt</code> links straight to it. The Portuguese dictionary only loads when chosen, so the English site weighs the same.</li>
           <li><strong>Changed</strong>: laptop stickers kept inside the lid; the Brazil badge reads “ORDEM E DESIGN” on its band.</li>
         </ul>
+        <details>
+        <summary style="cursor: pointer; font-size: var(--fs-20); font-weight: 500; margin: var(--sp-6) 0 var(--sp-3);">Earlier releases</summary>
         <h3>2.2.0 · “Canvas, breathing” · Sep 2026</h3>
         <ul class="list">
           <li><strong>Removed</strong>: dark theme and the Notes toggle. The site is light only.</li>
@@ -956,7 +960,7 @@
           <li><strong>Changed</strong>: type a notch heavier and smaller (body 420, display 500; hero 3.1rem max, section titles 2.6rem max) and one 8pt rhythm: 32px between blocks in the story chapters, 48px under section heads.</li>
           <li><strong>Added</strong>: designer view easter egg (grid + inspector), a sparkle brand mark, a quiet "ready for dev" dot.</li>
           <li><strong>Changed</strong>: About portrait rebuilt from the clean source: holes filled, vector glasses and label, on an organic ink blob with dots and grain.</li>
-          <li><strong>Changed</strong>: 3D story. Research board is about this portfolio (what clients look for), one colour per section on white. Stickers redrawn at 9px/mm with 1.5mm die-cut borders; the glasses sticker uses the original vector.</li>
+          <li><strong>Changed</strong>: 3D story. Research board is about this portfolio (what clients look for), one color per section on white. Stickers redrawn at 9px/mm with 1.5mm die-cut borders; the glasses sticker uses the original vector.</li>
         </ul>
         <h3>2.1.0 · “Canvas, refined” · Sep 2026</h3>
         <ul class="list">
@@ -971,20 +975,20 @@
         <ul class="list">
           <li><strong>Changed</strong>: light mode is now the primary theme. New paper/ink neutrals replace bone; sand is retired; stickies (yellow, lilac, mint, pink, coral, sky) and strong hues (violet-600, teal-700, coral-700) added. All text pairs re-measured (see Color).</li>
           <li><strong>Changed</strong>: type is Bricolage Grotesque, DM Sans, JetBrains Mono and Caveat (was Instrument Serif and Inter). Radii are now 4 / 8 / 14.</li>
-          <li><strong>Added</strong>: Identity v2 section (keep/adapt/drop from the first portfolio, FigJam element language, illustration and sticker rules); hard shadows; candy tags; outlined marquee; “Shall we?” contact; Jess portrait card.</li>
+          <li><strong>Added</strong>: Identity v2 section (keep/adapt/drop from the first portfolio, FigJam element language, illustration and sticker rules); hard shadows; candy tags; outlined ribbon; “Shall we?” contact; Jess portrait card.</li>
           <li><strong>Changed</strong>: 3D story. The tablet is now a MacBook Pro, the world is a dotted board with FigJam-style stickies, sections, connectors, stamps and cursors, and the finale closes the lid to show the stickers.</li>
         </ul>
         <h3>1.0.0 · Sep 2026</h3>
         <ul class="list">
-          <li><strong>Added</strong>: olive and bone ramps, sand accent, functional colours; 12-step type scale; 4pt spacing; 12-col grid; motion tokens; annotation language; Button, Tag, Frame, Comment pin, Measure, Hotspot, Spec label, Sticky, Form field, Toolbar, Section header, Process step, Case frame.</li>
+          <li><strong>Added</strong>: olive and bone ramps, sand accent, functional colors; 12-step type scale; 4pt spacing; 12-col grid; motion tokens; annotation language; Button, Tag, Frame, Comment pin, Measure, Hotspot, Spec label, Sticky, Form field, Toolbar, Section header, Process step, Case frame.</li>
           <li><strong>Changed</strong> (during v1 QA): <code>text-subtle</code> moved from bone-500 (4.0:1, fails AA) to bone-550 (5.2:1); redline moved from #E0473B to #CF3327 so label text reaches 5.1:1; added <code>proto-text</code> (#1E5FC2) because #2F80ED fails as text on light at 3.7:1; dark-mode <code>text-on-brand</code> switched to bone-950 because white on olive-400 was 3.0:1.</li>
           <li><strong>Documented</strong>: full eight-phase UI/UX process with exit criteria, research method matrix, metrics, working agreements, accessibility checklist, handoff checklist, governance.</li>
         </ul>
-        <h3>Planned · 1.1.0</h3>
+        </details>
+        <h3>Next</h3>
         <ul class="list">
           <li>Screen-reader pass and automated audit results recorded.</li>
           <li>Contact form component promoted from Beta.</li>
-          <li>pt-BR translation using the same structure.</li>
           <li>Token build step (JSON → CSS) so tokens.css is never edited by hand.</li>
         </ul>
       </section>
@@ -998,7 +1002,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=8" defer></script>
+  <script src="assets/js/main.js?v=9" defer></script>
   <script>window.jmApplyI18n && window.jmApplyI18n();</script>
 </body>
 </html>

@@ -58,3 +58,8 @@
   .case-next { grid-template-columns: 1fr; }
   .case-next a:last-child { text-align: left; }
 }
+
+/* Focus never hides under the sticky toolbar + "On this page" bar (WCAG 2.4.11).
+   The padding moves part of the headings' old scroll-margin, so anchor jumps land where they did. */
+html { scroll-padding-top: calc(var(--nav-height) + 56px); }
+html .cx-h2 { scroll-margin-top: 64px; }

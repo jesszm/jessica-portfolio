@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="index">
-  <script src="assets/js/i18n.js?v=11"></script>
-  <link rel="alternate" hreflang="en" href="https://jessica-portfolio-ruddy.vercel.app/">
-  <link rel="alternate" hreflang="pt-BR" href="https://jessica-portfolio-ruddy.vercel.app/?lang=pt">
-  <link rel="alternate" hreflang="x-default" href="https://jessica-portfolio-ruddy.vercel.app/">
+  <script src="assets/js/i18n.js?v=12"></script>
+  <link rel="alternate" hreflang="en" href="https://www.jessmonteiro.com/">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.jessmonteiro.com/?lang=pt">
+  <link rel="alternate" hreflang="x-default" href="https://www.jessmonteiro.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Jessica Monteiro — UI/UX Designer</title>
-  <meta name="description" content="Jessica Monteiro is a UI/UX designer for e-commerce, mobile apps, web systems and fintech. Research-driven, systems-minded, built with developers.">
-  <link rel="canonical" href="https://jessica-portfolio-ruddy.vercel.app/">
+  <title>Jessica Monteiro · UI/UX Designer</title>
+  <meta name="description" content="Jessica Monteiro is a UI/UX designer for e-commerce, mobile apps, web systems and fintech. Research-driven, systems-minded, and used to building alongside developers.">
+  <link rel="canonical" href="https://www.jessmonteiro.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Jessica Monteiro">
-  <meta property="og:url" content="https://jessica-portfolio-ruddy.vercel.app/">
-  <meta property="og:title" content="Jessica Monteiro — UI/UX Designer">
+  <meta property="og:url" content="https://www.jessmonteiro.com/">
+  <meta property="og:title" content="Jessica Monteiro · UI/UX Designer">
   <meta property="og:description" content="Interfaces you don't have to think about. Research-driven UI/UX design for e-commerce, mobile, web systems and fintech.">
-  <meta property="og:image" content="https://jessica-portfolio-ruddy.vercel.app/assets/img/og/og-home.jpg">
+  <meta property="og:image" content="https://www.jessmonteiro.com/assets/img/og/og-home.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Jessica Monteiro, UI/UX Designer: a sunny 3D desk with a laptop open on a design file.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://jessica-portfolio-ruddy.vercel.app/assets/img/og/og-home.jpg">
+  <meta name="twitter:image" content="https://www.jessmonteiro.com/assets/img/og/og-home.jpg">
   <meta name="theme-color" content="#F7F3EA">
   <script type="application/ld+json">
     {
@@ -31,8 +31,8 @@
       "@type": "Person",
       "name": "Jessica Monteiro",
       "jobTitle": "UI/UX Designer",
-      "url": "https://jessica-portfolio-ruddy.vercel.app/",
-      "image": "https://jessica-portfolio-ruddy.vercel.app/assets/img/og/og-home.jpg",
+      "url": "https://www.jessmonteiro.com/",
+      "image": "https://www.jessmonteiro.com/assets/img/og/og-home.jpg",
       "address": { "@type": "PostalAddress", "addressCountry": "BR" },
       "knowsLanguage": ["pt-BR", "en"],
       "knowsAbout": ["UI design", "UX research", "Design systems", "Usability testing", "Prototyping", "Fintech", "E-commerce"],
@@ -50,10 +50,11 @@
       var n = navigator, cn = n.connection || {};
       var lite = /[?&]motion=lite/.test(location.search) || cn.saveData === true || (n.deviceMemory && n.deviceMemory < 4);
       c.add(reduced || lite ? 'is-static' : 'is-cinematic');
-      if (lite) c.add('is-lite');
+      /* reduced motion gets the painted still too: no 3D download for a scene that wouldn't move */
+      if (lite || reduced) c.add('is-lite');
       else {
         var l = d.createElement('link'); l.rel = 'modulepreload'; l.crossOrigin = 'anonymous';
-        l.href = 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js'; d.head.appendChild(l);
+        l.href = 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js'; d.head.appendChild(l);
       }
       d.documentElement.setAttribute('data-theme', 'light');
     })(document);
@@ -63,13 +64,13 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/tokens.css?v=22">
-  <link rel="stylesheet" href="assets/css/styles.css?v=22">
+  <link rel="stylesheet" href="assets/css/styles.css?v=23">
   <link rel="stylesheet" href="assets/css/story.css?v=13">
   <link rel="stylesheet" href="assets/css/identity.css?v=32">
   <script type="importmap">
     {
       "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
         "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
       }
     }
@@ -77,11 +78,11 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
-  <script src="assets/js/main.js?v=8" defer></script>
-  <script type="module" src="assets/js/story.js?v=19"></script>
+  <script src="assets/js/main.js?v=9" defer></script>
+  <script type="module" src="assets/js/story.js?v=20"></script>
 </head>
 <body>
-  <a class="skip-link" href="#work">Skip to content</a>
+  <a class="skip-link" href="#work">Skip to work</a>
   <div class="canvas-bg" aria-hidden="true"></div>
   <div class="layout-grid" aria-hidden="true"><div class="layout-grid__inner">
     <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -91,7 +92,7 @@
   <!-- ============ TOOLBAR ============ -->
   <header class="toolbar">
     <div class="container toolbar__inner">
-      <a class="brand" href="#top" aria-label="Jessica Monteiro — home">
+      <a class="brand" href="#top" aria-label="Jessica Monteiro, home">
         <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1.5c.9 5.6 2.9 7.6 8.5 8.5-5.6.9-7.6 2.9-8.5 8.5-.9-5.6-2.9-7.6-8.5-8.5 5.6-.9 7.6-2.9 8.5-8.5Z" transform="translate(0 2)"/></svg></span>
         <span class="wordmark"><b>J</b>essica <b>M</b>onteiro</span>
       </a>
@@ -108,9 +109,9 @@
         <nav class="lang-switch" aria-label="Language" data-no-i18n>
           <a href="?lang=en" hreflang="en" lang="en" data-lang="en">EN</a><span aria-hidden="true">/</span><a href="?lang=pt" hreflang="pt-BR" lang="pt-BR" data-lang="pt">PT</a>
         </nav>
-        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (G)">
+        <button class="grid-egg" type="button" data-action="grid" aria-pressed="false" aria-label="Designer view: layout grid and inspector (Alt+G)">
           <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="3"/><path d="M7.5 2.5v15M12.5 2.5v15"/></svg>
-          <span class="grid-egg__label">Designer view</span><kbd aria-hidden="true">G</kbd>
+          <span class="grid-egg__label">Designer view</span><kbd aria-hidden="true">Alt+G</kbd>
         </button>
       </div>
     </div>
@@ -132,9 +133,9 @@
               <span class="mono">e-commerce · mobile · web systems · fintech</span>
             </div>
             <h1 class="chapter__title">Interfaces you don't have to <em>think</em> about.</h1>
-            <p class="chapter__text">Thoughtful design with aesthetic clarity to create functional, intuitive and visually engaging experiences, from research to handoff.</p>
+            <p class="chapter__text">Calm, well-crafted interfaces, grounded in research and carried all the way to a clean dev handoff.</p>
             <div class="chapter__cta">
-              <a class="btn btn--primary" href="#work">View work <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--primary" href="#work">View work <span class="arrow" aria-hidden="true">↓</span></a>
               <a class="btn" href="guidelines.html">Design guidelines</a>
             </div>
           </article>
@@ -156,7 +157,7 @@
           <article class="chapter" id="define" data-in="0.372" data-out="0.462" data-at="0.43" data-shot="0.45">
             <p class="chapter__eyebrow"><span class="num">03</span> How I work</p>
             <h2 class="chapter__title">Define</h2>
-            <p class="chapter__text">Turn findings into structure: who we're designing for and how the product is organised.</p>
+            <p class="chapter__text">Turn findings into structure: who we're designing for and how the product is organized.</p>
             <ul class="chapter__list"><li>Personas / JTBD</li><li>Journey maps</li><li>IA &amp; user flows</li></ul>
           </article>
 
@@ -171,7 +172,7 @@
             <p class="chapter__eyebrow"><span class="num">05</span> How I work</p>
             <h2 class="chapter__title">Validate</h2>
             <p class="chapter__text">Test with users, measure, and fix what matters most before anything gets built.</p>
-            <ul class="chapter__list"><li>Usability testing</li><li>SUS · SEQ · task success</li><li>Prioritised iteration</li></ul>
+            <ul class="chapter__list"><li>Usability testing</li><li>SUS · SEQ · task success</li><li>Prioritized iteration</li></ul>
           </article>
 
           <article class="chapter" id="deliver" data-in="0.752" data-out="0.805" data-at="0.79" data-shot="0.8">
@@ -185,8 +186,7 @@
             <h2 class="chapter__title">Every step,<br> <em>out in the open</em>.</h2>
             <p class="chapter__text">Communication and close collaboration run through the whole process, so you always know what I'm designing, why, and what I need from you next. Here's how that plays out in real projects.</p>
             <div class="chapter__cta">
-              <a class="btn btn--primary" href="#work">See the work <span class="arrow" aria-hidden="true">↓</span></a>
-              <a class="btn" href="https://www.upwork.com/freelancers/~01b4decd646a1f6eb4" target="_blank" rel="noopener">Hire me on Upwork</a>
+              <a class="btn btn--primary" href="#work">View work <span class="arrow" aria-hidden="true">↓</span></a>
             </div>
           </article>
         </div>
@@ -200,7 +200,7 @@
             <li><a href="#design"><span>Design</span></a></li>
             <li><a href="#validate"><span>Validate</span></a></li>
             <li><a href="#deliver"><span>Deliver</span></a></li>
-            <li><a href="#finale"><span>Contact</span></a></li>
+            <li><a href="#finale"><span>Together</span></a></li>
           </ol>
         </nav>
         <div class="story__hud is-hidden">
@@ -212,7 +212,7 @@
     </section>
 
     <!-- ============ MARQUEE ============ -->
-    <div class="marquee">
+    <div class="marquee" role="button" tabindex="0" aria-pressed="false" aria-label="Pause the moving ribbon">
       <div class="marquee__track" aria-hidden="true">
         <span>User research</span><span>Information architecture</span><span>Wireframes</span><span>Interactive prototypes</span><span>Design systems</span><span>Usability testing</span><span>Developer handoff</span><span>Illustration</span>
         <span>User research</span><span>Information architecture</span><span>Wireframes</span><span>Interactive prototypes</span><span>Design systems</span><span>Usability testing</span><span>Developer handoff</span><span>Illustration</span>
@@ -240,8 +240,8 @@
               <div class="case__body">
                 <div>
                   <h3 class="case__title">Moving day, from both ends</h3>
-                  <p class="case__desc">Muvr's two apps, with every flow recreated from scratch: one for the person moving, one for the driver doing the move. Solo UX/UI, freelance.</p>
-                  <div class="tags"><span class="tag tag--lilac">UI/UX</span><span class="tag">Mobile App</span><span class="tag tag--pink">Marketplace</span><span class="tag tag--yellow">Revamp</span></div>
+                  <p class="case__desc">Muvr's two apps, one for the person moving and one for the driver doing the move, with the core flows rebuilt from scratch. Freelance.</p>
+                  <div class="tags"><span class="tag tag--lilac">UI/UX</span><span class="tag">Mobile app</span><span class="tag tag--pink">Marketplace</span><span class="tag tag--yellow">Revamp</span></div>
                   <span class="case__cta">View case <span class="arrow" aria-hidden="true">→</span></span>
                 </div>
                 <div class="case__meta"><span>Sole designer</span><span>2025</span><span>Handed over</span></div>
@@ -260,8 +260,8 @@
               <div class="case__body">
                 <div>
                   <h3 class="case__title">Paying with crypto, as easily as Pix</h3>
-                  <p class="case__desc">A 0 → 1 app that lets people in Brazil pay a Pix straight from their crypto balance. Solo UX/UI, from blank file to dev-ready in about six weeks.</p>
-                  <div class="tags"><span class="tag tag--lilac">UI/UX</span><span class="tag">Mobile App</span><span class="tag tag--mint">Fintech</span><span class="tag tag--yellow">0 → 1</span></div>
+                  <p class="case__desc">A 0 → 1 app that lets people in Brazil pay any Pix (Brazil's instant payments) straight from their crypto balance. From blank file to dev-ready in about six weeks.</p>
+                  <div class="tags"><span class="tag tag--lilac">UI/UX</span><span class="tag">Mobile app</span><span class="tag tag--mint">Fintech</span><span class="tag tag--yellow">0 → 1</span></div>
                   <span class="case__cta">View case <span class="arrow" aria-hidden="true">→</span></span>
                 </div>
                 <div class="case__meta"><span>Sole designer</span><span>2024</span><span>Design complete</span></div>
@@ -272,7 +272,7 @@
           <!-- Case 00: this portfolio, shown as the system it is built on -->
           <a class="case case--wide case--system reveal" href="guidelines.html">
             <div class="frame case__frame">
-              <span class="frame__label"><b>Case 00</b> This portfolio, as a design system <span class="dim">Web · 1440</span></span>
+              <span class="frame__label"><b>Case 00</b> Design system <span class="dim">Web · 1440</span></span>
               <span class="frame__handles"><span></span></span>
               <div class="case__thumb">
                 <div class="sys" aria-hidden="true">
@@ -287,7 +287,7 @@
                     </ul>
                   </div>
                   <div class="sys__col sys__colour">
-                    <span class="sys__label">02 · Colour</span>
+                    <span class="sys__label">02 · Color</span>
                     <div class="sys__swatches">
                       <span style="--c:#F7F3EA"><b>paper</b>F7F3EA</span>
                       <span style="--c:#16150F" class="is-dark"><b>ink</b>16150F</span>
@@ -312,7 +312,7 @@
               <div class="case__body">
                 <div>
                   <h3 class="case__title">This portfolio, built as a design system</h3>
-                  <p class="case__desc">I treated my own site like a client project: a token system of paper, ink and six sticky colours, four type families with a job each, accessible components, a 3D story of how I work, and guidelines that explain every decision.</p>
+                  <p class="case__desc">I treated my own site like a client project: a token system of paper, ink and six sticky-note colors, four type families with a job each, accessible components, a 3D story of how I work, and guidelines that explain every decision.</p>
                   <div class="tags"><span class="tag tag--brand">Design system</span><span class="tag">Tokens · DTCG</span><span class="tag">WCAG 2.2 AA</span><span class="tag">Process</span></div>
                   <span class="case__cta">Read the guidelines <span class="arrow" aria-hidden="true">→</span></span>
                 </div>
@@ -336,12 +336,12 @@
           <article class="service">
             <span class="idx">01</span>
             <h3>UX audit &amp; research</h3>
-            <p>Heuristic review, analytics read-out and user interviews to find what's actually blocking your users.</p>
+            <p>Heuristic evaluation, analytics readout and user interviews to find what's actually blocking your users.</p>
             <div class="service__out">
               <p class="service__label">You get</p>
               <ul>
                 <li>Findings report</li>
-                <li>Prioritised fixes</li>
+                <li>Prioritized fixes</li>
               </ul>
             </div>
           </article>
@@ -424,7 +424,7 @@
         <div class="section__head reveal">
           <span class="section__num">03</span>
           <h2 class="display h-lg section__title">About</h2>
-          <span class="section__meta">Frame 03 · Auto layout · Vertical</span>
+          <span class="section__meta">Page 03 · Auto layout · Vertical</span>
         </div>
         <div class="about">
           <div class="about__intro">
@@ -455,7 +455,7 @@
             </div>
           </div>
 
-          <p class="about__quote reveal"><span class="hand">the one rule I design by</span>“Good design stands on your side,<br> <em>never in your way</em>.”</p>
+          <p class="about__quote reveal"><span class="hand">the one rule I design by</span>“Good design is on your side,<br> <em>never in your way</em>.”</p>
           <p class="about__bridge reveal">Two paths taught me what that means.</p>
           <div class="about__paths">
             <svg class="about__fork" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -466,7 +466,7 @@
               <span class="about__node" aria-hidden="true">01</span>
               <p class="about__kicker">The eye</p>
               <h3>Shaped by <em>creativity</em></h3>
-              <p>My path began with colours and lines, in illustration, long before I opened Figma. That trained my eye for balance, rhythm and the small details people feel before they notice. That eye is what I bring to every interface: a hierarchy that guides attention, consistency across every state and screen, and the finish that makes a product feel trustworthy. When a brand calls for a visual language of its own and the scope allows it, I carry that craft into custom illustration and iconography.</p>
+              <p>My path began with colors and lines, in illustration, long before I opened Figma. That trained my eye for balance, rhythm and the small details people feel before they notice. That eye is what I bring to every interface: a hierarchy that guides attention, consistency across every state and screen, and the finish that makes a product feel trustworthy. When a brand calls for a visual language of its own and the scope allows it, I carry that craft into custom illustration and iconography.</p>
               <p class="about__practice"><span>In practice</span> Visual hierarchy <i aria-hidden="true"></i> UI consistency <i aria-hidden="true"></i> Illustration, when in scope</p>
             </article>
             <article class="about__path about__path--mind reveal" data-delay="1">
@@ -501,7 +501,7 @@
           <svg class="sparkle" style="right:9%; top:22%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-mint)"/></svg>
           <svg class="sparkle" style="left:16%; bottom:16%;" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2Z" fill="var(--sticky-yellow)"/></svg>
           <h2 class="shall__title"><span class="a">Shall</span> <span class="b">we?</span></h2>
-          <p>Let's transform ideas into functional and engaging designs.<br> Have a product, a feature or a messy flow?<br> Tell me about it.</p>
+          <p>Have a product, a feature or a messy flow?<br> Tell me about it.</p>
           <p class="availability"><i aria-hidden="true"></i>Open to new projects</p>
           <div class="contact__links">
             <a class="btn btn--primary btn--lg" href="https://www.upwork.com/freelancers/~01b4decd646a1f6eb4" target="_blank" rel="noopener">Hire me on Upwork <span class="arrow" aria-hidden="true">→</span></a>

@@ -78,8 +78,8 @@
   var pageMeta = d.querySelector('meta[name="i18n-page"]');
   var page = pageMeta ? pageMeta.getAttribute('content') : 'index';
   window.JM_PT = {};
-  d.write('<script src="' + base + 'assets/i18n/pt/common.js?v=11"><\/script>');
-  d.write('<script src="' + base + 'assets/i18n/pt/' + page + '.js?v=11"><\/script>');
+  d.write('<script src="' + base + 'assets/i18n/pt/common.js?v=12"><\/script>');
+  d.write('<script src="' + base + 'assets/i18n/pt/' + page + '.js?v=12"><\/script>');
 
   /* called by an inline script at the end of <body>, before deferred scripts touch the DOM */
   window.jmApplyI18n = function () {
@@ -90,6 +90,9 @@
     var t = T[hash(norm(d.title))]; if (t) d.title = t;
     var md = d.querySelector('meta[name="description"]');
     if (md) { var v = T[hash(norm(md.getAttribute('content') || ''))]; if (v) md.setAttribute('content', v); }
+    /* the pt-BR version is its own page for search: canonical points at ?lang=pt, matching its hreflang */
+    var canon = d.querySelector('link[rel="canonical"]');
+    if (canon) canon.setAttribute('href', canon.getAttribute('href').split('?')[0] + '?lang=pt');
     html.classList.remove('i18n-pending');
   };
   setTimeout(function () { html.classList.remove('i18n-pending'); }, 1500);
