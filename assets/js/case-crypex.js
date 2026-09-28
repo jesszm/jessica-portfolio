@@ -58,10 +58,33 @@
   shots.forEach((img) => {
     img.tabIndex = 0;
     img.setAttribute('role', 'button');
-    img.setAttribute('aria-label', `View larger: ${img.alt}`);
+    img.setAttribute('aria-label', `${window.JM_LANG === 'pt' ? 'Ver maior' : 'View larger'}: ${img.alt}`);
     img.addEventListener('click', () => zoom(img));
     img.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zoom(img); } });
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   addEventListener('resize', close);
+})();
+
+/* On this page: highlight the section being read */
+(() => {
+  const links = [...document.querySelectorAll('.cx-toc a')];
+  const pairs = links.map((a) => ({ a, el: document.getElementById(a.hash.slice(1))?.closest('section') })).filter((p) => p.el);
+  if (!pairs.length) return;
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const line = innerHeight * 0.35;
+    let current = null;
+    pairs.forEach((p) => { if (p.el.getBoundingClientRect().top <= line) current = p; });
+    pairs.forEach((p) => p.a.setAttribute('aria-current', p === current ? 'true' : 'false'));
+    if (current) {
+      const ol = current.a.closest('ol');
+      const left = current.a.offsetLeft - ol.clientWidth / 2 + current.a.offsetWidth / 2;
+      if (ol.scrollWidth > ol.clientWidth) ol.scrollTo({ left, behavior: 'auto' });
+    }
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', update);
+  update();
 })();

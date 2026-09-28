@@ -67,5 +67,14 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1p3oa8d": "O que mudou depois do lançamento e o que eu faria em seguida.",
  "3sxfgv": "Trabalhando em algo parecido? Me conta sobre o produto, a feature ou o fluxo bagunçado.",
  "1antc99": "← Voltar para todos os trabalhos",
- "pe5yct": "Mais trabalhos"
+ "pe5yct": "Mais trabalhos",
+ "xevcv5": "<b>Frame 404</b> · não encontrado",
+ "2863ee": "<b>nota</b>perdida nas camadas",
+ "eisb84": "Este frame não está no <em>canvas</em>.",
+ "13uv3gh": "O link pode ser antigo, ou a página mudou de lugar enquanto eu redesenhava. Os trabalhos continuam aqui, a um clique.",
+ "18yx8es": "Voltar para o início <span class=\"arrow\" aria-hidden=\"true\">→</span>",
+ "1cpmkak": "Ver os trabalhos",
+ "1mnh6u0": "Página não encontrada — Jessica Monteiro",
+ "l24oop": "Esta página não existe mais. Volte para o portfólio da Jessica Monteiro.",
+ "1ghtsrl": "case 02"
 });

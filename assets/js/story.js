@@ -1,9 +1,9 @@
-/* JM · Story orchestration — v3.2.0
+/* JM · Story orchestration — v3.3.0
    GSAP ScrollTrigger pins the canvas and scrubs the story; Lenis smooths the
    scroll and stays in sync through gsap.ticker. Falls back to static stills for
-   prefers-reduced-motion, ?motion=reduced, missing WebGL or missing libraries. */
-
-import { createStory } from './story-scene.js?v=13';
+   prefers-reduced-motion, ?motion=reduced, missing WebGL or missing libraries.
+   Lite mode (Save-Data, slow network, low memory, ?motion=lite) never downloads
+   three.js: the chapters read as plain sections over a painted still. */
 
 const html = document.documentElement;
 const params = new URLSearchParams(window.location.search);
@@ -18,6 +18,9 @@ const bar = story?.querySelector('.story__progress span');
 const chapters = story ? [...story.querySelectorAll('.chapter')] : [];
 const railLinks = story ? [...story.querySelectorAll('.story__rail a')] : [];
 const processLink = document.querySelector('.toolbar__nav a[data-process]');
+const hud = story?.querySelector('.story__hud');
+const counter = story?.querySelector('.story__count');
+const lite = html.classList.contains('is-lite');
 
 function navOffset() {
   const toolbar = document.querySelector('.toolbar');
@@ -26,8 +29,9 @@ function navOffset() {
 
 
 let scene = null;
-if (story && canvas) {
+if (story && canvas && !lite) {
   try {
+    const { createStory } = await import('./story-scene.js?v=15');
     scene = createStory(canvas, { quality: small ? 'low' : 'high', lang: window.JM_LANG });
   } catch (err) {
     console.warn('[story] WebGL unavailable, using the static fallback.', err);
@@ -58,7 +62,8 @@ function cinematic() {
   gsap.ticker.lagSmoothing(0);
 
   const state = { p: 0 };
-  const distance = () => window.innerHeight * (small ? 7 : 10);
+  /* ~6.5 screens on desktop, 5 on a phone: long enough to read, short enough to reach the work */
+  const distance = () => window.innerHeight * (small ? 5 : 6.5);
 
   const draw = () => {
     scene.setProgress(state.p);
@@ -101,6 +106,13 @@ function cinematic() {
     let current = 0;
     chapters.forEach((el, i) => { if (p >= Number(el.dataset.in) - 0.005) current = i; });
     railLinks.forEach((a, i) => a.setAttribute('aria-current', i === current ? 'step' : 'false'));
+    if (counter) {
+      const el = chapters[current];
+      const num = el.querySelector('.num');
+      const label = railLinks[current]?.textContent.trim() || '';
+      counter.innerHTML = num ? `<b>${num.textContent}</b> / 06 <span>${label}</span>` : `<span>${label}</span>`;
+    }
+    if (hud && tl.scrollTrigger) hud.classList.toggle('is-done', tl.scrollTrigger.progress > 0.985);
     if (processLink) {
       const inProcess = tl.scrollTrigger.isActive && p > 0.165 && p < 0.83;
       processLink.setAttribute('aria-current', inProcess ? 'true' : 'false');
@@ -176,7 +188,13 @@ function cinematic() {
 function staticMode() {
   html.classList.remove('is-cinematic');
   html.classList.add('is-static');
-  if (!scene) return;
+  if (!scene) {
+    /* no 3D at all: the hero keeps a painted still of the desk */
+    const still = new URL('assets/img/og/story-hero.webp', document.baseURI).href;
+    chapters[0]?.style.setProperty('--shot', `url("${still}")`);
+    html.classList.add('is-ready');
+    return;
+  }
   scene.ready.then(() => shots());
 }
 

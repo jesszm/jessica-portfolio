@@ -49,7 +49,7 @@ const W = new THREE.Vector3(0, 0, -40);
 export function createStory(canvas, options = {}) {
   const high = options.quality !== 'low';
   let dark = Boolean(options.dark);
-  const characterUrl = options.characterUrl || 'assets/img/jess-character.png';
+  const characterUrl = options.characterUrl || 'assets/img/jess-character.webp';
   /* words drawn inside the scene follow the page language (English is the source) */
   const PT = options.lang === 'pt';
   const TX = PT ? {
@@ -1330,7 +1330,7 @@ export function createStory(canvas, options = {}) {
     path.tgt.getPoint(u, vTgt).add(path.offset);
     /* narrow screens: step back from the desk so the laptop fits the width */
     if (portrait) {
-      const k = p < CUTS.toWorld ? lerp(1.4, 1, ease(p, 0.1, 0.14)) : p >= CUTS.toStudio ? lerp(1, 1.6, ease(p, 0.85, 0.93)) : 1;
+      const k = p < CUTS.toWorld ? lerp(1.4, 1, ease(p, 0.1, 0.14)) : p >= CUTS.toStudio ? lerp(1, 1.15, ease(p, 0.85, 0.93)) : 1;
       if (k !== 1) vPos.sub(vTgt).multiplyScalar(k).add(vTgt);
     }
     camera.position.copy(vPos);
