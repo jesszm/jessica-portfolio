@@ -504,3 +504,47 @@ html.is-paused .availability i::after { animation-play-state: paused !important;
   .availability i::after { animation: ping 2.4s var(--ease-standard) infinite; }
 }
 @keyframes ping { 0% { transform: scale(0.6); opacity: 0.8; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
+
+/* ---------- About · the pair, promoted (v2.4) ----------
+   The two stories carry the voice of the page, so they get colour, an icon,
+   ink-strength text and an "in practice" row instead of muted grey cards. */
+.about__pair { gap: var(--sp-6); align-items: stretch; }
+.about__block {
+  --card-tint: var(--sticky-lilac); --card-em: var(--violet-600);
+  display: flex; flex-direction: column;
+  padding: var(--sp-8) var(--sp-7) var(--sp-6);
+  background: color-mix(in srgb, var(--card-tint) 34%, var(--color-bg-elevated));
+  border: 1px solid var(--ink-900); box-shadow: 4px 4px 0 var(--ink-900);
+  transition: transform var(--dur-3) var(--ease-emphasized), box-shadow var(--dur-3) var(--ease-emphasized);
+}
+.about__block--freedom { --card-tint: var(--sticky-mint); --card-em: var(--teal-700); }
+.about__block:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink-900); }
+.about__kicker { top: -13px; left: var(--sp-6); }
+.about__icon {
+  position: absolute; top: var(--sp-6); right: var(--sp-6); width: 44px; height: 44px;
+  fill: none; stroke: var(--ink-900); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round;
+  transform: rotate(-6deg);
+}
+.about__block--freedom .about__icon { transform: rotate(8deg); }
+.about__block h3 {
+  font-family: var(--font-display); font-weight: 500; letter-spacing: -0.018em; line-height: 1.08;
+  font-size: clamp(1.9rem, 3vw, 2.6rem); margin: 0 0 var(--sp-5); padding-right: 56px;
+}
+.about__block h3 em { font-style: italic; color: var(--card-em); }
+.about__block p { color: var(--color-text); font-size: var(--fs-16); line-height: 1.7; max-width: 54ch; margin: 0; }
+.about__proof {
+  margin-top: auto; padding-top: var(--sp-6);
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3);
+}
+.about__proof::before { content: ""; flex-basis: 100%; height: 0; border-top: 1px dashed rgba(22, 21, 15, 0.35); margin-bottom: var(--sp-3); }
+.about__proof > span { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--ink-900); opacity: 0.7; margin-right: var(--sp-1); }
+.about__proof ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.about__proof li {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+  padding: 4px 10px; border: 1px solid var(--ink-900); border-radius: var(--radius-full); background: var(--color-bg-elevated);
+}
+@media (max-width: 860px) {
+  .about__block { padding: var(--sp-7) var(--sp-5) var(--sp-5); }
+  .about__icon { width: 36px; height: 36px; top: var(--sp-5); right: var(--sp-5); }
+}
+@media (prefers-reduced-motion: reduce) { .about__block, .about__block:hover { transition: none; transform: none; } }
