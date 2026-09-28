@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../assets/css/identity.css?v=24">
   <link rel="stylesheet" href="../assets/css/case.css?v=1">
   <link rel="stylesheet" href="../assets/css/case-crypex.css?v=3">
-  <link rel="stylesheet" href="../assets/css/case-muvr.css?v=4">
+  <link rel="stylesheet" href="../assets/css/case-muvr.css?v=5">
   <script src="../assets/js/main.js?v=5" defer></script>
   <script src="../assets/js/case-crypex.js?v=6" defer></script>
 </head>
@@ -98,9 +98,7 @@
         <div class="frame">
           <span class="frame__label"><b>Cover</b> Muvr <span class="dim">User app + Driver app</span></span>
           <div class="case__thumb mv-cover">
-            <picture><source media="(max-width: 560px)" srcset="../assets/img/muvr/cover-page-m.webp" width="1200" height="900"><img class="mv-cover__img" src="../assets/img/muvr/cover-page.webp" width="2400" height="1200" alt="The Muvr wordmark in the middle; on the left, two screens of the User app, a move type and the home; on the right, two screens of the Driver app, the onboarding dashboard and an accepted submission."></picture>
-            <span class="mv-cover__tag mv-cover__tag--user">User app</span>
-            <span class="mv-cover__tag mv-cover__tag--driver">Driver app</span>
+            <picture><source media="(max-width: 560px)" srcset="../assets/img/muvr/cover-page-m.webp" width="1200" height="900"><img class="mv-cover__img" src="../assets/img/muvr/cover-page.webp" width="2400" height="1200" alt="The Muvr wordmark and a sticky note reading “one move, two apps”, beside two User app screens, the home and a move type, and two Driver app screens, the driver’s licence photo step and the skills profile."></picture>
           </div>
         </div>
       </div>
@@ -196,57 +194,68 @@
           <li><span class="cx-step__n">5</span><h3>Validate</h3><p>Walk the flows with the CEO, who knew the trade inside out.</p></li>
         </ol>
 
-        <!-- FigJam boards -->
+        <!-- Boards, redrawn in the site's own language -->
         <div class="cx-block">
           <div class="cx-block__head">
             <h3 class="cx-h3">The boards behind it</h3>
-            <p class="cx-note">From my FigJam files.</p>
+            <p class="cx-note">Redrawn from my FigJam files.</p>
           </div>
 
           <figure class="mv-bd">
-            <div class="mv-bd__bar">
-              <span class="mv-bd__app tag tag--lilac">User app</span>
-              <b>Booking journey</b>
-              <a href="../assets/img/muvr/fj-journey.webp" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a>
-            </div>
-            <div class="mv-bd__body">
-              <div class="mv-bd__canvas">
-                <a class="mv-bd__img" href="../assets/img/muvr/fj-journey.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-journey.webp" width="3000" height="1638" alt="The booking journey board: service selection, service rules and tracking on the left; on the right, one row per move type, each broken into nine steps, and a follow-up column." loading="lazy"></a>
-                <span class="mv-pin" style="left: 1.1%; top: 1.6%;" aria-hidden="true">1</span><span class="mv-pin" style="left: 1.1%; top: 24%;" aria-hidden="true">2</span><span class="mv-pin" style="left: 2.2%; top: 47.6%;" aria-hidden="true">3</span><span class="mv-pin" style="left: 31.4%; top: 17.4%;" aria-hidden="true">4</span><span class="mv-pin" style="left: 31.4%; top: 77.4%;" aria-hidden="true">5</span><span class="mv-pin" style="left: 86.5%; top: 4.4%;" aria-hidden="true">6</span>
+            <div class="mv-bd__bar"><span class="tag tag--lilac">User app</span><b>Booking journey</b><span class="mv-bd__src">FigJam</span></div>
+            <div class="mv-canvas">
+              <div class="mv-canvas__col">
+                <p class="mv-sec">Rules of the service</p>
+                <div class="mv-stickies">
+                  <div class="mv-note mv-note--yellow"><b>Service levels</b><ul><li><em>Standard</em> Loading, transport, unloading</li><li><em>Premium</em> Adds disassembly and room placement</li><li><em>White-Glove</em> Adds stretch-wrap, premium handling, cleanup</li></ul></div>
+                  <div class="mv-note mv-note--lilac"><b>Schedule</b><ul><li><em>Priority</em> In 3 to 15 minutes</li><li><em>Express</em> Within the hour</li><li><em>Same day</em> After a 3-hour window</li><li><em>Next day</em> Any time, or a set slot</li></ul></div>
+                  <div class="mv-note mv-note--mint"><b>Add-ons</b><ul><li><em>Homes</em> Packing supplies, junk removal, extra insurance</li><li><em>Businesses</em> IT packing, equipment rental, extra insurance</li></ul></div>
+                  <div class="mv-note mv-note--pink"><b>On the day</b><ul><li>Accepted by the movers</li><li>On the way, with an ETA</li><li>Arrived, loaded, at drop-off</li><li>Done, with proof</li></ul></div>
+                </div>
               </div>
-              <ol class="mv-bd__legend">
-                <li><b>Service selection</b><span>Where booking begins: moves, deliveries and junk removal on one home screen.</span></li>
-                <li><b>Rules of the service</b><span>Service levels, add-ons for homes and businesses, and schedule options, agreed before any screen.</span></li>
-                <li><b>On the day</b><span>Tracking milestones and push or SMS messages, different for homes and businesses.</span></li>
-                <li><b>One row per move type</b><span>The same nine steps for every move, with what each step asks and what the system does with the answer.</span></li>
-                <li><b>The short path</b><span>Labor only skips the drive and takes seven steps.</span></li>
-                <li><b>Follow-up</b><span>Live tracking and proof of completion, shared by every move type.</span></li>
-              </ol>
+              <div class="mv-canvas__col mv-canvas__col--wide">
+                <p class="mv-sec">Nine steps, eight moves</p>
+                <div class="mv-matrix__wrap" role="region" aria-label="Booking steps by move type" tabindex="0">
+                  <table class="mv-matrix">
+                    <thead><tr><td></td><th scope="col"><small>01</small>Pickup</th><th scope="col"><small>02</small>Items</th><th scope="col"><small>03</small>Drop-off</th><th scope="col"><small>04</small>Level</th><th scope="col"><small>05</small>Truck</th><th scope="col"><small>06</small>Schedule</th><th scope="col"><small>07</small>Review</th><th scope="col"><small>08</small>Tracking</th><th scope="col"><small>09</small>Proof</th></tr></thead>
+                    <tbody><tr><th scope="row">Home move</th><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td></tr><tr><th scope="row">Apartment</th><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td></tr><tr><th scope="row">Dorm room</th><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td></tr><tr><th scope="row">Office</th><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td></tr><tr><th scope="row">Store</th><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td></tr><tr><th scope="row">Warehouse</th><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td></tr><tr><th scope="row">Storage unit</th><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td></tr><tr><th scope="row">Labor only</th><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--done" aria-label="Designed"></span></td><td><span class="mv-dot mv-dot--none" aria-label="Not needed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot mv-dot--none" aria-label="Not needed"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td><td><span class="mv-dot" aria-label="Specified"></span></td></tr></tbody>
+                  </table>
+                </div>
+                <ul class="mv-matrix__legend">
+                  <li><span class="mv-dot mv-dot--done" aria-label="Designed"></span> Designed</li><li><span class="mv-dot" aria-label="Specified"></span> Specified</li><li><span class="mv-dot mv-dot--none" aria-label="Not needed"></span> Not needed</li>
+                </ul>
+                <p class="mv-canvas__hand">Same steps, different questions.</p>
+              </div>
             </div>
-            <figcaption class="mv-bd__zoom">
-              <p class="cx-label">Up close · a home move</p>
-              <a class="mv-bd__img" href="../assets/img/muvr/fj-journey-row.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-journey-row.webp" width="3200" height="909" alt="Close-up of the home, apartment and dorm-room rows: pickup, layout and items, drop-off, service level, vehicle and movers, schedule, review, live tracking and proof of completion, each with its rules." loading="lazy"></a>
-            </figcaption>
           </figure>
 
           <figure class="mv-bd mv-bd--driver">
-            <div class="mv-bd__bar">
-              <span class="mv-bd__app tag tag--mint">Driver app</span>
-              <b>Home and orders</b>
-              <a href="../assets/img/muvr/fj-orders.webp" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a>
-            </div>
-            <div class="mv-bd__body">
-              <div class="mv-bd__canvas">
-                <a class="mv-bd__img" href="../assets/img/muvr/fj-orders.webp" target="_blank" rel="noopener"><img src="../assets/img/muvr/fj-orders.webp" width="3000" height="1507" alt="The driver home and orders board: context and references on the left; then the app structure, the order flow with its open questions, and the order card in four states." loading="lazy"></a>
-                <span class="mv-pin" style="left: 2%; top: 12.4%;" aria-hidden="true">1</span><span class="mv-pin" style="left: 28%; top: 11.9%;" aria-hidden="true">2</span><span class="mv-pin" style="left: 28%; top: 42.8%;" aria-hidden="true">3</span><span class="mv-pin" style="left: 63.5%; top: 45.3%;" aria-hidden="true">4</span><span class="mv-pin" style="left: 28%; top: 76.6%;" aria-hidden="true">5</span>
+            <div class="mv-bd__bar"><span class="tag tag--mint">Driver app</span><b>Home and orders</b><span class="mv-bd__src">FigJam</span></div>
+            <div class="mv-canvas mv-canvas--three">
+              <div class="mv-canvas__col">
+                <p class="mv-sec">Context</p>
+                <div class="mv-note mv-note--yellow"><b>The brief</b><p>Revamp home and orders for usability. Keep accepting and finishing a job effortless. Learn from Uber and Lyft.</p></div>
+                <div class="mv-note mv-note--lilac"><b>Orders to support</b><ul><li>Small item deliveries</li><li>Big item deliveries</li><li>Junk removal</li><li>Moves</li></ul></div>
               </div>
-              <ol class="mv-bd__legend">
-                <li><b>Context</b><span>The brief on one page: revamp home and orders, keep accepting and finishing a job easy, and learn from Uber and Lyft.</span></li>
-                <li><b>App structure</b><span>Wireframes for the online and offline views, earnings and the menu, with everything the old app had to keep.</span></li>
-                <li><b>The job, step by step</b><span>From the map to the current order card, with the actions each status needs: navigate, chat, cancel, report an issue.</span></li>
-                <li><b>Open questions</b><span>Pinned beside the flow, to settle with the team before the next round.</span></li>
-                <li><b>Order card</b><span>Four states as the job gets closer: tomorrow, today, now and on the way.</span></li>
-              </ol>
+              <div class="mv-canvas__col">
+                <p class="mv-sec">Keep from the old app</p>
+                <ul class="mv-checklist">
+                  <li>A control centre for drivers and helpers</li>
+                  <li>Profile with reviews and ratings</li>
+                  <li>Documents and account details</li>
+                  <li>Earnings summary and payout</li>
+                  <li>Order history, with “report an issue”</li>
+                  <li>Rank, with new icons</li>
+                  <li>Teams and favourites on one screen</li>
+                  <li>Report a bug, inside help</li>
+                </ul>
+              </div>
+              <div class="mv-canvas__col">
+                <p class="mv-sec">Open questions</p>
+                <div class="mv-note mv-note--pink"><p>Photos at loading: every item in a move, or only the listed ones?</p></div>
+                <div class="mv-note mv-note--sky"><p>Pick a navigation app once, or every time?</p></div>
+                <div class="mv-note mv-note--mint"><p>On the way to pickup, include the route to the helper?</p></div>
+              </div>
             </div>
           </figure>
         </div>
@@ -350,30 +359,27 @@
               <li>Moves, deliveries and junk removal share one home, one tab each.</li>
               <li>Moves are grouped the way people think of them, each with its own illustration.</li>
               <li>Search understands the need, not just the name: “loading assistance” finds Labor Only.</li>
-              <li>Filters narrow it down by when and by kind of service.</li>
+              <li>When nothing matches, the empty state says so kindly, with a way back.</li>
             </ul>
           </div>
-          <div class="cx-feature__shots mv-shots mv-shots--3">
+          <div class="mv-shots mv-shots--3 cx-strip">
             <img src="../assets/img/muvr/home.webp" width="750" height="1624" alt="Home on the Moves tab: a search field, residential moves (home, apartment, dorm room), commercial moves (office, store, warehouse) and Lift and Shift assistance under more options." loading="lazy">
             <img src="../assets/img/muvr/search.webp" width="750" height="1624" alt="Search with “loading assistan” typed: the first result is Labor Only, Lift and Shift Assistance, with the matching word highlighted." loading="lazy">
-            <img src="../assets/img/muvr/search-filter.webp" width="738" height="1624" alt="Add Filters sheet: availability (same day, next day, schedule) and service (deliveries, moves, junk removal, labor), with Apply Filters." loading="lazy">
+            <img src="../assets/img/muvr/search-empty.webp" width="750" height="1624" alt="Search with no results: a sad folder illustration, “Oops!” and a short line saying nothing matched." loading="lazy">
           </div>
         </article>
 
-        <!-- F2 · Compare -->
-        <article class="cx-feature cx-feature--flip">
-          <div class="cx-feature__shots">
-            <img src="../assets/img/muvr/type-home.webp" width="750" height="1624" alt="Home Move page: a one-line description, “Where are you moving from?” and a table where Premium adds disassembly and priority room placement and White-Glove adds stretch-wrap, premium handling and cleanup." loading="lazy">
-            <img src="../assets/img/muvr/type-labor.webp" width="750" height="1624" alt="Labor-Only page: the same layout, with rows for rearranging, furniture and floor protection and staged placement." loading="lazy">
+        <!-- F2 · Move types -->
+        <article class="mv-feature">
+          <div class="mv-feature__text">
+            <div><p class="cx-label">Move types</p><h3 class="cx-h3">A page for every kind of move</h3></div>
+            <p>Each move type opens its own page: an illustration, one line on what it covers, the first question on top and the three service levels side by side. The rows change with the move, so labor only talks about floor protection and a storage move about placement by category.</p>
           </div>
-          <div class="cx-feature__text">
-            <p class="cx-label">Move types</p>
-            <h3 class="cx-h3">See what each level includes, then start right there</h3>
-            <ul class="cx-list">
-              <li>Every move type explains itself in one line.</li>
-              <li><strong>Three levels, side by side.</strong> Ticks show exactly what Premium and White-Glove add, from disassembly to cleanup.</li>
-              <li>The rows change with the move: labor only talks about floor protection, not transport.</li>
-            </ul>
+          <div class="mv-gallery cx-strip">
+            <figure><img src="../assets/img/muvr/type-home.webp" width="750" height="1624" alt="Home Move: a one-line description, “Where are you moving from?” and a table comparing Standard, Premium and White-Glove." loading="lazy"><figcaption><b>Home move</b><span>Townhomes to family houses</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/type-office.webp" width="750" height="1624" alt="Office Move: the same layout, with an office illustration and its own description." loading="lazy"><figcaption><b>Office move</b><span>Desks, IT and business hours</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/type-storage.webp" width="750" height="1624" alt="Storage Unit Move: service levels including placement by category." loading="lazy"><figcaption><b>Storage unit</b><span>Placement by category</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/type-labor.webp" width="750" height="1624" alt="Labor-Only page: rows for rearranging, furniture and floor protection and staged placement." loading="lazy"><figcaption><b>Labor only</b><span>No truck, just hands</span></figcaption></figure>
           </div>
         </article>
 
@@ -381,56 +387,33 @@
         <article class="mv-feature">
           <div class="mv-feature__text">
             <div><p class="cx-label">Booking · steps 1 and 3</p><h3 class="cx-h3">One form that knows the building</h3></div>
-            <p>Pickup and drop-off share the same form, and the form changes with the place. Access sits behind switches: turn one on and its counter or time picker appears. A short note carries what no field can, like a gate code or where the sofa goes.</p>
+            <ul class="cx-list">
+              <li>Pickup and drop-off share one form, and its fields change with the place: unit, hall and room, floor, loading dock.</li>
+              <li><strong>Access only when it applies.</strong> Turn a switch on and its counter or time picker appears.</li>
+              <li>A short note carries what no field can, like a gate code or where the sofa goes.</li>
+            </ul>
           </div>
-          <div class="mv-gallery cx-strip">
-            <figure>
-              <img src="../assets/img/muvr/pickup-apartment.webp" width="750" height="1630" alt="Pickup details for an apartment: unit number 57B, access by elevator and a time window from 8 am to 6 pm." loading="lazy">
-              <figcaption><b>Apartment</b><span>Unit, elevator, building hours</span></figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/img/muvr/pickup-dorm.webp" width="750" height="2148" alt="Pickup details for a dorm room: Maple Hall, room 312B, elevator access and a time picker open to set the access window." loading="lazy">
-              <figcaption><b>Dorm room</b><span>Hall and room, time picker open</span></figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/img/muvr/pickup-office.webp" width="750" height="1740" alt="Pickup details for an office: 9th floor, main entrance and business hours from 8 am to 6 pm." loading="lazy">
-              <figcaption><b>Office</b><span>Floor, entrance, business hours</span></figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/img/muvr/dropoff-warehouse.webp" width="750" height="2126" alt="Drop-off details for a warehouse: both addresses on top, 9th floor by freight elevator, access hours from 8 am to 6 pm and a note about pre-scheduled loading dock slots." loading="lazy">
-              <figcaption><b>Warehouse</b><span>Freight elevator, dock slots</span></figcaption>
-            </figure>
+          <div class="mv-shots mv-shots--3 cx-strip">
+            <img src="../assets/img/muvr/pickup-apartment.webp" width="750" height="1630" alt="Pickup details for an apartment: unit number 57B, access by elevator and a time window from 8 am to 6 pm." loading="lazy">
+            <img src="../assets/img/muvr/pickup-dorm.webp" width="750" height="2148" alt="Pickup details for a dorm room: Maple Hall, room 312B, elevator access and a time picker open to set the access window." loading="lazy">
+            <img src="../assets/img/muvr/dropoff-warehouse.webp" width="750" height="2126" alt="Drop-off details for a warehouse: both addresses on top, 9th floor by freight elevator, access hours from 8 am to 6 pm and a note about pre-scheduled loading dock slots." loading="lazy">
           </div>
         </article>
 
         <!-- F4 · Items -->
-        <article class="mv-feature">
-          <div class="mv-feature__text">
-            <div><p class="cx-label">Booking · step 2</p><h3 class="cx-h3">Say what's heavy before anyone lifts it</h3></div>
+        <article class="cx-feature cx-feature--flip">
+          <div class="cx-feature__shots">
+            <img src="../assets/img/muvr/items-two.webp" width="750" height="1624" alt="Home layout with two floors and four bedrooms, and two items listed, a refrigerator and a washing machine, each with its size and a 200 to 300 lbs weight range." loading="lazy">
+            <img src="../assets/img/muvr/items-remove.webp" width="750" height="1624" alt="A dialog over the list: Remove Item. Are you sure you want to remove the refrigerator from your listing? No, and Yes, I’m sure." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Booking · step 2</p>
+            <h3 class="cx-h3">Say what's heavy before anyone lifts it</h3>
             <ul class="cx-list">
               <li>First the size of the place: the numbers that choose the truck.</li>
-              <li>Special items come from a type-ahead list, one after another.</li>
               <li><strong>Each item carries what the driver needs:</strong> dimensions, a weight range and photos.</li>
               <li>Removing one asks first, so nothing disappears by accident.</li>
             </ul>
-          </div>
-          <div class="cx-feature__shots mv-shots mv-shots--3">
-            <img src="../assets/img/muvr/details-dorm.webp" width="750" height="1624" alt="Dorm-room layout: room type set to shared dorm, and two special items, a mini-fridge and drums, each with size, weight range and photo slots." loading="lazy">
-            <img src="../assets/img/muvr/item-search.webp" width="750" height="1624" alt="Item listing sheet: “Re” typed and Refrigerator suggested first." loading="lazy">
-            <img src="../assets/img/muvr/items-two.webp" width="750" height="1624" alt="Home layout with two floors and four bedrooms, and two items listed, a refrigerator and a washing machine, each with its size and a 200 to 300 lbs weight range." loading="lazy">
-          </div>
-        </article>
-
-        <!-- F5 · Labor only -->
-        <article class="cx-feature">
-          <div class="cx-feature__shots">
-            <img src="../assets/img/muvr/labor-job.webp" width="750" height="1624" alt="Job location for labor only: a single address with its access details." loading="lazy">
-            <img src="../assets/img/muvr/labor-duration.webp" width="750" height="1624" alt="Type and duration: packing and rearranging switched on, per-hour assistance selected and an estimate of two hours." loading="lazy">
-          </div>
-          <div class="cx-feature__text">
-            <p class="cx-label">Labor only</p>
-            <h3 class="cx-h3">When all you need is the muscle</h3>
-            <p>Sometimes the truck is already there, or nothing leaves the house. Labor only asks for one address instead of two, then for the work itself: loading, packing or rearranging, booked by the hour or by the item.</p>
           </div>
         </article>
       </section>
@@ -468,20 +451,19 @@
         </div>
 
         <!-- D1 · Sign in -->
-        <article class="mv-feature">
-          <div class="mv-feature__text">
-            <div><p class="cx-label">Sign-in and sign-up</p><h3 class="cx-h3">A phone number is all it takes to start</h3></div>
+        <article class="cx-feature">
+          <div class="cx-feature__shots">
+            <img src="../assets/img/muvr/login.webp" width="750" height="1624" alt="Get started with Muvr: a mobile number field with a country picker, Continue, and a Find my account link for people who changed their number." loading="lazy">
+            <img src="../assets/img/muvr/login-found.webp" width="750" height="1624" alt="“Is this you?” sheet: an existing account was found for that number, with the driver’s name, a Yes, it’s me button and No, this is not me." loading="lazy">
+          </div>
+          <div class="cx-feature__text">
+            <p class="cx-label">Sign-in and sign-up</p>
+            <h3 class="cx-h3">A phone number is all it takes to start</h3>
             <ul class="cx-list">
               <li>One field to begin: the mobile number, with the country set by a flag.</li>
               <li><strong>“Is this you?”</strong> An existing account shows up before a second one gets created.</li>
-              <li>A six-digit code, with an error that sounds like a person and a quick resend.</li>
-              <li>New drivers add a name, a verified email and a city, then accept the terms.</li>
+              <li>A six-digit code, then name, verified email, city and the terms.</li>
             </ul>
-          </div>
-          <div class="cx-feature__shots mv-shots mv-shots--3">
-            <img src="../assets/img/muvr/login.webp" width="750" height="1624" alt="Get started with Muvr: a mobile number field with a country picker, Continue, and a Find my account link for people who changed their number." loading="lazy">
-            <img src="../assets/img/muvr/login-found.webp" width="750" height="1624" alt="“Is this you?” sheet: an existing account was found for that number, with the driver's name, a Yes, it's me button and No, this is not me." loading="lazy">
-            <img src="../assets/img/muvr/login-code.webp" width="750" height="1624" alt="Verification code: six digits underlined in red and a friendly error, “Hmm, that code isn't valid. Please double-check and try again.”, with Resend Code via SMS." loading="lazy">
           </div>
         </article>
 
@@ -515,51 +497,51 @@
               <li>The ring shows two numbers that aren't the same: submitted and approved.</li>
               <li><strong>One recommended next step</strong>, so nobody has to decide where to begin.</li>
               <li>Every card says where it stands, and done or optional items fold away.</li>
-              <li>When a review comes back, a pop-up says so, with a way to see why.</li>
             </ul>
           </div>
         </article>
 
-        <!-- D4 · States -->
+        <!-- D4 · Requirements -->
         <article class="mv-feature">
           <div class="mv-feature__text">
-            <div><p class="cx-label">Every requirement</p><h3 class="cx-h3">Every submission gets an answer</h3></div>
-            <p>The same four moments repeat across the eight requirements that need a review, from the licence to the lifting video, so drivers learn the pattern once. Waiting has a shape, and a decline is never a dead end.</p>
+            <div><p class="cx-label">Requirements</p><h3 class="cx-h3">Each requirement shaped around its proof</h3></div>
+            <p>A licence is a photo, a vehicle is a short form, safety gear is a checklist and skills are switches. Each requirement asks in the way that fits what it proves, with the same header, progress and buttons around it.</p>
           </div>
           <div class="mv-gallery cx-strip">
-            <figure>
-              <img src="../assets/img/muvr/crew-photo.webp" width="750" height="1624" alt="Profile photo: “Smile for the camera!”, a round preview, three tips for a good photo, and Take Photo and Upload Photo buttons." loading="lazy">
-              <figcaption><b>Before</b><span>Clear tips, so fewer get declined</span></figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/img/muvr/crew-verifying.webp" width="750" height="1624" alt="Verification in progress: the review may take 24 to 48 hours, with a notification when it's done." loading="lazy">
-              <figcaption><b>In review</b><span>24 to 48 hours, then a notification</span></figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/img/muvr/crew-accepted.webp" width="750" height="1624" alt="Verification completed: the photo was accepted, with a green badge." loading="lazy">
-              <figcaption><b>Accepted</b><span>A small celebration</span></figcaption>
-            </figure>
-            <figure>
-              <img src="../assets/img/muvr/crew-declined.webp" width="750" height="1624" alt="Declined profile photo: a short explanation, a link to the decline report, Help and Retake Submission." loading="lazy">
-              <figcaption><b>Declined</b><span>A report, and a retake</span></figcaption>
-            </figure>
+            <figure><img src="../assets/img/muvr/req-license.webp" width="750" height="1624" alt="Driver’s licence, front: a sample licence card framed on screen, with tips for a sharp photo and a Take Photo button." loading="lazy"><figcaption><b>Driver’s licence</b><span>A photo, with the card shown</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/req-vehicle.webp" width="750" height="1624" alt="Vehicle information, step one: a list of vehicle types with Pickup Truck selected." loading="lazy"><figcaption><b>Vehicle</b><span>Type first, details next</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/req-equipment.webp" width="750" height="1706" alt="Essential equipment checklist for movers: 4-wheel dolly, hand truck, lifting straps, furniture blankets, stretch wrap and a disassembly kit, all ticked." loading="lazy"><figcaption><b>Equipment</b><span>A checklist, then a photo</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/req-skills.webp" width="750" height="1986" alt="Highlight your skills: core skills as switches, with stairs navigation, fragile items, communication and loading switched on." loading="lazy"><figcaption><b>Skills</b><span>Switches, grouped by service</span></figcaption></figure>
           </div>
         </article>
 
-        <!-- D5 · Help -->
+        <!-- D5 · States -->
+        <article class="mv-feature">
+          <div class="mv-feature__text">
+            <div><p class="cx-label">After you submit</p><h3 class="cx-h3">Every submission gets an answer</h3></div>
+            <p>The same moments repeat across the eight requirements that need a review, so drivers learn the pattern once. Waiting has a shape, good news gets a small celebration and a decline is never a dead end.</p>
+          </div>
+          <div class="mv-gallery cx-strip">
+            <figure><img src="../assets/img/muvr/st-verifying.webp" width="750" height="1624" alt="Lifting video under review: an illustration of a character with a video, and a note that the review takes 24 to 48 hours." loading="lazy"><figcaption><b>In review</b><span>24 to 48 hours, then a notification</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/st-watched.webp" width="750" height="1624" alt="Muvr explanation video completely watched: a cheering character and a line of encouragement." loading="lazy"><figcaption><b>Done</b><span>A word of encouragement</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/st-accepted.webp" width="750" height="1624" alt="Driver’s licence verified: a character waving flags and Verification Completed with a green badge." loading="lazy"><figcaption><b>Accepted</b><span>A small celebration</span></figcaption></figure>
+            <figure><img src="../assets/img/muvr/crew-declined.webp" width="750" height="1624" alt="Declined profile photo: a short explanation, a link to the decline report, Help and Retake Submission." loading="lazy"><figcaption><b>Declined</b><span>A report, and a retake</span></figcaption></figure>
+          </div>
+        </article>
+
+        <!-- D6 · Help -->
         <article class="cx-feature cx-feature--flip">
           <div class="cx-feature__shots">
             <img src="../assets/img/muvr/crew-help.webp" width="750" height="1624" alt="Help centre: onboarding and tickets tabs, a search field, six categories with illustrations and a Contact Us link." loading="lazy">
-            <img src="../assets/img/muvr/crew-tickets.webp" width="750" height="1624" alt="Ticket history grouped by date, each ticket with a coloured status: replied to, in progress, resolved and closed." loading="lazy">
+            <img src="../assets/img/muvr/help-empty.webp" width="750" height="1624" alt="Tickets with no history: a magnifying-glass illustration, “Nothing Here…”, and Open a Ticket." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Help centre</p>
             <h3 class="cx-h3">Help that knows where you're stuck</h3>
             <ul class="cx-list">
               <li>Categories follow onboarding itself: roles, requirements, verification.</li>
-              <li>A short tour on the first visit, easy to skip.</li>
               <li>Articles ask “Was this helpful?”, and a ticket is one tap away when they aren't.</li>
-              <li>Tickets keep their history, with a status you can read at a glance.</li>
+              <li>Even an empty ticket list points somewhere: open your first one.</li>
             </ul>
           </div>
         </article>
@@ -585,11 +567,6 @@
               <li><b>On the way</b>The card becomes a stepper: one question, one button.</li>
             </ol>
           </figure>
-          <div class="mv-doubts" aria-label="Open questions from the board">
-            <p class="sticky">Photos at loading: every item in a move, or only the listed ones?</p>
-            <p class="sticky">Pick a navigation app once, or every time?</p>
-            <p class="sticky">On the way to pickup, include the route to the helper?</p>
-          </div>
         </div>
       </section>
 
