@@ -9,19 +9,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Crypex, paying with crypto as easily as Pix — Jessica Monteiro</title>
   <meta name="description" content="A 0→1 mobile app that lets people in Brazil pay a Pix straight from their crypto balance. Solo UX/UI, about six weeks, from blank file to dev-ready.">
+  <meta name="theme-color" content="#F7F3EA">
   <link rel="canonical" href="https://jessica-portfolio-ruddy.vercel.app/work/crypex.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Jessica Monteiro">
+  <meta property="og:title" content="Crypex, paying with crypto as easily as Pix">
+  <meta property="og:description" content="A 0→1 mobile app that lets people in Brazil pay a Pix straight from their crypto balance. Solo UX/UI, about six weeks, from blank file to dev-ready.">
   <meta property="og:url" content="https://jessica-portfolio-ruddy.vercel.app/work/crypex.html">
-  <meta property="og:title" content="Crypex: paying with crypto, as easily as Pix · Jessica Monteiro">
-  <meta property="og:description" content="A 0→1 app that lets people in Brazil pay a Pix straight from their crypto balance. Solo UX/UI, about six weeks, from blank file to dev-ready.">
-  <meta property="og:image" content="https://jessica-portfolio-ruddy.vercel.app/assets/img/og/og-crypex.jpg">
+  <meta property="og:image" content="https://jessica-portfolio-ruddy.vercel.app/assets/img/crypex/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Crypex case study: the brand and three screens of the iOS app.">
+  <meta property="og:image:alt" content="Crypex wordmark next to three screens of the app: pay, home and payment review.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://jessica-portfolio-ruddy.vercel.app/assets/img/og/og-crypex.jpg">
-  <meta name="theme-color" content="#F7F3EA">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='5' width='24' height='24' rx='5' fill='%2316150F'/%3E%3Crect x='3' y='3' width='24' height='24' rx='5' fill='%23C9B8FF' stroke='%2316150F' stroke-width='1.5'/%3E%3C/svg%3E">
   <script>
     (function (d) {
@@ -38,7 +37,7 @@
   <link rel="stylesheet" href="../assets/css/case.css?v=1">
   <link rel="stylesheet" href="../assets/css/case-crypex.css?v=3">
   <script src="../assets/js/main.js?v=6" defer></script>
-  <script src="../assets/js/case-crypex.js?v=5" defer></script>
+  <script src="../assets/js/case-crypex.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -121,13 +120,12 @@
 
       <!-- ============ On this page ============ -->
       <nav class="cx-toc" aria-label="On this page">
-        <span class="cx-toc__time">9 min read</span>
         <ol>
-          <li><a href="#cx-overview">Overview</a></li>
-          <li><a href="#cx-challenge">Challenge</a></li>
-          <li><a href="#cx-process">Process</a></li>
-          <li><a href="#cx-solution">Solution</a></li>
-          <li><a href="#cx-outcome">Outcome</a></li>
+          <li><a href="#cx-overview"><span>01</span> Overview</a></li>
+          <li><a href="#cx-challenge"><span>02</span> The challenge</a></li>
+          <li><a href="#cx-process"><span>03</span> Process</a></li>
+          <li><a href="#cx-solution"><span>04</span> The solution</a></li>
+          <li><a href="#cx-outcome"><span>05</span> Outcome</a></li>
         </ol>
       </nav>
 
@@ -321,9 +319,9 @@
 
         <!-- Recipient + Review -->
         <article class="cx-feature cx-feature--flip">
-          <div class="cx-feature__shots">
-            <img src="../assets/img/crypex/pay-recipient.webp" width="786" height="1704" alt="Recipient screen: Pix key entered and the recipient's name, masked CPF and bank shown." loading="lazy">
-            <img src="../assets/img/crypex/pay-review.webp" width="786" height="1704" alt="Review screen: route from ETH to Pix, value, 10% fee, total in reais and in ETH, wallet address with copy button and a countdown." loading="lazy">
+          <div class="cx-feature__shots cx-feature__shots--details">
+            <img src="../assets/img/crypex/detail-recipient.webp" width="323" height="170" alt="Close-up of the recipient step: the Pix key, then the recipient's name, masked CPF and bank." loading="lazy">
+            <img src="../assets/img/crypex/detail-review.webp" width="323" height="383" alt="Close-up of the review: route from ETH to Pix, value, 10% fee, totals in reais and ETH, the wallet address with a copy button and the ten-minute countdown." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Pay · recipient and review</p>
@@ -449,7 +447,7 @@
             <span class="frame__label"><b>Components</b> 6 groups · 39 parts</span>
             <div class="cx-kit__group">
               <p class="cx-label">Navigation</p>
-              <div class="cx-kit__board">
+              <div class="cx-kit__board" role="region" aria-label="Navigation">
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/topbar-greeting.webp" width="244" height="24" style="width: 244px" alt="Top bar with “Olá, Rafael” and a grey bell." loading="lazy"><img src="../assets/img/crypex/components/topbar-greeting-alert.webp" width="244" height="24" style="width: 244px" alt="Top bar with “Olá, Rafael” and an orange bell for new notifications." loading="lazy"><img src="../assets/img/crypex/components/topbar-title-close.webp" width="244" height="24" style="width: 244px" alt="Top bar with the title “Pagamentos” and a close button." loading="lazy"><img src="../assets/img/crypex/components/topbar-title.webp" width="244" height="24" style="width: 244px" alt="Top bar with the title “Pagamentos” only." loading="lazy"></div><figcaption><b>Top bar</b><span>Greeting · new notification · title and close · title</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/tab-home.webp" width="244" height="52" style="width: 244px" alt="Tab bar with Home active." loading="lazy"><img src="../assets/img/crypex/components/tab-pay.webp" width="244" height="52" style="width: 244px" alt="Tab bar with Pay active." loading="lazy"><img src="../assets/img/crypex/components/tab-profile.webp" width="244" height="52" style="width: 244px" alt="Tab bar with Profile active." loading="lazy"></div><figcaption><b>Tab bar</b><span>Home · pay · profile</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/stepper.webp" width="228" height="42" style="width: 228px" alt="Back button, a step title and three progress dots with the second one active." loading="lazy"></div><figcaption><b>Step header</b><span>Back, title and progress</span></figcaption></figure>
@@ -457,7 +455,7 @@
             </div>
             <div class="cx-kit__group">
               <p class="cx-label">Actions</p>
-              <div class="cx-kit__board">
+              <div class="cx-kit__board" role="region" aria-label="Actions">
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/cta.webp" width="244" height="47" style="width: 244px" alt="Full-width orange Continue button." loading="lazy"><img src="../assets/img/crypex/components/btn-google.webp" width="226" height="42" style="width: 226px" alt="Grey button with the Gmail logo: Entrar com Google." loading="lazy"><img src="../assets/img/crypex/components/btn-apple.webp" width="226" height="42" style="width: 226px" alt="Grey button with the Apple logo: Entrar com Apple ID." loading="lazy"></div><figcaption><b>Buttons</b><span>Primary · Google · Apple</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/link-forgot.webp" width="116" height="31" style="width: 116px" alt="Underlined grey link: Esqueceu a senha?" loading="lazy"><img src="../assets/img/crypex/components/link-signup.webp" width="172" height="32" style="width: 172px" alt="“Novo na Crypex?” followed by an orange Cadastre-se link." loading="lazy"></div><figcaption><b>Links</b><span>Text link · inline link</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/keypad.webp" width="178" height="155" style="width: 178px" alt="Numeric keypad with Limpar and an active orange Continuar." loading="lazy"><img src="../assets/img/crypex/components/keypad-off.webp" width="178" height="39" style="width: 178px" alt="Limpar and Continuar in grey, before an amount is typed." loading="lazy"></div><figcaption><b>Keypad</b><span>Ready · actions off</span></figcaption></figure>
@@ -465,7 +463,7 @@
             </div>
             <div class="cx-kit__group">
               <p class="cx-label">Inputs</p>
-              <div class="cx-kit__board">
+              <div class="cx-kit__board" role="region" aria-label="Inputs">
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/field-empty.webp" width="226" height="43" style="width: 226px" alt="Empty text field with the placeholder Nome." loading="lazy"><img src="../assets/img/crypex/components/field-filled.webp" width="226" height="43" style="width: 226px" alt="Filled field: a small Email label above rafael.nogueira@email.com." loading="lazy"><img src="../assets/img/crypex/components/field-password.webp" width="226" height="43" style="width: 226px" alt="Password field with a small Senha label and an eye icon." loading="lazy"><img src="../assets/img/crypex/components/field-error.webp" width="228" height="54" style="width: 228px" alt="Field with a red label and underline and the message: passwords don’t match." loading="lazy"></div><figcaption><b>Text field</b><span>Empty · filled · password · error</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/search.webp" width="226" height="33" style="width: 226px" alt="Search field: search by transaction code, amount or recipient." loading="lazy"></div><figcaption><b>Search</b><span>Code, amount or recipient</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/converter.webp" width="228" height="120" style="width: 228px" alt="Two stacked cards, From ETH 0.13 and To Pix R$ 2,500.00, with the live rate below." loading="lazy"></div><figcaption><b>Converter</b><span>From, to and live rate</span></figcaption></figure>
@@ -473,7 +471,7 @@
             </div>
             <div class="cx-kit__group">
               <p class="cx-label">Cards and lists</p>
-              <div class="cx-kit__board">
+              <div class="cx-kit__board" role="region" aria-label="Cards and lists">
                 <figure class="cx-tile"><div class="cx-tile__art cx-tile__art--grid"><img src="../assets/img/crypex/components/card-pix.webp" width="104" height="90" style="width: 104px" alt="Service card: Pix." loading="lazy"><img src="../assets/img/crypex/components/card-boleto.webp" width="104" height="92" style="width: 104px" alt="Service card: Boleto, with a “Novo” badge." loading="lazy"><img src="../assets/img/crypex/components/card-payments.webp" width="104" height="90" style="width: 104px" alt="Service card: Payments." loading="lazy"><img src="../assets/img/crypex/components/card-card.webp" width="104" height="91" style="width: 104px" alt="Service card: Card, with an “Em breve” badge." loading="lazy"></div><figcaption><b>Service cards</b><span>Pix · Boleto, new · Payments · Card, soon</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/balance.webp" width="226" height="64" style="width: 226px" alt="Card with Saldo, U$ 1,850.46 and a chevron." loading="lazy"></div><figcaption><b>Balance</b><span>Available to pay</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/insights.webp" width="227" height="91" style="width: 227px" alt="AI insights card with the IA badge." loading="lazy"></div><figcaption><b>Insights</b><span>AI, market right now</span></figcaption></figure>
@@ -487,14 +485,14 @@
             </div>
             <div class="cx-kit__group">
               <p class="cx-label">Pickers</p>
-              <div class="cx-kit__board">
+              <div class="cx-kit__board" role="region" aria-label="Pickers">
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/calendar.webp" width="185" height="215" style="width: 185px" alt="Calendar for September 2024 with the 2nd and the 26th selected." loading="lazy"></div><figcaption><b>Date range</b><span>Start and end in orange</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/years.webp" width="184" height="123" style="width: 184px" alt="List of years to pick from, 2024 to 2027." loading="lazy"></div><figcaption><b>Year</b><span>Scrolling list</span></figcaption></figure>
               </div>
             </div>
             <div class="cx-kit__group">
               <p class="cx-label">Feedback</p>
-              <div class="cx-kit__board">
+              <div class="cx-kit__board" role="region" aria-label="Feedback">
                 <figure class="cx-tile"><div class="cx-tile__art cx-tile__art--grid"><img src="../assets/img/crypex/components/status-success.webp" width="85" height="85" style="width: 85px" alt="Green check in a soft circle." loading="lazy"><img src="../assets/img/crypex/components/status-failure.webp" width="85" height="85" style="width: 85px" alt="Red cross in a soft circle." loading="lazy"></div><figcaption><b>Status</b><span>Success · failure</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/badges.webp" width="122" height="34" style="width: 122px" alt="Three orange badges: IA, Novo and Em breve." loading="lazy"></div><figcaption><b>Badges</b><span>IA · Novo · Em breve</span></figcaption></figure>
                 <figure class="cx-tile"><div class="cx-tile__art"><img src="../assets/img/crypex/components/change.webp" width="140" height="42" style="width: 140px" alt="Green +0.23% and red -0.11% pills." loading="lazy"></div><figcaption><b>Market change</b><span>Up · down</span></figcaption></figure>
@@ -563,13 +561,14 @@
 
       <nav class="case-next" aria-label="More work">
         <a href="muvr.html"><small>← Case 01</small><strong>Marketplace App Redesign</strong></a>
+        <a href="../guidelines.html"><small>Case 00 →</small><strong>This portfolio, as a design system</strong></a>
       </nav>
 
       <div class="shall case-contact">
         <h2 class="shall__title"><span class="a">Shall</span> <span class="b">we?</span></h2>
         <p>Working on something similar? Tell me about the product, the feature or the messy flow.</p>
         <div class="contact__links">
-          <a class="btn btn--primary btn--lg" href="https://www.upwork.com/freelancers/~01b4decd646a1f6eb4?mp_source=share" target="_blank" rel="noopener">Hire me on Upwork <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--primary btn--lg" href="https://www.upwork.com/freelancers/~01b4decd646a1f6eb4" target="_blank" rel="noopener">Hire me on Upwork <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn btn--lilac btn--lg" href="https://www.linkedin.com/in/jksmnt/" target="_blank" rel="noopener">Connect on LinkedIn</a>
         </div>
       </div>

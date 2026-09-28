@@ -1,10 +1,11 @@
-/* JM · Case 02 · Crypex — click a screen to see it up close.
-   Medium-style zoom: the screen flies from its place to the centre of the
-   window over a paper backdrop, and back. Click, Esc or scroll to close.
-   Works with mouse, touch and keyboard (Enter / Space). */
+/* JM · Case 02 · Crypex — page behaviours.
+   1. Click a screen to see it up close (Medium-style zoom over a paper
+      backdrop; click, Esc or scroll closes; mouse, touch and keyboard).
+   2. The "On this page" index marks the chapter being read.
+   3. Kit rows are focusable only when they scroll (small screens). */
 (() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const shots = document.querySelectorAll('.cx-strip img, .cx-feature__shots img');
+  const shots = document.querySelectorAll('.cx-strip img, .cx-feature__shots:not(.cx-feature__shots--details) img');
   const MARGIN = 32, TOP = 64; // keep clear of the edges and the toolbar
   let open = null;
 
@@ -64,27 +65,34 @@
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   addEventListener('resize', close);
-})();
 
-/* On this page: highlight the section being read */
-(() => {
-  const links = [...document.querySelectorAll('.cx-toc a')];
-  const pairs = links.map((a) => ({ a, el: document.getElementById(a.hash.slice(1))?.closest('section') })).filter((p) => p.el);
-  if (!pairs.length) return;
-  let ticking = false;
-  const update = () => {
-    ticking = false;
-    const line = innerHeight * 0.35;
-    let current = null;
-    pairs.forEach((p) => { if (p.el.getBoundingClientRect().top <= line) current = p; });
-    pairs.forEach((p) => p.a.setAttribute('aria-current', p === current ? 'true' : 'false'));
-    if (current) {
-      const ol = current.a.closest('ol');
-      const left = current.a.offsetLeft - ol.clientWidth / 2 + current.a.offsetWidth / 2;
-      if (ol.scrollWidth > ol.clientWidth) ol.scrollTo({ left, behavior: 'auto' });
-    }
-  };
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-  addEventListener('resize', update);
-  update();
+  /* On this page: mark the chapter being read */
+  const toc = [...document.querySelectorAll('.cx-toc a[href^="#"]')];
+  const heads = toc.map((a) => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+  if (toc.length) {
+    const sections = heads.map((h) => h.closest('section') || h);
+    let ticking = false, shown = null;
+    const update = () => {
+      ticking = false;
+      const line = innerHeight * 0.4;
+      let current = -1;
+      sections.forEach((sec, i) => { if (sec.getBoundingClientRect().top < line) current = i; });
+      if (current === shown) return;
+      shown = current;
+      toc.forEach((a, k) => a.setAttribute('aria-current', k === current ? 'true' : 'false'));
+      // small screens: keep the active chapter visible inside the index row
+      const row = toc[0].closest('ol'), on = toc[current];
+      if (on && row.scrollWidth > row.clientWidth) row.scrollTo({ left: on.parentElement.offsetLeft - 16, behavior: reduced ? 'auto' : 'smooth' });
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+
+  /* kit rows only take keyboard focus when they actually scroll (small screens) */
+  const boards = document.querySelectorAll('.cx-kit__board');
+  const tabbable = () => boards.forEach((b) => {
+    if (b.scrollWidth > b.clientWidth + 2) b.setAttribute('tabindex', '0'); else b.removeAttribute('tabindex');
+  });
+  tabbable();
+  addEventListener('resize', tabbable);
 })();
