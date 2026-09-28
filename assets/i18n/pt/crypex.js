@@ -11,7 +11,7 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "djv8ja": "Período",
  "1pkrt2q": "2024 · cerca de 6 semanas",
  "1mfm8u0": "Design concluído · lançamento em pausa",
- "141h5g6": "<b>Capa</b> Crypex <span class=\"dim\">iOS · 390</span>",
+ "1m48a0t": "<b>Filme</b> Crypex <span class=\"dim\">iOS · 390</span>",
  "p55b8h": "Criptomoedas como meios de pagamento convencionais",
  "waufnv": "passos para pagar um Pix, do primeiro rascunho ao fluxo final",
  "1aaeiiu": "participantes nos testes de usabilidade, devs e pessoas novas em cripto",
@@ -301,5 +301,13 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "tpz6x5": "Case 00 →",
  "1r1ubs1": "Este portfólio, como design system",
  "te5c0c": "Detalhe da etapa do destinatário: a chave Pix e, logo abaixo, o nome, o CPF mascarado e o banco de quem recebe.",
- "1de2jqx": "Detalhe da confirmação: rota de ETH para Pix, valor, taxa de 10%, totais em reais e em ETH, o endereço da carteira com botão de copiar e a contagem de dez minutos."
+ "1de2jqx": "Detalhe da confirmação: rota de ETH para Pix, valor, taxa de 10%, totais em reais e em ETH, o endereço da carteira com botão de copiar e a contagem de dez minutos.",
+ "h1raex": "Case 02 · Crypex",
+ "pby6wz": "Pagar · destinatário",
+ "eiks9x": "Confira antes de enviar.",
+ "1hv2393": "Um erro de digitação aparece como o nome errado, não como dinheiro perdido.",
+ "ye9v4w": "Pagar · confirmação",
+ "me738s": "Cripto muda a cada minuto, por isso a cotação fica travada por dez minutos.",
+ "17x2tyk": "Pular o filme <span aria-hidden=\"true\">↓</span>",
+ "3gzjc5": "Filme: o fluxo de pagamento do Crypex"
 });
