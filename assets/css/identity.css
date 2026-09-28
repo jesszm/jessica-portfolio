@@ -146,12 +146,8 @@ html.is-inspecting[data-grid="on"] .inspect-box, html.is-inspecting[data-grid="o
 .case__cta .arrow { transition: transform var(--dur-2) var(--ease-standard); }
 .mini--phone, .mini--dash, .mini--web { border-width: 1px; border-color: var(--color-border-strong); }
 
-/* Crypex thumbnail: the brand split from the v1 card */
-.crypex { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; }
-.crypex span { display: flex; align-items: center; justify-content: center; font: 400 clamp(1.4rem, 3.2vw, 2.4rem) / 1 var(--font-sans); letter-spacing: 0.16em; }
-.crypex span:first-child { background: #1E1E1E; color: #F4F4F4; }
-.crypex span:last-child { background: #EDEDED; color: #1E1E1E; }
-.crypex span i { font-style: normal; display: inline-block; transform: scaleX(-1); }
+/* Crypex thumbnail: the brand's plane of light with the pay flow */
+.crypex { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- Pins & stickies ---------- */
 .pin { box-shadow: 0 0 0 1.5px var(--color-bg-elevated), 1.5px 1.5px 0 1.5px var(--ink-900); }
@@ -417,29 +413,6 @@ html.i18n-pending body { visibility: hidden; }
 .case .tags { margin-bottom: var(--sp-5); }
 .case__cta { margin-top: auto; }
 .case__meta span + span::before { content: none; }
-
-/* Crypex card: the brand split with three real screens (mirrors the case cover) */
-.cxthumb { position: absolute; inset: 0; background: linear-gradient(90deg, #1E1E1E 0 38%, #EDEDED 38% 100%); }
-.cxthumb__brand { position: absolute; left: 0; top: 0; bottom: 0; width: 38%; background: #1E1E1E url("../img/crypex/cover-brand.webp") center / cover no-repeat; }
-.cxthumb__phones {
-  position: absolute; left: 42%; right: 2.5%; top: 12%; bottom: -60%;
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3.5%; align-items: start;
-}
-.cxthumb__phones img {
-  width: 100%; height: auto; display: block;
-  filter: drop-shadow(0 16px 20px rgba(22, 21, 15, 0.22));
-  transition: transform var(--dur-4) var(--ease-emphasized);
-}
-.cxthumb__phones img:nth-child(2) { margin-top: -9%; }
-.cxthumb__phones img:nth-child(3) { margin-top: 6%; }
-.case:hover .cxthumb__phones img { transform: translateY(-6px); }
-.case:hover .cxthumb__phones img:nth-child(2) { transition-delay: 40ms; }
-.case:hover .cxthumb__phones img:nth-child(3) { transition-delay: 80ms; }
-@media (max-width: 560px) {
-  .cxthumb { background: linear-gradient(180deg, #1E1E1E 0 30%, #EDEDED 30% 100%); }
-  .cxthumb__brand { width: auto; right: 0; bottom: auto; height: 30%; }
-  .cxthumb__phones { left: 8%; right: 8%; top: 36%; bottom: -80%; }
-}
 
 /* ---------- Pause the loops: marquee, sparkles, grain, status dot ---------- */
 .marquee { position: relative; }
