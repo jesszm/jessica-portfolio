@@ -180,5 +180,13 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "4epgfr": "Jessica Monteiro é designer de UI/UX para e-commerce, apps mobile, sistemas web e fintech. Guiada por pesquisa, pensando em sistemas, construindo junto com devs.",
  "1038hp5": "Meu caminho começou com cores e linhas, na ilustração, muito antes de eu abrir o Figma. Isso treinou meu olho para equilíbrio, ritmo e os pequenos detalhes que as pessoas sentem antes de perceber. Aparece em todo projeto como uma hierarquia visual clara e um acabamento cuidadoso. Quando um produto precisa de uma voz visual própria e o prazo permite, também posso desenhar ilustrações e ícones sob medida.",
  "1bfn6uk": "Acabamento",
- "1tl1bx1": "Ilustração sob demanda"
+ "1tl1bx1": "Ilustração sob demanda",
+ "rb5dln": "<span class=\"hand\">a regra que guia o meu design</span>“Bom design fica do seu lado,<br> <em>nunca no seu caminho</em>.”",
+ "qxhktr": "Dois caminhos me ensinaram o que isso significa.",
+ "1mzphv9": "01 · O olhar",
+ "1ela256": "02 · O jeito de trabalhar",
+ "1aw1b8q": "Meu caminho começou com cores e linhas, na ilustração, muito antes de eu abrir o Figma. Isso treinou meu olho para equilíbrio, ritmo e os pequenos detalhes que as pessoas sentem antes de perceber. É esse olhar que levo para cada interface: uma hierarquia que guia a atenção, consistência em cada estado e tela, e o acabamento que faz um produto passar confiança. Quando uma marca pede uma linguagem visual própria e o escopo permite, levo esse cuidado para ilustrações e iconografia sob medida.",
+ "9coe4j": "Consistência de UI",
+ "1eilgpu": "Ilustração, quando cabe no escopo",
+ "8anm29": "02 · A mentalidade"
 });

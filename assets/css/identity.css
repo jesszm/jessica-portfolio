@@ -548,3 +548,14 @@ html.is-paused .availability i::after { animation-play-state: paused !important;
   .about__icon { width: 36px; height: 36px; top: var(--sp-5); right: var(--sp-5); }
 }
 @media (prefers-reduced-motion: reduce) { .about__block, .about__block:hover { transition: none; transform: none; } }
+
+/* About reads as one story: statement → the rule → two paths → facts */
+.about__quote { margin-bottom: var(--sp-5); }
+.about__bridge {
+  text-align: center; margin: 0 auto clamp(var(--sp-7), 6vw, var(--sp-8));
+  font-size: var(--fs-16); color: var(--color-text-muted);
+}
+.about__bridge::after {
+  content: ""; display: block; width: 1px; height: 32px; margin: var(--sp-4) auto 0;
+  background: repeating-linear-gradient(180deg, var(--ink-900) 0 4px, transparent 4px 8px); opacity: 0.45;
+}
