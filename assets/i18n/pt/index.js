@@ -177,5 +177,8 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1o61hxv": "Trabalho com",
  "1w7c072": "Founders, times de produto e devs",
  "1pfahta": "Brasil, UTC−3 · horário compatível com EUA e Europa",
- "4epgfr": "Jessica Monteiro é designer de UI/UX para e-commerce, apps mobile, sistemas web e fintech. Guiada por pesquisa, pensando em sistemas, construindo junto com devs."
+ "4epgfr": "Jessica Monteiro é designer de UI/UX para e-commerce, apps mobile, sistemas web e fintech. Guiada por pesquisa, pensando em sistemas, construindo junto com devs.",
+ "1038hp5": "Meu caminho começou com cores e linhas, na ilustração, muito antes de eu abrir o Figma. Isso treinou meu olho para equilíbrio, ritmo e os pequenos detalhes que as pessoas sentem antes de perceber. Aparece em todo projeto como uma hierarquia visual clara e um acabamento cuidadoso. Quando um produto precisa de uma voz visual própria e o prazo permite, também posso desenhar ilustrações e ícones sob medida.",
+ "1bfn6uk": "Acabamento",
+ "1tl1bx1": "Ilustração sob demanda"
 });
