@@ -1,5 +1,5 @@
 /* ==========================================================================
-   JM · Cinematic story — v3.2.0
+   JM · Cinematic story — v3.3.0
    Pinned 3D story. Follows the page theme (light first). Scrims are built from
    --story-veil so copy stays legible over the scene in either theme.
    ========================================================================== */
@@ -199,3 +199,37 @@ html.no-js .chapter--hero, html.is-static .chapter--hero { min-height: 100vh; mi
 
 .toolbar .status-pill { white-space: nowrap; }
 @media (max-width: 1180px) { .toolbar .status-pill { display: none; } }
+
+/* ---------- HUD: where am I, and a way out (v3.3) ---------- */
+.story__hud {
+  position: absolute; z-index: 3;
+  right: max(var(--gutter), calc((100vw - var(--container)) / 2)); bottom: 24px;
+  display: flex; align-items: center; gap: var(--sp-4);
+  transition: opacity var(--dur-3) var(--ease-standard), visibility var(--dur-3);
+}
+/* hidden on the hero (View work is right there) and the finale (the work is next) */
+.story__hud.is-hidden { opacity: 0; visibility: hidden; }
+.story__count {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-subtle); white-space: nowrap;
+}
+.story__count b { font-weight: 400; color: var(--color-text); }
+.story__count b ~ span { margin-left: 8px; }
+/* desktop: the rail already shows the chapter, so the HUD is only the way out */
+@media (min-width: 821px) { .story__count { display: none; } }
+.story__skip {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 14px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  color: var(--color-text); background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-full); box-shadow: var(--shadow-hard);
+  transition: transform var(--dur-2) var(--ease-standard), box-shadow var(--dur-2) var(--ease-standard);
+}
+.story__skip:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--color-border-strong); }
+.story__skip:focus-visible { outline: 2px solid var(--color-text); outline-offset: 3px; }
+html.no-js .story__hud, html.is-static .story__hud { display: none; }
+@media (max-width: 820px) {
+  .story__hud { top: calc(var(--nav-height) + 12px); bottom: auto; left: var(--gutter); right: var(--gutter); justify-content: space-between; }
+  .story__count { background: rgba(var(--story-veil), 0.85); padding: 6px 10px; border-radius: var(--radius-full); }
+  .story__count:empty { visibility: hidden; }
+}
+

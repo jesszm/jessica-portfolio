@@ -301,5 +301,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "tpz6x5": "Case 00 →",
  "1r1ubs1": "Este portfólio, como design system",
  "te5c0c": "Detalhe da etapa do destinatário: a chave Pix e, logo abaixo, o nome, o CPF mascarado e o banco de quem recebe.",
- "1de2jqx": "Detalhe da confirmação: rota de ETH para Pix, valor, taxa de 10%, totais em reais e em ETH, o endereço da carteira com botão de copiar e a contagem de dez minutos."
+ "1de2jqx": "Detalhe da confirmação: rota de ETH para Pix, valor, taxa de 10%, totais em reais e em ETH, o endereço da carteira com botão de copiar e a contagem de dez minutos.",
+ "1oasd6": "O dia da mudança, pelas duas pontas"
 });

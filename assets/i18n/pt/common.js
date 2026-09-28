@@ -65,10 +65,20 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "3sxfgv": "Trabalhando em algo parecido? Me conta sobre o produto, a feature ou o fluxo bagunçado.",
  "1antc99": "← Voltar para todos os trabalhos",
  "pe5yct": "Mais trabalhos",
+ "xevcv5": "<b>Frame 404</b> · não encontrado",
+ "2863ee": "<b>nota</b>perdida nas camadas",
+ "eisb84": "Este frame não está no <em>canvas</em>.",
+ "13uv3gh": "O link pode ser antigo, ou a página mudou de lugar enquanto eu redesenhava. Os trabalhos continuam aqui, a um clique.",
+ "18yx8es": "Voltar para o início <span class=\"arrow\" aria-hidden=\"true\">→</span>",
+ "1cpmkak": "Ver os trabalhos",
+ "1mnh6u0": "Página não encontrada — Jessica Monteiro",
+ "l24oop": "Esta página não existe mais. Volte para o portfólio da Jessica Monteiro.",
+ "1ghtsrl": "case 02",
  "1u8wzn6": "<b>Case 02</b> Pagamentos em cripto <span class=\"dim\">App iOS · 0 → 1</span>",
  "1pqappy": "0 → 1 · DESIGN CONCLUÍDO",
  "11nz0yk": "Pagar com cripto, tão fácil quanto um Pix",
  "2zme62": "Um app 0 → 1 que permite pagar um Pix direto do saldo em cripto. UX/UI solo, do arquivo em branco ao pronto para o dev em cerca de seis semanas.",
  "adxyid": "Product design 0 → 1",
- "d15lig": "Perfil no Upwork"
+ "d15lig": "Perfil no Upwork",
+ "1j38rmd": "Modo designer"
 });
