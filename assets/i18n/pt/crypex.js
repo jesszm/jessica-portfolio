@@ -291,5 +291,15 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "em78o2": "Splash com o logotipo do Crypex centralizado sobre cinza suave.",
  "pe5yct": "Mais trabalhos",
  "pr9khk": "Crypex, pagar com cripto tão fácil quanto um Pix — Jessica Monteiro",
- "s7k1wr": "Um app mobile 0→1 que permite pagar um Pix direto do saldo em cripto. UX/UI solo, cerca de seis semanas, do arquivo em branco ao pronto para o dev."
+ "s7k1wr": "Um app mobile 0→1 que permite pagar um Pix direto do saldo em cripto. UX/UI solo, cerca de seis semanas, do arquivo em branco ao pronto para o dev.",
+ "59w6b8": "<span>01</span> Visão geral",
+ "tnqhfc": "<span>02</span> O desafio",
+ "w0uyo6": "<span>03</span> Processo",
+ "1vdb3f2": "<span>04</span> A solução",
+ "1k2frzh": "<span>05</span> Resultado",
+ "j0uvb": "Nesta página",
+ "tpz6x5": "Case 00 →",
+ "1r1ubs1": "Este portfólio, como design system",
+ "te5c0c": "Detalhe da etapa do destinatário: a chave Pix e, logo abaixo, o nome, o CPF mascarado e o banco de quem recebe.",
+ "1de2jqx": "Detalhe da confirmação: rota de ETH para Pix, valor, taxa de 10%, totais em reais e em ETH, o endereço da carteira com botão de copiar e a contagem de dez minutos."
 });
