@@ -414,33 +414,6 @@ html.i18n-pending body { visibility: hidden; }
 .case__cta { margin-top: auto; }
 .case__meta span + span::before { content: none; }
 
-/* ---------- Pause the loops: marquee, sparkles, grain, status dot ---------- */
-.marquee { position: relative; }
-.marquee__toggle {
-  position: absolute; right: max(var(--gutter), calc((100vw - var(--container)) / 2)); top: 50%; z-index: 2;
-  transform: translateY(-50%);
-  width: 36px; height: 36px; display: grid; place-items: center; padding: 0; cursor: pointer;
-  color: var(--color-text); background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border-strong); border-radius: 50%; box-shadow: var(--shadow-hard);
-  transition: transform var(--dur-2) var(--ease-standard), box-shadow var(--dur-2) var(--ease-standard);
-}
-.marquee__toggle:hover { transform: translate(-1px, calc(-50% - 1px)); box-shadow: 3px 3px 0 var(--color-border-strong); }
-.marquee__toggle:focus-visible { outline: 2px solid var(--color-text); outline-offset: 3px; }
-.marquee__toggle svg { width: 16px; height: 16px; }
-.marquee__toggle .i-pause { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
-.marquee__toggle .i-play { fill: currentColor; display: none; }
-html.is-paused .marquee__toggle .i-pause { display: none; }
-html.is-paused .marquee__toggle .i-play { display: block; }
-/* a soft fade so the ribbon slides under the button instead of colliding with it */
-.marquee::after {
-  content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: calc(max(var(--gutter), (100vw - var(--container)) / 2) + 72px);
-  background: linear-gradient(90deg, transparent, var(--color-bg-elevated) 55%); pointer-events: none; z-index: 1;
-}
-html.is-paused .marquee__track,
-html.is-paused .sparkle,
-html.is-paused .story__grain,
-html.is-paused .availability i::after { animation-play-state: paused !important; }
-
 /* ---------- Services: how we start ---------- */
 .start {
   margin-top: var(--sp-8);

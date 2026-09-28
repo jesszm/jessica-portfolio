@@ -120,23 +120,6 @@
     if (e.key === 'Escape' && html.getAttribute('data-grid') === 'on') setGrid(false);
   });
 
-  /* ---------- Pause motion (WCAG 2.2.2): marquee, sparkles, grain ---------- */
-  const motionBtn = document.querySelector('[data-action="motion"]');
-  const setPaused = (on) => {
-    html.classList.toggle('is-paused', on);
-    store.set('jm-motion', on ? 'paused' : 'on');
-    if (!motionBtn) return;
-    const pt = window.JM_LANG === 'pt';
-    motionBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    motionBtn.setAttribute('aria-label', on
-      ? (pt ? 'Retomar as animações decorativas' : 'Play the moving decorations')
-      : (pt ? 'Pausar as animações decorativas' : 'Pause the moving decorations'));
-  };
-  if (motionBtn) {
-    setPaused(html.classList.contains('is-paused'));
-    motionBtn.addEventListener('click', () => setPaused(!html.classList.contains('is-paused')));
-  }
-
   /* ---------- Mobile nav ---------- */
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.toolbar__nav');
