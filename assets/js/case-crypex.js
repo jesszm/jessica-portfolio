@@ -3,7 +3,8 @@
       backdrop; click, Esc or scroll closes; mouse, touch and keyboard).
    2. The "On this page" index marks the chapter being read.
    3. Kit rows are focusable only when they scroll (small screens). */
-(() => {
+/* runs once the pt-BR text is in place (immediately in English), so it reads translated alt text and labels */
+(window.jmI18nReady || Promise.resolve()).then(() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const shots = document.querySelectorAll('.cx-strip img, .cx-feature__shots:not(.cx-feature__shots--details) img');
   const MARGIN = 32, TOP = 64; // keep clear of the edges and the toolbar
@@ -36,6 +37,9 @@
     veil.addEventListener('click', close);
     const clone = img.cloneNode();
     clone.removeAttribute('tabindex'); clone.removeAttribute('role'); clone.removeAttribute('aria-label');
+    /* the zoom always shows the full export, never the small srcset variant */
+    clone.removeAttribute('srcset'); clone.removeAttribute('sizes'); clone.removeAttribute('loading');
+    clone.src = img.getAttribute('src');
     clone.className = 'cx-zoom__img';
     Object.assign(clone.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
     clone.addEventListener('click', close);
@@ -44,7 +48,8 @@
 
     // fit the window, never past the export's own size (2x files shown at 1x)
     const maxW = innerWidth - MARGIN * 2, maxH = innerHeight - TOP - MARGIN;
-    const s = Math.min(maxW / r.width, maxH / r.height, (img.naturalWidth / 2) / r.width);
+    const fullW = Number(img.getAttribute('width')) || img.naturalWidth;
+    const s = Math.min(maxW / r.width, maxH / r.height, (fullW / 2) / r.width);
     const tx = innerWidth / 2 - (r.left + r.width / 2);
     const ty = TOP + maxH / 2 - (r.top + r.height / 2);
     requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -95,4 +100,4 @@
   });
   tabbable();
   addEventListener('resize', tabbable);
-})();
+});

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="guidelines">
-  <script src="assets/js/i18n.js?v=13"></script>
+  <script src="assets/js/i18n.js?v=14"></script>
   <script>(function (c) { c.remove('no-js'); c.add('js'); })(document.documentElement.classList);</script>
   <link rel="alternate" hreflang="en" href="https://www.jessmonteiro.com/guidelines.html">
   <link rel="alternate" hreflang="pt-BR" href="https://www.jessmonteiro.com/guidelines.html?lang=pt">
@@ -16,6 +16,8 @@
   <meta property="og:site_name" content="Jessica Monteiro">
   <meta property="og:url" content="https://www.jessmonteiro.com/guidelines.html">
   <meta property="og:title" content="Design guidelines · Jessica Monteiro">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:description" content="The design system behind this portfolio: tokens, type, color, components, motion and accessibility.">
   <meta property="og:image" content="https://www.jessmonteiro.com/assets/img/og/og-home.jpg">
   <meta property="og:image:width" content="1200">
@@ -73,7 +75,6 @@
       <p>Start</p>
       <a href="#overview" data-nav>Overview</a>
       <a href="#principles" data-nav>Principles</a>
-      <a href="#identity" data-nav>Identity v2</a>
       <p>Process</p>
       <a href="#process" data-nav>UI/UX process</a>
       <a href="#collab" data-nav>Working together</a>
@@ -87,6 +88,7 @@
       <a href="#motion" data-nav>Motion</a>
       <a href="#iconography" data-nav>Iconography</a>
       <a href="#annotation" data-nav>Annotation language</a>
+      <a href="#identity" data-nav>Identity v2</a>
       <p>Components</p>
       <a href="#components" data-nav>Overview</a>
       <a href="#button" data-nav>Button</a>
@@ -141,90 +143,6 @@
 
 
       <!-- ============ IDENTITY v2 ============ -->
-      <section id="identity">
-        <span class="eyebrow">Identity v2 · Canvas</span>
-        <h2 class="display h-md">The personality, <span class="hl">rebuilt</span> for this system</h2>
-        <p>v2.0 brings back the voice of my first portfolio (the Figma file with Crypex and Muvr): the <em>Hello 👋</em>, the candy tags, the black outlines with offset shadows, the big <em>Shall we?</em> and the illustrations of me. It is not a copy. Every element was kept, adapted or dropped against two filters: <strong>does it read as me</strong> and <strong>does it pass the accessibility bar</strong>.</p>
-        <div class="callout"><b>One sentence</b>A designer's whiteboard on a sunny desk: paper, a fine ink pen, sticky notes and one lilac highlighter. Playful in the details, elegant in the type, precise in the grid.</div>
-
-        <h3>Personality → visual rules</h3>
-        <div class="table--wrap"><table class="table">
-          <thead><tr><th>Trait</th><th>Looks like</th><th>Never like</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Curious, hands-on</strong></td><td>Sticky notes, handwritten notes in Mynerve, stamps, a restyled cursor</td><td>Clip-art, random doodles with no job</td></tr>
-            <tr><td><strong>Confident, elegant</strong></td><td>Brygada 1918 at regular weight with an italic accent, 1px ink lines, small offset shadows</td><td>Heavy grotesques, thick strokes, neon, gradients as decoration</td></tr>
-            <tr><td><strong>Warm, Brazilian</strong></td><td>Paper canvas, sunlit oak desk, sunflower glasses, <em>“ordem e design”</em></td><td>Flag clichés, green-and-yellow everywhere</td></tr>
-            <tr><td><strong>Precise</strong></td><td>Redlines, spec chips, 12-column grid, “Ready for dev”</td><td>Misalignment passed off as “playful”</td></tr>
-          </tbody>
-        </table></div>
-
-        <h3>From the old portfolio: keep, adapt, drop</h3>
-        <div class="table--wrap"><table class="table">
-          <thead><tr><th>Element</th><th>Decision</th><th>How it lives in v2</th></tr></thead>
-          <tbody>
-            <tr><td>Candy tags (lilac, yellow, mint, pink)</td><td><span class="tag tag--mint">Keep</span></td><td><code>.tag--lilac / yellow / mint / pink / coral / ink</code>, always ink text on the fill.</td></tr>
-            <tr><td>Black outline + offset shadow on buttons</td><td><span class="tag tag--yellow">Adapt</span></td><td>1px outline, 2px offset (the primary button casts a lilac shadow). Hover lifts 1.5px, active presses 2px.</td></tr>
-            <tr><td>“Hello 👋”, “Check out my work ↓”</td><td><span class="tag tag--mint">Keep</span></td><td>Handwritten greeting in Mynerve over the hero title; scroll hint in the same hand.</td></tr>
-            <tr><td>Outlined ribbon “USER INTERFACE • USER EXPERIENCE”</td><td><span class="tag tag--yellow">Adapt</span></td><td>A serif ribbon: Brygada, alternating roman and italic, separated by sparkles in lilac → mint → yellow.</td></tr>
-            <tr><td>“SHALL WE?” footer CTA</td><td><span class="tag tag--mint">Keep</span></td><td>Contact block and the laptop sticker. Brygada 500 with a highlighted italic “we?”, on a card with a 4px offset shadow instead of hatching.</td></tr>
-            <tr><td>B&amp;W Jess illustration, sunflower-glasses photo</td><td><span class="tag tag--mint">Keep</span></td><td>Die-cut sticker on the MacBook lid; portrait card in About.</td></tr>
-            <tr><td>Real case copy: Crypex, Muvr, “Shaped by creativity”, “Guided by freedom”</td><td><span class="tag tag--mint">Keep</span></td><td>Case 01 (Muvr), Case 02 (Crypex) and the About pair, in my own words.</td></tr>
-            <tr><td>Pure black #000 outlines</td><td><span class="tag tag--yellow">Adapt</span></td><td>ink-900 <code>#16150F</code>: same punch, warmer against paper.</td></tr>
-            <tr><td>Lilac used for text</td><td><span class="tag tag--yellow">Adapt</span></td><td>Lilac is a fill only; text uses violet-600 <code>#6445D6</code> (5.6:1).</td></tr>
-            <tr><td>Halftone dot background</td><td><span class="tag tag--yellow">Adapt</span></td><td>22px dot grid, the FigJam canvas. It also backs the 3D board.</td></tr>
-            <tr><td>Whole dark sections</td><td><span class="tag tag--yellow">Adapt</span></td><td>One organic ink blob behind the Jess portrait, never a full dark section. Light is the primary theme.</td></tr>
-            <tr><td>Wordmark with colored J and M</td><td><span class="tag tag--yellow">Adapt</span></td><td><code>.wordmark b</code> in violet italic, set in Brygada.</td></tr>
-            <tr><td>Pink/lilac text on white</td><td><span class="tag tag--coral">Drop</span></td><td>Fails AA (1.6–2.1:1).</td></tr>
-            <tr><td>Four or more hues in one component</td><td><span class="tag tag--coral">Drop</span></td><td>One sticky fill + ink + (optionally) brand per component.</td></tr>
-            <tr><td>Language selector with one language</td><td><span class="tag tag--yellow">Adapt</span></td><td>Back in 2.3 as EN / PT.</td></tr>
-            <tr><td>Long centered paragraphs</td><td><span class="tag tag--coral">Drop</span></td><td>Left-aligned, 68ch max.</td></tr>
-          </tbody>
-        </table></div>
-
-        <h3>Color proportion</h3>
-        <p>60 · 30 · 10. <strong>Paper</strong> is the canvas (60), <strong>ink</strong> draws the lines and the text (30), and the rest (sticky fills and violet) is the 10% that carries attention. If a screen looks like confetti, the 10% grew.</p>
-        <div class="swatches swatches--5" style="max-width:620px">
-          <div class="swatch swatch--light" style="background:#F7F3EA"><b>paper 60%</b>F7F3EA</div>
-          <div class="swatch swatch--dark" style="background:#16150F"><b>ink 30%</b>16150F</div>
-          <div class="swatch swatch--dark" style="background:#6445D6"><b>violet</b>6445D6</div>
-          <div class="swatch swatch--light" style="background:#C9B8FF"><b>lilac</b>C9B8FF</div>
-          <div class="swatch swatch--light" style="background:#FFD95A"><b>yellow</b>FFD95A</div>
-        </div>
-
-        <h3>The FigJam element language (inspired, not cloned)</h3>
-        <div class="table--wrap"><table class="table">
-          <thead><tr><th>Element</th><th>Spec</th><th>Job</th></tr></thead>
-          <tbody>
-            <tr><td>Sticky note</td><td>Square, sticky fill, Mynerve, soft drop shadow, tilt ≤ 3°</td><td>Raw thoughts, research quotes, “test w/ 5 users”</td></tr>
-            <tr><td>Section</td><td>Fill at 28%, 1px ink border, radius 14, title tab in the same sticky color</td><td>Groups stickies: Pain points, Needs, Delights</td></tr>
-            <tr><td>Shape + connector</td><td>Pastel fill, 2–3px ink outline; elbow connectors with rounded corners and a filled arrowhead</td><td>Flows and decisions (diamond = decision)</td></tr>
-            <tr><td>Stamp</td><td>Circle, sticky fill, ink ring, 4px offset shadow, one emoji or “+1”</td><td>Reactions during validation</td></tr>
-            <tr><td>Cursor</td><td>Arrow + name tag. Jess = violet, Client = yellow, Dev = mint</td><td>Shows collaboration is part of the process</td></tr>
-          </tbody>
-        </table></div>
-        <p class="muted">What keeps it mine: my own palette, ink outlines on everything (FigJam uses none), Mynerve and Brygada instead of FigJam's type, and no copied UI chrome or icons.</p>
-
-        <h3>Illustrations &amp; stickers</h3>
-        <div class="dodont">
-          <div class="do"><b>Do</b><ul>
-            <li>Use <code>assets/img/jess-portrait.webp</code> (holes filled, vector sunflower glasses) over the organic ink blob, with the vector <code>jess-label.svg</code>.</li>
-            <li>Use <code>assets/img/jess-character.webp</code> (B&amp;W) as a die-cut sticker: white 16px outline, soft shadow.</li>
-            <li>Die-cut every sticker: white border 10–16px, ink outline inside, tilt ≤ 15°, overlap allowed.</li>
-            <li>4-point sparkles in lilac, mint or yellow, three at most per composition.</li>
-          </ul></div>
-          <div class="dont"><b>Don't</b><ul>
-            <li>Recolor, crop the face of, or add filters to the Jess illustrations.</li>
-            <li>Box the portrait in a hard rectangle; the blob is organic on purpose and the figure may overflow it.</li>
-            <li>Use stickers as buttons or put essential information in them.</li>
-            <li>Add sparkles to text blocks; they decorate images and titles only.</li>
-          </ul></div>
-        </div>
-
-        <h3>The 3D story</h3>
-        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (light only). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene. Save-Data and low-memory devices (or <code>?motion=lite</code>) never download three.js and get a painted still instead. Between the hero and the finale a “Skip to work” button is always on screen, plus a chapter counter on phones, where the rail is hidden.</p>
-      </section>
-
-      <!-- ============ PROCESS ============ -->
       <section id="process">
         <span class="eyebrow">02 · Process</span>
         <h2 class="display h-md">The UI/UX process, end to end</h2>
@@ -634,6 +552,90 @@
       </section>
 
       <!-- ============ COMPONENTS ============ -->
+      <section id="identity">
+        <span class="eyebrow">Identity v2 · Canvas</span>
+        <h2 class="display h-md">The personality, <span class="hl">rebuilt</span> for this system</h2>
+        <p>v2.0 brings back the voice of my first portfolio (the Figma file with Crypex and Muvr): the <em>Hello 👋</em>, the candy tags, the black outlines with offset shadows, the big <em>Shall we?</em> and the illustrations of me. It is not a copy. Every element was kept, adapted or dropped against two filters: <strong>does it read as me</strong> and <strong>does it pass the accessibility bar</strong>.</p>
+        <div class="callout"><b>One sentence</b>A designer's whiteboard on a sunny desk: paper, a fine ink pen, sticky notes and one lilac highlighter. Playful in the details, elegant in the type, precise in the grid.</div>
+
+        <h3>Personality → visual rules</h3>
+        <div class="table--wrap"><table class="table">
+          <thead><tr><th>Trait</th><th>Looks like</th><th>Never like</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Curious, hands-on</strong></td><td>Sticky notes, handwritten notes in Mynerve, stamps, a restyled cursor</td><td>Clip-art, random doodles with no job</td></tr>
+            <tr><td><strong>Confident, elegant</strong></td><td>Brygada 1918 at regular weight with an italic accent, 1px ink lines, small offset shadows</td><td>Heavy grotesques, thick strokes, neon, gradients as decoration</td></tr>
+            <tr><td><strong>Warm, Brazilian</strong></td><td>Paper canvas, sunlit oak desk, sunflower glasses, <em>“ordem e design”</em></td><td>Flag clichés, green-and-yellow everywhere</td></tr>
+            <tr><td><strong>Precise</strong></td><td>Redlines, spec chips, 12-column grid, “Ready for dev”</td><td>Misalignment passed off as “playful”</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>From the old portfolio: keep, adapt, drop</h3>
+        <div class="table--wrap"><table class="table">
+          <thead><tr><th>Element</th><th>Decision</th><th>How it lives in v2</th></tr></thead>
+          <tbody>
+            <tr><td>Candy tags (lilac, yellow, mint, pink)</td><td><span class="tag tag--mint">Keep</span></td><td><code>.tag--lilac / yellow / mint / pink / coral / ink</code>, always ink text on the fill.</td></tr>
+            <tr><td>Black outline + offset shadow on buttons</td><td><span class="tag tag--yellow">Adapt</span></td><td>1px outline, 2px offset (the primary button casts a lilac shadow). Hover lifts 1.5px, active presses 2px.</td></tr>
+            <tr><td>“Hello 👋”, “Check out my work ↓”</td><td><span class="tag tag--mint">Keep</span></td><td>Handwritten greeting in Mynerve over the hero title; scroll hint in the same hand.</td></tr>
+            <tr><td>Outlined ribbon “USER INTERFACE • USER EXPERIENCE”</td><td><span class="tag tag--yellow">Adapt</span></td><td>A serif ribbon: Brygada, alternating roman and italic, separated by sparkles in lilac → mint → yellow.</td></tr>
+            <tr><td>“SHALL WE?” footer CTA</td><td><span class="tag tag--mint">Keep</span></td><td>Contact block and the laptop sticker. Brygada 500 with a highlighted italic “we?”, on a card with a 4px offset shadow instead of hatching.</td></tr>
+            <tr><td>B&amp;W Jess illustration, sunflower-glasses photo</td><td><span class="tag tag--mint">Keep</span></td><td>Die-cut sticker on the MacBook lid; portrait card in About.</td></tr>
+            <tr><td>Real case copy: Crypex, Muvr, “Shaped by creativity”, “Guided by freedom”</td><td><span class="tag tag--mint">Keep</span></td><td>Case 01 (Muvr), Case 02 (Crypex) and the About pair, in my own words.</td></tr>
+            <tr><td>Pure black #000 outlines</td><td><span class="tag tag--yellow">Adapt</span></td><td>ink-900 <code>#16150F</code>: same punch, warmer against paper.</td></tr>
+            <tr><td>Lilac used for text</td><td><span class="tag tag--yellow">Adapt</span></td><td>Lilac is a fill only; text uses violet-600 <code>#6445D6</code> (5.6:1).</td></tr>
+            <tr><td>Halftone dot background</td><td><span class="tag tag--yellow">Adapt</span></td><td>22px dot grid, the FigJam canvas. It also backs the 3D board.</td></tr>
+            <tr><td>Whole dark sections</td><td><span class="tag tag--yellow">Adapt</span></td><td>One organic ink blob behind the Jess portrait, never a full dark section. Light is the primary theme.</td></tr>
+            <tr><td>Wordmark with colored J and M</td><td><span class="tag tag--yellow">Adapt</span></td><td><code>.wordmark b</code> in violet italic, set in Brygada.</td></tr>
+            <tr><td>Pink/lilac text on white</td><td><span class="tag tag--coral">Drop</span></td><td>Fails AA (1.6–2.1:1).</td></tr>
+            <tr><td>Four or more hues in one component</td><td><span class="tag tag--coral">Drop</span></td><td>One sticky fill + ink + (optionally) brand per component.</td></tr>
+            <tr><td>Language selector with one language</td><td><span class="tag tag--yellow">Adapt</span></td><td>Back in 2.3 as EN / PT.</td></tr>
+            <tr><td>Long centered paragraphs</td><td><span class="tag tag--coral">Drop</span></td><td>Left-aligned, 68ch max.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Color proportion</h3>
+        <p>60 · 30 · 10. <strong>Paper</strong> is the canvas (60), <strong>ink</strong> draws the lines and the text (30), and the rest (sticky fills and violet) is the 10% that carries attention. If a screen looks like confetti, the 10% grew.</p>
+        <div class="swatches swatches--5" style="max-width:620px">
+          <div class="swatch swatch--light" style="background:#F7F3EA"><b>paper 60%</b>F7F3EA</div>
+          <div class="swatch swatch--dark" style="background:#16150F"><b>ink 30%</b>16150F</div>
+          <div class="swatch swatch--dark" style="background:#6445D6"><b>violet</b>6445D6</div>
+          <div class="swatch swatch--light" style="background:#C9B8FF"><b>lilac</b>C9B8FF</div>
+          <div class="swatch swatch--light" style="background:#FFD95A"><b>yellow</b>FFD95A</div>
+        </div>
+
+        <h3>The FigJam element language (inspired, not cloned)</h3>
+        <div class="table--wrap"><table class="table">
+          <thead><tr><th>Element</th><th>Spec</th><th>Job</th></tr></thead>
+          <tbody>
+            <tr><td>Sticky note</td><td>Square, sticky fill, Mynerve, soft drop shadow, tilt ≤ 3°</td><td>Raw thoughts, research quotes, “test w/ 5 users”</td></tr>
+            <tr><td>Section</td><td>Fill at 28%, 1px ink border, radius 14, title tab in the same sticky color</td><td>Groups stickies: Pain points, Needs, Delights</td></tr>
+            <tr><td>Shape + connector</td><td>Pastel fill, 2–3px ink outline; elbow connectors with rounded corners and a filled arrowhead</td><td>Flows and decisions (diamond = decision)</td></tr>
+            <tr><td>Stamp</td><td>Circle, sticky fill, ink ring, 4px offset shadow, one emoji or “+1”</td><td>Reactions during validation</td></tr>
+            <tr><td>Cursor</td><td>Arrow + name tag. Jess = violet, Client = yellow, Dev = mint</td><td>Shows collaboration is part of the process</td></tr>
+          </tbody>
+        </table></div>
+        <p class="muted">What keeps it mine: my own palette, ink outlines on everything (FigJam uses none), Mynerve and Brygada instead of FigJam's type, and no copied UI chrome or icons.</p>
+
+        <h3>Illustrations &amp; stickers</h3>
+        <div class="dodont">
+          <div class="do"><b>Do</b><ul>
+            <li>Use <code>assets/img/jess-portrait.webp</code> (holes filled, vector sunflower glasses) over the organic ink blob, with the vector <code>jess-label.svg</code>.</li>
+            <li>Use <code>assets/img/jess-character.webp</code> (B&amp;W) as a die-cut sticker: white 16px outline, soft shadow.</li>
+            <li>Die-cut every sticker: white border 10–16px, ink outline inside, tilt ≤ 15°, overlap allowed.</li>
+            <li>4-point sparkles in lilac, mint or yellow, three at most per composition.</li>
+          </ul></div>
+          <div class="dont"><b>Don't</b><ul>
+            <li>Recolor, crop the face of, or add filters to the Jess illustrations.</li>
+            <li>Box the portrait in a hard rectangle; the blob is organic on purpose and the figure may overflow it.</li>
+            <li>Use stickers as buttons or put essential information in them.</li>
+            <li>Add sparkles to text blocks; they decorate images and titles only.</li>
+          </ul></div>
+        </div>
+
+        <h3>The 3D story</h3>
+        <p>The landing is a scroll-scrubbed Three.js scene. A MacBook Pro sits on a sunlit oak desk (light only). The camera dives into the screen and lands on a dotted board where the process plays out: stickies → sections → flowchart → artboard → pins and stamps → tokens. At the end it comes back to the desk, the lid closes and the stickers show, with Jess in the middle. <code>prefers-reduced-motion</code> and <code>?motion=reduced</code> swap it for static stills of the same scene. Save-Data and low-memory devices (or <code>?motion=lite</code>) never download three.js and get a painted still instead. Between the hero and the finale a “Skip to work” button is always on screen, plus a chapter counter on phones, where the rail is hidden.</p>
+      </section>
+
+      <!-- ============ PROCESS ============ -->
       <section id="components">
         <span class="eyebrow">13 · Components</span>
         <h2 class="display h-md">Component library</h2>
@@ -1000,7 +1002,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=9" defer></script>
+  <script src="assets/js/main.js?v=10" defer></script>
   <script>window.jmApplyI18n && window.jmApplyI18n();</script>
 </body>
 </html>

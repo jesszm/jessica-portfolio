@@ -1,6 +1,7 @@
 /* JM · Portfolio behaviours — v2.4.0
    Small, dependency-free. Everything degrades gracefully without JS. */
-(() => {
+/* runs once the pt-BR text is in place (immediately in English), so it reads translated alt text and labels */
+(window.jmI18nReady || Promise.resolve()).then(() => {
   const html = document.documentElement;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const store = {
@@ -225,4 +226,4 @@
 
   /* ---------- Year ---------- */
   document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
-})();
+});

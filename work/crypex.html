@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="crypex">
-  <script src="../assets/js/i18n.js?v=13"></script>
+  <script src="../assets/js/i18n.js?v=14"></script>
   <link rel="alternate" hreflang="en" href="https://www.jessmonteiro.com/work/crypex.html">
   <link rel="alternate" hreflang="pt-BR" href="https://www.jessmonteiro.com/work/crypex.html?lang=pt">
   <link rel="alternate" hreflang="x-default" href="https://www.jessmonteiro.com/work/crypex.html">
@@ -15,6 +15,8 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Jessica Monteiro">
   <meta property="og:title" content="Crypex, paying with crypto as easily as Pix">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:description" content="A 0→1 mobile app that lets people in Brazil pay a Pix straight from their crypto balance. Solo UI/UX, from blank file to dev-ready.">
   <meta property="og:url" content="https://www.jessmonteiro.com/work/crypex.html">
   <meta property="og:image" content="https://www.jessmonteiro.com/assets/img/crypex/og.jpg">
@@ -37,8 +39,8 @@
   <link rel="stylesheet" href="../assets/css/identity.css?v=33">
   <link rel="stylesheet" href="../assets/css/case.css?v=3">
   <link rel="stylesheet" href="../assets/css/case-crypex.css?v=6">
-  <script src="../assets/js/main.js?v=9" defer></script>
-  <script src="../assets/js/case-crypex.js?v=7" defer></script>
+  <script src="../assets/js/main.js?v=10" defer></script>
+  <script src="../assets/js/case-crypex.js?v=8" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -239,21 +241,21 @@
             <figure class="cx-compare__col">
               <p class="cx-label">First draft · 6 screens</p>
               <div class="cx-strip cx-strip--6">
-                <img src="../assets/img/crypex/draft-1.webp" width="786" height="1704" alt="Draft 1: “What do you want to pay today?” with Pix and boleto options." loading="lazy">
-                <img src="../assets/img/crypex/draft-2.webp" width="786" height="1704" alt="Draft 2: “Who do you want to send to?” with a Pix key field." loading="lazy">
-                <img src="../assets/img/crypex/draft-3.webp" width="786" height="1704" alt="Draft 3: the recipient's name, CPF and bank shown for confirmation." loading="lazy">
-                <img src="../assets/img/crypex/draft-4.webp" width="786" height="1704" alt="Draft 4: “How much do you want to send?” with an amount in reais." loading="lazy">
-                <img src="../assets/img/crypex/draft-5.webp" width="786" height="1704" alt="Draft 5: choose how to pay, from balance, Bitcoin, Ethereum or Tether." loading="lazy">
-                <img src="../assets/img/crypex/draft-6.webp" width="786" height="1704" alt="Draft 6: payment confirmation with fee, totals and the wallet address." loading="lazy">
+                <img src="../assets/img/crypex/draft-1.webp" srcset="../assets/img/crypex/draft-1-sm.webp 393w, ../assets/img/crypex/draft-1.webp 786w" sizes="(max-width: 860px) 22vw, 112px" width="786" height="1704" alt="Draft 1: “What do you want to pay today?” with Pix and boleto options." loading="lazy">
+                <img src="../assets/img/crypex/draft-2.webp" srcset="../assets/img/crypex/draft-2-sm.webp 393w, ../assets/img/crypex/draft-2.webp 786w" sizes="(max-width: 860px) 22vw, 112px" width="786" height="1704" alt="Draft 2: “Who do you want to send to?” with a Pix key field." loading="lazy">
+                <img src="../assets/img/crypex/draft-3.webp" srcset="../assets/img/crypex/draft-3-sm.webp 393w, ../assets/img/crypex/draft-3.webp 786w" sizes="(max-width: 860px) 22vw, 112px" width="786" height="1704" alt="Draft 3: the recipient's name, CPF and bank shown for confirmation." loading="lazy">
+                <img src="../assets/img/crypex/draft-4.webp" srcset="../assets/img/crypex/draft-4-sm.webp 393w, ../assets/img/crypex/draft-4.webp 786w" sizes="(max-width: 860px) 22vw, 112px" width="786" height="1704" alt="Draft 4: “How much do you want to send?” with an amount in reais." loading="lazy">
+                <img src="../assets/img/crypex/draft-5.webp" srcset="../assets/img/crypex/draft-5-sm.webp 393w, ../assets/img/crypex/draft-5.webp 786w" sizes="(max-width: 860px) 22vw, 112px" width="786" height="1704" alt="Draft 5: choose how to pay, from balance, Bitcoin, Ethereum or Tether." loading="lazy">
+                <img src="../assets/img/crypex/draft-6.webp" srcset="../assets/img/crypex/draft-6-sm.webp 393w, ../assets/img/crypex/draft-6.webp 786w" sizes="(max-width: 860px) 22vw, 112px" width="786" height="1704" alt="Draft 6: payment confirmation with fee, totals and the wallet address." loading="lazy">
               </div>
               <figcaption>One question per screen. Clear, but long, and the crypto amount only showed up on the very last screen.</figcaption>
             </figure>
             <figure class="cx-compare__col cx-compare__col--final">
               <p class="cx-label">Final · 3 screens</p>
               <div class="cx-strip cx-strip--3">
-                <img src="../assets/img/crypex/pay-amount.webp" width="786" height="1704" alt="Final step 1: a converter with ETH on top, Pix below and a numeric keypad." loading="lazy">
-                <img src="../assets/img/crypex/pay-recipient.webp" width="786" height="1704" alt="Final step 2: Pix key entered and the recipient's details shown." loading="lazy">
-                <img src="../assets/img/crypex/pay-review.webp" width="786" height="1704" alt="Final step 3: review with fee, totals in reais and ETH, wallet address and timer." loading="lazy">
+                <img src="../assets/img/crypex/pay-amount.webp" srcset="../assets/img/crypex/pay-amount-sm.webp 393w, ../assets/img/crypex/pay-amount.webp 786w" sizes="(max-width: 860px) 23vw, 199px" width="786" height="1704" alt="Final step 1: a converter with ETH on top, Pix below and a numeric keypad." loading="lazy">
+                <img src="../assets/img/crypex/pay-recipient.webp" srcset="../assets/img/crypex/pay-recipient-sm.webp 393w, ../assets/img/crypex/pay-recipient.webp 786w" sizes="(max-width: 860px) 23vw, 199px" width="786" height="1704" alt="Final step 2: Pix key entered and the recipient's details shown." loading="lazy">
+                <img src="../assets/img/crypex/pay-review.webp" srcset="../assets/img/crypex/pay-review-sm.webp 393w, ../assets/img/crypex/pay-review.webp 786w" sizes="(max-width: 860px) 23vw, 199px" width="786" height="1704" alt="Final step 3: review with fee, totals in reais and ETH, wallet address and timer." loading="lazy">
               </div>
               <figcaption>Amount and currency on one screen, like an exchange. Both sides of the trade in view from the first tap.</figcaption>
             </figure>
@@ -314,8 +316,8 @@
         <!-- Pay -->
         <article class="cx-feature">
           <div class="cx-feature__shots">
-            <img src="../assets/img/crypex/pay-amount-empty.webp" width="786" height="1704" alt="Pay screen before typing: ETH and Pix fields at zero and the Continue button disabled." loading="lazy">
-            <img src="../assets/img/crypex/pay-amount.webp" width="786" height="1704" alt="Pay screen with an amount: ETH converted to R$ 2,500.00 and Continue enabled." loading="lazy">
+            <img src="../assets/img/crypex/pay-amount-empty.webp" srcset="../assets/img/crypex/pay-amount-empty-sm.webp 393w, ../assets/img/crypex/pay-amount-empty.webp 786w" sizes="(max-width: 860px) 38vw, 265px" width="786" height="1704" alt="Pay screen before typing: ETH and Pix fields at zero and the Continue button disabled." loading="lazy">
+            <img src="../assets/img/crypex/pay-amount.webp" srcset="../assets/img/crypex/pay-amount-sm.webp 393w, ../assets/img/crypex/pay-amount.webp 786w" sizes="(max-width: 860px) 38vw, 265px" width="786" height="1704" alt="Pay screen with an amount: ETH converted to R$ 2,500.00 and Continue enabled." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Pay · amount</p>
@@ -349,8 +351,8 @@
         <!-- Endings -->
         <article class="cx-feature">
           <div class="cx-feature__shots">
-            <img src="../assets/img/crypex/pay-success.webp" width="786" height="1704" alt="Success screen: a green check and “Payment complete”, with a link to payment history." loading="lazy">
-            <img src="../assets/img/crypex/pay-failure.webp" width="786" height="1704" alt="Failure screen: a red cross and “Payment failed”, with an explanation and a link to payment history." loading="lazy">
+            <img src="../assets/img/crypex/pay-success.webp" srcset="../assets/img/crypex/pay-success-sm.webp 393w, ../assets/img/crypex/pay-success.webp 786w" sizes="(max-width: 860px) 38vw, 265px" width="786" height="1704" alt="Success screen: a green check and “Payment complete”, with a link to payment history." loading="lazy">
+            <img src="../assets/img/crypex/pay-failure.webp" srcset="../assets/img/crypex/pay-failure-sm.webp 393w, ../assets/img/crypex/pay-failure.webp 786w" sizes="(max-width: 860px) 38vw, 265px" width="786" height="1704" alt="Failure screen: a red cross and “Payment failed”, with an explanation and a link to payment history." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Pay · endings</p>
@@ -362,7 +364,7 @@
         <!-- Home -->
         <article class="cx-feature cx-feature--flip">
           <div class="cx-feature__shots cx-feature__shots--one">
-            <img src="../assets/img/crypex/home.webp" width="786" height="1704" alt="Home: greeting, an AI insights card, services for Pix, boleto and payments, a market list for BTC, ETH and USDT with 24-hour change, and the tab bar." loading="lazy">
+            <img src="../assets/img/crypex/home.webp" srcset="../assets/img/crypex/home-sm.webp 393w, ../assets/img/crypex/home.webp 786w" sizes="(max-width: 860px) 77vw, 300px" width="786" height="1704" alt="Home: greeting, an AI insights card, services for Pix, boleto and payments, a market list for BTC, ETH and USDT with 24-hour change, and the tab bar." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Home</p>
@@ -379,8 +381,8 @@
         <!-- History -->
         <article class="cx-feature">
           <div class="cx-feature__shots">
-            <img src="../assets/img/crypex/history.webp" width="786" height="1704" alt="Payment history: total sent in the period, number of transactions, a search field and a list of payments by date." loading="lazy">
-            <img src="../assets/img/crypex/history-calendar.webp" width="786" height="1704" alt="Date range picker: a monthly calendar with a start and end date selected in orange." loading="lazy">
+            <img src="../assets/img/crypex/history.webp" srcset="../assets/img/crypex/history-sm.webp 393w, ../assets/img/crypex/history.webp 786w" sizes="(max-width: 860px) 38vw, 265px" width="786" height="1704" alt="Payment history: total sent in the period, number of transactions, a search field and a list of payments by date." loading="lazy">
+            <img src="../assets/img/crypex/history-calendar.webp" srcset="../assets/img/crypex/history-calendar-sm.webp 393w, ../assets/img/crypex/history-calendar.webp 786w" sizes="(max-width: 860px) 38vw, 265px" width="786" height="1704" alt="Date range picker: a monthly calendar with a start and end date selected in orange." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Payment history</p>
@@ -392,9 +394,9 @@
         <!-- Sign in -->
         <article class="cx-feature cx-feature--flip">
           <div class="cx-feature__shots cx-feature__shots--three">
-            <img src="../assets/img/crypex/login.webp" width="786" height="1704" alt="Sign-in: the Crypex logo, “Connect and pay with crypto, fast and safe”, an email field, and Google and Apple sign-in." loading="lazy">
-            <img src="../assets/img/crypex/login-error.webp" width="786" height="1704" alt="Password step with an inline error under the field: incorrect password, try again." loading="lazy">
-            <img src="../assets/img/crypex/login-faceid.webp" width="786" height="1704" alt="Prompt asking whether to turn on Face ID sign-in, with Turn on and Skip." loading="lazy">
+            <img src="../assets/img/crypex/login.webp" srcset="../assets/img/crypex/login-sm.webp 393w, ../assets/img/crypex/login.webp 786w" sizes="(max-width: 860px) 25vw, 139px" width="786" height="1704" alt="Sign-in: the Crypex logo, “Connect and pay with crypto, fast and safe”, an email field, and Google and Apple sign-in." loading="lazy">
+            <img src="../assets/img/crypex/login-error.webp" srcset="../assets/img/crypex/login-error-sm.webp 393w, ../assets/img/crypex/login-error.webp 786w" sizes="(max-width: 860px) 25vw, 139px" width="786" height="1704" alt="Password step with an inline error under the field: incorrect password, try again." loading="lazy">
+            <img src="../assets/img/crypex/login-faceid.webp" srcset="../assets/img/crypex/login-faceid-sm.webp 393w, ../assets/img/crypex/login-faceid.webp 786w" sizes="(max-width: 860px) 25vw, 139px" width="786" height="1704" alt="Prompt asking whether to turn on Face ID sign-in, with Turn on and Skip." loading="lazy">
           </div>
           <div class="cx-feature__text">
             <p class="cx-label">Sign-up and sign-in</p>
@@ -523,8 +525,8 @@
             <figure class="frame cx-brand__logo">
               <span class="frame__label"><b>Logo</b> Wordmark</span>
               <div class="cx-brand__split">
-                <img src="../assets/img/crypex/logo-on-dark.webp" width="860" height="645" alt="Crypex wordmark in white on black; a diagonal plane of light behind it continues the long stroke of the X." loading="lazy">
-                <img src="../assets/img/crypex/logo-on-light.webp" width="860" height="645" alt="Crypex wordmark in black on light gray, with the same diagonal plane of light along the X." loading="lazy">
+                <img src="../assets/img/crypex/logo-on-dark.webp" srcset="../assets/img/crypex/logo-on-dark-sm.webp 430w, ../assets/img/crypex/logo-on-dark.webp 860w" sizes="(max-width: 860px) 37vw, 259px" width="860" height="645" alt="Crypex wordmark in white on black; a diagonal plane of light behind it continues the long stroke of the X." loading="lazy">
+                <img src="../assets/img/crypex/logo-on-light.webp" srcset="../assets/img/crypex/logo-on-light-sm.webp 430w, ../assets/img/crypex/logo-on-light.webp 860w" sizes="(max-width: 860px) 37vw, 259px" width="860" height="645" alt="Crypex wordmark in black on light gray, with the same diagonal plane of light along the X." loading="lazy">
               </div>
               <figcaption>A thin, wide-set wordmark whose last letter breaks the line. The X leans out like a signature, and the plane of light behind it picks up the same angle, a small gesture of one currency crossing into another.</figcaption>
             </figure>
@@ -534,7 +536,7 @@
             </figure>
             <figure class="frame cx-brand__splash">
               <span class="frame__label"><b>Splash</b></span>
-              <img src="../assets/img/crypex/splash-light.webp" width="860" height="1864" alt="Splash screen with the Crypex wordmark centered on soft gray." loading="lazy">
+              <img src="../assets/img/crypex/splash-light.webp" srcset="../assets/img/crypex/splash-light-sm.webp 430w, ../assets/img/crypex/splash-light.webp 860w" sizes="(max-width: 860px) 22vw, 170px" width="860" height="1864" alt="Splash screen with the Crypex wordmark centered on soft gray." loading="lazy">
             </figure>
           </div>
         </div>

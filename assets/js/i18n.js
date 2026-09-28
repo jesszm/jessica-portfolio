@@ -69,7 +69,8 @@
     }
   }
 
-  if (lang !== 'pt') { window.jmApplyI18n = markSwitch; return; }
+  /* page scripts that read translated text (alt → aria-labels, etc.) wait on this */
+  if (lang !== 'pt') { window.jmApplyI18n = markSwitch; window.jmI18nReady = Promise.resolve(); return; }
 
   html.setAttribute('lang', 'pt-BR');
   html.classList.add('i18n-pending');
@@ -78,11 +79,26 @@
   var pageMeta = d.querySelector('meta[name="i18n-page"]');
   var page = pageMeta ? pageMeta.getAttribute('content') : 'index';
   window.JM_PT = {};
-  d.write('<script src="' + base + 'assets/i18n/pt/common.js?v=13"><\/script>');
-  d.write('<script src="' + base + 'assets/i18n/pt/' + page + '.js?v=13"><\/script>');
+  /* The dictionaries load in parallel without blocking the parser (no document.write).
+     The page stays hidden (i18n-pending) until both are in and the body is parsed. */
+  var pending = 2, parsed = false, done = false, ready;
+  window.jmI18nReady = new Promise(function (r) { ready = r; });
+  function finish() {
+    if (done) return;
+    done = true;
+    try { apply(); } finally { html.classList.remove('i18n-pending'); ready(); }
+  }
+  function tryApply() { if (!pending && parsed) finish(); }
+  function load(src) {
+    var s = d.createElement('script');
+    s.src = src; s.async = false;
+    s.onload = s.onerror = function () { pending--; tryApply(); };
+    d.head.appendChild(s);
+  }
+  load(base + 'assets/i18n/pt/common.js?v=14');
+  load(base + 'assets/i18n/pt/' + page + '.js?v=14');
 
-  /* called by an inline script at the end of <body>, before deferred scripts touch the DOM */
-  window.jmApplyI18n = function () {
+  function apply() {
     markSwitch();
     var T = window.JM_PT || {};
     blocks(d.body, function (el, k) { if (T[k] != null) el.innerHTML = T[k]; });
@@ -94,6 +110,11 @@
     var canon = d.querySelector('link[rel="canonical"]');
     if (canon) canon.setAttribute('href', canon.getAttribute('href').split('?')[0] + '?lang=pt');
     html.classList.remove('i18n-pending');
-  };
-  setTimeout(function () { html.classList.remove('i18n-pending'); }, 1500);
+  }
+
+  /* called by an inline script at the end of <body>: the DOM is ready to translate */
+  window.jmApplyI18n = function () { parsed = true; tryApply(); };
+  d.addEventListener('DOMContentLoaded', window.jmApplyI18n);
+  /* never keep the page hidden or the scripts waiting on a slow network: show English */
+  setTimeout(function () { if (!done) { done = true; markSwitch(); html.classList.remove('i18n-pending'); ready(); } }, 2500);
 })();
