@@ -194,5 +194,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1edraa0": "<span>Na prática</span> Hierarquia visual <i aria-hidden=\"true\"></i> Consistência de UI <i aria-hidden=\"true\"></i> Ilustração, quando cabe no escopo",
  "oenqld": "<span>Na prática</span> Adaptação rápida <i aria-hidden=\"true\"></i> Times multiculturais <i aria-hidden=\"true\"></i> Trabalho assíncrono",
  "1qz9py0": "<i aria-hidden=\"true\"></i>Aberta a novos projetos",
- "dum74x": "UX Design, ESPM"
+ "dum74x": "UX Design, ESPM",
+ "1v9jrm2": "UX Design, ESPM \u00b7 UX Design Institute"
 });
