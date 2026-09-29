@@ -23,13 +23,13 @@ const PT = {
     description: 'Um marketplace de mudanças tem duas pontas: quem se muda e o motorista que faz a mudança. Para o Muvr, em 2025, refiz do zero os fluxos principais dos dois apps, como única designer.',
     ogTitle: 'Muvr, o dia da mudança pelas duas pontas',
     ogDescription: 'Um marketplace de mudanças tem duas pontas: quem se muda e o motorista que faz a mudança. Para o Muvr, em 2025, refiz do zero os fluxos principais dos dois apps, como única designer.',
-    imageAlt: 'O logotipo do Muvr em branco sobre roxo, ao lado da home do app do usuário e da central de ajuda do app do motorista.',
+    imageAlt: 'O logotipo do Muvr em branco sobre roxo, ao lado da tela inicial do app do usuário e da central de ajuda do app do motorista.',
   },
   '/work/crypex.html': {
-    title: 'Crypex, pagar com cripto tão fácil quanto um Pix · Jessica Monteiro',
-    description: 'Um app mobile 0→1 que permite pagar um Pix direto do saldo em cripto. UI/UX solo, do arquivo em branco ao pronto para o dev.',
-    ogTitle: 'Crypex, pagar com cripto tão fácil quanto um Pix',
-    ogDescription: 'Um app mobile 0→1 que permite pagar um Pix direto do saldo em cripto. UI/UX solo, do arquivo em branco ao pronto para o dev.',
+    title: 'Crypex, pagar com cripto tão fácil quanto fazer um Pix · Jessica Monteiro',
+    description: 'Um app mobile 0→1 para pagar um Pix direto do saldo em cripto. Única designer, do arquivo em branco ao handoff pronto para dev.',
+    ogTitle: 'Crypex, pagar com cripto tão fácil quanto fazer um Pix',
+    ogDescription: 'Um app mobile 0→1 para pagar um Pix direto do saldo em cripto. Única designer, do arquivo em branco ao handoff pronto para dev.',
     imageAlt: 'O logotipo da Crypex ao lado de três telas do app: pagar, início e revisão do pagamento.',
   },
   '/guidelines.html': {

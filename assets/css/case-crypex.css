@@ -345,7 +345,8 @@
   .cx-toc ol { gap: var(--sp-5); }
   .cx-kit { grid-template-columns: minmax(0, 1fr); }
   .cx-kit__group { min-width: 0; }
-  .cx-kit__board { max-width: none; columns: auto; display: flex; gap: var(--sp-3); overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--sp-4)); padding: 2px var(--sp-4) var(--sp-3); scrollbar-width: thin; }
+  .cx-kit__board { max-width: none; columns: auto; display: flex; gap: var(--sp-3); overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--sp-4)); padding: 2px var(--sp-4) var(--sp-3); }
+  @supports not selector(::-webkit-scrollbar) { .cx-kit__board { scrollbar-width: thin; } }
   .cx-kit .cx-tile { flex: 0 0 84%; margin: 0; scroll-snap-align: start; align-self: start; }
   .cx-kit__board:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
   .cx .frame__label { max-width: 100%; white-space: normal; }

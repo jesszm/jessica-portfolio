@@ -39,6 +39,36 @@ strong, b { font-weight: 600; }
   input, textarea, [contenteditable="true"] { cursor: text; }
 }
 
+/* ---------- Scrollbar: the cursor's sibling ----------
+   A paper track with a dashed guide line (a ruler in a design tool) and a slim
+   lilac thumb outlined in ink, like the pointer. It turns yellow on hover and
+   drag, the same way the pointer does over something you can use.
+   Chrome ignores the ::-webkit rules once scrollbar-color is set, so the
+   standard properties only go to browsers without them (Firefox). */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track {
+  background:
+    linear-gradient(to bottom, var(--color-border) 50%, transparent 0) center / 1px 6px repeat-y,
+    var(--color-bg);
+}
+::-webkit-scrollbar-track:horizontal {
+  background:
+    linear-gradient(to right, var(--color-border) 50%, transparent 0) center / 6px 1px repeat-x,
+    var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sticky-lilac) padding-box;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--ink-900);
+  min-height: 48px;
+}
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active { background-color: var(--sticky-yellow); }
+::-webkit-scrollbar-corner { background: var(--color-bg); }
+@supports not selector(::-webkit-scrollbar) {
+  html { scrollbar-width: thin; scrollbar-color: var(--sticky-lilac) var(--color-bg); }
+}
+
 /* ---------- Toolbar + wordmark (from the v1 header) ---------- */
 .toolbar { border-bottom: 1px solid var(--color-border-strong); background: color-mix(in srgb, var(--color-bg) 88%, transparent); }
 .wordmark { font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; letter-spacing: -0.005em; color: var(--color-text); }

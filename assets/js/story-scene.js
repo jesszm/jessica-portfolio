@@ -53,17 +53,17 @@ export function createStory(canvas, options = {}) {
   /* words drawn inside the scene follow the page language (English is the source) */
   const PT = options.lang === 'pt';
   const TX = PT ? {
-    screenTitle: 'Frame 04 · Design / Painel', stickyLow: ['testar c/', '5 pessoas'], stickyHi: ['bora!', '✓ pronto'],
+    screenTitle: 'Frame 04 · Design / Dashboard', stickyLow: ['testar c/', '5 pessoas'], stickyHi: ['bora!', '✓ pronto'],
     notes: [
-      ['todos\niguais', 'processo\ninvisível', 'cadê o\ncontato?', 'jargão\ndemais', 'cadê os\nresultados?', 'ela está\ndisponível?'],
-      ['ver como\nela pensa', 'cases\nreais', 'contato em\num clique', 'prova de\nparceria', 'design\nsystem', 'trabalho\nremoto'],
-      ['um toque de\npersonalidade', 'detalhes\ndivertidos', 'fácil de\nescanear', 'feito à\nmão', 'calmo &\nlimpo', 'uma história,\nnão um grid'],
+      ['portfólios\ntodos iguais', 'não mostra\no processo', 'cadê o\ncontato?', 'jargão\ndemais', 'nenhum\nresultado real', 'ela está\ndisponível?'],
+      ['ver como\nela pensa', 'cases\nreais', 'contato em\num clique', 'prova de\ncolaboração', 'domínio de\ndesign system', 'trabalho\nremoto'],
+      ['um toque de\npersonalidade', 'detalhes\ndivertidos', 'leitura\nrápida', 'cara de\nfeito à mão', 'calmo &\nlimpo', 'uma história,\nnão um grid'],
     ],
-    sections: ['O que os clientes disseram', 'Do que precisam', 'O que os encantaria'],
-    board: 'PESQUISA · o que clientes buscam num portfólio de design',
-    flow: ['Abrir app', 'Entrar', 'Novo usuário?', 'Cartão salvo', 'Pagar', 'Recibo ✓'],
-    frameLabel: 'Frame 04 · Painel', cursors: ['Jess', 'Cliente', 'Dev'],
-    quote: ['Bom design', 'fica do', 'seu lado.'], shall: ['Vamos ', 'nessa?'], ready: 'PRONTO P/ DEV', hello: 'oi 👋', mobile: 'Celular · 390',
+    sections: ['O que os clientes disseram', 'Do que eles precisam', 'O que os encantaria'],
+    board: 'PESQUISA · o que clientes procuram no portfólio de um designer',
+    flow: ['Abrir app', 'Entrar', 'Novo usuário?', 'Cartão salvo', 'Pagar', 'Comprovante ✓'],
+    frameLabel: 'Frame 04 · Dashboard', cursors: ['Jess', 'Cliente', 'Dev'],
+    quote: ['Bom design', 'fica do', 'seu lado.'], shall: ['Vamos ', 'nessa?'], ready: 'PRONTO P/ DEV', hello: 'oi 👋', mobile: 'Mobile · 390',
   } : {
     screenTitle: 'Frame 04 · Design / Dashboard', stickyLow: ['test w/ 5', 'users'], stickyHi: ['ship it!', '✓ ready'],
     notes: [

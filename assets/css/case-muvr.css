@@ -153,7 +153,9 @@
 
 /* ---------- Orders: cards straight from the board ---------- */
 .mv-orders { margin: var(--sp-7) 0 0; background: var(--color-bg-elevated); box-shadow: var(--shadow-hard-lg); padding: var(--sp-5); }
-.mv-orders__scroll { overflow-x: auto; scrollbar-width: thin; }
+.mv-orders__scroll { overflow-x: auto; }
+/* Chrome and Safari use the site scrollbar (identity.css); scrollbar-width would switch it back to the system one */
+@supports not selector(::-webkit-scrollbar) { .mv-orders__scroll { scrollbar-width: thin; } }
 .mv-orders__scroll img { display: block; width: 100%; min-width: 880px; height: auto; border-radius: var(--radius-2); background: #F7F7F8; }
 .mv-orders__scroll:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; border-radius: var(--radius-2); }
 .mv-orders__steps { list-style: none; padding: 0; margin: var(--sp-5) 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-5); }

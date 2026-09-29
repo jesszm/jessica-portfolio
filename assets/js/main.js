@@ -74,8 +74,8 @@
       const first = store.get('jm-found-grid') !== '1';
       const pt = window.JM_LANG === 'pt';
       toast.textContent = first
-        ? (pt ? `✦ Modo designer ligado: passe o mouse em qualquer coisa para inspecionar. ${keyName} fecha.` : `✦ Designer view on: hover anything to inspect it. Press ${keyName} to close.`)
-        : (pt ? `Modo designer ligado · ${keyName} para fechar` : `Designer view on · ${keyName} to close`);
+        ? (pt ? `✦ Modo designer ativado: passe o mouse sobre qualquer elemento para inspecioná-lo. Aperte ${keyName} para fechar.` : `✦ Designer view on: hover anything to inspect it. Press ${keyName} to close.`)
+        : (pt ? `Modo designer ativado · ${keyName} para fechar` : `Designer view on · ${keyName} to close`);
       store.set('jm-found-grid', '1');
       toast.classList.add('is-on'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('is-on'), first ? 4200 : 1800);
     } else {

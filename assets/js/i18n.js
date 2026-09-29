@@ -95,8 +95,8 @@
     s.onload = s.onerror = function () { pending--; tryApply(); };
     d.head.appendChild(s);
   }
-  load(base + 'assets/i18n/pt/common.js?v=14');
-  load(base + 'assets/i18n/pt/' + page + '.js?v=14');
+  load(base + 'assets/i18n/pt/common.js?v=15');
+  load(base + 'assets/i18n/pt/' + page + '.js?v=15');
 
   function apply() {
     markSwitch();
@@ -115,6 +115,7 @@
   /* called by an inline script at the end of <body>: the DOM is ready to translate */
   window.jmApplyI18n = function () { parsed = true; tryApply(); };
   d.addEventListener('DOMContentLoaded', window.jmApplyI18n);
-  /* never keep the page hidden or the scripts waiting on a slow network: show English */
-  setTimeout(function () { if (!done) { done = true; markSwitch(); html.classList.remove('i18n-pending'); ready(); } }, 2500);
+  /* on a slow network, don't keep the page blank: show it after 2.5 s and let the
+     Portuguese swap in as soon as the dictionaries arrive (it is never dropped) */
+  setTimeout(function () { html.classList.remove('i18n-pending'); }, 2500);
 })();
