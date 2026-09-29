@@ -31,7 +31,7 @@ function navOffset() {
 let scene = null;
 if (story && canvas && !lite) {
   try {
-    const { createStory } = await import('./story-scene.js?v=17');
+    const { createStory } = await import('./story-scene.js?v=18');
     scene = createStory(canvas, { quality: small ? 'low' : 'high', lang: window.JM_LANG });
   } catch (err) {
     console.warn('[story] WebGL unavailable, using the static fallback.', err);

@@ -63,7 +63,7 @@ export function createStory(canvas, options = {}) {
     board: 'PESQUISA · o que clientes procuram no portfólio de um designer',
     flow: ['Abrir app', 'Entrar', 'Novo usuário?', 'Cartão salvo', 'Pagar', 'Comprovante ✓'],
     frameLabel: 'Frame 04 · Dashboard', cursors: ['Jess', 'Cliente', 'Dev'],
-    quote: ['Bom design', 'fica do', 'seu lado.'], shall: ['Vamos ', 'nessa?'], ready: 'PRONTO P/ DEV', hello: 'oi 👋', mobile: 'Mobile · 390',
+    quote: ['Bom design', 'está do', 'seu lado.'], shall: ['Vamos ', 'nessa?'], ready: 'PRONTO P/ DEV', hello: 'oi 👋', mobile: 'Mobile · 390',
   } : {
     screenTitle: 'Frame 04 · Design / Dashboard', stickyLow: ['test w/ 5', 'users'], stickyHi: ['ship it!', '✓ ready'],
     notes: [
