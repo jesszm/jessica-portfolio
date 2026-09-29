@@ -1,4 +1,4 @@
-/* JM · Portfolio behaviours — v2.4.0
+/* JM · Portfolio behaviours · v2.5.0
    Small, dependency-free. Everything degrades gracefully without JS. */
 /* runs once the pt-BR text is in place (immediately in English), so it reads translated alt text and labels */
 (window.jmI18nReady || Promise.resolve()).then(() => {

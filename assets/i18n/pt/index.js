@@ -1,5 +1,6 @@
 /* JM · pt-BR · home. Keys: hash of the English block (see assets/js/i18n.js). */
 window.JM_PT = Object.assign(window.JM_PT || {}, {
+ "1tqkmja": "Diretrizes de design · v2.5.0",
  "3mr4hg": "Pausar a faixa em movimento",
  "fgnyky": "Designer de UI/UX",
  "1rg5qn4": "pronto para dev",
@@ -102,7 +103,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "or48xh": "Uma proposta clara",
  "apg93e": "Escopo, entregas e prazo por escrito, para combinarmos o que significa \"pronto\" antes de começar.",
  "f7tciv": "Check-ins semanais",
- "1vtatul": "Diretrizes de design · v2.4.0",
  "aufxb0": "<b>Case 02</b> Pagamentos em cripto <span class=\"dim\">iOS · 390</span>",
  "1xd10p6": "Design concluído",
  "11rknnz": "No ar",
