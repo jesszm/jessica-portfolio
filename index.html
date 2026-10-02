@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="index">
-  <script src="assets/js/i18n.js?v=19"></script>
+  <script src="assets/js/i18n.js?v=20"></script>
   <link rel="alternate" hreflang="en" href="https://www.jessmonteiro.com/">
   <link rel="alternate" hreflang="pt-BR" href="https://www.jessmonteiro.com/?lang=pt">
   <link rel="alternate" hreflang="x-default" href="https://www.jessmonteiro.com/">
@@ -53,20 +53,19 @@
       c.add(reduced || lite ? 'is-static' : 'is-cinematic');
       /* reduced motion gets the painted still too: no 3D download for a scene that wouldn't move */
       if (lite || reduced) c.add('is-lite');
-      else {
-        var l = d.createElement('link'); l.rel = 'modulepreload'; l.crossOrigin = 'anonymous';
-        l.href = 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js'; l.integrity = 'sha384-IDC7sAMAIMB/TZ6dgKKPPAKZ2bXXXP8+FBMBC8cU319eBhKITx+PaalhfDkDNH28'; d.head.appendChild(l);
-      }
+      /* three.js is no longer preloaded: the 3D loads after the first paint (see story.js) */
       d.documentElement.setAttribute('data-theme', 'light');
     })(document);
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/hanken-grotesk-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/brygada-1918-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css?v=1">
   <link rel="stylesheet" href="assets/css/tokens.css?v=22">
-  <link rel="stylesheet" href="assets/css/styles.css?v=24">
-  <link rel="stylesheet" href="assets/css/story.css?v=14">
+  <link rel="stylesheet" href="assets/css/styles.css?v=25">
+  <link rel="preload" as="image" href="assets/img/story/hero-still-desktop.webp" media="(min-aspect-ratio: 9/10)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/story/hero-still-mobile.webp" media="(max-aspect-ratio: 9/10)" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/story.css?v=15">
   <link rel="stylesheet" href="assets/css/identity.css?v=34">
   <script type="importmap">
     {
@@ -84,8 +83,8 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" integrity="sha384-kdY9hFBPoAPpxcrLihsO3APivFOxtQwSeYdzFD5CIIfLurwhdMrEHhkQxZJDkxgk" crossorigin="anonymous" defer></script>
-  <script src="assets/js/main.js?v=12" defer></script>
-  <script type="module" src="assets/js/story.js?v=23"></script>
+  <script src="assets/js/main.js?v=13" defer></script>
+  <script type="module" src="assets/js/story.js?v=24"></script>
 </head>
 <body>
   <a class="skip-link" href="#work">Skip to work</a>
@@ -103,7 +102,7 @@
         <span class="wordmark"><b>J</b>essica <b>M</b>onteiro</span>
       </a>
       <span class="status-egg" title="psst: every screen here ships with specs">ready for dev</span>
-      <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
+      <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
       <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
         <a href="#discover" data-process>Process</a>
         <a href="#work">Work</a>
@@ -218,7 +217,8 @@
     </section>
 
     <!-- ============ MARQUEE ============ -->
-    <div class="marquee" role="button" tabindex="0" aria-pressed="false" aria-label="Pause the moving ribbon">
+    <div class="marquee">
+      <button class="marquee__toggle" type="button" aria-pressed="false">Pause the moving ribbon</button>
       <div class="marquee__track" aria-hidden="true">
         <span>User research</span><span>Information architecture</span><span>Wireframes</span><span>Interactive prototypes</span><span>Design systems</span><span>Usability testing</span><span>Developer handoff</span><span>Illustration</span>
         <span>User research</span><span>Information architecture</span><span>Wireframes</span><span>Interactive prototypes</span><span>Design systems</span><span>Usability testing</span><span>Developer handoff</span><span>Illustration</span>

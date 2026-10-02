@@ -209,10 +209,14 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.pin[data-open="true"]').forEach(p => { p.setAttribute('data-open', 'false'); p.setAttribute('aria-expanded', 'false'); }); });
 
   /* ---------- Ribbon: pauses on hover, on focus, and on a click / tap / Enter (WCAG 2.2.2) ---------- */
-  document.querySelectorAll('.marquee[role="button"]').forEach((rib) => {
-    const flip = () => { const on = !rib.classList.contains('is-paused'); rib.classList.toggle('is-paused', on); rib.setAttribute('aria-pressed', on ? 'true' : 'false'); };
-    rib.addEventListener('click', flip);
-    rib.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+  /* a click or tap anywhere on it pauses; keyboard users get a real button (Enter/Space click it) */
+  document.querySelectorAll('.marquee').forEach((rib) => {
+    const btn = rib.querySelector('.marquee__toggle');
+    rib.addEventListener('click', () => {
+      const on = !rib.classList.contains('is-paused');
+      rib.classList.toggle('is-paused', on);
+      btn?.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
   });
 
   /* The cursor is the real pointer restyled in CSS (identity.css), no JS follower. */

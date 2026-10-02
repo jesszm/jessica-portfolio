@@ -1,5 +1,6 @@
 /* JM · pt-BR · design guidelines. Keys: hash of the English block (see assets/js/i18n.js). */
 window.JM_PT = Object.assign(window.JM_PT || {}, {
+ "16lm4n2": "JM guidelines.fig · voltar ao portfólio",
  "1wg3pas": "<strong>Adicionado</strong>: um resumo \"Em 30 segundos\" e etiquetas de etapa em cada case, e o modelo de case reescrito para projetos freelance.",
  "1rh6e2w": "<b>Freela que termina no handoff?</b>Diga isso, liste o que foi entregue e nunca invente resultados: melhor nenhum número do que números inventados.",
  "1d2ahm5": "<strong>Processo</strong>: os passos que o projeto seguiu, cada um ligado a uma das seis etapas.",
@@ -308,7 +309,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "11cyc19": "Só semânticos",
  "1cgn5gu": "<b>Anotações sobre a intenção</b>: o que acontece no clique, regras de validação, transições, textos que mudam.",
  "1xf1k3j": "← Voltar para o portfólio",
- "74nupz": "Voltar para o portfólio",
  "kulwei": "Seções das diretrizes",
  "1uulgfd": "Demonstração da linguagem de anotação",
  "hzvooc": "Diretrizes de design · Jessica Monteiro",
@@ -342,7 +342,7 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "gkx4qf": "<code>04</code> Arquitetura da informação &amp; fluxos",
  "hqlcm0": "Tornar o produto navegável antes de deixá-lo bonito.",
  "5dtfsg": "Sitemap · fluxos de usuário · modelo de conteúdo · resultados do tree testing",
- "1avtv3f": "As tarefas principais atingem ≥ 80 % de sucesso no tree testing.",
+ "1c45eej": "As tarefas principais atingem ≥ 80% de sucesso no tree testing.",
  "1xqepha": "<code>05</code> Ideação &amp; wireframe",
  "mdwmru": "Explorar gastando pouco e depois convergir para uma estrutura.",
  "jh9zsm": "Esboços · wireframes anotados · registro de decisões",

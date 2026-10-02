@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="i18n-page" content="guidelines">
-  <script src="assets/js/i18n.js?v=19"></script>
+  <script src="assets/js/i18n.js?v=20"></script>
   <script>(function (c) { c.remove('no-js'); c.add('js'); })(document.documentElement.classList);</script>
   <link rel="alternate" hreflang="en" href="https://www.jessmonteiro.com/guidelines.html">
   <link rel="alternate" hreflang="pt-BR" href="https://www.jessmonteiro.com/guidelines.html?lang=pt">
@@ -25,12 +25,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#F7F3EA">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='5' width='24' height='24' rx='5' fill='%2316150F'/%3E%3Crect x='3' y='3' width='24' height='24' rx='5' fill='%23C9B8FF' stroke='%2316150F' stroke-width='1.5'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400..700;1,400..700&family=Hanken+Grotesk:wght@300..600&family=Fragment+Mono:ital@0;1&family=Mynerve&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/hanken-grotesk-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/brygada-1918-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css?v=1">
   <link rel="stylesheet" href="assets/css/tokens.css?v=22">
-  <link rel="stylesheet" href="assets/css/styles.css?v=24">
-  <link rel="stylesheet" href="assets/css/guidelines.css?v=2">
+  <link rel="stylesheet" href="assets/css/styles.css?v=25">
+  <link rel="stylesheet" href="assets/css/guidelines.css?v=3">
   <link rel="stylesheet" href="assets/css/identity.css?v=34">
 </head>
 <body>
@@ -43,12 +43,12 @@
 
   <header class="toolbar">
     <div class="container toolbar__inner">
-      <a class="brand" href="index.html" aria-label="Back to portfolio">
+      <a class="brand" href="index.html" aria-label="JM guidelines.fig · back to portfolio">
         <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1.5c.9 5.6 2.9 7.6 8.5 8.5-5.6.9-7.6 2.9-8.5 8.5-.9-5.6-2.9-7.6-8.5-8.5 5.6-.9 7.6-2.9 8.5-8.5Z" transform="translate(0 2)"/></svg></span>
         <span>JM</span><span class="brand__file">guidelines.fig</span>
       </a>
       <span class="status-egg" title="psst: every screen here ships with specs">v2.5.0 · canvas</span>
-      <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">Menu</button>
+      <button class="tool-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
       <nav class="toolbar__nav" id="primary-nav" aria-label="Primary">
         <a href="index.html">← Portfolio</a>
         <a href="#process">Process</a>
@@ -145,7 +145,7 @@
             <tr><td>Discover</td><td><code>01</code> Discover &amp; scope</td><td>Agree on the problem, the people and how success is measured.</td><td>Brief · stakeholder map · research plan · metrics baseline</td><td>The problem statement is signed off.</td></tr>
             <tr><td>Research</td><td><code>02</code> Research</td><td>Replace assumptions with evidence about how people behave.</td><td>Interviews · competitive audit · heuristic review</td><td>Every research question is answered or logged as a gap.</td></tr>
             <tr><td rowspan="2">Define</td><td><code>03</code> Synthesize &amp; define</td><td>Turn findings into shared user models and a sharp problem.</td><td>Synthesis report · personas / JTBD · journey map</td><td>The team agrees on the 1–3 problems to solve first.</td></tr>
-            <tr><td><code>04</code> Information architecture &amp; flows</td><td>Make the product navigable before it is pretty.</td><td>Sitemap · user flows · content model · tree-test results</td><td>Core tasks reach ≥ 80 % tree-test success.</td></tr>
+            <tr><td><code>04</code> Information architecture &amp; flows</td><td>Make the product navigable before it is pretty.</td><td>Sitemap · user flows · content model · tree-test results</td><td>Core tasks reach ≥ 80% tree-test success.</td></tr>
             <tr><td rowspan="2">Design</td><td><code>05</code> Ideate &amp; wireframe</td><td>Explore cheaply, then converge on one structure.</td><td>Sketches · annotated wireframes · decision log</td><td>Stakeholders approve structure and content.</td></tr>
             <tr><td><code>06</code> UI design &amp; design system</td><td>Apply the visual language and design every state.</td><td>Hi-fi screens · Figma library and variables · component specs</td><td>Every color is a token, every state exists, AA is verified.</td></tr>
             <tr><td>Validate</td><td><code>07</code> Prototype &amp; validate</td><td>Test with real users before the build; fix what matters most.</td><td>Test plan · findings report · updated prototype</td><td>No severity 3–4 issues remain.</td></tr>
@@ -617,7 +617,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=12" defer></script>
+  <script src="assets/js/main.js?v=13" defer></script>
   <script>window.jmApplyI18n && window.jmApplyI18n();</script>
 </body>
 </html>

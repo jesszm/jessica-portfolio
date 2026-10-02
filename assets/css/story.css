@@ -34,6 +34,14 @@ main > .section, main > .marquee { scroll-margin-top: calc(var(--nav-height) + 8
   opacity: 0; transition: opacity 900ms var(--ease-standard);
 }
 html.is-ready .story__canvas { opacity: 1; }
+/* until the 3D loads (first interaction or a few seconds after load), the stage shows
+   a still rendered from the same scene, so the canvas fades in over the same picture */
+html.is-cinematic .story__stage {
+  background: var(--color-bg) url("../img/story/hero-still-desktop.webp") center / cover no-repeat;
+}
+@media (max-aspect-ratio: 9/10) {
+  html.is-cinematic .story__stage { background-image: url("../img/story/hero-still-mobile.webp"); }
+}
 
 .story__scrim {
   position: absolute; inset: 0; pointer-events: none;

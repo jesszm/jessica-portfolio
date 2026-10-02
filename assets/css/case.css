@@ -13,6 +13,8 @@
 
 .case-hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-8); align-items: end; margin-top: var(--sp-7); }
 .case-hero__label { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-text-subtle); letter-spacing: 0.04em; margin-bottom: var(--sp-4); }
+.case-hero .case-hero__label { text-wrap: balance; }
+.case-hero__label span { white-space: nowrap; }
 .case-hero__label b { font-weight: 400; color: var(--color-accent-text); }
 .case-hero h1 { font-size: clamp(2.6rem, 6vw, 5rem); margin-bottom: var(--sp-5); max-width: 14ch; }
 .case-hero .lead { max-width: 52ch; }

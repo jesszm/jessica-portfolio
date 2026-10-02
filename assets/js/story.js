@@ -28,22 +28,49 @@ function navOffset() {
 }
 
 
+/* The 3D scene is the heaviest thing on the site, so it never competes with the
+   first paint: the story (scroll, chapters, rail) starts right away over a still
+   rendered from the same scene, and three.js loads on the first interaction or a
+   few seconds after the page has loaded. The canvas then fades in over the still. */
 let scene = null;
-if (story && canvas && !lite) {
-  try {
-    const { createStory } = await import('./story-scene.js?v=18');
-    scene = createStory(canvas, { quality: small ? 'low' : 'high', lang: window.JM_LANG });
-  } catch (err) {
-    console.warn('[story] WebGL unavailable, using the static fallback.', err);
-  }
-}
-
+let redraw = () => {};
 const libsReady = Boolean(window.gsap && window.ScrollTrigger && window.Lenis);
 
-if (story && scene && libsReady && !reduced) {
+if (story && canvas && libsReady && !lite && !reduced) {
   cinematic();
+  whenIdleOrTouched(loadScene);
 } else if (story) {
   staticMode();
+}
+
+function whenIdleOrTouched(fn) {
+  const events = ['pointermove', 'pointerdown', 'touchstart', 'wheel', 'keydown', 'scroll'];
+  let done = false;
+  const go = () => {
+    if (done) return;
+    done = true;
+    events.forEach((ev) => window.removeEventListener(ev, go, { passive: true }));
+    fn();
+  };
+  events.forEach((ev) => window.addEventListener(ev, go, { passive: true }));
+  const later = () => setTimeout(go, 4000);
+  if (document.readyState === 'complete') later();
+  else window.addEventListener('load', later, { once: true });
+}
+
+async function loadScene() {
+  try {
+    const { createStory } = await import('./story-scene.js?v=19');
+    scene = createStory(canvas, { quality: small ? 'low' : 'high', lang: window.JM_LANG });
+    scene.resize();
+    redraw();
+    scene.render(performance.now() / 1000);
+    if (window.__story) window.__story.scene = scene;
+    /* setTimeout, not rAF: rAF is paused in background tabs */
+    setTimeout(() => html.classList.add('is-ready'), 0);
+  } catch (err) {
+    console.warn('[story] WebGL unavailable, the painted still stays.', err);
+  }
 }
 
 /* ---------------------------------------------------------------------- */
@@ -66,8 +93,10 @@ function cinematic() {
   const distance = () => window.innerHeight * (small ? 5 : 6.5);
 
   const draw = () => {
-    scene.setProgress(state.p);
-    if (cut) cut.style.opacity = scene.cutOpacity(state.p).toFixed(3);
+    if (scene) {
+      scene.setProgress(state.p);
+      if (cut) cut.style.opacity = scene.cutOpacity(state.p).toFixed(3);
+    }
     if (bar) bar.style.transform = `scaleX(${state.p.toFixed(4)})`;
     if (bar) bar.parentElement.classList.toggle('is-done', state.p > 0.985);
   };
@@ -126,10 +155,11 @@ function cinematic() {
   const io = new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; }, { threshold: 0 });
   io.observe(stage);
   gsap.ticker.add((time) => {
-    if (visible && !document.hidden) scene.render(time);
+    if (scene && visible && !document.hidden) scene.render(time);
   });
 
-  const onResize = () => { scene.resize(); draw(); };
+  const onResize = () => { if (scene) scene.resize(); draw(); };
+  redraw = draw;
   window.addEventListener('resize', onResize);
 
   /* anchors: chapters map to story progress, everything else scrolls through Lenis */
@@ -164,9 +194,6 @@ function cinematic() {
 
   draw();
   syncUi();
-  /* setTimeout, not rAF: rAF is paused in background tabs, which would leave
-     the canvas hidden and deep links unapplied until the tab is focused */
-  setTimeout(() => html.classList.add('is-ready'), 0);
 
   /* deep links (#research, #work…) only after layout and fonts settle,
      otherwise the pin distance is measured too early */
@@ -198,7 +225,8 @@ function staticMode() {
   html.classList.add('is-static');
   if (!scene) {
     /* no 3D at all: the hero keeps a painted still of the desk */
-    const still = new URL('assets/img/og/story-hero.webp', document.baseURI).href;
+    const portrait = window.innerWidth / window.innerHeight < 0.9;
+    const still = new URL(`assets/img/story/hero-still-${portrait ? 'mobile' : 'desktop'}.webp`, document.baseURI).href;
     chapters[0]?.style.setProperty('--shot', `url("${still}")`);
     html.classList.add('is-ready');
     return;
