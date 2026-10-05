@@ -122,6 +122,7 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1n0wzwp": "O nome e a marca do Muvr pertencem ao Muvr. As fotos das telas foram trocadas por avatares neutros neste case.",
  "1105410": "Muvr, o dia da mudança pelas duas pontas · Jessica Monteiro",
  "rbx3f7": "· Marketplace de mudanças",
+ "y1kt4n": "Avaliação no Upwork · 5.0 · janeiro de 2025",
  "xy0scx": "O dia da mudança, pelas duas <em>pontas</em>",
  "7e9y16": "Product designer, UX + UI, solo",
  "av6kor": "apps, um para cada ponta da mudança",

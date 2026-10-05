@@ -198,6 +198,14 @@
 .mv-demo mark { white-space: nowrap; background: none; color: var(--mv-purple); font-weight: 600; }
 
 /* ---------- Outcome ---------- */
+/* Client review, a sticky note on the board */
+.mv-review { margin: var(--sp-7) 0 0; max-width: 34rem; padding: var(--sp-5) var(--sp-6); background: var(--sticky-yellow); color: var(--ink-900); transform: rotate(-1.2deg); box-shadow: 0 14px 22px -14px rgba(22, 21, 15, 0.45); }
+.mv-review blockquote { margin: 0; }
+.mv-review blockquote p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.2rem, 1.9vw, 1.5rem); line-height: 1.32; letter-spacing: -0.01em; }
+.mv-review figcaption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px var(--sp-3); margin-top: var(--sp-4); }
+.mv-review figcaption b { font-weight: 600; font-size: var(--fs-14); }
+.mv-review figcaption span { font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: 0.04em; color: var(--ink-800); }
+@media (prefers-reduced-motion: reduce) { .mv-review { transform: none; } }
 .mv-measure { margin-top: var(--sp-7); padding: var(--sp-5) var(--sp-6); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-3); }
 .mv-measure .cx-label { margin-bottom: var(--sp-4); }
 .mv-measure .cx-roadmap { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3) var(--sp-6); }
