@@ -1,5 +1,7 @@
 /* JM · pt-BR · Crypex case page (template parts live in common). Keys: hash of the English block (see assets/js/i18n.js). */
 window.JM_PT = Object.assign(window.JM_PT || {}, {
+ "1qabyok": "Fundador",
+ "iacgxn": "<span class=\"case-review__dots\" aria-hidden=\"true\"><i></i><i></i><i></i></span> Avaliação a caminho",
  "ncjr3d": "O lançamento foi pausado pela burocracia brasileira. Na época, as regras para prestadoras de serviços de cripto ainda estavam sendo escritas: o Banco Central se tornou o regulador do setor em 2023, e as regras de autorização só saíram em novembro de 2025. O projeto está pausado, não abandonado, e continuo sendo a designer do fundador para quando ele for retomado.",
  "mvr4tr": "Para o laranja não gritar, todo o resto fica calmo: cinzas suaves, cards brancos e texto quase preto. O laranja fica reservado ao que importa: o botão principal, a aba ativa e o único número que vale conferir duas vezes, o total. Verde e vermelho aparecem só em resultados e movimentos do mercado.",
  "1lkmvny": "Juntei seis perguntas em três telas: valor, destinatário e confirmação.",

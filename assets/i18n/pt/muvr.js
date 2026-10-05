@@ -1,6 +1,9 @@
 /* JM · pt-BR · Muvr case page (template parts live in common). Keys: hash of the English block (see assets/js/i18n.js).
    Replicas of the app's own UI (the SSN and grey-text demos) and the hex codes stay in English, like the app. */
 window.JM_PT = Object.assign(window.JM_PT || {}, {
+ "1na2t6m": "Cliente",
+ "19z0aaa": "Nota 5.0 de 5",
+ "zw6rrh": "Upwork · janeiro de 2025",
  "1k72t5l": "<span class=\"mv-dot mv-dot--done\" aria-hidden=\"true\"></span> Desenhado",
  "trqy5d": "<span class=\"mv-dot\" aria-hidden=\"true\"></span> Especificado",
  "z9v192": "<span class=\"mv-dot mv-dot--none\" aria-hidden=\"true\"></span> Não se aplica",
@@ -122,7 +125,6 @@ window.JM_PT = Object.assign(window.JM_PT || {}, {
  "1n0wzwp": "O nome e a marca do Muvr pertencem ao Muvr. As fotos das telas foram trocadas por avatares neutros neste case.",
  "1105410": "Muvr, o dia da mudança pelas duas pontas · Jessica Monteiro",
  "rbx3f7": "· Marketplace de mudanças",
- "y1kt4n": "Avaliação no Upwork · 5.0 · janeiro de 2025",
  "xy0scx": "O dia da mudança, pelas duas <em>pontas</em>",
  "7e9y16": "Product designer, UX + UI, solo",
  "av6kor": "apps, um para cada ponta da mudança",

@@ -50,3 +50,37 @@
    The padding moves part of the headings' old scroll-margin, so anchor jumps land where they did. */
 html { scroll-padding-top: calc(var(--nav-height) + 56px); }
 html .cx-h2 { scroll-margin-top: 64px; }
+
+/* Client review: a client comment left on the file. Yellow pin = client, as in the annotation language. */
+.case-review {
+  position: relative; margin: var(--sp-7) 0 0 14px; max-width: 32rem;
+  display: grid; grid-template-columns: 1fr auto; gap: var(--sp-3) var(--sp-4); align-items: baseline;
+  padding: var(--sp-5) var(--sp-6); background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-strong); border-radius: 4px var(--radius-3) var(--radius-3) var(--radius-3);
+  box-shadow: var(--shadow-hard-lg);
+}
+.case-review::before {
+  content: attr(data-initial); position: absolute; left: -14px; top: -14px;
+  width: 28px; height: 28px; display: grid; place-items: center;
+  background: var(--sticky-yellow); color: var(--ink-900); border-radius: 50% 50% 4px 50%;
+  font: 600 12px/1 var(--font-mono);
+  box-shadow: 0 0 0 1.5px var(--color-bg-elevated), 1.5px 1.5px 0 1.5px var(--ink-900);
+}
+.case-review figcaption { display: contents; }
+.case-review__who { grid-row: 1; grid-column: 1; font-size: var(--fs-14); }
+.case-review__who b { font-weight: 600; }
+.case-review__who span { margin-left: 6px; font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: 0.04em; color: var(--color-text-subtle); }
+.case-review__score { grid-row: 1; grid-column: 2; font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: 0.04em; }
+.case-review blockquote, .case-review__typing { grid-column: 1 / -1; margin: 0; }
+.case-review blockquote p { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.15rem, 1.7vw, 1.4rem); line-height: 1.34; letter-spacing: -0.01em; text-wrap: pretty; }
+.case-review__src { grid-column: 1 / -1; font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: 0.04em; color: var(--color-text-subtle); }
+
+/* waiting for the client's words */
+.case-review--pending { border-style: dashed; box-shadow: none; }
+.case-review__typing { display: flex; align-items: center; gap: var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: 0.04em; color: var(--color-text-subtle); }
+.case-review__dots { display: inline-flex; gap: 4px; padding: 8px 10px; border-radius: var(--radius-full); background: var(--sticky-yellow); }
+.case-review__dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-900); animation: review-typing 1.2s ease-in-out infinite; }
+.case-review__dots i:nth-child(2) { animation-delay: 0.15s; }
+.case-review__dots i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes review-typing { 0%, 60%, 100% { opacity: 0.25; transform: none; } 30% { opacity: 1; transform: translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) { .case-review__dots i { animation: none; opacity: 0.6; } }

@@ -95,8 +95,8 @@
     s.onload = s.onerror = function () { pending--; tryApply(); };
     d.head.appendChild(s);
   }
-  load(base + 'assets/i18n/pt/common.js?v=20');
-  load(base + 'assets/i18n/pt/' + page + '.js?v=20');
+  load(base + 'assets/i18n/pt/common.js?v=21');
+  load(base + 'assets/i18n/pt/' + page + '.js?v=21');
 
   function apply() {
     markSwitch();

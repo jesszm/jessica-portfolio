@@ -563,17 +563,6 @@ html.i18n-pending body { visibility: hidden; }
 .grid-egg[aria-pressed="true"] kbd { background: var(--ink-900); color: var(--paper-50); border-color: var(--ink-900); }
 @media (max-width: 1100px) { .grid-egg__label, .grid-egg kbd { display: none; } .grid-egg { padding: 0 8px; } }
 
-.egg-hint {
-  position: fixed; z-index: calc(var(--z-overlay) + 3); width: 210px; pointer-events: auto; cursor: pointer;
-  font-family: var(--font-hand); font-size: 1.2rem; line-height: 1.2; color: var(--ink-900);
-  background: var(--sticky-yellow); padding: 12px 14px 14px; border-radius: 2px;
-  box-shadow: 0 14px 20px -12px rgba(22, 21, 15, 0.4); transform: rotate(-2deg) translateY(-6px); opacity: 0;
-  transition: opacity var(--dur-3) var(--ease-standard), transform var(--dur-4) var(--ease-bounce);
-}
-.egg-hint.is-on { opacity: 1; transform: rotate(-2deg) translateY(0); }
-.egg-hint b { display: block; font: 400 10px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.6; margin-bottom: 6px; }
-.egg-hint svg { position: absolute; right: 18px; top: -30px; width: 34px; height: 34px; fill: none; stroke: var(--ink-900); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-@media (prefers-reduced-motion: reduce) { .egg-hint { transition: opacity var(--dur-2); } }
 
 /* At a glance stands alone: four facts in one row */
 .about__cv--glance { grid-template-columns: 1fr; }

@@ -88,44 +88,13 @@
   };
   setGrid(false);
 
-  /* one-time nudge: when the reader reaches the work, a sticky note points at the pill */
-  const hintTarget = document.getElementById('work');
-  let hint = null, hintTimer = 0;
-  const hideHint = () => { if (!hint) return; hint.classList.remove('is-on'); clearTimeout(hintTimer); const h = hint; hint = null; setTimeout(() => h.remove(), 400); };
-  const showHint = () => {
-    const r = gridBtn.getBoundingClientRect();
-    if (!r.width || html.getAttribute('data-grid') === 'on') return;
-    const pt = window.JM_LANG === 'pt';
-    hint = document.createElement('div');
-    hint.className = 'egg-hint';
-    hint.setAttribute('aria-hidden', 'true');
-    hint.innerHTML = (pt ? '<b>psiu</b>Tem um modo designer aqui: o grid, as medidas e as fontes por trás de cada elemento.' : '<b>psst</b>There’s a designer view: the grid, sizes and fonts behind every element.')
-      + '<svg viewBox="0 0 34 34"><path d="M6 31C9 20 17 12 28 6"/><path d="M20 5.5 28 6 26.5 13.5"/></svg>';
-    hint.style.top = `${r.bottom + 34}px`;
-    hint.style.left = `${Math.max(12, r.right - 210)}px`;
-    hint.addEventListener('click', () => { hideHint(); setGrid(true); });
-    document.body.appendChild(hint);
-    requestAnimationFrame(() => requestAnimationFrame(() => hint && hint.classList.add('is-on')));
-    hintTimer = setTimeout(hideHint, 9000);
-    try { sessionStorage.setItem('jm-hint', '1'); } catch {}
-  };
-  const seenHint = () => { try { return sessionStorage.getItem('jm-hint') === '1'; } catch { return true; } };
-  if (gridBtn && hintTarget && fine && store.get('jm-found-grid') !== '1' && !seenHint() && 'IntersectionObserver' in window) {
-    const ho = new IntersectionObserver((entries) => {
-      if (!entries[0].isIntersecting) return;
-      ho.disconnect();
-      setTimeout(showHint, 600);
-    }, { threshold: 0.25 });
-    ho.observe(hintTarget);
-  }
   html.setAttribute('data-annotations', 'on');
-  gridBtn?.addEventListener('click', () => { hideHint(); setGrid(html.getAttribute('data-grid') !== 'on'); });
+  gridBtn?.addEventListener('click', () => { setGrid(html.getAttribute('data-grid') !== 'on'); });
   document.addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey) return;
     const t = (e.target && e.target.tagName) || '';
     if (/INPUT|TEXTAREA|SELECT/.test(t) || e.target?.isContentEditable) return;
-    if (e.altKey && e.code === 'KeyG') { e.preventDefault(); hideHint(); setGrid(html.getAttribute('data-grid') !== 'on'); }
-    if (e.key === 'Escape') hideHint();
+    if (e.altKey && e.code === 'KeyG') { e.preventDefault(); setGrid(html.getAttribute('data-grid') !== 'on'); }
     if (e.key === 'Escape' && html.getAttribute('data-grid') === 'on') setGrid(false);
   });
 
